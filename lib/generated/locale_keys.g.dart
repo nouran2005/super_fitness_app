@@ -1,0 +1,78 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+// ignore_for_file: constant_identifier_names
+
+abstract class  LocaleKeys {
+  static const firstName = 'firstName';
+  static const lastName = 'lastName';
+  static const email = 'email';
+  static const password = 'password';
+  static const confirmPassword = 'confirmPassword';
+  static const phone = 'phone';
+  static const gender = 'gender';
+  static const enterFirstName = 'enterFirstName';
+  static const enterLastName = 'enterLastName';
+  static const enterEmail = 'enterEmail';
+  static const enterPassword = 'enterPassword';
+  static const enterPhoneNumber = 'enterPhoneNumber';
+  static const enterRePassword = 'enterRePassword';
+  static const login = 'login';
+  static const signup = 'signup';
+  static const register = 'register';
+  static const logout = 'logout';
+  static const rememberMe = 'rememberMe';
+  static const forgotPassword = 'forgotPassword';
+  static const emailRequired = 'emailRequired';
+  static const emailInvalid = 'emailInvalid';
+  static const passwordRequired = 'passwordRequired';
+  static const confirmPasswordRequired = 'confirmPasswordRequired';
+  static const passwordsDoNotMatch = 'passwordsDoNotMatch';
+  static const phoneRequired = 'phoneRequired';
+  static const invalidNumber = 'invalidNumber';
+  static const required = 'required';
+  static const invalidName = 'invalidName';
+  static const least3Characters = 'least3Characters';
+  static const least6Characters = 'least6Characters';
+  static const loading = 'loading';
+  static const success = 'success';
+  static const error = 'error';
+  static const ok = 'ok';
+  static const confirm = 'confirm';
+  static const continueTxt = 'continueTxt';
+  static const cancel = 'cancel';
+  static const search = 'search';
+  static const home = 'home';
+  static const profile = 'profile';
+  static const settings = 'settings';
+  static const language = 'language';
+  static const arabic = 'arabic';
+  static const english = 'english';
+  static const noInternet = 'noInternet';
+  static const connectionTimeout = 'connectionTimeout';
+  static const unauthorized = 'unauthorized';
+  static const serverError = 'serverError';
+  static const unknownError = 'unknownError';
+  static const defaultErrorMessage = 'defaultErrorMessage';
+  static const weakPassword = 'weakPassword';
+  static const passwordWithCapital = 'passwordWithCapital';
+  static const passwordWithNumber = 'passwordWithNumber';
+  static const passwordDontMatch = 'passwordDontMatch';
+  static const invalidRecipientName = 'invalidRecipientName';
+  static const invalidAddress = 'invalidAddress';
+  static const requiredCity = 'requiredCity';
+  static const requiredArea = 'requiredArea';
+  static const firstNameRequired = 'firstNameRequired';
+  static const lastNameRequired = 'lastNameRequired';
+  static const nameInvalid = 'nameInvalid';
+  static const phoneInvalid = 'phoneInvalid';
+  static const passwordLengthInvalid = 'passwordLengthInvalid';
+  static const passwordUpperLetterInvalid = 'passwordUpperLetterInvalid';
+  static const passwordLowerLetterInvalid = 'passwordLowerLetterInvalid';
+  static const passwordNumbersInvalid = 'passwordNumbersInvalid';
+  static const passwordSpecialCharInvalid = 'passwordSpecialCharInvalid';
+  static const cannotBeSame = 'cannotBeSame';
+  static const genderRequired = 'genderRequired';
+  static const something_went_wrong = 'something_went_wrong';
+  static const resend = 'resend';
+
+}
