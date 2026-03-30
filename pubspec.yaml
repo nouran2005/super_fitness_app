@@ -45,6 +45,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   retrofit: 4.9.1
   shared_preferences: ^2.2.2
+  lottie: ^3.3.2
 
 dev_dependencies:
   bloc_test: ^10.0.0
@@ -102,3 +103,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/app/core/ui_helper/assets/
+  filename: app_images.dart
+  field_prefix: null
+flutter_intl:
+  enabled: true
