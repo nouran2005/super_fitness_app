@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 
-
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.white,
@@ -29,16 +28,9 @@ class AppTheme {
 
     /////////////////////////////////////////////////////Inputs
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(
-        color: AppColors.disabled,
-        fontSize: 14,
-      ),
-      labelStyle: TextStyle(
-        color: AppColors.blackColor,
-        fontSize: 16,
-      ),
-      contentPadding:
-          const EdgeInsets.symmetric(vertical: 16, horizontal: 14),
+      hintStyle: TextStyle(color: AppColors.disabled, fontSize: 14),
+      labelStyle: TextStyle(color: AppColors.blackColor, fontSize: 16),
+      contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 14),
       filled: true,
       fillColor: AppColors.lightGrey,
 
@@ -55,23 +47,14 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: AppColors.blackColor,
       ),
-      headlineSmall: TextStyle(
-        fontSize: 16,
-        color: AppColors.grey,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: AppColors.grey,
-      ),
+      headlineSmall: TextStyle(fontSize: 16, color: AppColors.grey),
+      bodyMedium: TextStyle(fontSize: 14, color: AppColors.grey),
       labelMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w500,
         color: AppColors.blackColor,
       ),
-      labelSmall: TextStyle(
-        fontSize: 12,
-        color: AppColors.disabled,
-      ),
+      labelSmall: TextStyle(fontSize: 12, color: AppColors.disabled),
     ),
 
     ////////////////////////////////////////////////////Buttons
@@ -81,13 +64,8 @@ class AppTheme {
         foregroundColor: AppColors.white,
         elevation: 0,
         minimumSize: const Size(double.infinity, 52),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 

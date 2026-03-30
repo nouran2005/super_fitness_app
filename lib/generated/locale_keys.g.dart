@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const email = 'email';
@@ -74,5 +74,4 @@ abstract class  LocaleKeys {
   static const genderRequired = 'genderRequired';
   static const something_went_wrong = 'something_went_wrong';
   static const resend = 'resend';
-
 }

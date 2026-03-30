@@ -26,9 +26,7 @@ class DefaultErrorWidget extends StatelessWidget {
           if (onRetry != null)
             ElevatedButton(
               onPressed: onRetry,
-              child: Text(
-                LocaleKeys.resend.tr(),
-              ), 
+              child: Text(LocaleKeys.resend.tr()),
             ),
         ],
       ),

@@ -36,6 +36,4 @@ abstract class NetworkModule {
 
   @lazySingleton
   ApiClient authApiClient(Dio dio) => ApiClient(dio);
-
-
 }

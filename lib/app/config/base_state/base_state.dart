@@ -5,17 +5,11 @@ class Resource<T> {
   final T? data;
   final String? error;
 
-  const Resource._({
-    required this.status,
-    this.data,
-    this.error,
-  });
+  const Resource._({required this.status, this.data, this.error});
 
-  factory Resource.initial() =>
-      const Resource._(status: Status.initial);
+  factory Resource.initial() => const Resource._(status: Status.initial);
 
-  factory Resource.loading() =>
-      const Resource._(status: Status.loading);
+  factory Resource.loading() => const Resource._(status: Status.loading);
 
   factory Resource.success(T data) =>
       Resource._(status: Status.success, data: data);

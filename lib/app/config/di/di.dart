@@ -6,7 +6,7 @@ final getIt = GetIt.instance;
 
 @InjectableInit(
   initializerName: 'init',
-  preferRelativeImports: true, 
+  preferRelativeImports: true,
   asExtension: true,
 )
 void configureDependencies() => getIt.init();

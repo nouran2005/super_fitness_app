@@ -12,7 +12,7 @@ Future<void> main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
-      path: 'assets/translations', 
+      path: 'assets/translations',
       fallbackLocale: const Locale('en'),
       child: const SuperFitnessApp(),
     ),
