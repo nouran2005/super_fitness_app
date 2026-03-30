@@ -3,58 +3,81 @@ import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.blackColor,
+    brightness: Brightness.dark,
 
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary,
+      brightness: Brightness.dark,
       primary: AppColors.primary,
-      secondary: AppColors.blackColor,
-      surface: AppColors.white,
+      secondary: AppColors.primary,
+      onSecondary: AppColors.white,
+      surface: const Color(0xFF1C1C1C),
+      onSurface: AppColors.white,
       error: AppColors.error,
     ),
 
     ////////////////////////////////////////////AppBar
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.white,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(color: AppColors.blackColor),
+      iconTheme: IconThemeData(color: AppColors.white),
       titleTextStyle: TextStyle(
-        color: AppColors.blackColor,
-        fontWeight: FontWeight.w600,
-        fontSize: 18,
+        color: AppColors.white,
+        fontWeight: FontWeight.w700,
+        fontSize: 24,
       ),
     ),
 
     /////////////////////////////////////////////////////Inputs
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(color: AppColors.disabled, fontSize: 14),
-      labelStyle: TextStyle(color: AppColors.blackColor, fontSize: 16),
-      contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 14),
+      hintStyle: const TextStyle(color: AppColors.disabled, fontSize: 14),
+      labelStyle: const TextStyle(color: AppColors.white, fontSize: 16),
+      floatingLabelStyle: const TextStyle(
+        color: AppColors.primary,
+        fontWeight: FontWeight.bold,
+      ),
+      contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
       filled: true,
-      fillColor: AppColors.lightGrey,
+      fillColor: const Color(0xFF1E1E1E),
 
-      enabledBorder: _border(AppColors.lightGrey),
+      border: _border(Colors.transparent),
+      enabledBorder: _border(Colors.transparent),
       focusedBorder: _border(AppColors.primary),
       errorBorder: _border(AppColors.error),
       focusedErrorBorder: _border(AppColors.error),
+
+      prefixIconColor: WidgetStateColor.resolveWith((states) {
+        if (states.contains(WidgetState.focused)) return AppColors.primary;
+        return AppColors.white;
+      }),
+      suffixIconColor: WidgetStateColor.resolveWith((states) {
+        if (states.contains(WidgetState.focused)) return AppColors.primary;
+        return AppColors.white;
+      }),
     ),
 
     ////////////////////////////////////////////////////Text
     textTheme: const TextTheme(
       headlineMedium: TextStyle(
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: AppColors.blackColor,
+        color: AppColors.white,
       ),
-      headlineSmall: TextStyle(fontSize: 16, color: AppColors.grey),
-      bodyMedium: TextStyle(fontSize: 14, color: AppColors.grey),
+      headlineSmall: TextStyle(fontSize: 16, color: AppColors.disabled),
+      bodyMedium: TextStyle(fontSize: 16, color: AppColors.white),
+      labelLarge: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: AppColors.white,
+      ),
       labelMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w500,
-        color: AppColors.blackColor,
+        color: AppColors.white,
       ),
-      labelSmall: TextStyle(fontSize: 12, color: AppColors.disabled),
+      labelSmall: TextStyle(fontSize: 14, color: AppColors.disabled),
     ),
 
     ////////////////////////////////////////////////////Buttons
@@ -63,30 +86,49 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: AppColors.white,
         elevation: 0,
-        minimumSize: const Size(double.infinity, 52),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        minimumSize: const Size(double.infinity, 56),
+        shape: const StadiumBorder(),
+        textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+    ),
+
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: AppColors.white,
+        side: const BorderSide(color: AppColors.disabled),
+        minimumSize: const Size(double.infinity, 56),
+        shape: const StadiumBorder(),
       ),
     ),
 
     /////////////////////////////////////////////////Bottom Navigation
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: AppColors.white,
-      indicatorColor: AppColors.primary,
+      backgroundColor: const Color(0xFF1E1E1E),
+      indicatorColor: Colors.transparent,
       elevation: 0,
-      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const TextStyle(
+            color: AppColors.primary,
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          );
+        }
+        return const TextStyle(color: Colors.transparent);
+      }),
       iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
         if (states.contains(WidgetState.selected)) {
-          return const IconThemeData(color: AppColors.white);
+          return const IconThemeData(color: AppColors.primary, size: 30);
         }
-        return const IconThemeData(color: AppColors.grey);
+        return const IconThemeData(color: AppColors.white, size: 28);
       }),
     ),
   );
 
   static OutlineInputBorder _border(Color color) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(100),
       borderSide: BorderSide(color: color, width: 1),
     );
   }
