@@ -32,28 +32,29 @@ class AppTheme {
 
     /////////////////////////////////////////////////////Inputs
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: const TextStyle(color: AppColors.disabled, fontSize: 14),
-      labelStyle: const TextStyle(color: AppColors.white, fontSize: 16),
+      hintStyle: const TextStyle(color: Color(0xB3FFFFFF), fontSize: 16),
+      labelStyle: const TextStyle(color: Color(0xB3FFFFFF), fontSize: 16),
       floatingLabelStyle: const TextStyle(
-        color: AppColors.primary,
-        fontWeight: FontWeight.bold,
+        color: AppColors.white,
+        fontWeight: FontWeight.w600,
       ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
+      contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
       filled: true,
-      fillColor: const Color(0xFF1E1E1E),
+      fillColor: const Color(0x14FFFFFF),
 
-      border: _border(Colors.transparent),
-      enabledBorder: _border(Colors.transparent),
-      focusedBorder: _border(AppColors.primary),
+      border: _border(const Color(0xCCFFFFFF)),
+      enabledBorder: _border(const Color(0xCCFFFFFF)),
+      focusedBorder: _border(AppColors.white),
       errorBorder: _border(AppColors.error),
       focusedErrorBorder: _border(AppColors.error),
+      disabledBorder: _border(const Color(0x4DFFFFFF)),
 
       prefixIconColor: WidgetStateColor.resolveWith((states) {
-        if (states.contains(WidgetState.focused)) return AppColors.primary;
+        if (states.contains(WidgetState.focused)) return AppColors.white;
         return AppColors.white;
       }),
       suffixIconColor: WidgetStateColor.resolveWith((states) {
-        if (states.contains(WidgetState.focused)) return AppColors.primary;
+        if (states.contains(WidgetState.focused)) return AppColors.white;
         return AppColors.white;
       }),
     ),
