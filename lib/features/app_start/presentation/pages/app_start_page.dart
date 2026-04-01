@@ -12,11 +12,12 @@ class AppStartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = getIt<AppCubit>();
     return BlocProvider(
-      create: (_) => getIt<AppCubit>(),
+      create: (_) => cubit,
       child: Builder(
         builder: (context) {
-          context.read<AppCubit>().doIntent(CheckAuth());
+          cubit.doIntent(CheckAuth());
           return BlocBuilder<AppCubit, AppState>(
             builder: (context, state) {
               final authResource = state.authResource;
