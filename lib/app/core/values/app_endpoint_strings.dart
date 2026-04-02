@@ -6,7 +6,7 @@ class AppEndpoints {
   static const String signInPath = 'signin';
   static const String signupPath = 'signup';
   static const String changePasswordPath = 'change-password';
-  static const String verifyResetCodePath = 'verifyResetCode';
-  static const String resetPasswordPath = 'resetPassword';
-  static const String forgotPasswordPath = 'forgotPassword';
+  static const String verifyResetCodePath = 'auth/verifyResetCode';
+  static const String resetPasswordPath = 'auth/resetPassword';
+  static const String forgotPasswordPath = 'auth/forgotPassword';
 }
