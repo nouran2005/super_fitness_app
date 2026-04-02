@@ -1,6 +1,7 @@
 // TODO: presentation SigninBody
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/widgets/auth/auth_text_link.dart';
 import 'package:super_fitness_app/app/core/widgets/form_fields/custom_form_field.dart';
@@ -18,7 +19,7 @@ class SigninBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 46),
-            // SvgPicture.asset(Assets.imagesLogo),
+            Image.asset(Assets.appIcon, height: 120),
             const SizedBox(height: 70),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

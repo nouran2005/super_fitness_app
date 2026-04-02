@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -14,6 +14,22 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
+    as _i709;
+import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
+    as _i953;
+import '../../../features/signin/data/datasources/signin_local_data_source_contract.dart'
+    as _i23;
+import '../../../features/signin/data/datasources/signin_remote_data_source_contract.dart'
+    as _i420;
+import '../../../features/signin/data/repositories/signin_repository_impl.dart'
+    as _i485;
+import '../../../features/signin/domain/repositories/signin_repository.dart'
+    as _i64;
+import '../../../features/signin/domain/use_cases/signin_use_case.dart'
+    as _i983;
+import '../../../features/signin/presentation/view_model/cubit/signin_cubit.dart'
+    as _i985;
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
@@ -34,6 +50,26 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i890.ApiClient>(
       () => networkModule.authApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i23.SigninLocalDataSourceContract>(
+      () =>
+          _i709.SigninLocalDataSourceImpl(authStorage: gh<_i603.AuthStorage>()),
+    );
+    gh.factory<_i420.SigninRemoteDataSourceContract>(
+      () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
+    gh.factory<_i64.SigninRepository>(
+      () => _i485.SigninRepositoryImpl(
+        signinLocalDataSource: gh<_i23.SigninLocalDataSourceContract>(),
+        signinRemoteDataSourceContract:
+            gh<_i420.SigninRemoteDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i983.SigninUseCase>(
+      () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
+    );
+    gh.factory<_i985.SigninCubit>(
+      () => _i985.SigninCubit(signinUseCase: gh<_i983.SigninUseCase>()),
     );
     return this;
   }
