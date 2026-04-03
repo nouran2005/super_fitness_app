@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
@@ -11,11 +12,11 @@ class GoalSection extends StatelessWidget {
   const GoalSection({super.key});
 
   static const goals = [
-    "Gain Weight",
-    'Lose Weight',
-    "Get Fitter",
-    'Gain More Flexibility',
-    'Learn the Basics',
+    "gainWeight",
+    'loseWeight',
+    "getFitter",
+    'gainMoreFlexibility',
+    'learnTheBasics',
   ];
 
   @override
@@ -24,64 +25,65 @@ class GoalSection extends StatelessWidget {
 
     return BlocBuilder<SignupCubit, SignupStates>(
       builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            SignupProgress(),
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SignupProgress(),
 
-            const SizedBox(height: 24),
+              const SizedBox(height: 24),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'What is your goal?',
-                style: Theme.of(context).textTheme.headlineMedium,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  "whatIsYourGoal".tr(),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               ),
-            ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'this helps us create Your personalized plan',
-                style: Theme.of(context).textTheme.headlineSmall,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'personalizedPlanMsg'.tr(),
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 24),
+              const SizedBox(height: 24),
 
-            GlassBlurContainer(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  ...goals.map((goal) {
-                    final isSelected = state.goal == goal;
-                    return OptionsSelection(
-                      title: goal,
-                      isSelected: isSelected,
-                      onTap: () {
-                        cubit.doIntent(SetGoal(goal));
-                      },
-                    );
-                  }),
+              GlassBlurContainer(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    ...goals.map((goal) {
+                      final isSelected = state.goal == goal;
+                      return OptionsSelection(
+                        title: goal,
+                        isSelected: isSelected,
+                        onTap: () {
+                          cubit.doIntent(SetGoal(goal));
+                        },
+                      );
+                    }),
 
-                  const SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
-                  ElevatedButton(
-                    onPressed: state.goal == null
-                        ? null
-                        : () {
-                            cubit.doIntent(MoveToNextStep());
-                          },
-                    child: const Text('Next'),
-                  ),
+                    ElevatedButton(
+                      onPressed: state.goal == null
+                          ? null
+                          : () {
+                              cubit.doIntent(MoveToNextStep());
+                            },
+                      child: const Text('Next'),
+                    ),
 
-                  const SizedBox(height: 8),
-                ],
+                    const SizedBox(height: 8),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

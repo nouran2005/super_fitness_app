@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
@@ -10,12 +11,12 @@ import 'package:super_fitness_app/features/auth/presentation/register/view_model
 class ActivityLevelSection extends StatelessWidget {
   const ActivityLevelSection({super.key});
 
-  static const activityLevels = [
-    'Rookie',
-    'Beginner',
-    'Intermediate',
-    'Advance',
-    'True Beast',
+  static List<String> activityLevels = [
+    'rookie',
+    'beginner',
+    'intermediate',
+    'advance',
+    'trueBeast',
   ];
 
   @override
@@ -24,55 +25,57 @@ class ActivityLevelSection extends StatelessWidget {
 
     return BlocBuilder<SignupCubit, SignupStates>(
       builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            SignupProgress(),
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              SignupProgress(),
 
-            const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Your regular physical activity level?',
-                style: Theme.of(context).textTheme.headlineMedium,
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'physicalActivityLevelQuestion'.tr(),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               ),
-            ),
-            const SizedBox(height: 24),
+              const SizedBox(height: 24),
 
-            GlassBlurContainer(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  ...activityLevels.map((level) {
-                    final isSelected = state.activityLevel == level;
+              GlassBlurContainer(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    ...activityLevels.map((level) {
+                      final isSelected = state.activityLevel == level;
 
-                    return OptionsSelection(
-                      title: level,
-                      isSelected: isSelected,
-                      onTap: () {
-                        cubit.doIntent(SetActivityLevel(level));
-                      },
-                    );
-                  }),
+                      return OptionsSelection(
+                        title: level.tr(),
+                        isSelected: isSelected,
+                        onTap: () {
+                          cubit.doIntent(SetActivityLevel(level));
+                        },
+                      );
+                    }),
 
-                  const SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
-                  ElevatedButton(
-                    onPressed: state.activityLevel == null
-                        ? null
-                        : () {
-                            cubit.doIntent(PerformSignup());
-                          },
-                    child: const Text('Finish'),
-                  ),
+                    ElevatedButton(
+                      onPressed: state.activityLevel == null
+                          ? null
+                          : () {
+                              cubit.doIntent(PerformSignup());
+                            },
+                      child: Text('finish'.tr()),
+                    ),
 
-                  const SizedBox(height: 8),
-                ],
+                    const SizedBox(height: 8),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

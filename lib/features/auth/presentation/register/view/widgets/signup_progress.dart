@@ -22,13 +22,13 @@ class SignupProgress extends StatelessWidget {
             radius: 20,
             lineWidth: 4,
             animation: true,
-            percent: currentStepIndex / (totalSteps - 1),
+            percent: (currentStepIndex + 1) / totalSteps,
             center: SizedBox(
               width: 20,
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  "$currentStepIndex/${totalSteps - 1}",
+                  "${currentStepIndex + 1}/$totalSteps",
                   style: theme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w400,
                   ),
@@ -36,7 +36,7 @@ class SignupProgress extends StatelessWidget {
               ),
             ),
             circularStrokeCap: CircularStrokeCap.round,
-            backgroundColor: Colors.grey.withOpacity(0.2),
+            backgroundColor: Colors.grey.withAlpha(50),
             progressColor: theme.colorScheme.primary,
           ),
         );

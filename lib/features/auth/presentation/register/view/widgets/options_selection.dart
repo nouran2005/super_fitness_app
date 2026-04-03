@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OptionsSelection extends StatelessWidget {
@@ -33,7 +34,7 @@ class OptionsSelection extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                title,
+                title.tr(),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),

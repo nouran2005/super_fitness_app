@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
@@ -29,11 +30,11 @@ class HeightSection extends StatelessWidget {
 
                   const SizedBox(height: 24),
                   Text(
-                    'what is your height ?',
+                    'whatIsYourHeight'.tr(),
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   Text(
-                    'this helps us create Your personalized plan',
+                    'personalizedPlanMsg'.tr(),
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
@@ -47,7 +48,7 @@ class HeightSection extends StatelessWidget {
               child: Column(
                 children: [
                   HorizontalWheelPicker(
-                    label: "Cm",
+                    label: "cm".tr(),
                     items: List.generate(100, (i) => 120 + i),
                     initialValue: state.height ?? 170,
                     onChanged: (val) {
@@ -63,7 +64,7 @@ class HeightSection extends StatelessWidget {
                         : () {
                             cubit.doIntent(MoveToNextStep());
                           },
-                    child: const Text('Next'),
+                    child: Text('next'.tr()),
                   ),
                 ],
               ),

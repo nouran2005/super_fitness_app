@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
@@ -31,11 +32,11 @@ class WeightSection extends StatelessWidget {
 
                   const SizedBox(height: 24),
                   Text(
-                    'what is your weight ?',
+                    'whatIsYourWeight'.tr(),
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   Text(
-                    'this helps us create Your personalized plan',
+                    'personalizedPlanMsg'.tr(),
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
@@ -48,7 +49,7 @@ class WeightSection extends StatelessWidget {
               child: Column(
                 children: [
                   HorizontalWheelPicker(
-                    label: "Kg",
+                    label: "kg".tr(),
                     items: List.generate(150, (i) => 30 + i),
                     initialValue: state.weight ?? 70,
                     onChanged: (val) {
@@ -64,7 +65,7 @@ class WeightSection extends StatelessWidget {
                         : () {
                             cubit.doIntent(MoveToNextStep());
                           },
-                    child: const Text('Next'),
+                    child: Text('next'.tr()),
                   ),
                 ],
               ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
@@ -30,11 +31,11 @@ class _GenderSectionState extends State<GenderSection> {
 
               const SizedBox(height: 24),
               Text(
-                'tell us about yourself',
+                'tellUsAboutYourself'.tr(),
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Text(
-                'We Need To Know Your Gender',
+                'needToKnowGender'.tr(),
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],
@@ -83,7 +84,7 @@ class _NextButton extends StatelessWidget {
               ).colorScheme.onPrimary.withAlpha(100),
               padding: const EdgeInsets.symmetric(vertical: 16),
             ),
-            child: const Text('Next'),
+            child: Text('next'.tr()),
           ),
         );
       },
