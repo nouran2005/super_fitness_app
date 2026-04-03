@@ -23,6 +23,8 @@ import '../../../features/auth/data/repositories/auth_repository_impl.dart'
 import '../../../features/auth/domain/repositories/auth_repository.dart'
     as _i234;
 import '../../../features/auth/domain/use_cases/signup_use_case.dart' as _i128;
+import '../../../features/auth/presentation/register/view_model/signup_cubit.dart'
+    as _i22;
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
@@ -54,6 +56,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i128.SignupUseCase>(
       () => _i128.SignupUseCase(gh<_i234.AuthRepository>()),
+    );
+    gh.factory<_i22.SignupCubit>(
+      () => _i22.SignupCubit(gh<_i128.SignupUseCase>()),
     );
     return this;
   }
