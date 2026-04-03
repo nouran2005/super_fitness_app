@@ -1,6 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/domain/entities/signup_step.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/activity_level_section.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/age_section.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/gender_section.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/goal_section.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/height_section.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/weight_section.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_cubit.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_states.dart';
 
@@ -18,17 +24,17 @@ class _SignupOnboardingPageBodyState extends State<SignupOnboardingPageBody> {
       builder: (context, state) {
         switch (state.currentStep) {
           case SignupStep.gender:
-            return const Placeholder();
+            return const GenderSection();
           case SignupStep.age:
-            return const Placeholder();
+            return const AgeSection();
           case SignupStep.weight:
-            return const Placeholder();
+            return const WeightSection();
           case SignupStep.height:
-            return const Placeholder();
+            return const HeightSection();
           case SignupStep.goal:
-            return const Placeholder();
+            return const GoalSection();
           case SignupStep.activityLevel:
-            return const Placeholder();
+            return const ActivityLevelSection();
         }
       },
     );

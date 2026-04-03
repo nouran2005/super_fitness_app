@@ -2,12 +2,27 @@
 class Assets {
   Assets._();
 
+  /// Assets for imagesAppIcon
+  /// assets/images/app_icon.png
+  static const String imagesAppIcon = "assets/images/app_icon.png";
+
+  /// Assets for imagesArrowBack
+  /// assets/images/arrow_back.png
+  static const String imagesArrowBack = "assets/images/arrow_back.png";
+
   /// Assets for imagesAuthBackground
   /// assets/images/auth_background.png
   static const String imagesAuthBackground =
       "assets/images/auth_background.png";
-  static const String imagesAuthBackground2 =
+
+  /// Assets for imagesBackgroundAuth2
+  /// assets/images/background_auth_2.png
+  static const String imagesBackgroundAuth2 =
       "assets/images/background_auth_2.png";
+
+  /// Assets for imagesFemale
+  /// assets/images/Female.png
+  static const String imagesFemale = "assets/images/Female.png";
 
   /// Assets for imagesHomeBackground
   /// assets/images/home_background.jpg
@@ -17,6 +32,10 @@ class Assets {
   /// Assets for imagesLogo
   /// assets/images/logo.svg
   static const String imagesLogo = "assets/images/logo.svg";
+
+  /// Assets for imagesMale
+  /// assets/images/Male.png
+  static const String imagesMale = "assets/images/Male.png";
 
   /// Assets for imagesOnboarding1
   /// assets/images/onboarding_1.png

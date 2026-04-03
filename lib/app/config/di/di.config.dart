@@ -28,15 +28,21 @@ import '../../../features/auth/presentation/register/view_model/signup_cubit.dar
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
+import 'external_libs_module.dart' as _i993;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final externalLibsModule = _$ExternalLibsModule();
     final networkModule = _$NetworkModule();
+    await gh.factoryAsync<_i460.SharedPreferences>(
+      () => externalLibsModule.prefs,
+      preResolve: true,
+    );
     gh.lazySingleton<_i603.AuthStorage>(
       () => _i603.AuthStorage(gh<_i460.SharedPreferences>()),
     );
@@ -63,5 +69,7 @@ extension GetItInjectableX on _i174.GetIt {
     return this;
   }
 }
+
+class _$ExternalLibsModule extends _i993.ExternalLibsModule {}
 
 class _$NetworkModule extends _i200.NetworkModule {}

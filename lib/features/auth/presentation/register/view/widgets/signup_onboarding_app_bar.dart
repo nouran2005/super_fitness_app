@@ -21,11 +21,19 @@ class SignupOnboardingAppBar extends StatelessWidget
           leading: state.currentStep == SignupStep.gender
               ? null
               : IconButton(
-                  icon: const Icon(Icons.arrow_back),
+                  icon: Image.asset(
+                    Assets.imagesArrowBack,
+                    width: 24,
+                    height: 24,
+                  ),
                   onPressed: () => cubit.doIntent(MoveToPreviousStep()),
                 ),
           centerTitle: true,
-          title: Image.asset(Assets.imagesLogo, height: 55),
+          title: Image.asset(
+            Assets.imagesAppIcon,
+            height: 70,
+            fit: BoxFit.contain,
+          ),
         );
       },
     );

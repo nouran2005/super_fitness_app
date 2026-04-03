@@ -51,3 +51,7 @@ class PerformSignup extends SignupIntent {}
 class MoveToPreviousStep extends SignupIntent {
   MoveToPreviousStep();
 }
+
+class MoveToNextStep extends SignupIntent {
+  MoveToNextStep();
+}

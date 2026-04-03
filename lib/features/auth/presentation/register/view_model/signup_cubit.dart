@@ -20,34 +20,27 @@ class SignupCubit extends Cubit<SignupStates> {
     }
 
     if (intent is SetGender) {
-      emit(state.copyWith(gender: intent.gender, currentStep: SignupStep.age));
+      emit(state.copyWith(gender: intent.gender));
       return;
     }
 
     if (intent is SetAge) {
-      emit(state.copyWith(age: intent.age, currentStep: SignupStep.weight));
+      emit(state.copyWith(age: intent.age));
       return;
     }
 
     if (intent is SetWeight) {
-      emit(
-        state.copyWith(weight: intent.weight, currentStep: SignupStep.height),
-      );
+      emit(state.copyWith(weight: intent.weight));
       return;
     }
 
     if (intent is SetHeight) {
-      emit(state.copyWith(height: intent.height, currentStep: SignupStep.goal));
+      emit(state.copyWith(height: intent.height));
       return;
     }
 
     if (intent is SetGoal) {
-      emit(
-        state.copyWith(
-          goal: intent.goal,
-          currentStep: SignupStep.activityLevel,
-        ),
-      );
+      emit(state.copyWith(goal: intent.goal));
       return;
     }
 
@@ -58,6 +51,12 @@ class SignupCubit extends Cubit<SignupStates> {
 
     if (intent is PerformSignup) {
       _performSignup();
+      return;
+    }
+
+    if (intent is MoveToNextStep) {
+      _goNext();
+      return;
     }
   }
 
@@ -65,6 +64,13 @@ class SignupCubit extends Cubit<SignupStates> {
     final index = state.currentStep.index;
     if (index > 0) {
       emit(state.copyWith(currentStep: SignupStep.values[index - 1]));
+    }
+  }
+
+  void _goNext() {
+    final index = state.currentStep.index;
+    if (index < SignupStep.values.length - 1) {
+      emit(state.copyWith(currentStep: SignupStep.values[index + 1]));
     }
   }
 
