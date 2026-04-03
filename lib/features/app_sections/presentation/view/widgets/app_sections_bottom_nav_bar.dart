@@ -64,8 +64,6 @@ class AppSectionsNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color iconColor = isSelected ? AppColors.primary : AppColors.white;
-
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -73,34 +71,63 @@ class AppSectionsNavItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
         child: SizedBox(
           height: 70,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                destination.iconPath,
-                height: 24,
-                colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
-              ),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 220),
-                switchInCurve: Curves.easeOut,
-                switchOutCurve: Curves.easeIn,
-                child: isSelected
-                    ? Padding(
-                        key: ValueKey(destination.label),
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                          destination.label,
-                          style: AppStyles.black24SemiBold.copyWith(
-                            color: AppColors.primary,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
+          child: TweenAnimationBuilder<double>(
+            tween: Tween<double>(end: isSelected ? 1 : 0),
+            duration: const Duration(milliseconds: 280),
+            curve: Curves.easeOutCubic,
+            builder: (context, value, child) {
+              final iconColor = Color.lerp(
+                AppColors.white,
+                AppColors.primary,
+                value,
+              )!;
+              final iconOffsetY = -6 * value;
+              final textOffsetY = 8 * (1 - value);
+              final textScale = 0.92 + (0.08 * value);
+
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Transform.translate(
+                    offset: Offset(0, iconOffsetY),
+                    child: Transform.scale(
+                      scale: 1 + (0.05 * value),
+                      child: SvgPicture.asset(
+                        destination.iconPath,
+                        height: 24,
+                        colorFilter: ColorFilter.mode(
+                          iconColor,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (value > 0)
+                    ClipRect(
+                      child: Opacity(
+                        opacity: value,
+                        child: Transform.translate(
+                          offset: Offset(0, textOffsetY),
+                          child: Transform.scale(
+                            scale: textScale,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                destination.label,
+                                style: AppStyles.black24SemiBold.copyWith(
+                                  color: AppColors.primary,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      )
-                    : const SizedBox.shrink(),
-              ),
-            ],
+                      ),
+                    ),
+                ],
+              );
+            },
           ),
         ),
       ),
