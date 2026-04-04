@@ -6,6 +6,7 @@ import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/widgets/auth/auth_text_link.dart';
 import 'package:super_fitness_app/app/core/widgets/form_fields/custom_form_field.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
+import 'package:super_fitness_app/app/core/widgets/primary_button.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
 class SigninBody extends StatelessWidget {
@@ -84,6 +85,24 @@ class SigninBody extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 6),
                         alignment: Alignment.centerLeft,
                         onTap: () {},
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  PrimaryButton(text: "Sign in", onPressed: () {}),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Dont have an account yet ?"),
+                      AuthTextLink(
+                        fontSize: 14,
+                        // fontWeight: FontWeight.w800,
+                        text: 'Register',
+                        padding: const EdgeInsets.symmetric(horizontal: 6),
+                        alignment: Alignment.centerLeft,
+                        onTap: () {},
+                        fontWeight: FontWeight.w800,
                       ),
                     ],
                   ),
