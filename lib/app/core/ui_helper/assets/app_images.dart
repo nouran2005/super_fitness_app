@@ -8,11 +8,13 @@ class Assets {
       "assets/images/auth_background.png";
   static const String imagesAuthBackground2 =
       "assets/images/background_auth_2.png";
+  static const String imagesChat = "assets/images/chat.svg";
 
   /// Assets for imagesHomeBackground
   /// assets/images/home_background.jpg
   static const String imagesHomeBackground =
       "assets/images/home_background.jpg";
+  static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.svg
@@ -34,6 +36,8 @@ class Assets {
   /// assets/images/onboarding_background.jpg
   static const String imagesOnboardingBackground =
       "assets/images/onboarding_background.jpg";
+  static const String imagesProfile = "assets/images/profile.svg";
+  static const String imagesWorkout = "assets/images/workout.svg";
 
   /// Assets for imagesAppIcon
   /// assets/images/app_icon.png
