@@ -1,6 +1,6 @@
 abstract class RouteNames {
   static const onboarding = '/onboarding';
-  static const signup = '/signup';
+  static const register = '/register';
   static const login = '/login';
   static const forgetPassword = '/forget-password';
   static const verifyResetCode = '/verify-reset-code';

@@ -78,5 +78,10 @@
   "cannotBeSame": "لا يمكن أن تكون كلمة المرور الجديدة مثل الحالية",
   "genderRequired": "النوع مطلوب",
   "something_went_wrong": "حدث خطأ ما",
-  "resend": "إعادة المحاولة"
+  "resend": "إعادة المحاولة",
+
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟ ",
+  "heyThere": "مرحباً",
+  "createAnAccount": "إنشاء حساب",
+  "registerSuccessfully": "تم التسجيل بنجاح"
 }

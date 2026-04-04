@@ -160,6 +160,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return IconTheme(
       data: iconTheme,
       child: TextFormField(
+        onTapOutside: (event) => FocusScope.of(context).unfocus(),
         controller: widget.controller,
         initialValue: widget.initialValue,
         focusNode: widget.focusNode,
@@ -244,10 +245,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   Widget? _buildSuffixIcon(bool hasPasswordToggle) {
     if (!hasPasswordToggle) return widget.suffixIcon;
 
-    final iconColor =
-        (widget.focusNode?.hasFocus ?? false)
-            ? widget.focusedIconColor
-            : widget.iconColor;
+    final iconColor = (widget.focusNode?.hasFocus ?? false)
+        ? widget.focusedIconColor
+        : widget.iconColor;
 
     return IconButton(
       onPressed: widget.enabled

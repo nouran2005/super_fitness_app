@@ -35,6 +35,14 @@ class Assets {
   static const String imagesOnboardingBackground =
       "assets/images/onboarding_background.jpg";
 
+  /// Assets for imagesAppIcon
+  /// assets/images/app_icon.png
+  static const String imagesAppIcon = "assets/images/app_icon.png";
+
+  /// Assets for imagesuser
+  /// assets/images/user.png
+  static const String imagesUser = "assets/images/user.png";
+
   /// Assets for exerciseLoading
   static const String exerciseLoadingPath =
       'assets/jsons/exercise_loading.json';

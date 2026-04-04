@@ -78,5 +78,10 @@
   "cannotBeSame": "New password cannot be the same as current",
   "genderRequired": "Gender is required",
   "something_went_wrong": "Something went wrong",
-  "resend": "Retry"
+  "resend": "Retry",
+
+  "alreadyHaveAccount": "Already Have An Account? ",
+  "heyThere": "Hey There",
+  "createAnAccount": "CREATE AN ACCOUNT",
+  "registerSuccessfully": "Register Successfully"
 }
