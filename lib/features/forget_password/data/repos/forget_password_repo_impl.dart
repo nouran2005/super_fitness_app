@@ -1,6 +1,5 @@
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
-import 'package:super_fitness_app/app/core/values/user_error_mesagges.dart';
 import 'package:super_fitness_app/features/forget_password/data/datasources/forget_password_remote_datasource.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/forget_password_request_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/reset_password_request_model.dart';
@@ -24,17 +23,13 @@ class ForgetPasswordRepoImpl implements ForgetPasswordRepo {
     final result = await _remoteDataSource.forgetPassword(
       ForgetPasswordRequestModel(email: email),
     );
-    if (result is SuccessApiResult<ForgotPasswordResponseModel>) {
-      return SuccessApiResult(data: result.data.toEntity());
-    }
 
-    if (result is ErrorApiResult<ForgotPasswordResponseModel>) {
-      return ErrorApiResult<ForgetPasswordEntity>(error: result.error);
+    switch (result) {
+      case SuccessApiResult<ForgotPasswordResponseModel>():
+        return SuccessApiResult(data: result.data.toEntity());
+      case ErrorApiResult<ForgotPasswordResponseModel>():
+        return ErrorApiResult<ForgetPasswordEntity>(error: result.error);
     }
-
-    return ErrorApiResult<ForgetPasswordEntity>(
-      error: UserErrorMessages.unknownError,
-    );
   }
 
   @override
@@ -42,17 +37,13 @@ class ForgetPasswordRepoImpl implements ForgetPasswordRepo {
     final result = await _remoteDataSource.verifyOtp(
       VerifyCodeRequestModel(resetCode: code),
     );
-    if (result is SuccessApiResult<VerifyCodeResponseModel>) {
-      return SuccessApiResult(data: result.data.toEntity());
-    }
 
-    if (result is ErrorApiResult<VerifyCodeResponseModel>) {
-      return ErrorApiResult<VerifyCodeEntity>(error: result.error);
+    switch (result) {
+      case SuccessApiResult<VerifyCodeResponseModel>():
+        return SuccessApiResult(data: result.data.toEntity());
+      case ErrorApiResult<VerifyCodeResponseModel>():
+        return ErrorApiResult<VerifyCodeEntity>(error: result.error);
     }
-
-    return ErrorApiResult<VerifyCodeEntity>(
-      error: UserErrorMessages.unknownError,
-    );
   }
 
   @override
@@ -60,16 +51,12 @@ class ForgetPasswordRepoImpl implements ForgetPasswordRepo {
     ResetPasswordRequestModel requestModel,
   ) async {
     final result = await _remoteDataSource.resetPassword(requestModel);
-    if (result is SuccessApiResult<ResetPasswordResponseModel>) {
-      return SuccessApiResult(data: result.data.toEntity());
-    }
 
-    if (result is ErrorApiResult<ResetPasswordResponseModel>) {
-      return ErrorApiResult<ResetPasswordEntity>(error: result.error);
+    switch (result) {
+      case SuccessApiResult<ResetPasswordResponseModel>():
+        return SuccessApiResult(data: result.data.toEntity());
+      case ErrorApiResult<ResetPasswordResponseModel>():
+        return ErrorApiResult<ResetPasswordEntity>(error: result.error);
     }
-
-    return ErrorApiResult<ResetPasswordEntity>(
-      error: UserErrorMessages.unknownError,
-    );
   }
 }
