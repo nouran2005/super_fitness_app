@@ -19,6 +19,7 @@ class Assets {
   /// Assets for imagesLogo
   /// assets/images/logo.svg
   static const String imagesLogo = "assets/images/logo.svg";
+  static const String imagesAppIcon = "assets/images/app_icon.png";
 
   /// Assets for imagesOnboarding1
   /// assets/images/onboarding_1.png

@@ -38,7 +38,7 @@ class AppTheme {
         color: AppColors.white,
         fontWeight: FontWeight.w600,
       ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+      contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
       filled: true,
       fillColor: const Color(0x14FFFFFF),
 
@@ -67,6 +67,11 @@ class AppTheme {
         color: AppColors.white,
       ),
       headlineSmall: TextStyle(fontSize: 16, color: AppColors.disabled),
+      titleLarge: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+        color: AppColors.white,
+      ),
       bodyMedium: TextStyle(fontSize: 16, color: AppColors.white),
       labelLarge: TextStyle(
         fontSize: 18,

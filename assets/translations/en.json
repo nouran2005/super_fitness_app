@@ -6,24 +6,20 @@
   "confirmPassword": "Confirm Password",
   "phone": "Phone Number",
   "gender": "Gender",
-
   "enterFirstName": "Enter first name",
   "enterLastName": "Enter last name",
   "enterEmail": "Enter your email",
   "enterPassword": "Enter password",
   "enterPhoneNumber": "Enter phone number",
   "enterRePassword": "Re-enter password",
-
   "female": "Female",
   "male": "Male",
-
   "login": "Login",
   "signup": "Sign Up",
   "register": "Register",
   "logout": "Logout",
   "rememberMe": "Remember me",
   "forgotPassword": "Forgot password?",
-
   "emailRequired": "Email is required",
   "emailInvalid": "Invalid email",
   "passwordRequired": "Password is required",
@@ -35,7 +31,6 @@
   "invalidName": "Invalid name",
   "least3Characters": "At least 3 characters",
   "least6Characters": "At least 6 characters",
-
   "loading": "Loading...",
   "success": "Success",
   "error": "Error",
@@ -43,7 +38,6 @@
   "confirm": "Confirm",
   "continueTxt": "Continue",
   "cancel": "Cancel",
-
   "search": "Search",
   "home": "Home",
   "profile": "Profile",
@@ -51,7 +45,6 @@
   "language": "Language",
   "arabic": "Arabic",
   "english": "English",
-
   "noInternet": "No internet connection",
   "connectionTimeout": "Connection timed out",
   "unauthorized": "Unauthorized",
@@ -78,5 +71,8 @@
   "cannotBeSame": "New password cannot be the same as current",
   "genderRequired": "Gender is required",
   "something_went_wrong": "Something went wrong",
-  "resend": "Retry"
+  "resend": "Retry",
+  "enterYourEmail": "Enter Your Email",
+  "forgetPassword": "Forget Password",
+  "sendOTP": "Send OTP"
 }
