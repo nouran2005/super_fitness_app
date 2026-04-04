@@ -57,7 +57,10 @@ class _ForgetPasswordCardState extends State<ForgetPasswordCard> {
             LocaleKeys.sendOTP.tr(),
             backgroundColor: AppColors.success,
           );
-          context.go(RouteNames.verifyResetCode);
+          context.go(
+            RouteNames.verifyResetCode,
+            extra: _emailController.text.trim(),
+          );
         }
       },
       buildWhen: (previous, current) =>

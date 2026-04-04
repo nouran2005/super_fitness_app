@@ -4,9 +4,10 @@ import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/page/app_sections_view.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/views/screens/forget_password_screen.dart';
+import 'package:super_fitness_app/features/forget_password/presentation/views/screens/verify_reset_code_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: RouteNames.forgetPassword,
+  initialLocation: RouteNames.verifyResetCode,
   routes: [
     GoRoute(
       path: RouteNames.home,
@@ -18,6 +19,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.forgetPassword,
       builder: (context, state) => ForgetPasswordScreen(),
+    ),
+    GoRoute(
+      path: RouteNames.verifyResetCode,
+      builder: (context, state) => VerifyResetCodeScreen(email: ''),
     ),
   ],
 );

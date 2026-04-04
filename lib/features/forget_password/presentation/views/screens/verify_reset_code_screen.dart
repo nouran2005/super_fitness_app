@@ -6,11 +6,13 @@ import 'package:super_fitness_app/app/core/widgets/loading_indicator.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_state.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/app_logo_widget.dart';
-import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/forget_password_card.dart';
-import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/forget_password_lables.dart';
+import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/verify_reset_code_card.dart';
+import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/verify_reset_code_labels.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({super.key});
+class VerifyResetCodeScreen extends StatelessWidget {
+  const VerifyResetCodeScreen({super.key, required this.email});
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +42,20 @@ class ForgetPasswordScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const AppLogoWidget(),
-                        SizedBox(height: mq.size.height * 0.12),
-                        const ForgetPasswordLables(),
-                        SizedBox(height: mq.size.height * 0.05),
-                        const ForgetPasswordCard(),
+                        SizedBox(height: mq.size.height * 0.08),
+                        const VerifyResetCodeLabels(),
+                        SizedBox(height: mq.size.height * 0.02),
+                        VerifyResetCodeCard(email: email),
                       ],
                     ),
                   ),
                 ),
-
                 BlocBuilder<ForgetPasswordCubit, ForgetPasswordState>(
                   buildWhen: (previous, current) =>
-                      previous.forgetPassword.isLoading !=
-                      current.forgetPassword.isLoading,
+                      previous.verifyCode.isLoading !=
+                      current.verifyCode.isLoading,
                   builder: (context, state) {
-                    if (!state.forgetPassword.isLoading) {
+                    if (!state.verifyCode.isLoading) {
                       return const SizedBox.shrink();
                     }
                     return ColoredBox(

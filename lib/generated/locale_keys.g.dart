@@ -5,7 +5,7 @@
 abstract class LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
-  static const email = 'Email';
+  static const email = 'email';
   static const password = 'password';
   static const confirmPassword = 'confirmPassword';
   static const phone = 'phone';
@@ -74,7 +74,12 @@ abstract class LocaleKeys {
   static const genderRequired = 'genderRequired';
   static const something_went_wrong = 'something_went_wrong';
   static const resend = 'resend';
-  static const enterYourEmail = 'Enter Your Email';
-  static const forgetPassword = 'Forget Passwrod';
+  static const enterYourEmail = 'enterYourEmail';
+  static const forgetPassword = 'forgetPassword';
   static const sendOTP = 'sendOTP';
+  static const otpCode = 'otpCode';
+  static const enterYourOtpCheckYourEmail = 'enterYourOtpCheckYourEmail';
+  static const didntReceiveVerificationCode = 'didntReceiveVerificationCode';
+  static const resendCode = 'resendCode';
+  static const pleaseEnterTheCompleteOtpCode = 'pleaseEnterTheCompleteOtpCode';
 }

@@ -74,5 +74,10 @@
   "resend": "إعادة المحاولة",
   "enterYourEmail": "أدخل بريدك الإلكتروني",
   "forgetPassword": "نسيت كلمة المرور",
-  "sendOTP": "أرسل رمز التحقق"
+  "sendOTP": "أرسل رمز التحقق",
+  "otpCode": "رمز التحقق",
+  "enterYourOtpCheckYourEmail": "أدخل رمز التحقق الخاص بك. يرجى التحقق من بريدك الإلكتروني.",
+  "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
+  "resendCode": "إعادة إرسال الرمز",
+  "pleaseEnterTheCompleteOtpCode": "يرجى إدخال رمز التحقق الكامل"
 }
