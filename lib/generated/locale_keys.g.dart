@@ -82,4 +82,8 @@ abstract class LocaleKeys {
   static const didntReceiveVerificationCode = 'didntReceiveVerificationCode';
   static const resendCode = 'resendCode';
   static const pleaseEnterTheCompleteOtpCode = 'pleaseEnterTheCompleteOtpCode';
+  static const makeSureIts8CharactersOrMore = 'makeSureIts8CharactersOrMore';
+  static const createNewPassword = 'createNewPassword';
+  static const done = 'done';
+  static const passwordResetSuccess = 'passwordResetSuccess';
 }

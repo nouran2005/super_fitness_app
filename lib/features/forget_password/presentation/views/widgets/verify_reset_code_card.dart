@@ -9,7 +9,7 @@ import 'package:super_fitness_app/app/core/widgets/show_snak_bar.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_events.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_state.dart';
-import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/bulered_container.dart';
+import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/otp_fields.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/views/widgets/resend_code_section.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
@@ -76,7 +76,10 @@ class _VerifyResetCodeCardState extends State<VerifyResetCodeCard> {
       builder: (context, state) {
         final isVerifyLoading = state.verifyCode.isLoading;
 
-        return BulerContainer(
+        return GlassBlurContainer(
+          padding: EdgeInsets.all(mq.size.width * 0.04),
+          backgroundColor: AppColors.white.withValues(alpha: 0.05),
+          blurSigma: 15,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,

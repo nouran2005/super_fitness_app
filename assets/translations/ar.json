@@ -79,5 +79,9 @@
   "enterYourOtpCheckYourEmail": "أدخل رمز التحقق الخاص بك. يرجى التحقق من بريدك الإلكتروني.",
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
   "resendCode": "إعادة إرسال الرمز",
-  "pleaseEnterTheCompleteOtpCode": "يرجى إدخال رمز التحقق الكامل"
+  "pleaseEnterTheCompleteOtpCode": "يرجى إدخال رمز التحقق الكامل",
+  "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "done": "تم",
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
 }

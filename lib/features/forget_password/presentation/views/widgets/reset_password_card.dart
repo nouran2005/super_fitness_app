@@ -5,34 +5,45 @@ import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/config/validation/app_validation.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
+import 'package:super_fitness_app/app/core/widgets/password_form_field.dart';
 import 'package:super_fitness_app/app/core/widgets/show_snak_bar.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/request/reset_password_request_model.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_events.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_state.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
-class ForgetPasswordCard extends StatefulWidget {
-  const ForgetPasswordCard({super.key});
+class ResetPasswordCard extends StatefulWidget {
+  const ResetPasswordCard({super.key, required this.email});
+
+  final String email;
 
   @override
-  State<ForgetPasswordCard> createState() => _ForgetPasswordCardState();
+  State<ResetPasswordCard> createState() => _ResetPasswordCardState();
 }
 
-class _ForgetPasswordCardState extends State<ForgetPasswordCard> {
+class _ResetPasswordCardState extends State<ResetPasswordCard> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _newPasswordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _newPasswordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
-  void _onSendEmail() {
+  void _onDone() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<ForgetPasswordCubit>().onEvent(
-        ForgetPasswordProcessEvent(_emailController.text.trim()),
+        ResetPasswordProcessEvent(
+          ResetPasswordRequestModel(
+            email: widget.email,
+            newPassword: _newPasswordController.text,
+          ),
+        ),
       );
     }
   }
@@ -43,33 +54,30 @@ class _ForgetPasswordCardState extends State<ForgetPasswordCard> {
 
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
       listenWhen: (previous, current) =>
-          previous.forgetPassword != current.forgetPassword,
+          previous.resetPassword != current.resetPassword,
       listener: (context, state) {
-        if (state.forgetPassword.isError) {
+        if (state.resetPassword.isError) {
           showAppSnackbar(
             context,
-            state.forgetPassword.error ?? '',
+            state.resetPassword.error ?? '',
             backgroundColor: AppColors.error,
           );
-        } else if (state.forgetPassword.isSuccess) {
+        } else if (state.resetPassword.isSuccess) {
           showAppSnackbar(
             context,
-            LocaleKeys.sendOTP.tr(),
+            LocaleKeys.passwordResetSuccess.tr(),
             backgroundColor: AppColors.success,
           );
-          context.go(
-            RouteNames.verifyResetCode,
-            extra: _emailController.text.trim(),
-          );
+          context.go(RouteNames.login);
         }
       },
       buildWhen: (previous, current) =>
-          previous.forgetPassword != current.forgetPassword,
+          previous.resetPassword != current.resetPassword,
       builder: (context, state) {
-        final isLoading = state.forgetPassword.isLoading;
+        final isLoading = state.resetPassword.isLoading;
 
         return GlassBlurContainer(
-          padding: EdgeInsets.all(mq.size.width * 0.06),
+          padding: EdgeInsets.all(mq.size.width * 0.04),
           backgroundColor: AppColors.white.withValues(alpha: 0.05),
           blurSigma: 15,
           child: Form(
@@ -77,29 +85,33 @@ class _ForgetPasswordCardState extends State<ForgetPasswordCard> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
+                PasswordFormField(
+                  controller: _newPasswordController,
                   enabled: !isLoading,
-                  decoration: InputDecoration(
-                    hintText: LocaleKeys.email.tr(),
-                    prefixIcon: Padding(
-                      padding: EdgeInsetsDirectional.only(
-                        start: mq.size.width * 0.04,
-                        end: mq.size.width * 0.025,
-                      ),
-                      child: const Icon(Icons.email_outlined),
-                    ),
-                  ),
-                  validator: Validators.emailValidator,
+                  hintText: LocaleKeys.password.tr(),
+                  validator: Validators.passwordValidator,
                 ),
-                SizedBox(height: mq.size.height * 0.026),
+
+                SizedBox(height: mq.size.height * 0.02),
+
+                PasswordFormField(
+                  controller: _confirmPasswordController,
+                  enabled: !isLoading,
+                  hintText: LocaleKeys.confirmPassword.tr(),
+                  validator: (val) => Validators.confirmPasswordValidator(
+                    val,
+                    _newPasswordController.text,
+                  ),
+                ),
+
+                SizedBox(height: mq.size.height * 0.03),
+
                 SizedBox(
                   width: double.infinity,
                   height: mq.size.height * 0.055,
                   child: ElevatedButton(
-                    onPressed: isLoading ? null : _onSendEmail,
-                    child: Text(LocaleKeys.sendOTP.tr()),
+                    onPressed: isLoading ? null : _onDone,
+                    child: Text(LocaleKeys.done.tr()),
                   ),
                 ),
               ],

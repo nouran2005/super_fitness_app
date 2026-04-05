@@ -79,5 +79,9 @@
   "enterYourOtpCheckYourEmail": "Enter the OTP sent to your email.",
   "didntReceiveVerificationCode": "Didn't receive the verification code?",
   "resendCode": "Resend Code",
-  "pleaseEnterTheCompleteOtpCode": "Please enter the complete OTP code"
+  "pleaseEnterTheCompleteOtpCode": "Please enter the complete OTP code",
+  "makeSureIts8CharactersOrMore": "Make Sure Its 8 Characters Or More",
+  "createNewPassword": "Create New Password",
+  "done": "Done",
+  "passwordResetSuccess": "Password Reset Successfully"
 }
