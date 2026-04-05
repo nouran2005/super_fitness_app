@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
-import 'package:super_fitness_app/app/core/widgets/loading_indicator.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
 class ResendCodeSection extends StatelessWidget {
