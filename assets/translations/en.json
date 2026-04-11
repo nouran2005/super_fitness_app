@@ -78,5 +78,14 @@
   "cannotBeSame": "New password cannot be the same as current",
   "genderRequired": "Gender is required",
   "something_went_wrong": "Something went wrong",
-  "resend": "Retry"
+  "resend": "Retry",
+
+  "field_cant_be_empty": "This field cannot be empty",
+  "password_length": "Password must be between 6 and 30 characters",
+  "name_validation": "Name must be at least 2 characters",
+  "heyThere": "Hey There",
+  "welcomeBack": "Welcome Back",
+  "signIn": "Sign in",
+  "dontHaveAccount": "Don't have an account yet?",
+  "registerNow": "Register"
 }

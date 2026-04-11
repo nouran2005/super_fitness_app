@@ -30,11 +30,11 @@ class SigninBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    "Hey There".tr(),
+                    LocaleKeys.heyThere.tr(),
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   Text(
-                    "WELCOME BACK".tr(),
+                    LocaleKeys.welcomeBack.tr(),
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -56,7 +56,7 @@ class SigninBody extends StatelessWidget {
                 children: [
                   const SizedBox(height: 16),
                   Text(
-                    "Login",
+                    LocaleKeys.login.tr(),
                     style: TextStyle(
                       fontSize: 24,
                       color: AppColors.white,
@@ -91,16 +91,16 @@ class SigninBody extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  PrimaryButton(text: "Sign in", onPressed: () {}),
+                  PrimaryButton(text: LocaleKeys.signIn.tr(), onPressed: () {}),
                   const SizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Dont have an account yet ?"),
+                      Text(LocaleKeys.dontHaveAccount.tr()),
                       AuthTextLink(
                         fontSize: 14,
                         // fontWeight: FontWeight.w800,
-                        text: 'Register',
+                        text: LocaleKeys.registerNow.tr(),
                         padding: const EdgeInsets.symmetric(horizontal: 6),
                         alignment: Alignment.centerLeft,
                         onTap: () {},

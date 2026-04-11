@@ -74,4 +74,12 @@ abstract class LocaleKeys {
   static const genderRequired = 'genderRequired';
   static const something_went_wrong = 'something_went_wrong';
   static const resend = 'resend';
+  static const field_cant_be_empty = 'field_cant_be_empty';
+  static const password_length = 'password_length';
+  static const name_validation = 'name_validation';
+  static const heyThere = 'heyThere';
+  static const welcomeBack = 'welcomeBack';
+  static const signIn = 'signIn';
+  static const dontHaveAccount = 'dontHaveAccount';
+  static const registerNow = 'registerNow';
 }
