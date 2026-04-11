@@ -9,9 +9,15 @@ class TestAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>?> load(String path, Locale locale) async {
     return const {
+      'heyThere': 'Hey There',
+      'welcomeBack': 'WELCOME BACK',
+      'login': 'Login',
       'email': 'Email',
       'password': 'Password',
-      'forgotPassword': 'Forgot password?',
+      'forgotPassword': 'Forgot password',
+      'signIn': 'Sign in',
+      'dontHaveAccount': 'Dont have an account yet ?',
+      'registerNow': 'Register',
     };
   }
 }

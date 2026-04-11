@@ -1,20 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/widgets/auth/auth_text_link.dart';
 import 'package:super_fitness_app/app/core/widgets/form_fields/custom_form_field.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'package:super_fitness_app/app/core/widgets/primary_button.dart';
+import 'package:super_fitness_app/features/signin/domain/use_cases/signin_use_case.dart';
 import 'package:super_fitness_app/features/signin/presentation/view/widgets/signin_body.dart';
+import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 
 import '../../../../../helpers/pump_app.dart';
+
+class MockSigninUseCase extends Mock implements SigninUseCase {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('SigninBody', () {
+    late SigninCubit cubit;
+
+    setUp(() {
+      cubit = SigninCubit(signinUseCase: MockSigninUseCase());
+    });
+
+    tearDown(() async {
+      await cubit.close();
+    });
+
     testWidgets('renders the expected sign in content', (tester) async {
-      await tester.pumpLocalizedWidget(const SigninBody());
+      await tester.pumpLocalizedWidget(SigninBody(cubit: cubit));
 
       expect(find.byType(SafeArea), findsOneWidget);
       expect(find.byType(SingleChildScrollView), findsOneWidget);
@@ -56,7 +71,7 @@ void main() {
     testWidgets('configures the email and password form fields correctly', (
       tester,
     ) async {
-      await tester.pumpLocalizedWidget(const SigninBody());
+      await tester.pumpLocalizedWidget(SigninBody(cubit: cubit));
 
       final fields = tester
           .widgetList<EditableText>(find.byType(EditableText))
@@ -77,7 +92,7 @@ void main() {
     testWidgets('reveals the password when the visibility icon is tapped', (
       tester,
     ) async {
-      await tester.pumpLocalizedWidget(const SigninBody());
+      await tester.pumpLocalizedWidget(SigninBody(cubit: cubit));
 
       await tester.tap(find.byIcon(Icons.visibility_outlined));
       await tester.pumpAndSettle();
