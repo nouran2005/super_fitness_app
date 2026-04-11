@@ -7,10 +7,12 @@ import 'package:super_fitness_app/app/core/widgets/auth/auth_text_link.dart';
 import 'package:super_fitness_app/app/core/widgets/form_fields/custom_form_field.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'package:super_fitness_app/app/core/widgets/primary_button.dart';
+import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
 class SigninBody extends StatelessWidget {
-  const SigninBody({super.key});
+  final SigninCubit cubit;
+  const SigninBody({super.key, required this.cubit});
 
   @override
   Widget build(BuildContext context) {

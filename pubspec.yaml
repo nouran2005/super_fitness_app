@@ -46,6 +46,8 @@ dependencies:
   retrofit: 4.9.2
   shared_preferences: ^2.2.2
   lottie: ^3.3.2
+  toastification: 
+  flutter_spinkit:
 
 dev_dependencies:
   bloc_test: ^10.0.0

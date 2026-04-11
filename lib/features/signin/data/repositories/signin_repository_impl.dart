@@ -24,7 +24,7 @@ class SigninRepositoryImpl implements SigninRepository {
     final result = await signinRemoteDataSourceContract.signin(postModel);
     switch (result) {
       case SuccessApiResult<SigninResponse>():
-        // signinLocalDataSource.cachedToken();
+        await signinLocalDataSource.cachedToken(result.data.token ?? "");
         return SuccessApiResult<SigninEntity>(
           data: result.data.toSigninEntity(),
         );
