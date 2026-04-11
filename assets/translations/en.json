@@ -87,5 +87,6 @@
   "welcomeBack": "Welcome Back",
   "signIn": "Sign in",
   "dontHaveAccount": "Don't have an account yet?",
-  "registerNow": "Register"
+  "registerNow": "Register",
+  "welcome_back": "Welcome back, "
 }

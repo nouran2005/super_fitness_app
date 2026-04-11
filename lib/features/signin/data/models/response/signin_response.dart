@@ -19,6 +19,10 @@ class SigninResponse {
   Map<String, dynamic> toJson() => _$SigninResponseToJson(this);
 
   SigninEntity toSigninEntity() {
-    return SigninEntity();
+    return SigninEntity(
+      id: user?.id ?? "",
+      firstName: user?.firstName ?? "",
+      lastName: user?.lastName ?? "",
+    );
   }
 }

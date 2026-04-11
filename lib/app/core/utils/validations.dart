@@ -9,25 +9,26 @@ class Validations {
       return LocaleKeys.field_cant_be_empty.tr();
     }
 
-    // if (!value.contains(RegExp(r'[a-z]'))) {
-    //   return "validations.set_password_1_condition_error".tr();
-    // }
-
-    // if (!value.contains(RegExp(r'[A-Z]'))) {
-    //   return "validations.set_password_2_condition_error".tr();
-    // }
-    // if (!value.contains(RegExp(r'[0-9]'))) {
-    //   return "validations.set_password_3_condition_error".tr();
-    // }
-
-    // if (!value.contains(
-    //   RegExp(r'[!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:\,<>\./\\|~`]'),
-    // )) {
-    //   return "validations.set_password_4_condition_error".tr();
-    // }
-
     if (value.length < 6 || value.length > 30) {
       return LocaleKeys.password_length.tr();
+    }
+
+    if (!value.contains(RegExp(r'[a-z]'))) {
+      return "Password must contain at least 1 lowercase letter";
+    }
+
+    if (!value.contains(RegExp(r'[A-Z]'))) {
+      return "Password must contain at least 1 uppercase letter";
+    }
+
+    if (!value.contains(RegExp(r'[0-9]'))) {
+      return "Password must contain at least 1 number";
+    }
+
+    if (!value.contains(
+      RegExp(r'[!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:\,<>\./\\|~`]'),
+    )) {
+      return "Password must contain at least 1 special character";
     }
 
     return null;
@@ -112,12 +113,12 @@ class Validations {
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return "email_required".tr();
+      return "emailRequired".tr();
     }
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if (!emailRegex.hasMatch(value)) {
-      return "email_invalid".tr();
+      return "emailInvalid".tr();
     }
 
     return null;

@@ -44,13 +44,22 @@ class SigninCubit extends Cubit<SigninStates> {
     hideLoadingDialog();
     switch (result) {
       case SuccessApiResult<SigninEntity>():
-      // navigatorKey.currentContext?.push(RouteNames);
+        showToast(
+          title: LocaleKeys.success.tr(),
+          description:
+              "${LocaleKeys.welcomeBack.tr()} ${result.data.firstName} ${result.data.lastName}!",
+          type: ToastificationType.success,
+        );
+        // navigatorKey.currentContext?.push(RouteNames);
+        // return;
+        break;
       case ErrorApiResult<SigninEntity>():
         showToast(
           title: LocaleKeys.error.tr(),
           description: (result as ErrorApiResult).error,
           type: ToastificationType.error,
         );
+        break;
     }
   }
 
