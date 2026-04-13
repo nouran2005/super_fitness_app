@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -50,5 +51,13 @@ extension PumpApp on WidgetTester {
     );
 
     await pumpAndSettle();
+=======
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+extension PumpApp on WidgetTester {
+  Future<void> pumpApp(Widget child) {
+    return pumpWidget(MaterialApp(home: child));
+>>>>>>> dev
   }
 }
