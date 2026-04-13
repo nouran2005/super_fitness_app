@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(flutter analyze:*)",
+      "Bash(dart analyze:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m 'feat\\(profile\\): enable my services option with order/service routing:*)",
+      "Bash(git commit -m 'feat\\(order_details\\): add order status history stepper component:*)",
+      "Bash(git commit -m 'chore\\(i18n\\): add order status and delivery date locale keys:*)",
+      "Bash(git commit -m 'style\\(booking,loyalty\\): format spacing and styling:*)",
+      "Bash(git commit -m 'chore: update project documentation and remove deprecated skill:*)",
+      "Bash(git commit -m 'feat\\(order_history\\): accept tap argument to switch between orders and services:*)",
+      "Bash(git commit -m 'chore: add claude code skills \\(commit and flutter feature generation\\):*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

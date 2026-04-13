@@ -15,7 +15,7 @@ void main() {
       const subtitle =
           'Discover classes, plans, and fresh ideas for your next session.';
 
-      await tester.pumpApp(
+      await tester.pumpLocalizedWidget(
         const AppSectionPlaceholder(title: title, subtitle: subtitle),
       );
       await tester.pumpAndSettle();
