@@ -12,8 +12,9 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../../features/app_start/presentation/manager/app_cubit.dart'
+    as _i858;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -42,9 +43,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final networkModule = _$NetworkModule();
-    gh.lazySingleton<_i603.AuthStorage>(
-      () => _i603.AuthStorage(gh<_i460.SharedPreferences>()),
-    );
+    gh.lazySingleton<_i603.AuthStorage>(() => _i603.AuthStorage());
     gh.lazySingleton<_i361.Dio>(
       () => networkModule.dio(gh<_i603.AuthStorage>()),
     );
@@ -55,6 +54,7 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i709.SigninLocalDataSourceImpl(authStorage: gh<_i603.AuthStorage>()),
     );
+    gh.factory<_i858.AppCubit>(() => _i858.AppCubit(gh<_i603.AuthStorage>()));
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );

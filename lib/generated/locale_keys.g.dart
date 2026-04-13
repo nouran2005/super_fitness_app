@@ -82,4 +82,12 @@ abstract class LocaleKeys {
   static const signIn = 'signIn';
   static const dontHaveAccount = 'dontHaveAccount';
   static const registerNow = 'registerNow';
+  static const next = 'next';
+  static const back = 'back';
+  static const skip = 'skip';
+  static const doIt = 'doIt';
+  static const descriptionOnboarding = 'descriptionOnboarding';
+  static const titleOnboarding1 = 'titleOnboarding1';
+  static const titleOnboarding2 = 'titleOnboarding2';
+  static const titleOnboarding3 = 'titleOnboarding3';
 }
