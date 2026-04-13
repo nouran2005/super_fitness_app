@@ -78,5 +78,14 @@
   "cannotBeSame": "New password cannot be the same as current",
   "genderRequired": "Gender is required",
   "something_went_wrong": "Something went wrong",
-  "resend": "Retry"
+  "resend": "Retry",
+
+  "next": "Next",
+  "back": "Back",
+  "skip": "Skip",
+  "doIt": "Do It",
+  "descriptionOnboarding": "Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa",
+  "titleOnboarding1": "The Price Of Excellence Is Discipline",
+  "titleOnboarding2": "Fitness has never been so much fun",
+  "titleOnboarding3": "NO MORE EXCUSES\n Do It Now"
 }

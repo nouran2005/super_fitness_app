@@ -11,11 +11,11 @@ class AppInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final token = tokenStorage.getToken();
+    final token = await tokenStorage.getToken();
 
     final isFirebase = options.uri.host.contains('googleapis.com');
 
-    if (!isFirebase && token != null && token.isNotEmpty) {
+    if (!isFirebase && token != null && token.toString().isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $token';
     }
     handler.next(options);
