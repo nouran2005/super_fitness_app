@@ -3,6 +3,7 @@ class SignupModel {
   final String? firstName;
   final String? lastName;
   final String? email;
+  final String? password;
   final String? gender;
   final int? height;
   final int? weight;
@@ -15,6 +16,7 @@ class SignupModel {
     this.firstName,
     this.lastName,
     this.email,
+    this.password,
     this.gender,
     this.height,
     this.weight,

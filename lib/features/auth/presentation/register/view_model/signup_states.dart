@@ -6,6 +6,10 @@ class SignupStates {
   final Resource<SignupModel> signupResource;
   final SignupStep currentStep;
 
+  final String? firstName;
+  final String? lastName;
+  final String? email;
+  final String? password;
   final String? gender;
   final int? age;
   final int? weight;
@@ -16,6 +20,10 @@ class SignupStates {
   SignupStates({
     Resource<SignupModel>? signupResource,
     this.currentStep = SignupStep.gender,
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.password,
     this.gender,
     this.age,
     this.weight,
@@ -27,6 +35,10 @@ class SignupStates {
   SignupStates copyWith({
     Resource<SignupModel>? signupResource,
     SignupStep? currentStep,
+    final String? firstName,
+    final String? lastName,
+    final String? email,
+    final String? password,
     String? gender,
     int? age,
     int? weight,
@@ -37,6 +49,10 @@ class SignupStates {
     return SignupStates(
       signupResource: signupResource ?? this.signupResource,
       currentStep: currentStep ?? this.currentStep,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      email: email ?? this.email,
+      password: password ?? this.password,
       gender: gender ?? this.gender,
       age: age ?? this.age,
       weight: weight ?? this.weight,

@@ -101,5 +101,9 @@
   "whatIsYourHeight": "What is your height ?",
   "cm": "Cm",
   "whatIsYourWeight": "What is your weight ?",
-  "kg": "Kg"
+  "kg": "Kg",
+  "alreadyHaveAccount": "Already Have An Account? ",
+  "heyThere": "Hey There",
+  "createAnAccount": "CREATE AN ACCOUNT",
+  "registerSuccessfully": "Register Successfully"
 }

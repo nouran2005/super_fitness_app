@@ -19,6 +19,7 @@ class Assets {
   /// assets/images/background_auth_2.png
   static const String imagesBackgroundAuth2 =
       "assets/images/background_auth_2.png";
+  static const String imagesChat = "assets/images/chat.svg";
 
   /// Assets for imagesFemale
   /// assets/images/Female.png
@@ -28,6 +29,7 @@ class Assets {
   /// assets/images/home_background.jpg
   static const String imagesHomeBackground =
       "assets/images/home_background.jpg";
+  static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.svg
@@ -53,6 +55,12 @@ class Assets {
   /// assets/images/onboarding_background.jpg
   static const String imagesOnboardingBackground =
       "assets/images/onboarding_background.jpg";
+  static const String imagesProfile = "assets/images/profile.svg";
+  static const String imagesWorkout = "assets/images/workout.svg";
+
+  /// Assets for imagesuser
+  /// assets/images/user.png
+  static const String imagesUser = "assets/images/user.png";
 
   /// Assets for exerciseLoading
   static const String exerciseLoadingPath =

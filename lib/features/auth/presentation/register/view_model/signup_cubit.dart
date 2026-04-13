@@ -7,13 +7,25 @@ import 'package:super_fitness_app/features/auth/domain/use_cases/signup_use_case
 import 'signup_intent.dart';
 import 'signup_states.dart';
 
-@injectable
+@singleton
 class SignupCubit extends Cubit<SignupStates> {
   final SignupUseCase _signupUseCase;
 
   SignupCubit(this._signupUseCase) : super(SignupStates());
 
   void doIntent(SignupIntent intent) {
+    if (intent is SetBasicInfo) {
+      emit(
+        state.copyWith(
+          firstName: intent.firstName,
+          lastName: intent.lastName,
+          email: intent.email,
+          password: intent.password,
+        ),
+      );
+      return;
+    }
+
     if (intent is MoveToPreviousStep) {
       _goPrevious();
       return;
@@ -60,6 +72,54 @@ class SignupCubit extends Cubit<SignupStates> {
     }
   }
 
+  // void _setBasicInfo({
+  //   required String firstName,
+  //   required String lastName,
+  //   required String email,
+  //   required String password,
+  // }) {
+  //   emit(
+  //     state.copyWith(
+  //       firstName: firstName,
+  //       lastName: lastName,
+  //       email: email,
+  //       password: password,
+  //     ),
+  //   );
+  // }
+
+  // Future<void> _setBasicInfo({
+  //   required String lastName,
+  //   required String email,
+  //   required String firstName,
+  //   required String password,
+  // }) async {
+  //   final ApiResult<SignupModel> response = await _signupUseCase.execute(
+  //     firstName: firstName,
+  //     lastName: lastName,
+  //     email: email,
+  //     password: password,
+  //     gender: state.gender!,
+  //     age: state.age!,
+  //     height: state.height!,
+  //     weight: state.weight!,
+  //     goal: state.goal!,
+  //     activityLevel: state.activityLevel!,
+  //   );
+
+  //   switch (response) {
+  //     case SuccessApiResult<SignupModel>():
+  //       emit(state.copyWith(signupResource: Resource.success(response.data)));
+
+  //     case ErrorApiResult<SignupModel>():
+  //       emit(
+  //         state.copyWith(
+  //           signupResource: Resource.error(response.error.toString()),
+  //         ),
+  //       );
+  //   }
+  // }
+
   void _goPrevious() {
     final index = state.currentStep.index;
     if (index > 0) {
@@ -78,11 +138,16 @@ class SignupCubit extends Cubit<SignupStates> {
     emit(state.copyWith(signupResource: Resource.loading()));
 
     final result = await _signupUseCase.execute(
-      firstName: state.signupResource.data?.firstName ?? '',
-      lastName: state.signupResource.data?.lastName ?? '',
-      email: state.signupResource.data?.email ?? '',
-      password: state.signupResource.data?.email ?? '',
-      rePassword: state.signupResource.data?.email ?? '',
+      // firstName: state.signupResource.data?.firstName ?? '',
+      // lastName: state.signupResource.data?.lastName ?? '',
+      // email: state.signupResource.data?.email ?? '',
+      // password: state.signupResource.data?.password ?? '',
+      // rePassword: state.signupResource.data?.password ?? '',
+      firstName: state.firstName ?? "",
+      lastName: state.lastName ?? "",
+      email: state.email ?? "",
+      password: state.password ?? "",
+      rePassword: state.password ?? "",
       gender: state.gender!,
       height: state.height!,
       weight: state.weight!,

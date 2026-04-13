@@ -12,11 +12,11 @@ class ActivityLevelSection extends StatelessWidget {
   const ActivityLevelSection({super.key});
 
   static List<String> activityLevels = [
-    'rookie',
-    'beginner',
-    'intermediate',
-    'advance',
-    'trueBeast',
+    'level1',
+    'level2',
+    'level3',
+    'level4',
+    'level5',
   ];
 
   @override

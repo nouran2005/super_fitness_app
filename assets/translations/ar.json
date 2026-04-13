@@ -101,5 +101,9 @@
   "whatIsYourHeight": "ما هو طولك؟",
   "cm": "سم",
   "whatIsYourWeight": "ما هو وزنك؟",
-  "kg": "كجم"
+  "kg": "كجم",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟ ",
+  "heyThere": "مرحباً",
+  "createAnAccount": "إنشاء حساب",
+  "registerSuccessfully": "تم التسجيل بنجاح"
 }
