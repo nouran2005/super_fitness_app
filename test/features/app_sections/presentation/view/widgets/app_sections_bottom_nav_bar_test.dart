@@ -10,7 +10,7 @@ import '../../../../../helpers/pump_app.dart';
 void main() {
   group('AppSectionsNavItem', () {
     testWidgets('shows the label when the item is selected', (tester) async {
-      await tester.pumpApp(
+      await tester.pumpLocalizedWidget(
         Center(
           child: AppSectionsNavItem(
             destination: appSectionDestinations.first,
@@ -33,7 +33,7 @@ void main() {
     ) async {
       var tapCount = 0;
 
-      await tester.pumpApp(
+      await tester.pumpLocalizedWidget(
         Center(
           child: AppSectionsNavItem(
             destination: appSectionDestinations.first,
@@ -59,7 +59,7 @@ void main() {
       required int currentIndex,
       required ValueChanged<int> onDestinationSelected,
     }) async {
-      await tester.pumpApp(
+      await tester.pumpLocalizedWidget(
         Scaffold(
           bottomNavigationBar: AppSectionsBottomNavBar(
             destinations: appSectionDestinations,
