@@ -12,15 +12,18 @@ class SignupOnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<SignupCubit>(),
-      child: AuthBlurryBackground(
-        image: Assets.imagesAuthBackground,
-        widget: Column(
-          children: const [
-            SignupOnboardingAppBar(),
-            Expanded(child: SignupOnboardingPageBody()),
-          ],
+    final cubit = getIt<SignupCubit>();
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => cubit,
+        child: AuthBlurryBackground(
+          image: Assets.imagesAuthBackground,
+          widget: Column(
+            children: [
+              SignupOnboardingAppBar(),
+              Expanded(child: SignupOnboardingPageBody()),
+            ],
+          ),
         ),
       ),
     );

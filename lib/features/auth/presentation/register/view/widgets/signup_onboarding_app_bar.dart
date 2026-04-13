@@ -16,25 +16,28 @@ class SignupOnboardingAppBar extends StatelessWidget
 
     return BlocBuilder<SignupCubit, SignupStates>(
       builder: (context, state) {
-        return AppBar(
-          automaticallyImplyLeading: false,
-          leading: state.currentStep == SignupStep.gender
-              ? null
-              : IconButton(
-                  icon: Image.asset(
-                    Assets.imagesArrowBack,
-                    width: 24,
-                    height: 24,
+        if (state.currentStep != SignupStep.basicInfo) {
+          return AppBar(
+            automaticallyImplyLeading: false,
+            leading: state.currentStep == SignupStep.gender
+                ? null
+                : IconButton(
+                    icon: Image.asset(
+                      Assets.imagesArrowBack,
+                      width: 24,
+                      height: 24,
+                    ),
+                    onPressed: () => cubit.doIntent(MoveToPreviousStep()),
                   ),
-                  onPressed: () => cubit.doIntent(MoveToPreviousStep()),
-                ),
-          centerTitle: true,
-          title: Image.asset(
-            Assets.imagesAppIcon,
-            height: 70,
-            fit: BoxFit.contain,
-          ),
-        );
+            centerTitle: true,
+            title: Image.asset(
+              Assets.imagesAppIcon,
+              height: 70,
+              fit: BoxFit.contain,
+            ),
+          );
+        }
+        return SizedBox.shrink();
       },
     );
   }
