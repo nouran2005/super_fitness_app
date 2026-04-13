@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view/page/app_sections_view.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_cubit.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_intent.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_states.dart';
@@ -26,7 +27,7 @@ class AppStartPage extends StatelessWidget {
               } else if (authResource.isSuccess && authResource.data == true) {
                 return const OnboardingPage();
               } else {
-                return const HomePage();
+                return const AppSectionsView();
               }
             },
           );
