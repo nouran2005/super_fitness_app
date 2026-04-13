@@ -7,11 +7,16 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/page/a
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: RouteNames.signIn,
+  initialLocation: RouteNames.onboarding,
   navigatorKey: navigatorKey,
   routes: [
     GoRoute(
       path: RouteNames.signIn,
+
+      builder: (context, state) => const SigninPage(),
+    ),
+    GoRoute(
+      path: RouteNames.onboarding,
 
       builder: (context, state) => const SigninPage(),
     ),
