@@ -6,7 +6,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
-import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/register_page.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_cubit.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_states.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
@@ -21,23 +21,24 @@ void main() async {
     await getIt.reset();
     signupCubit = MockSignupCubit();
     getIt.registerFactory<SignupCubit>(() => signupCubit);
-
     when(signupCubit.state).thenReturn(SignupStates());
     when(
       signupCubit.stream,
     ).thenAnswer((_) => const Stream<SignupStates>.empty());
   });
 
-  Widget buildTestableWidget() {
+  Widget buildTestWidget() {
     return EasyLocalization(
       supportedLocales: const [Locale('en')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
       startLocale: const Locale('en'),
       child: MaterialApp(
-        home: BlocProvider<SignupCubit>(
-          create: (_) => signupCubit,
-          child: const RegisterPage(),
+        home: Scaffold(
+          body: BlocProvider<SignupCubit>(
+            create: (_) => signupCubit,
+            child: const RegisterPage(),
+          ),
         ),
       ),
     );
@@ -45,10 +46,10 @@ void main() async {
 
   group('Register Page UI Test', () {
     testWidgets('should render all main UI elements', (tester) async {
-      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
 
-      expect(find.text(LocaleKeys.heyThere), findsOneWidget);
+      expect(find.text('heyThere'), findsOneWidget);
       expect(find.text(LocaleKeys.createAnAccount), findsOneWidget);
       expect(find.text(LocaleKeys.register), findsNWidgets(2));
       expect(find.byType(Form), findsOneWidget);
@@ -62,20 +63,20 @@ void main() async {
     testWidgets('should validate form and not submit when empty', (
       tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
       await tester.tap(find.byType(ElevatedButton));
       await tester.pump();
 
-      expect(find.textContaining(LocaleKeys.emailRequired), findsOneWidget);
-      expect(find.textContaining(LocaleKeys.lastNameRequired), findsOneWidget);
-      expect(find.textContaining(LocaleKeys.firstNameRequired), findsOneWidget);
-      expect(find.textContaining(LocaleKeys.passwordRequired), findsOneWidget);
-      expect(find.textContaining(LocaleKeys.register), findsNWidgets(2));
+      expect(find.textContaining('emailRequired'), findsOneWidget);
+      expect(find.textContaining('lastNameRequired'), findsOneWidget);
+      expect(find.textContaining('firstNameRequired'), findsOneWidget);
+      expect(find.textContaining('passwordRequired'), findsOneWidget);
+      expect(find.textContaining('register'), findsNWidgets(2));
     });
 
     testWidgets('should enter text in fields', (tester) async {
-      await tester.pumpWidget(buildTestableWidget());
+      await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
 
       final fields = find.byType(TextFormField);

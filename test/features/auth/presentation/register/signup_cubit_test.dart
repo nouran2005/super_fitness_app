@@ -40,7 +40,7 @@ void main() {
   group('SignupCubit - initial state', () {
     test('initial state has correct defaults', () {
       expect(cubit.state.signupResource.status, Status.initial);
-      expect(cubit.state.currentStep, SignupStep.gender);
+      expect(cubit.state.currentStep, SignupStep.basicInfo);
       expect(cubit.state.gender, isNull);
       expect(cubit.state.age, isNull);
       expect(cubit.state.weight, isNull);
@@ -138,7 +138,7 @@ void main() {
         isA<SignupStates>().having(
           (s) => s.currentStep,
           'currentStep',
-          SignupStep.age,
+          SignupStep.gender,
         ),
       ],
     );
@@ -170,7 +170,7 @@ void main() {
     blocTest<SignupCubit, SignupStates>(
       'does not go before first step',
       build: () => SignupCubit(mockSignupUseCase),
-      seed: () => SignupStates(currentStep: SignupStep.gender),
+      seed: () => SignupStates(currentStep: SignupStep.basicInfo),
       act: (c) => c.doIntent(MoveToPreviousStep()),
       expect: () => [],
     );
@@ -200,12 +200,16 @@ void main() {
       },
       seed: () => SignupStates(
         currentStep: SignupStep.activityLevel,
-        gender: 'male',
+        firstName: 'mariam',
+        lastName: 'mohamed',
+        email: 'mariam@gmail.com',
+        password: 'Mariam@123',
+        gender: 'female',
         age: 25,
         weight: 70,
         height: 175,
         goal: 'loseWeight',
-        activityLevel: 'intermediate',
+        activityLevel: 'level1',
       ),
       act: (c) => c.doIntent(PerformSignup()),
       expect: () => [
@@ -245,12 +249,16 @@ void main() {
       },
       seed: () => SignupStates(
         currentStep: SignupStep.activityLevel,
-        gender: 'male',
+        firstName: 'mariam',
+        lastName: 'mohamed',
+        email: 'mariam@gmail.com',
+        password: 'Mariam@123',
+        gender: 'female',
         age: 25,
         weight: 70,
         height: 175,
         goal: 'loseWeight',
-        activityLevel: 'intermediate',
+        activityLevel: 'level1',
       ),
       act: (c) => c.doIntent(PerformSignup()),
       expect: () => [
@@ -275,7 +283,17 @@ void main() {
       'walks through all onboarding steps correctly',
       build: () => SignupCubit(mockSignupUseCase),
       act: (c) {
-        c.doIntent(SetGender('male'));
+        c.doIntent(
+          SetBasicInfo(
+            firstName: 'mariam',
+            lastName: 'mohamed',
+            email: 'mariam@gmail.com',
+            password: 'Mariam@123',
+            rePassword: 'Mariam@123',
+          ),
+        );
+        c.doIntent(MoveToNextStep());
+        c.doIntent(SetGender('female'));
         c.doIntent(MoveToNextStep());
         c.doIntent(SetAge(25));
         c.doIntent(MoveToNextStep());
@@ -285,10 +303,16 @@ void main() {
         c.doIntent(MoveToNextStep());
         c.doIntent(SetGoal('loseWeight'));
         c.doIntent(MoveToNextStep());
-        c.doIntent(SetActivityLevel('intermediate'));
+        c.doIntent(SetActivityLevel('level1'));
       },
       expect: () => [
-        isA<SignupStates>().having((s) => s.gender, 'gender', 'male'),
+        isA<SignupStates>().having((s) => s.firstName, 'firstName', 'mariam'),
+        isA<SignupStates>().having(
+          (s) => s.currentStep,
+          'step',
+          SignupStep.gender,
+        ),
+        isA<SignupStates>().having((s) => s.gender, 'gender', 'female'),
         isA<SignupStates>().having(
           (s) => s.currentStep,
           'step',
@@ -321,7 +345,7 @@ void main() {
         isA<SignupStates>().having(
           (s) => s.activityLevel,
           'activityLevel',
-          'intermediate',
+          'level1',
         ),
       ],
     );

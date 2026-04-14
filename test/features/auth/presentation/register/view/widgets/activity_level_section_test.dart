@@ -1,5 +1,5 @@
-import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,12 +22,12 @@ class TestAssetLoader extends AssetLoader {
   Future<Map<String, dynamic>?> load(String path, Locale locale) async {
     return {
       "physicalActivityLevelQuestion": "Your regular physical activity level?",
-      "rookie": "Rookie",
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advance": "Advance",
-      "trueBeast": "True Beast",
-      "finish": "Finish",
+      "level1": "level1",
+      "level2": "level2",
+      "level3": "level3",
+      "level4": "level4",
+      "level5": "level5",
+      "level6": "level6",
     };
   }
 }
@@ -64,11 +64,11 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('physicalActivityLevelQuestion'), findsOneWidget);
-      expect(find.text('rookie'), findsOneWidget);
-      expect(find.text('beginner'), findsOneWidget);
-      expect(find.text('intermediate'), findsOneWidget);
-      expect(find.text('advance'), findsOneWidget);
-      expect(find.text('trueBeast'), findsOneWidget);
+      expect(find.text('level1'), findsOneWidget);
+      expect(find.text('level2'), findsOneWidget);
+      expect(find.text('level3'), findsOneWidget);
+      expect(find.text('level4'), findsOneWidget);
+      expect(find.text('level5'), findsOneWidget);
     });
 
     testWidgets('Finish button is disabled when no level is selected', (
@@ -95,10 +95,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('intermediate'));
+      await tester.tap(find.text('level2'));
       await tester.pump();
 
-      expect(cubit.state.activityLevel, 'intermediate');
+      expect(cubit.state.activityLevel, 'level2');
     });
 
     testWidgets('Finish button is enabled after a level is selected', (
@@ -128,6 +128,19 @@ void main() {
       (tester) async {
         final mockUseCase = MockSignupUseCase();
 
+        final router = GoRouter(
+          routes: [
+            GoRoute(
+              path: '/',
+              builder: (context, state) => const ActivityLevelSection(),
+            ),
+            GoRoute(
+              path: '/home',
+              builder: (context, state) =>
+                  const Scaffold(body: Text('Home Screen')),
+            ),
+          ],
+        );
         when(
           () => mockUseCase.execute(
             firstName: any(named: 'firstName'),
@@ -148,18 +161,37 @@ void main() {
           ..emit(
             SignupStates(
               currentStep: SignupStep.activityLevel,
-              gender: 'male',
+              firstName: 'mariam',
+              lastName: 'mohamed',
+              email: 'mariammmm@gmail.com',
+              password: 'Mariam@123',
+              gender: 'female',
               age: 25,
               weight: 70,
               height: 175,
               goal: 'loseWeight',
-              activityLevel: 'intermediate',
+              activityLevel: 'level1',
             ),
           );
 
         await tester.pumpWidget(
-          buildTestWidget(child: const ActivityLevelSection(), cubit: cubit),
+          EasyLocalization(
+            supportedLocales: const [Locale('en'), Locale('ar')],
+            path: 'assets/translations',
+            fallbackLocale: const Locale('en'),
+            assetLoader: const TestAssetLoader(),
+            child: BlocProvider<SignupCubit>.value(
+              value: cubit,
+              child: MaterialApp.router(
+                routerConfig: router,
+                builder: (context, child) {
+                  return Scaffold(body: child);
+                },
+              ),
+            ),
+          ),
         );
+
         await tester.pumpAndSettle();
 
         final finishButtonFinder = find.widgetWithText(
@@ -185,6 +217,8 @@ void main() {
             activityLevel: any(named: 'activityLevel'),
           ),
         ).called(1);
+
+        expect(find.text('Home Screen'), findsOneWidget);
       },
     );
   });
