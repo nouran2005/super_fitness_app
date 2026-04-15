@@ -41,11 +41,14 @@ dependencies:
   go_router: ^17.1.0
   injectable: ^2.7.1+4
   intl: ^0.20.2
-  json_annotation: ^4.9.0
+  json_annotation: ^4.11.0
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.5.1
   shared_preferences: ^2.2.2
   lottie: ^3.3.2
+  toastification: 
+  flutter_spinkit:
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   bloc_test: ^10.0.0
@@ -122,3 +125,12 @@ flutter_launcher_icons:
   # This creates the "Adaptive Icon" for modern Android devices
   adaptive_icon_background: "#1A2026" 
   adaptive_icon_foreground: "assets/images/app_icon.png"
+
+
+flutter_native_splash:
+  color: "#242424"
+  image: assets/images/splash_screen.png
+
+  android_12:
+    image: assets/images/splash_android12.png
+    icon_background_color: "#242424"

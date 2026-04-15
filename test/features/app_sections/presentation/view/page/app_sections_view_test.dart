@@ -12,7 +12,7 @@ import '../../../../../helpers/pump_app.dart';
 void main() {
   group('AppSectionsView', () {
     Future<void> pumpView(WidgetTester tester, AppSectionsCubit cubit) async {
-      await tester.pumpApp(
+      await tester.pumpLocalizedWidget(
         BlocProvider.value(value: cubit, child: const AppSectionsView()),
       );
       await tester.pumpAndSettle();

@@ -78,5 +78,26 @@
   "cannotBeSame": "New password cannot be the same as current",
   "genderRequired": "Gender is required",
   "something_went_wrong": "Something went wrong",
-  "resend": "Retry"
+  "resend": "Retry",
+
+  "next": "Next",
+  "back": "Back",
+  "skip": "Skip",
+  "doIt": "Do It",
+  "descriptionOnboarding": "Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa",
+  "titleOnboarding1": "The Price Of Excellence Is Discipline",
+  "titleOnboarding2": "Fitness has never been so much fun",
+  "titleOnboarding3": "NO MORE EXCUSES\n Do It Now",
+
+  "resend": "Retry",
+
+  "field_cant_be_empty": "This field cannot be empty",
+  "password_length": "Password must be between 6 and 30 characters",
+  "name_validation": "Name must be at least 2 characters",
+  "heyThere": "Hey There",
+  "welcomeBack": "Welcome Back",
+  "signIn": "Sign in",
+  "dontHaveAccount": "Don't have an account yet?",
+  "registerNow": "Register",
+  "welcome_back": "Welcome back, "
 }

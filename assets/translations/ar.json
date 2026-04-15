@@ -78,5 +78,26 @@
   "cannotBeSame": "لا يمكن أن تكون كلمة المرور الجديدة مثل الحالية",
   "genderRequired": "النوع مطلوب",
   "something_went_wrong": "حدث خطأ ما",
-  "resend": "إعادة المحاولة"
+  "resend": "إعادة المحاولة",
+
+  "next": "التالي",
+  "back": "السابق",
+  "skip": "تخطي",
+  "doIt": "افعلها",
+  "descriptionOnboarding": "Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa",
+  "titleOnboarding1": "ثمن التميز هو الانضباط",
+  "titleOnboarding2": "اللياقة البدنية لم تكن ممتعة من قبل",
+  "titleOnboarding3": "لا مزيد من الأعذار، افعلها الآن",
+
+  "resend": "إعادة المحاولة",
+
+  "field_cant_be_empty": "هذا الحقل لا يمكن أن يكون فارغًا",
+  "password_length": "يجب أن تتكون كلمة المرور من 6 إلى 30 حرفًا",
+  "name_validation": "يجب أن يكون الاسم 2 أحرف على الأقل",
+  "heyThere": "مرحبا بك",
+  "welcomeBack": "أهلا وسهلا",
+  "signIn": "تسجيل الدخول",
+  "dontHaveAccount": "ليس لديك حساب بعد؟",
+  "registerNow": "تسجيل",
+  "welcome_back": "أهلا وسهلا, "
 }
