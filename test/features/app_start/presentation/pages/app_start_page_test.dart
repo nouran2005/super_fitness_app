@@ -9,7 +9,8 @@ import 'package:super_fitness_app/features/app_start/presentation/manager/app_cu
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_states.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/features/onboarding/presentation/pages/onboarding_page.dart';
-import 'package:super_fitness_app/features/onboarding/presentation/pages/home_page.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view/page/app_sections_view.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'app_start_page_test.mocks.dart';
 
 @GenerateMocks([AppCubit])
@@ -28,8 +29,11 @@ void main() {
 
   Widget buildTestableWidget() {
     return MaterialApp(
-      home: BlocProvider<AppCubit>.value(
-        value: mockCubit,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<AppCubit>.value(value: mockCubit),
+          BlocProvider<AppSectionsCubit>(create: (_) => AppSectionsCubit()),
+        ],
         child: const AppStartPage(),
       ),
     );
@@ -63,7 +67,9 @@ void main() {
       expect(find.byType(OnboardingPage), findsOneWidget);
     });
 
-    testWidgets('shows HomePage when NOT first time user', (tester) async {
+    testWidgets('shows AppSectionsView when NOT first time user', (
+      tester,
+    ) async {
       when(
         mockCubit.state,
       ).thenReturn(AppState(authResource: Resource.success(false)));
@@ -74,7 +80,7 @@ void main() {
       await tester.pumpWidget(buildTestableWidget());
       await tester.pump();
 
-      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.byType(AppSectionsView), findsOneWidget);
     });
   });
 }
