@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
+import 'package:super_fitness_app/features/signin/data/models/post/signin_post_model.dart';
+import 'package:super_fitness_app/features/signin/data/models/response/signin_response.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/forget_password_request_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/reset_password_request_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/verify_code_request_model.dart';
@@ -13,6 +15,11 @@ part 'api_client.g.dart';
 @RestApi(baseUrl: AppEndpoints.baseUrl)
 abstract class ApiClient {
   factory ApiClient(Dio dio) = _ApiClient;
+
+  @POST("${AppEndpoints.authPath}/${AppEndpoints.signInPath}")
+  Future<HttpResponse<SigninResponse>> signIn(
+    @Body() SigninPostModel loginRequest,
+  );
 
   @POST(AppEndpoints.forgotPasswordPath)
   Future<HttpResponse<ForgotPasswordResponseModel>> forgotPassword(
