@@ -135,9 +135,9 @@ void main() {
               builder: (context, state) => const ActivityLevelSection(),
             ),
             GoRoute(
-              path: '/home',
+              path: '/signin',
               builder: (context, state) =>
-                  const Scaffold(body: Text('Home Screen')),
+                  const Scaffold(body: Text('Login Screen')),
             ),
           ],
         );
@@ -218,7 +218,7 @@ void main() {
           ),
         ).called(1);
 
-        expect(find.text('Home Screen'), findsOneWidget);
+        expect(find.text('Login Screen'), findsOneWidget);
       },
     );
   });
