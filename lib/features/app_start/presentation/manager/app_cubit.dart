@@ -21,8 +21,29 @@ class AppCubit extends Cubit<AppState> {
     emit(state.copyWith(authResource: Resource.loading()));
     try {
       final isFirstTime = await _authStorage.isFirstTimeUser();
-      emit(state.copyWith(authResource: Resource.success(isFirstTime)));
-      await _authStorage.setNotFirstTime();
+      if (isFirstTime) {
+        emit(
+          state.copyWith(
+            authResource: Resource.success(AppAuthStatus.onboarding),
+          ),
+        );
+        await _authStorage.setNotFirstTime();
+      } else {
+        final token = await _authStorage.getToken();
+        if (token != null && token.isNotEmpty) {
+          emit(
+            state.copyWith(
+              authResource: Resource.success(AppAuthStatus.authenticated),
+            ),
+          );
+        } else {
+          emit(
+            state.copyWith(
+              authResource: Resource.success(AppAuthStatus.unauthenticated),
+            ),
+          );
+        }
+      }
     } catch (e) {
       emit(state.copyWith(authResource: Resource.error(e.toString())));
     }

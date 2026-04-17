@@ -4,7 +4,7 @@ class AppEndpoints {
   static const String authPath = 'auth';
   // AUTH PATHS
   static const String signInPath = 'signin';
-  static const String signupPath = 'signup';
+  static const String signupPath = 'auth/signup';
   static const String changePasswordPath = 'change-password';
   static const String verifyResetCodePath = 'verifyResetCode';
   static const String resetPasswordPath = 'resetPassword';

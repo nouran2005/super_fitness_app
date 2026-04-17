@@ -160,6 +160,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return IconTheme(
       data: iconTheme,
       child: TextFormField(
+        onTapOutside: (event) => FocusScope.of(context).unfocus(),
         controller: widget.controller,
         initialValue: widget.initialValue,
         focusNode: widget.focusNode,
