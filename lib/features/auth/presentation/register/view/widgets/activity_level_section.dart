@@ -40,7 +40,7 @@ class ActivityLevelSection extends StatelessWidget {
             LocaleKeys.registerSuccessfully.tr(),
             backgroundColor: AppColors.primary,
           );
-          context.push(RouteNames.home);
+          context.go(RouteNames.login);
         } else if (state.signupResource.status == Status.error) {
           showAppSnackbar(
             context,

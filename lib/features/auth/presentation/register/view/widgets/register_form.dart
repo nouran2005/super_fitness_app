@@ -98,7 +98,7 @@ class _RegisterFormState extends State<RegisterForm> {
             SizedBox(height: height * 0.01),
             GestureDetector(
               onTap: () {
-                context.push(RouteNames.login);
+                context.go(RouteNames.login);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
