@@ -1,6 +1,8 @@
 // TODO: presentation SigninBody
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/utils/validations.dart';
@@ -125,7 +127,9 @@ class _SigninBodyState extends State<SigninBody> {
                           text: LocaleKeys.registerNow.tr(),
                           padding: const EdgeInsets.symmetric(horizontal: 6),
                           alignment: Alignment.centerLeft,
-                          onTap: () {},
+                          onTap: () {
+                            context.go(RouteNames.signup);
+                          },
                           fontWeight: FontWeight.w800,
                         ),
                       ],

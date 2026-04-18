@@ -1,3 +1,4 @@
+import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 
@@ -11,9 +12,12 @@ class AuthBlurryBackground extends StatelessWidget {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
-
         children: [
           Image.asset(image ?? Assets.imagesAuthBackground2, fit: BoxFit.cover),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(color: Colors.black.withAlpha(100)),
+          ),
           widget,
         ],
       ),
