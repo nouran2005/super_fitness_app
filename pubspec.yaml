@@ -60,7 +60,7 @@ dev_dependencies:
   injectable_generator: ^2.4.1
   json_serializable: any
   mockito: ^5.4.4
-  retrofit_generator: 10.2.0
+  retrofit_generator: ^10.2.5
   network_image_mock: ^2.1.1
   mocktail: ^1.0.3
   flutter_launcher_icons:

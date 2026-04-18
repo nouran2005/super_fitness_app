@@ -45,7 +45,7 @@ class _ApiClient implements ApiClient {
     try {
       _value = SigninResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, _result);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     final httpResponse = HttpResponse(_value, _result);
@@ -74,7 +74,7 @@ class _ApiClient implements ApiClient {
     try {
       _value = SignupDto.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, _result);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     final httpResponse = HttpResponse(_value, _result);
@@ -105,7 +105,7 @@ class _ApiClient implements ApiClient {
     try {
       _value = ForgotPasswordResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, _result);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     final httpResponse = HttpResponse(_value, _result);
@@ -136,7 +136,7 @@ class _ApiClient implements ApiClient {
     try {
       _value = VerifyCodeResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, _result);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     final httpResponse = HttpResponse(_value, _result);
@@ -167,7 +167,7 @@ class _ApiClient implements ApiClient {
     try {
       _value = ResetPasswordResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, _result);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     final httpResponse = HttpResponse(_value, _result);
