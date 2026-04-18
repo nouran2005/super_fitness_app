@@ -11,10 +11,5 @@ final getIt = GetIt.instance;
   asExtension: true,
 )
 Future<void> configureDependencies() async {
-  if (!getIt.isRegistered<SharedPreferences>()) {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
-  }
-
-  getIt.init();
+  await getIt.init();
 }
