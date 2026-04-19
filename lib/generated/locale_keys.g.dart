@@ -120,4 +120,16 @@ abstract class LocaleKeys {
   static const level3 = 'level3';
   static const level4 = 'level4';
   static const level5 = 'level5';
+  static const enterYourEmail = 'enterYourEmail';
+  static const forgetPassword = 'forgetPassword';
+  static const sendOTP = 'sendOTP';
+  static const otpCode = 'otpCode';
+  static const enterYourOtpCheckYourEmail = 'enterYourOtpCheckYourEmail';
+  static const didntReceiveVerificationCode = 'didntReceiveVerificationCode';
+  static const resendCode = 'resendCode';
+  static const pleaseEnterTheCompleteOtpCode = 'pleaseEnterTheCompleteOtpCode';
+  static const makeSureIts8CharactersOrMore = 'makeSureIts8CharactersOrMore';
+  static const createNewPassword = 'createNewPassword';
+  static const done = 'done';
+  static const passwordResetSuccess = 'passwordResetSuccess';
 }

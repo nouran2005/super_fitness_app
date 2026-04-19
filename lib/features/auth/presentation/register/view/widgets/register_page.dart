@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Stack(
         children: [
-          Image.asset(Assets.imagesBackgroundAuth2, fit: BoxFit.cover),
+          Image.asset(Assets.imagesAuthBackground2, fit: BoxFit.cover),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/router/app_router.dart';
 import 'package:super_fitness_app/app/core/ui_helper/theme/app_theme.dart';
@@ -20,6 +21,7 @@ Future<void> main() async {
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
+      startLocale: const Locale('en'),
       child: const SuperFitnessApp(),
     ),
   );

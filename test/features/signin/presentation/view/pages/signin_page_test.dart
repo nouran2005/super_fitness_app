@@ -53,10 +53,10 @@ void main() {
           .map((image) => image.image)
           .whereType<AssetImage>()
           .firstWhere(
-            (provider) => provider.assetName == Assets.imagesBackgroundAuth2,
+            (provider) => provider.assetName == Assets.imagesAuthBackground2,
           );
 
-      expect(backgroundImage.assetName, Assets.imagesBackgroundAuth2);
+      expect(backgroundImage.assetName, Assets.imagesAuthBackground2);
     });
   });
 }

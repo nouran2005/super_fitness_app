@@ -110,6 +110,7 @@
   "titleOnboarding1": "ثمن التميز هو الانضباط",
   "titleOnboarding2": "اللياقة البدنية لم تكن ممتعة من قبل",
   "titleOnboarding3": "لا مزيد من الأعذار، افعلها الآن",
+  "resend": "إعادة المحاولة",
   "field_cant_be_empty": "هذا الحقل لا يمكن أن يكون فارغًا",
   "password_length": "يجب أن تتكون كلمة المرور من 6 إلى 30 حرفًا",
   "name_validation": "يجب أن يكون الاسم 2 أحرف على الأقل",
@@ -118,5 +119,18 @@
   "signIn": "تسجيل الدخول",
   "dontHaveAccount": "ليس لديك حساب بعد؟",
   "registerNow": "تسجيل",
-  "welcome_back": "أهلا وسهلا, "
+  "welcome_back": "أهلا وسهلا, ",
+  "resend": "إعادة المحاولة",
+  "enterYourEmail": "أدخل بريدك الإلكتروني",
+  "forgetPassword": "نسيت كلمة المرور",
+  "sendOTP": "أرسل رمز التحقق",
+  "otpCode": "رمز التحقق",
+  "enterYourOtpCheckYourEmail": "أدخل رمز التحقق الخاص بك. يرجى التحقق من بريدك الإلكتروني.",
+  "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
+  "resendCode": "إعادة إرسال الرمز",
+  "pleaseEnterTheCompleteOtpCode": "يرجى إدخال رمز التحقق الكامل",
+  "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "done": "تم",
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
 }

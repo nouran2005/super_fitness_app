@@ -13,7 +13,7 @@ class AuthBlurryBackground extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(image ?? Assets.imagesBackgroundAuth2, fit: BoxFit.cover),
+          Image.asset(image ?? Assets.imagesAuthBackground2, fit: BoxFit.cover),
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: Container(color: Colors.black.withAlpha(100)),

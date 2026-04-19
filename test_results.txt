@@ -1,2 +1,905 @@
-00:00 +0: loading D:/MyFlutterProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart
-Terminate batch job (Y/N)? 
+﻿00:00 +0: loading D:/studioProjects/super_fitness_app/test/app/core/widgets/form_fields/custom_form_field_test.dart
+00:00 +0: D:/studioProjects/super_fitness_app/test/app/core/widgets/form_fields/custom_form_field_test.dart: CustomTextFormField renders hint text, prefix icon, and forwards input changes
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +1: D:/studioProjects/super_fitness_app/test/app/core/widgets/primary_button_test.dart: PrimaryButton renders its label and triggers the callback when enabled
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +2: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +2: D:/studioProjects/super_fitness_app/test/app/core/widgets/primary_button_test.dart: PrimaryButton is disabled when isEnabled is false
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +3: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +3: D:/studioProjects/super_fitness_app/test/app/core/widgets/primary_button_test.dart: PrimaryButton is disabled without a callback and keeps its layout values
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +4: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +4: D:/studioProjects/super_fitness_app/test/app/core/widgets/form_fields/custom_form_field_test.dart: CustomTextFormField shows a password toggle and changes obscureText when tapped
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +5: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +6: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +7: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +8: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +9: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+00:01 +9: D:/studioProjects/super_fitness_app/test/app/core/widgets/form_fields/custom_form_field_test.dart: CustomTextFormField does not show a visibility toggle for a normal field
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +10: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView uses the cubit state to choose the visible section
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +11: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar_test.dart: AppSectionsNavItem shows the label when the item is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +12: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/widgets/app_section_placeholder_test.dart: AppSectionPlaceholder renders the provided content with the expected styling
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +13: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/page/app_sections_view_test.dart: AppSectionsView changes the page when a destination is tapped
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +14: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar_test.dart: AppSectionsNavItem hides the label and forwards taps when unselected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:01 +15: D:/studioProjects/super_fitness_app/test/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar_test.dart: AppSectionsBottomNavBar renders all destinations and reports tapped indexes
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:02 +16: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +17: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +18: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +19: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +20: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +21: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +22: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +23: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +24: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +25: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +26: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +27: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +28: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +29: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows loading widget when loading
+00:02 +30: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+00:02 +31: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+00:02 +32: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+00:02 +33: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+00:02 +34: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+00:02 +35: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows OnboardingPage when first time user
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:02 +36: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +37: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +38: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +39: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +40: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +41: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +42: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +43: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +44: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +45: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows HomePage when NOT first time user
+00:03 +46: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/signup_cubit_test.dart: MoveToNextStep does not go beyond last step
+00:03 +47: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/signup_cubit_test.dart: MoveToPreviousStep goes back to previous step when MoveToPreviousStep is called
+00:03 +48: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+00:03 +49: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+00:03 +50: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+00:03 +51: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+00:03 +52: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+00:03 +52: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:03 +52: D:/studioProjects/super_fitness_app/test/features/app_start/presentation/pages/app_start_page_test.dart: AppStartPage Widget Test shows SigninPage when unauthenticated
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [heyThere] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [welcomeBack] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [forgotPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [signIn] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [dontHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [registerNow] not found[0m
+00:03 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection renders title and all activity level options
+00:03 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:03 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection renders title and all activity level options
+00:03 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:03 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection renders title and all activity level options
+00:04 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:04 +53: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection renders title and all activity level options
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+00:04 +54: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection renders titles and wheel picker label correctly
+00:04 +54: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:04 +54: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection renders titles and wheel picker label correctly
+00:04 +54: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection Finish button is disabled when no level is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+00:04 +55: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection renders titles and wheel picker label correctly
+00:04 +55: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping an activity level updates cubit state
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+00:04 +56: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection renders titles and wheel picker label correctly
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [howOldAreYou] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [year] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +57: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection renders titles and gender items correctly
+00:04 +57: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection Finish button is enabled after a level is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+00:04 +58: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection renders titles and gender items correctly
+00:04 +58: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection Next button is disabled when age is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [howOldAreYou] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [year] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +59: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection renders titles and gender items correctly
+00:04 +59: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection Next button is enabled when age is set
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [howOldAreYou] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [year] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +60: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection renders titles and gender items correctly
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [tellUsAboutYourself] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [needToKnowGender] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +61: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection renders title, subtitle and all goal options
+00:04 +61: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection Next button is disabled when no gender is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [tellUsAboutYourself] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [needToKnowGender] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection renders title, subtitle and all goal options
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection tapping Next when age is set advances to weight step
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [howOldAreYou] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [year] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [howOldAreYou] not found[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection tapping Next when age is set advances to weight step
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection tapping Next when age is set advances to weight step
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [year] not found[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/age_section_test.dart: AgeSection tapping Next when age is set advances to weight step
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:04 +62: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+00:04 +63: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection renders title, subtitle and all goal options
+00:04 +63: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [registerSuccessfully] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [physicalActivityLevelQuestion] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+00:04 +63: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection renders title, subtitle and all goal options
+00:04 +63: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/activity_level_section_test.dart: ActivityLevelSection tapping Finish when level is set calls SignupUseCase.execute
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [finish] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level4] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [level5] not found[0m
+00:04 +64: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection renders title, subtitle and all goal options
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+00:05 +65: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection renders titles and wheel picker label correctly
+00:05 +65: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection tapping Male dispatches SetGender(male)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [tellUsAboutYourself] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [needToKnowGender] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +66: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection renders titles and wheel picker label correctly
+00:05 +66: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is disabled when no goal is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+00:05 +67: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection renders titles and wheel picker label correctly
+00:05 +67: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/gender_section_test.dart: GenderSection tapping Female dispatches SetGender(female)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [tellUsAboutYourself] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [needToKnowGender] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +68: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection renders titles and wheel picker label correctly
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourHeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [cm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +69: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+00:05 +69: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection tapping a goal option updates cubit state
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourHeight] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [cm] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+00:05 +70: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is disabled when height is null
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +71: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+00:05 +71: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection Next button is enabled after a goal is selected
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+00:05 +72: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+00:05 +72: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection Next button is enabled when height is set
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourHeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [cm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +73: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+00:05 +73: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/goal_section_test.dart: GoalSection tapping Next when goal is set advances to activityLevel step
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourGoal] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [loseWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [getFitter] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [gainMoreFlexibility] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [learnTheBasics] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [heyThere] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection tapping Next when height is set advances to goal step
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourHeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [cm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourHeight] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createAnAccount] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection tapping Next when height is set advances to goal step
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+00:05 +74: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/height_section_test.dart: HeightSection tapping Next when height is set advances to goal step
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [cm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:05 +75: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should render all main UI elements
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [alreadyHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+00:05 +76: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:05 +76: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: (setUpAll)
+[90m[­ƒîÄ Easy Localization] [DEBUG] Localization initialized[0m
+00:05 +76: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +77: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +78: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +79: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +80: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +81: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +82: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +83: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +84: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+00:06 +85: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should validate form and not submit when empty
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [heyThere] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createAnAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [alreadyHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstNameRequired] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastNameRequired] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailRequired] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [passwordRequired] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [alreadyHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+00:06 +86: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +87: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +88: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +89: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +90: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +91: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +92: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+00:06 +92: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/register_page_test.dart: Register Page UI Test should enter text in fields
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [heyThere] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createAnAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [alreadyHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailInvalid] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailInvalid] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [passwordLengthInvalid] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [register] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [alreadyHaveAccount] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [login] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [firstName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [lastName] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailInvalid] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [passwordLengthInvalid] not found[0m
+00:06 +93: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection renders titles and wheel picker label correctly
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [kg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:06 +94: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:06 +94: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection Next button is disabled when weight is null
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [kg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:06 +95: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +95: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection Next button is enabled when weight is set
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [kg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:07 +96: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +97: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +98: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +99: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +100: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +101: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +102: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +103: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +103: D:/studioProjects/super_fitness_app/test/features/auth/presentation/register/view/widgets/weight_section_test.dart: WeightSection tapping Next when weight is set advances to height step
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [kg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [whatIsYourWeight] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [personalizedPlanMsg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [kg] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:07 +104: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +105: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+00:07 +105 -1: loading D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/pages/signin_page_test.dart [E]
+  Failed to load "D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/pages/signin_page_test.dart":
+  Compilation failed for testPath=D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/pages/signin_page_test.dart: test/features/signin/presentation/view/pages/signin_page_test.dart:56:56: Error: Member not found: 'imagesBackgroundAuth2'.
+              (provider) => provider.assetName == Assets.imagesBackgroundAuth2,
+                                                         ^^^^^^^^^^^^^^^^^^^^^
+  test/features/signin/presentation/view/pages/signin_page_test.dart:59:48: Error: Member not found: 'imagesBackgroundAuth2'.
+        expect(backgroundImage.assetName, Assets.imagesBackgroundAuth2);
+                                                 ^^^^^^^^^^^^^^^^^^^^^
+  .
+00:07 +105 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests renders all fields and button
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [makeSureIts8CharactersOrMore] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createNewPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirmPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [done] not found[0m
+00:07 +106 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/forget_password_screens_test.dart: ForgetPassword feature screens ForgetPasswordScreen renders and validates email
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [enterYourEmail] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [forgetPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [email] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [sendOTP] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailRequired] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [emailInvalid] not found[0m
+00:08 +107 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/verify_reset_code_screen_test.dart: VerifyResetCodeScreen Tests renders correctly
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [otpCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [enterYourOtpCheckYourEmail] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [didntReceiveVerificationCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [resendCode] not found[0m
+00:08 +108 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +109 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +110 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +111 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +112 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +113 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+00:08 +113 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/verify_reset_code_screen_test.dart: VerifyResetCodeScreen Tests shows snackbar if OTP is incomplete
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [otpCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [enterYourOtpCheckYourEmail] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [didntReceiveVerificationCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [resendCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [pleaseEnterTheCompleteOtpCode] not found[0m
+00:08 +114 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests shows validation error when passwords do not match
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [makeSureIts8CharactersOrMore] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createNewPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirmPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [done] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [passwordsDoNotMatch] not found[0m
+00:08 +115 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should display first page correctly
+00:08 +115 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/verify_reset_code_screen_test.dart: VerifyResetCodeScreen Tests calls VerifyCodeProcessEvent with complete OTP
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [otpCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [enterYourOtpCheckYourEmail] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [didntReceiveVerificationCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [resendCode] not found[0m
+00:08 +116 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should display first page correctly
+00:08 +116 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/reset_password_screen_test.dart: ResetPasswordScreen Tests calls ResetPasswordProcessEvent when form is valid
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [makeSureIts8CharactersOrMore] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [createNewPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [password] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirmPassword] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [done] not found[0m
+00:08 +117 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should display first page correctly
+00:08 +117 -1: D:/studioProjects/super_fitness_app/test/features/forget_password/presentation/views/verify_reset_code_screen_test.dart: VerifyResetCodeScreen Tests calls ForgetPasswordProcessEvent when Resend is tapped
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [otpCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [enterYourOtpCheckYourEmail] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [confirm] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [didntReceiveVerificationCode] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [resendCode] not found[0m
+00:08 +118 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should display first page correctly
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:08 +119 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests navigate to second page
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:09 +120 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests navigate to third page
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [doIt] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [doIt] not found[0m
+00:09 +121 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should navigate to login when skip is pressed
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+00:09 +122 -1: D:/studioProjects/super_fitness_app/test/features/onboarding/presentation/pages/onboarding_page_test.dart: OnboardingPage Widget Tests should navigate to login on last page
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding1] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding2] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [titleOnboarding3] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [descriptionOnboarding] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [next] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [skip] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [doIt] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [back] not found[0m
+[34m[­ƒîÄ Easy Localization] [WARNING] Localization key [doIt] not found[0m
+00:09 +123 -1: D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/widgets/signin_body_test.dart: SigninBody renders the expected sign in content
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:10 +124 -1: D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/widgets/signin_body_test.dart: SigninBody configures the email and password form fields correctly
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:10 +125 -1: D:/studioProjects/super_fitness_app/test/features/signin/presentation/view/widgets/signin_body_test.dart: SigninBody reveals the password when the visibility icon is tapped
+[90m[­ƒîÄ Easy Localization] [DEBUG] Start[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init state[0m
+[32m[­ƒîÄ Easy Localization] [INFO] Start locale loaded en[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Load Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Build[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init Localization Delegate[0m
+[90m[­ƒîÄ Easy Localization] [DEBUG] Init provider[0m
+00:11 +126 -1: Some tests failed.

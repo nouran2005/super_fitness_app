@@ -14,6 +14,7 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/page/a
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'app_start_page_test.mocks.dart';
 
 @GenerateMocks([AppCubit, SigninCubit])

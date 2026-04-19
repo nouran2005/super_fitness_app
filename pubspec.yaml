@@ -49,8 +49,8 @@ dependencies:
   toastification: 
   flutter_spinkit:
   flutter_native_splash: ^2.4.7
-  percent_indicator: ^4.2.2
-  
+  pin_code_fields: ^9.3.0
+  percent_indicator: ^4.2.5
 
 dev_dependencies:
   bloc_test: any
@@ -60,7 +60,7 @@ dev_dependencies:
   injectable_generator: ^2.4.1
   json_serializable: any
   mockito: ^5.4.4
-  retrofit_generator: ^10.2.3
+  retrofit_generator: ^10.2.5
   network_image_mock: ^2.1.1
   mocktail: ^1.0.3
   flutter_launcher_icons:
@@ -83,6 +83,7 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
+    - assets/jsons/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
