@@ -15,6 +15,7 @@ import 'package:super_fitness_app/features/auth/presentation/register/view/pages
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 
 final GoRouter appRouter = GoRouter(
+  navigatorKey: navigatorKey,
   initialLocation: RouteNames.signIn,
   routes: [
     GoRoute(

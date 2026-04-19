@@ -58,6 +58,7 @@ class _RegisterFormState extends State<RegisterForm> {
             Text(
               LocaleKeys.register.tr(),
               style: AppStyles.black24SemiBold.copyWith(
+                fontSize: 22,
                 color: AppColors.white,
                 fontWeight: FontWeight.w800,
               ),
@@ -70,35 +71,39 @@ class _RegisterFormState extends State<RegisterForm> {
               passwordController: passwordController,
             ),
             SizedBox(height: height * 0.03),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  cubit.doIntent(
-                    SetBasicInfo(
-                      firstName: firstNameController.text,
-                      lastName: lastNameController.text,
-                      email: emailController.text,
-                      password: passwordController.text,
-                      rePassword: passwordController.text,
-                    ),
-                  );
-                  cubit.doIntent(MoveToNextStep());
-                }
-                FocusScope.of(context).unfocus();
-              },
-              child: Text(
-                LocaleKeys.register.tr(),
-                style: AppStyles.black24SemiBold.copyWith(
-                  color: AppColors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w800,
+            SizedBox(
+              width: double.infinity,
+              height: height * 0.055,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    cubit.doIntent(
+                      SetBasicInfo(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                        rePassword: passwordController.text,
+                      ),
+                    );
+                    cubit.doIntent(MoveToNextStep());
+                  }
+                  FocusScope.of(context).unfocus();
+                },
+                child: Text(
+                  LocaleKeys.register.tr(),
+                  style: AppStyles.black24SemiBold.copyWith(
+                    color: AppColors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: height * 0.01),
+            SizedBox(height: height * 0.02),
             GestureDetector(
               onTap: () {
-                context.go(RouteNames.login);
+                context.push(RouteNames.login);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

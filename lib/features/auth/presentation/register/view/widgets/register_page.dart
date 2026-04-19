@@ -16,14 +16,13 @@ class RegisterPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Stack(
         children: [
-          Image.asset(Assets.imagesAuthBackground2, fit: BoxFit.cover),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: height * 0.03),
-                Image.asset(Assets.imagesAppIcon, height: height * 0.07),
+                Image.asset(Assets.imagesAppIcon, height: height * 0.09),
                 SizedBox(height: height * 0.03),
                 Text(
                   LocaleKeys.heyThere.tr(),
@@ -33,7 +32,7 @@ class RegisterPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: height * 0.01),
+
                 Text(
                   LocaleKeys.createAnAccount.tr(),
                   style: AppStyles.black14bold.copyWith(

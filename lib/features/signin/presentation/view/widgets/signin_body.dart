@@ -25,6 +25,10 @@ class _SigninBodyState extends State<SigninBody> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final w = size.width;
+    final h = size.height;
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Form(
@@ -32,22 +36,25 @@ class _SigninBodyState extends State<SigninBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 46),
-              Image.asset(Assets.appIcon, height: 120),
-              const SizedBox(height: 70),
+              SizedBox(height: h * 0.01),
+              Image.asset(Assets.appIcon, height: h * 0.10),
+              SizedBox(height: h * 0.08),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: w * 0.04),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       LocaleKeys.heyThere.tr(),
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(
+                        fontSize: w * 0.045,
+                        color: Colors.white,
+                      ),
                     ),
                     Text(
                       LocaleKeys.welcomeBack.tr(),
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: w * 0.05,
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
                       ),
@@ -55,35 +62,41 @@ class _SigninBodyState extends State<SigninBody> {
                   ],
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: h * 0.01),
               GlassBlurContainer(
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(w * 0.12),
                 borderColor: Colors.transparent,
                 blurSigma: 20,
-                // shadowColor: Colors.red,
                 backgroundColor: const Color(0x2424241A).withAlpha(25),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const SizedBox(height: 16),
                     Text(
                       LocaleKeys.login.tr(),
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: w * 0.06,
                         color: AppColors.white,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: h * 0.02),
                     CustomTextFormField(
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 18,
+                      ),
                       controller: widget.cubit.emailController,
                       validator: Validations.validateEmail,
                       hintText: LocaleKeys.email.tr(),
                       keyboardType: TextInputType.emailAddress,
                       prefixIcon: const Icon(Icons.mail_outline_rounded),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: h * 0.02),
                     CustomTextFormField(
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 18,
+                      ),
                       controller: widget.cubit.passwordController,
 
                       validator: Validations.validatePassword,
@@ -93,21 +106,22 @@ class _SigninBodyState extends State<SigninBody> {
 
                       prefixIcon: const Icon(Icons.lock_outline_rounded),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: h * 0.015),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         AuthTextLink(
-                          fontSize: 14,
-                          // fontWeight: FontWeight.w800,
-                          text: '${LocaleKeys.forgotPassword.tr()} ?',
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          fontSize: w * 0.035,
+                          text: LocaleKeys.forgotPassword.tr(),
+                          padding: EdgeInsets.symmetric(horizontal: w * 0.015),
                           alignment: Alignment.centerLeft,
-                          onTap: () {},
+                          onTap: () {
+                            context.push(RouteNames.forgetPassword);
+                          },
                         ),
                       ],
                     ),
-                    const SizedBox(height: 24),
+                    SizedBox(height: h * 0.03),
                     PrimaryButton(
                       text: LocaleKeys.signIn.tr(),
                       onPressed: () {
@@ -116,25 +130,24 @@ class _SigninBodyState extends State<SigninBody> {
                         }
                       },
                     ),
-                    const SizedBox(height: 24),
+                    SizedBox(height: h * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(LocaleKeys.dontHaveAccount.tr()),
                         AuthTextLink(
-                          fontSize: 14,
-                          // fontWeight: FontWeight.w800,
+                          fontSize: w * 0.035,
                           text: LocaleKeys.registerNow.tr(),
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          padding: EdgeInsets.symmetric(horizontal: w * 0.015),
                           alignment: Alignment.centerLeft,
                           onTap: () {
-                            context.go(RouteNames.signup);
+                            context.push(RouteNames.signup);
                           },
                           fontWeight: FontWeight.w800,
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: h * 0.01),
                   ],
                 ),
               ),

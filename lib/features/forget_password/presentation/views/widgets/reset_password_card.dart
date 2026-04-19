@@ -68,7 +68,7 @@ class _ResetPasswordCardState extends State<ResetPasswordCard> {
             LocaleKeys.passwordResetSuccess.tr(),
             backgroundColor: AppColors.success,
           );
-          context.go(RouteNames.login);
+          context.go(RouteNames.signIn);
         }
       },
       buildWhen: (previous, current) =>
