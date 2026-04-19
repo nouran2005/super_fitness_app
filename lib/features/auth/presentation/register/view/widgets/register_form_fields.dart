@@ -27,6 +27,10 @@ class RegisterFormFields extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.text,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -36,7 +40,7 @@ class RegisterFormFields extends StatelessWidget {
             color: AppColors.lightGrey,
             fontWeight: FontWeight.w400,
           ),
-          prefixIcon: ImageIcon(Image.asset(Assets.imagesUser).image),
+          prefixIcon: Icon(Icons.person_outline, color: AppColors.white70),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: firstNameController,
           labelText: LocaleKeys.firstName.tr(),
@@ -44,6 +48,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.text,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -53,7 +61,7 @@ class RegisterFormFields extends StatelessWidget {
             color: AppColors.lightGrey,
             fontWeight: FontWeight.w400,
           ),
-          prefixIcon: ImageIcon(Image.asset(Assets.imagesUser).image),
+          prefixIcon: Icon(Icons.person_outline, color: AppColors.white70),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: lastNameController,
           labelText: LocaleKeys.lastName.tr(),
@@ -61,6 +69,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.emailAddress,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -82,6 +94,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.visiblePassword,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
