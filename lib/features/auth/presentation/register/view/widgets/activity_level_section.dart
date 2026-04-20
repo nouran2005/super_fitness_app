@@ -90,7 +90,7 @@ class ActivityLevelSection extends StatelessWidget {
                       onPressed: state.activityLevel == null
                           ? null
                           : () {
-                              cubit.doIntent(PerformSignup());
+                              // cubit.doIntent(PerformSignup());
                             },
                       child: Text('finish'.tr()),
                     ),

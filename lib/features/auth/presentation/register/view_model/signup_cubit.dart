@@ -15,14 +15,7 @@ class SignupCubit extends Cubit<SignupStates> {
 
   void doIntent(SignupIntent intent) {
     if (intent is SetBasicInfo) {
-      emit(
-        state.copyWith(
-          firstName: intent.firstName,
-          lastName: intent.lastName,
-          email: intent.email,
-          password: intent.password,
-        ),
-      );
+      _setBasicInfo(intent);
       return;
     }
 
@@ -61,14 +54,37 @@ class SignupCubit extends Cubit<SignupStates> {
       return;
     }
 
-    if (intent is PerformSignup) {
-      _performSignup();
-      return;
-    }
-
     if (intent is MoveToNextStep) {
       _goNext();
       return;
+    }
+  }
+
+  Future<void> _setBasicInfo(SetBasicInfo intent) async {
+    emit(state.copyWith(signupResource: Resource.loading()));
+
+    final result = await _signupUseCase.execute(
+      firstName: intent.firstName,
+      lastName: intent.lastName,
+      email: intent.email,
+      password: intent.password,
+      rePassword: intent.rePassword,
+      gender: 'female',
+      height: 165,
+      weight: 65,
+      age: 24,
+      goal: 'lose weight',
+      activityLevel: 'level1',
+    );
+
+    switch (result) {
+      case SuccessApiResult():
+        emit(state.copyWith(signupResource: Resource.success(result.data)));
+        break;
+
+      case ErrorApiResult():
+        emit(state.copyWith(signupResource: Resource.error(result.error)));
+        break;
     }
   }
 
@@ -83,34 +99,6 @@ class SignupCubit extends Cubit<SignupStates> {
     final index = state.currentStep.index;
     if (index < SignupStep.values.length - 1) {
       emit(state.copyWith(currentStep: SignupStep.values[index + 1]));
-    }
-  }
-
-  Future<void> _performSignup() async {
-    emit(state.copyWith(signupResource: Resource.loading()));
-
-    final result = await _signupUseCase.execute(
-      firstName: state.firstName!,
-      lastName: state.lastName!,
-      email: state.email!,
-      password: state.password!,
-      rePassword: state.password!,
-      gender: state.gender!,
-      height: state.height!,
-      weight: state.weight!,
-      age: state.age!,
-      goal: state.goal!,
-      activityLevel: state.activityLevel!,
-    );
-
-    switch (result) {
-      case SuccessApiResult():
-        emit(state.copyWith(signupResource: Resource.success(result.data)));
-        break;
-
-      case ErrorApiResult():
-        emit(state.copyWith(signupResource: Resource.error(result.error)));
-        break;
     }
   }
 }

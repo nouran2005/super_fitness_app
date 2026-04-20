@@ -46,8 +46,6 @@ class SetActivityLevel extends SignupIntent {
   SetActivityLevel(this.activityLevel);
 }
 
-class PerformSignup extends SignupIntent {}
-
 class MoveToPreviousStep extends SignupIntent {
   MoveToPreviousStep();
 }

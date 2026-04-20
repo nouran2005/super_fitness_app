@@ -2,6 +2,7 @@ abstract class RouteNames {
   static const appStart = "/appStart";
   static const onboarding = '/onboarding';
   static const signup = '/signup';
+  static const completeSignup = '/completeSignup';
   static const signIn = '/signin';
   static const forgetPassword = '/forget-password';
   static const verifyResetCode = '/verify-reset-code';

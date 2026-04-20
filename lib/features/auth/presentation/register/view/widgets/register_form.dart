@@ -2,13 +2,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
+import 'package:super_fitness_app/app/core/widgets/loading_indicator.dart';
+import 'package:super_fitness_app/app/core/widgets/show_snak_bar.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/register_form_fields.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_cubit.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_intent.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_states.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -41,7 +45,6 @@ class _RegisterFormState extends State<RegisterForm> {
     final height = size.height;
     final width = size.width;
     final cubit = BlocProvider.of<SignupCubit>(context);
-
     return GlassBlurContainer(
       backgroundColor: Colors.transparent,
       padding: EdgeInsetsGeometry.symmetric(
@@ -51,79 +54,98 @@ class _RegisterFormState extends State<RegisterForm> {
       blurSigma: 34,
       borderRadius: BorderRadius.all(Radius.circular(50)),
       borderColor: Colors.transparent,
-      child: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            Text(
-              LocaleKeys.register.tr(),
-              style: AppStyles.black24SemiBold.copyWith(
-                color: AppColors.white,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-            SizedBox(height: height * 0.02),
-            RegisterFormFields(
-              firstNameController: firstNameController,
-              lastNameController: lastNameController,
-              emailController: emailController,
-              passwordController: passwordController,
-            ),
-            SizedBox(height: height * 0.03),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  cubit.doIntent(
-                    SetBasicInfo(
-                      firstName: firstNameController.text,
-                      lastName: lastNameController.text,
-                      email: emailController.text,
-                      password: passwordController.text,
-                      rePassword: passwordController.text,
-                    ),
-                  );
-                  cubit.doIntent(MoveToNextStep());
-                }
-                FocusScope.of(context).unfocus();
-              },
-              child: Text(
+      child: BlocListener<SignupCubit, SignupStates>(
+        listener: (context, state) {
+          if (state.signupResource.status == Status.loading) {
+            LoadingIndicator();
+          } else if (state.signupResource.status == Status.success) {
+            showAppSnackbar(
+              context,
+              LocaleKeys.registerSuccessfully.tr(),
+              backgroundColor: AppColors.primary,
+            );
+            context.push(RouteNames.completeSignup);
+          } else if (state.signupResource.status == Status.error) {
+            showAppSnackbar(
+              context,
+              state.signupResource.error.toString(),
+              backgroundColor: AppColors.primary,
+            );
+          }
+        },
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              Text(
                 LocaleKeys.register.tr(),
                 style: AppStyles.black24SemiBold.copyWith(
                   color: AppColors.white,
-                  fontSize: 14,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-            ),
-            SizedBox(height: height * 0.01),
-            GestureDetector(
-              onTap: () {
-                context.go(RouteNames.login);
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      text: LocaleKeys.alreadyHaveAccount.tr(),
-                      style: AppStyles.font14White.copyWith(
-                        fontWeight: FontWeight.w400,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: LocaleKeys.login.tr(),
-                          style: AppStyles.font14White.copyWith(
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              SizedBox(height: height * 0.02),
+              RegisterFormFields(
+                firstNameController: firstNameController,
+                lastNameController: lastNameController,
+                emailController: emailController,
+                passwordController: passwordController,
               ),
-            ),
-          ],
+              SizedBox(height: height * 0.03),
+              ElevatedButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    cubit.doIntent(
+                      SetBasicInfo(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                        rePassword: passwordController.text,
+                      ),
+                    );
+                  }
+                  FocusScope.of(context).unfocus();
+                },
+                child: Text(
+                  LocaleKeys.register.tr(),
+                  style: AppStyles.black24SemiBold.copyWith(
+                    color: AppColors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              SizedBox(height: height * 0.01),
+              GestureDetector(
+                onTap: () {
+                  context.push(RouteNames.login);
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        text: LocaleKeys.alreadyHaveAccount.tr(),
+                        style: AppStyles.font14White.copyWith(
+                          fontWeight: FontWeight.w400,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: LocaleKeys.login.tr(),
+                            style: AppStyles.font14White.copyWith(
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

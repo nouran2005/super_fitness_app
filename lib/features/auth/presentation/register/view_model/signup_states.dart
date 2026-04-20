@@ -19,7 +19,7 @@ class SignupStates {
 
   SignupStates({
     Resource<SignupModel>? signupResource,
-    this.currentStep = SignupStep.basicInfo,
+    this.currentStep = SignupStep.gender,
     this.firstName,
     this.lastName,
     this.email,

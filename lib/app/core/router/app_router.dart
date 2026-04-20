@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 import 'package:super_fitness_app/main.dart';
@@ -27,6 +28,11 @@ GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: RouteNames.signup,
+      builder: (context, state) => RegisterPage(),
+    ),
+
+    GoRoute(
+      path: RouteNames.completeSignup,
       builder: (context, state) => SignupOnboardingPage(),
     ),
 

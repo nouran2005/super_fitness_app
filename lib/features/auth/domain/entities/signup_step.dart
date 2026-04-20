@@ -1,1 +1,1 @@
-enum SignupStep { basicInfo, gender, age, weight, height, goal, activityLevel }
+enum SignupStep { gender, age, weight, height, goal, activityLevel }
