@@ -40,7 +40,7 @@ void main() {
   group('SignupCubit - initial state', () {
     test('initial state has correct defaults', () {
       expect(cubit.state.signupResource.status, Status.initial);
-      expect(cubit.state.currentStep, SignupStep.basicInfo);
+      expect(cubit.state.currentStep, SignupStep.gender);
       expect(cubit.state.gender, isNull);
       expect(cubit.state.age, isNull);
       expect(cubit.state.weight, isNull);
@@ -138,7 +138,7 @@ void main() {
         isA<SignupStates>().having(
           (s) => s.currentStep,
           'currentStep',
-          SignupStep.gender,
+          SignupStep.age,
         ),
       ],
     );
@@ -170,7 +170,7 @@ void main() {
     blocTest<SignupCubit, SignupStates>(
       'does not go before first step',
       build: () => SignupCubit(mockSignupUseCase),
-      seed: () => SignupStates(currentStep: SignupStep.basicInfo),
+      seed: () => SignupStates(currentStep: SignupStep.gender),
       act: (c) => c.doIntent(MoveToPreviousStep()),
       expect: () => [],
     );
@@ -204,6 +204,7 @@ void main() {
         lastName: 'mohamed',
         email: 'mariam@gmail.com',
         password: 'Mariam@123',
+        rePassword: 'Mariam@123',
         gender: 'female',
         age: 25,
         weight: 70,
@@ -253,6 +254,7 @@ void main() {
         lastName: 'mohamed',
         email: 'mariam@gmail.com',
         password: 'Mariam@123',
+        rePassword: 'Mariam@123',
         gender: 'female',
         age: 25,
         weight: 70,
@@ -289,10 +291,8 @@ void main() {
             lastName: 'mohamed',
             email: 'mariam@gmail.com',
             password: 'Mariam@123',
-            rePassword: 'Mariam@123',
           ),
         );
-        c.doIntent(MoveToNextStep());
         c.doIntent(SetGender('female'));
         c.doIntent(MoveToNextStep());
         c.doIntent(SetAge(25));
@@ -306,12 +306,9 @@ void main() {
         c.doIntent(SetActivityLevel('level1'));
       },
       expect: () => [
-        isA<SignupStates>().having((s) => s.firstName, 'firstName', 'mariam'),
-        isA<SignupStates>().having(
-          (s) => s.currentStep,
-          'step',
-          SignupStep.gender,
-        ),
+        isA<SignupStates>()
+            .having((s) => s.firstName, 'firstName', 'mariam')
+            .having((s) => s.currentStep, 'step', SignupStep.gender),
         isA<SignupStates>().having((s) => s.gender, 'gender', 'female'),
         isA<SignupStates>().having(
           (s) => s.currentStep,

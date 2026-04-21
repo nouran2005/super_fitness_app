@@ -10,6 +10,7 @@ class SignupStates {
   final String? lastName;
   final String? email;
   final String? password;
+  final String? rePassword;
   final String? gender;
   final int? age;
   final int? weight;
@@ -24,6 +25,7 @@ class SignupStates {
     this.lastName,
     this.email,
     this.password,
+    this.rePassword,
     this.gender,
     this.age,
     this.weight,
@@ -39,6 +41,7 @@ class SignupStates {
     final String? lastName,
     final String? email,
     final String? password,
+    final String? rePassword,
     String? gender,
     int? age,
     int? weight,
@@ -53,6 +56,7 @@ class SignupStates {
       lastName: lastName ?? this.lastName,
       email: email ?? this.email,
       password: password ?? this.password,
+      rePassword: rePassword ?? this.rePassword,
       gender: gender ?? this.gender,
       age: age ?? this.age,
       weight: weight ?? this.weight,

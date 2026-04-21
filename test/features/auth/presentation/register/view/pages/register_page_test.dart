@@ -6,7 +6,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
-import 'package:super_fitness_app/features/auth/presentation/register/view/widgets/register_page.dart';
+import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_cubit.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view_model/signup_states.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
