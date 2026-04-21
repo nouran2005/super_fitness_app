@@ -47,6 +47,7 @@ class ActivityLevelSection extends StatelessWidget {
             state.signupResource.error.toString(),
             backgroundColor: AppColors.primary,
           );
+          context.go(RouteNames.signup);
         }
       },
       builder: (context, state) {
@@ -90,7 +91,7 @@ class ActivityLevelSection extends StatelessWidget {
                       onPressed: state.activityLevel == null
                           ? null
                           : () {
-                              // cubit.doIntent(PerformSignup());
+                              cubit.doIntent(PerformSignup());
                             },
                       child: Text('finish'.tr()),
                     ),

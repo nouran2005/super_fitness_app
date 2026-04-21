@@ -118,5 +118,6 @@
   "signIn": "تسجيل الدخول",
   "dontHaveAccount": "ليس لديك حساب بعد؟",
   "registerNow": "تسجيل",
-  "welcome_back": "أهلا وسهلا, "
+  "welcome_back": "أهلا وسهلا, ",
+  "completeRegistration": "إكمال التسجيل"
 }

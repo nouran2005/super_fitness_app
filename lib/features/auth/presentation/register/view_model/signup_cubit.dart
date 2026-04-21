@@ -15,7 +15,14 @@ class SignupCubit extends Cubit<SignupStates> {
 
   void doIntent(SignupIntent intent) {
     if (intent is SetBasicInfo) {
-      _setBasicInfo(intent);
+      emit(
+        state.copyWith(
+          firstName: intent.firstName,
+          lastName: intent.lastName,
+          email: intent.email,
+          password: intent.password,
+        ),
+      );
       return;
     }
 
@@ -58,23 +65,28 @@ class SignupCubit extends Cubit<SignupStates> {
       _goNext();
       return;
     }
+
+    if (intent is PerformSignup) {
+      _performSignup();
+      return;
+    }
   }
 
-  Future<void> _setBasicInfo(SetBasicInfo intent) async {
+  Future<void> _performSignup() async {
     emit(state.copyWith(signupResource: Resource.loading()));
 
     final result = await _signupUseCase.execute(
-      firstName: intent.firstName,
-      lastName: intent.lastName,
-      email: intent.email,
-      password: intent.password,
-      rePassword: intent.rePassword,
-      gender: 'female',
-      height: 165,
-      weight: 65,
-      age: 24,
-      goal: 'lose weight',
-      activityLevel: 'level1',
+      firstName: state.firstName!,
+      lastName: state.lastName!,
+      email: state.email!,
+      password: state.password!,
+      rePassword: state.password!,
+      gender: state.gender!,
+      height: state.height!,
+      weight: state.weight!,
+      age: state.age!,
+      goal: state.goal!,
+      activityLevel: state.activityLevel!,
     );
 
     switch (result) {
