@@ -69,34 +69,38 @@ class _RegisterFormState extends State<RegisterForm> {
               passwordController: passwordController,
             ),
             SizedBox(height: height * 0.03),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  cubit.doIntent(
-                    SetBasicInfo(
-                      firstName: firstNameController.text,
-                      lastName: lastNameController.text,
-                      email: emailController.text,
-                      password: passwordController.text,
-                    ),
-                  );
-                  context.push(RouteNames.completeSignup, extra: cubit);
-                }
-                FocusScope.of(context).unfocus();
-              },
-              child: Text(
-                LocaleKeys.register.tr(),
-                style: AppStyles.black24SemiBold.copyWith(
-                  color: AppColors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w800,
+            SizedBox(
+              width: double.infinity,
+              height: height * 0.05,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    cubit.doIntent(
+                      SetBasicInfo(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                      ),
+                    );
+                    context.push(RouteNames.completeSignup, extra: cubit);
+                  }
+                  FocusScope.of(context).unfocus();
+                },
+                child: Text(
+                  LocaleKeys.register.tr(),
+                  style: AppStyles.black24SemiBold.copyWith(
+                    color: AppColors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: height * 0.01),
+            SizedBox(height: height * 0.02),
             GestureDetector(
               onTap: () {
-                context.push(RouteNames.login);
+                context.go(RouteNames.login);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -110,10 +114,12 @@ class _RegisterFormState extends State<RegisterForm> {
                       children: [
                         TextSpan(
                           text: LocaleKeys.login.tr(),
-                          style: AppStyles.font14White.copyWith(
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.w800,
-                          ),
+                          style: AppStyles.font14White
+                              .copyWith(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.w800,
+                              )
+                              .copyWith(decoration: TextDecoration.underline),
                         ),
                       ],
                     ),

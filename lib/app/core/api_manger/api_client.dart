@@ -5,6 +5,12 @@ import 'package:super_fitness_app/features/auth/data/models/request/signup_reque
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
 import 'package:super_fitness_app/features/signin/data/models/post/signin_post_model.dart';
 import 'package:super_fitness_app/features/signin/data/models/response/signin_response.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/request/forget_password_request_model.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/request/reset_password_request_model.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/request/verify_code_request_model.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/response/forget_password_response_model.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/response/reset_password_response_model.dart';
+import 'package:super_fitness_app/features/forget_password/data/models/response/verify_code_response_model.dart';
 
 part 'api_client.g.dart';
 
@@ -19,4 +25,19 @@ abstract class ApiClient {
 
   @POST(AppEndpoints.signupPath)
   Future<HttpResponse<SignupDto>> signUp(@Body() SignupRequest request);
+
+  @POST(AppEndpoints.forgotPasswordPath)
+  Future<HttpResponse<ForgotPasswordResponseModel>> forgotPassword(
+    @Body() ForgetPasswordRequestModel requestModel,
+  );
+
+  @POST(AppEndpoints.verifyResetCodePath)
+  Future<HttpResponse<VerifyCodeResponseModel>> verifyOtp(
+    @Body() VerifyCodeRequestModel requestModel,
+  );
+
+  @POST(AppEndpoints.resetPasswordPath)
+  Future<HttpResponse<ResetPasswordResponseModel>> resetPassword(
+    @Body() ResetPasswordRequestModel requestModel,
+  );
 }

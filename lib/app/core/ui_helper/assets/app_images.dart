@@ -15,9 +15,9 @@ class Assets {
   static const String imagesAuthBackground =
       "assets/images/auth_background.png";
 
-  /// Assets for imagesBackgroundAuth2
+  /// Assets for imagesAuthBackground2
   /// assets/images/background_auth_2.png
-  static const String imagesBackgroundAuth2 =
+  static const String imagesAuthBackground2 =
       "assets/images/background_auth_2.png";
   static const String imagesChat = "assets/images/chat.svg";
   static const String appIcon = "assets/images/app_icon.png";

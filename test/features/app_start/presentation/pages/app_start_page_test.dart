@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/app_start/presentation/pages/app_start_page.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_cubit.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_states.dart';
@@ -13,6 +14,7 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/page/a
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'app_start_page_test.mocks.dart';
 
 @GenerateMocks([AppCubit, SigninCubit])
@@ -43,8 +45,11 @@ void main() {
 
   Widget buildTestableWidget() {
     return MaterialApp(
-      home: BlocProvider<AppCubit>.value(
-        value: mockCubit,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<AppCubit>.value(value: mockCubit),
+          BlocProvider<AppSectionsCubit>(create: (_) => AppSectionsCubit()),
+        ],
         child: const AppStartPage(),
       ),
     );

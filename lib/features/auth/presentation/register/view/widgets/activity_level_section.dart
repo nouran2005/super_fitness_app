@@ -28,7 +28,7 @@ class ActivityLevelSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SignupCubit>();
+    final cubit = GoRouterState.of(context).extra as SignupCubit;
 
     return BlocConsumer<SignupCubit, SignupStates>(
       listener: (context, state) {
@@ -47,7 +47,7 @@ class ActivityLevelSection extends StatelessWidget {
             state.signupResource.error.toString(),
             backgroundColor: AppColors.primary,
           );
-          context.go(RouteNames.signup);
+          context.pop();
         }
       },
       builder: (context, state) {

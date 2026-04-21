@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/app/config/validation/app_validation.dart';
-import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
 import 'package:super_fitness_app/app/core/widgets/form_fields/custom_form_field.dart';
@@ -27,6 +26,10 @@ class RegisterFormFields extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.text,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -36,7 +39,7 @@ class RegisterFormFields extends StatelessWidget {
             color: AppColors.lightGrey,
             fontWeight: FontWeight.w400,
           ),
-          prefixIcon: ImageIcon(Image.asset(Assets.imagesUser).image),
+          prefixIcon: Icon(Icons.person_outline, color: AppColors.white70),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: firstNameController,
           labelText: LocaleKeys.firstName.tr(),
@@ -44,6 +47,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.text,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -53,7 +60,7 @@ class RegisterFormFields extends StatelessWidget {
             color: AppColors.lightGrey,
             fontWeight: FontWeight.w400,
           ),
-          prefixIcon: ImageIcon(Image.asset(Assets.imagesUser).image),
+          prefixIcon: Icon(Icons.person_outline, color: AppColors.white70),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: lastNameController,
           labelText: LocaleKeys.lastName.tr(),
@@ -61,6 +68,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.emailAddress,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,
@@ -82,6 +93,10 @@ class RegisterFormFields extends StatelessWidget {
         ),
         SizedBox(height: height * 0.02),
         CustomTextFormField(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 18,
+          ),
           keyboardType: TextInputType.visiblePassword,
           errorStyle: AppStyles.subtitle.copyWith(
             color: AppColors.primary,

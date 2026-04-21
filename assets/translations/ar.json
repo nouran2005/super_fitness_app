@@ -71,7 +71,6 @@
   "cannotBeSame": "لا يمكن أن تكون كلمة المرور الجديدة مثل الحالية",
   "genderRequired": "النوع مطلوب",
   "something_went_wrong": "حدث خطأ ما",
-  "resend": "إعادة المحاولة",
   "rookie": "مبتدئ جداً",
   "beginner": "مبتدئ",
   "intermediate": "متوسط",
@@ -119,5 +118,18 @@
   "dontHaveAccount": "ليس لديك حساب بعد؟",
   "registerNow": "تسجيل",
   "welcome_back": "أهلا وسهلا, ",
-  "completeRegistration": "إكمال التسجيل"
+  "completeRegistration": "إكمال التسجيل",
+  "resend": "إعادة المحاولة",
+  "enterYourEmail": "أدخل بريدك الإلكتروني",
+  "forgetPassword": "نسيت كلمة المرور",
+  "sendOTP": "أرسل رمز التحقق",
+  "otpCode": "رمز التحقق",
+  "enterYourOtpCheckYourEmail": "أدخل رمز التحقق الخاص بك. يرجى التحقق من بريدك الإلكتروني.",
+  "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
+  "resendCode": "إعادة إرسال الرمز",
+  "pleaseEnterTheCompleteOtpCode": "يرجى إدخال رمز التحقق الكامل",
+  "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "done": "تم",
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
 }
