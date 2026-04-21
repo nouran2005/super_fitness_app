@@ -28,7 +28,7 @@ class ActivityLevelSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = GoRouterState.of(context).extra as SignupCubit;
+    final cubit = context.read<SignupCubit>();
 
     return BlocConsumer<SignupCubit, SignupStates>(
       listener: (context, state) {
