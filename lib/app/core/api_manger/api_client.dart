@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
+import 'package:super_fitness_app/features/meals/data/models/response/meals_categories_dto.dart';
 import 'package:super_fitness_app/features/signin/data/models/post/signin_post_model.dart';
 import 'package:super_fitness_app/features/signin/data/models/response/signin_response.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/forget_password_request_model.dart';
@@ -40,4 +41,7 @@ abstract class ApiClient {
   Future<HttpResponse<ResetPasswordResponseModel>> resetPassword(
     @Body() ResetPasswordRequestModel requestModel,
   );
+
+  @GET("${AppEndpoints.mealsBaseUrl}${AppEndpoints.mealsCategoryPath}")
+  Future<HttpResponse<MealsCategoriesDto>> getMealsCategories();
 }
