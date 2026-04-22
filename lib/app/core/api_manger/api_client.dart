@@ -42,6 +42,6 @@ abstract class ApiClient {
     @Body() ResetPasswordRequestModel requestModel,
   );
 
-  @GET("${AppEndpoints.mealsBaseUrl}${AppEndpoints.mealsCategoryPath}")
+  @GET("https://${AppEndpoints.mealsBaseUrl}${AppEndpoints.mealsCategoryPath}")
   Future<HttpResponse<MealsCategoriesDto>> getMealsCategories();
 }
