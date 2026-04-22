@@ -71,6 +71,8 @@ import '../../../features/work_out/domain/use_cases/get_all_muscles_by_muscle_gr
     as _i459;
 import '../../../features/work_out/domain/use_cases/get_all_muscles_group_use_case.dart'
     as _i55;
+import '../../../features/work_out/presentation/view_model/cubit/work_out_cubit.dart'
+    as _i1053;
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
@@ -163,6 +165,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i747.ForgetPasswordUseCase>(),
         gh<_i225.VerifyCodeUseCase>(),
         gh<_i347.ResetPasswordUseCase>(),
+      ),
+    );
+    gh.factory<_i1053.WorkOutCubit>(
+      () => _i1053.WorkOutCubit(
+        gh<_i55.GetAllMusclesGroupUseCase>(),
+        gh<_i459.GetAllMusclesByMuscleGroupUseCase>(),
       ),
     );
     gh.factory<_i983.SigninUseCase>(

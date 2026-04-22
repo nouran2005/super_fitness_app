@@ -4,6 +4,7 @@ import 'package:super_fitness_app/features/app_sections/presentation/model/app_s
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_section_placeholder.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/pages/work_out_page.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_state.dart';
 
 class AppSectionsView extends StatelessWidget {
@@ -17,14 +18,21 @@ class AppSectionsView extends StatelessWidget {
           extendBody: true,
           body: IndexedStack(
             index: state.currentIndex,
-            children: appSectionDestinations
-                .map(
-                  (destination) => AppSectionPlaceholder(
-                    title: destination.title,
-                    subtitle: destination.subtitle,
-                  ),
-                )
-                .toList(),
+            children: [
+              AppSectionPlaceholder(
+                title: appSectionDestinations[0].title,
+                subtitle: appSectionDestinations[0].subtitle,
+              ),
+              AppSectionPlaceholder(
+                title: appSectionDestinations[1].title,
+                subtitle: appSectionDestinations[1].subtitle,
+              ),
+              const WorkOutPage(),
+              AppSectionPlaceholder(
+                title: appSectionDestinations[3].title,
+                subtitle: appSectionDestinations[3].subtitle,
+              ),
+            ],
           ),
           bottomNavigationBar: AppSectionsBottomNavBar(
             destinations: appSectionDestinations,
