@@ -11,6 +11,8 @@ import 'package:super_fitness_app/features/forget_password/data/models/request/v
 import 'package:super_fitness_app/features/forget_password/data/models/response/forget_password_response_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/response/reset_password_response_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/response/verify_code_response_model.dart';
+import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_by_muscle_group_response.dart';
+import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_group_response.dart';
 
 part 'api_client.g.dart';
 
@@ -40,4 +42,15 @@ abstract class ApiClient {
   Future<HttpResponse<ResetPasswordResponseModel>> resetPassword(
     @Body() ResetPasswordRequestModel requestModel,
   );
+
+  @GET(AppEndpoints.getAllMusclesGroup)
+  Future<AllMusclesGroupResponse> getAllMusclesGroup({
+    @Header("accept-language") required String language,
+  });
+
+  @GET(AppEndpoints.getAllMusclesByMuscleGroup)
+  Future<AllMusclesByMuscleGroupResponse> getAllMusclesByMuscleGroup({
+    @Header("accept-language") required String language,
+    @Path("muscleGroupId") required String muscleGroupId,
+  });
 }
