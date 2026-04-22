@@ -44,12 +44,13 @@ abstract class ApiClient {
   );
 
   @GET(AppEndpoints.getAllMusclesGroup)
-  Future<AllMusclesGroupResponse> getAllMusclesGroup({
+  Future<HttpResponse<AllMusclesGroupResponse>> getAllMusclesGroup({
     @Header("accept-language") required String language,
   });
 
   @GET(AppEndpoints.getAllMusclesByMuscleGroup)
-  Future<AllMusclesByMuscleGroupResponse> getAllMusclesByMuscleGroup({
+  Future<HttpResponse<AllMusclesByMuscleGroupResponse>>
+  getAllMusclesByMuscleGroup({
     @Header("accept-language") required String language,
     @Path("muscleGroupId") required String muscleGroupId,
   });

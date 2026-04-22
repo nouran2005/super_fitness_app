@@ -59,6 +59,18 @@ import '../../../features/signin/domain/use_cases/signin_use_case.dart'
     as _i983;
 import '../../../features/signin/presentation/view_model/cubit/signin_cubit.dart'
     as _i985;
+import '../../../features/work_out/api/datasources/work_out_remote_data_source_impl.dart'
+    as _i626;
+import '../../../features/work_out/data/datasources/work_out_remote_data_source_contract.dart'
+    as _i165;
+import '../../../features/work_out/data/repositories/work_out_repository_impl.dart'
+    as _i292;
+import '../../../features/work_out/domain/repositories/work_out_repository.dart'
+    as _i845;
+import '../../../features/work_out/domain/use_cases/get_all_muscles_by_muscle_group_use_case.dart'
+    as _i459;
+import '../../../features/work_out/domain/use_cases/get_all_muscles_group_use_case.dart'
+    as _i55;
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
@@ -91,6 +103,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i435.AuthRemoteDataSourceContract>(
       () => _i339.AuthRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
     );
+    gh.factory<_i165.WorkOutRemoteDataSourceContract>(
+      () => _i626.WorkOutRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
+    );
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
@@ -101,6 +116,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i234.AuthRepository>(
       () => _i365.AuthRepositoryImpl(
         remoteDataSource: gh<_i435.AuthRemoteDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i845.WorkOutRepository>(
+      () => _i292.WorkOutRepositoryImpl(
+        remoteDataSource: gh<_i165.WorkOutRemoteDataSourceContract>(),
       ),
     );
     gh.factory<_i64.SigninRepository>(
@@ -114,6 +134,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i132.ForgetPasswordRepoImpl(
         gh<_i466.ForgetPasswordRemoteDataSource>(),
       ),
+    );
+    gh.factory<_i459.GetAllMusclesByMuscleGroupUseCase>(
+      () => _i459.GetAllMusclesByMuscleGroupUseCase(
+        gh<_i845.WorkOutRepository>(),
+      ),
+    );
+    gh.factory<_i55.GetAllMusclesGroupUseCase>(
+      () => _i55.GetAllMusclesGroupUseCase(gh<_i845.WorkOutRepository>()),
     );
     gh.factory<_i747.ForgetPasswordUseCase>(
       () => _i747.ForgetPasswordUseCase(gh<_i409.ForgetPasswordRepo>()),

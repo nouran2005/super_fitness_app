@@ -175,7 +175,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<AllMusclesGroupResponse> getAllMusclesGroup({
+  Future<HttpResponse<AllMusclesGroupResponse>> getAllMusclesGroup({
     required String language,
   }) async {
     final _extra = <String, dynamic>{};
@@ -183,7 +183,7 @@ class _ApiClient implements ApiClient {
     final _headers = <String, dynamic>{r'accept-language': language};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<AllMusclesGroupResponse>(
+    final _options = _setStreamType<HttpResponse<AllMusclesGroupResponse>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -201,11 +201,13 @@ class _ApiClient implements ApiClient {
       errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
-    return _value;
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
   }
 
   @override
-  Future<AllMusclesByMuscleGroupResponse> getAllMusclesByMuscleGroup({
+  Future<HttpResponse<AllMusclesByMuscleGroupResponse>>
+  getAllMusclesByMuscleGroup({
     required String language,
     required String muscleGroupId,
   }) async {
@@ -214,16 +216,19 @@ class _ApiClient implements ApiClient {
     final _headers = <String, dynamic>{r'accept-language': language};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<AllMusclesByMuscleGroupResponse>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            'musclesGroup/${muscleGroupId}',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
+    final _options =
+        _setStreamType<HttpResponse<AllMusclesByMuscleGroupResponse>>(
+          Options(method: 'GET', headers: _headers, extra: _extra)
+              .compose(
+                _dio.options,
+                'musclesGroup/${muscleGroupId}',
+                queryParameters: queryParameters,
+                data: _data,
+              )
+              .copyWith(
+                baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl),
+              ),
+        );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late AllMusclesByMuscleGroupResponse _value;
     try {
@@ -232,7 +237,8 @@ class _ApiClient implements ApiClient {
       errorLogger?.logError(e, s, _options, _result);
       rethrow;
     }
-    return _value;
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
