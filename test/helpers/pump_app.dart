@@ -18,6 +18,7 @@ class TestAssetLoader extends AssetLoader {
       'signIn': 'Sign in',
       'dontHaveAccount': 'Dont have an account yet ?',
       'registerNow': 'Register',
+      'work_outs': 'Workouts',
     };
   }
 }

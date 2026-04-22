@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
-import 'package:super_fitness_app/features/work_out/presentation/view/widgets/empty_data_widget.dart';
+import 'package:super_fitness_app/app/core/widgets/empty_data_widget.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/all_muscles_by_muscle_group_response_entity.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/all_muscles_group_response_entity.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/muscle_group_entity.dart';
@@ -22,7 +22,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() {
-    registerFallbackValue(GetAllMusclesGroup(language: 'en'));
+    registerFallbackValue(const GetAllMusclesGroup(language: 'en'));
   });
 
   late WorkOutCubit cubit;
@@ -46,7 +46,9 @@ void main() {
       await tester.pumpLocalizedWidget(
         const WorkOutPage(),
         withScaffold: false,
+        settle: false,
       );
+      await tester.pump();
 
       expect(find.byType(WorkOutBody), findsOneWidget);
       expect(find.text('Workouts'), findsOneWidget);
@@ -62,6 +64,7 @@ void main() {
         withScaffold: false,
         settle: false,
       );
+      await tester.pump();
 
       expect(find.byType(Shimmer), findsWidgets);
     });
@@ -81,7 +84,9 @@ void main() {
       await tester.pumpLocalizedWidget(
         const WorkOutPage(),
         withScaffold: false,
+        settle: false,
       );
+      await tester.pump();
 
       expect(find.text('Abs'), findsOneWidget);
     });
@@ -100,7 +105,9 @@ void main() {
       await tester.pumpLocalizedWidget(
         const WorkOutPage(),
         withScaffold: false,
+        settle: false,
       );
+      await tester.pump();
 
       expect(find.byType(EmptyDataWidget), findsOneWidget);
       expect(find.text('No workouts found'), findsOneWidget);
