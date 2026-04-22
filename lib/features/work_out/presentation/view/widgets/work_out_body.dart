@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
@@ -15,18 +16,18 @@ class WorkOutBody extends StatelessWidget {
           image: const AssetImage(Assets.imagesHomeBackground),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.7),
+            Colors.black.withAlpha(100),
             BlendMode.darken,
           ),
         ),
       ),
-      child: const SafeArea(
+      child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 20),
             Text(
-              'Workouts',
+              'work_outs'.tr(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,

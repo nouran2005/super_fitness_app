@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
-import 'package:super_fitness_app/app/core/widgets/empty_data_widget.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/widgets/empty_data_widget.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/all_muscles_by_muscle_group_response_entity.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/all_muscles_group_response_entity.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/muscle_group_entity.dart';

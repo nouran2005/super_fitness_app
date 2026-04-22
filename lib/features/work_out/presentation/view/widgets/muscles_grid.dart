@@ -12,8 +12,6 @@ class MusclesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WorkOutCubit, WorkOutStates>(
-      buildWhen: (previous, current) =>
-          previous.musclesByGroupResource != current.musclesByGroupResource,
       builder: (context, state) {
         if (state.musclesByGroupResource.isLoading) {
           return Shimmer.fromColors(

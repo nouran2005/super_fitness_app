@@ -13,9 +13,6 @@ class MuscleGroupSections extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WorkOutCubit, WorkOutStates>(
-      buildWhen: (previous, current) =>
-          previous.musclesGroupResource != current.musclesGroupResource ||
-          previous.selectedGroupId != current.selectedGroupId,
       builder: (context, state) {
         if (state.musclesGroupResource.isLoading) {
           return SizedBox(

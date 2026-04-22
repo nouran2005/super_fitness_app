@@ -131,5 +131,7 @@
   "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "done": "تم",
-  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
+  "work_out": "التمرين",
+  "try_adjusting_your_filters_or_check_back_later.": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا."
 }
