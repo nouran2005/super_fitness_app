@@ -9,4 +9,8 @@ class AppEndpoints {
   static const String verifyResetCodePath = 'auth/verifyResetCode';
   static const String resetPasswordPath = 'auth/resetPassword';
   static const String forgotPasswordPath = 'auth/forgotPassword';
+  static const String musclesRandomPath = 'muscles/random';
+  static const String levelsPath = 'levels';
+  static const String exercisesByMuscleDifficulty =
+      "exercises/by-muscle-difficulty";
 }

@@ -43,6 +43,10 @@ import '../../../features/forget_password/domain/usecases/verify_code_usecase.da
     as _i225;
 import '../../../features/forget_password/presentation/view_model/forget_password_cubit.dart'
     as _i488;
+import '../../../features/popular_training/api/datasources_impl/popular_training_remote_datasource_impl.dart'
+    as _i723;
+import '../../../features/popular_training/data/datasources/popular_training_remote_datasource.dart'
+    as _i869;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -90,6 +94,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i435.AuthRemoteDataSourceContract>(
       () => _i339.AuthRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
+    );
+    gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
+      () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
