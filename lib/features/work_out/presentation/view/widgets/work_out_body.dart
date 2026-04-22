@@ -6,6 +6,7 @@ import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_events.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
+import 'package:shimmer/shimmer.dart';
 
 class WorkOutBody extends StatelessWidget {
   const WorkOutBody({super.key});
@@ -54,10 +55,24 @@ class WorkOutBody extends StatelessWidget {
           previous.selectedGroupId != current.selectedGroupId,
       builder: (context, state) {
         if (state.musclesGroupResource.isLoading) {
-          return const SizedBox(
+          return SizedBox(
             height: 40,
-            child: Center(
-              child: CircularProgressIndicator(color: AppColors.primary),
+            child: Shimmer.fromColors(
+              baseColor: Colors.grey[800]!,
+              highlightColor: Colors.grey[700]!,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemBuilder: (context, index) => Container(
+                  width: 80,
+                  margin: const EdgeInsets.only(right: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
             ),
           );
         }
@@ -121,8 +136,25 @@ class WorkOutBody extends StatelessWidget {
           previous.musclesByGroupResource != current.musclesByGroupResource,
       builder: (context, state) {
         if (state.musclesByGroupResource.isLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: AppColors.primary),
+          return Shimmer.fromColors(
+            baseColor: Colors.grey[800]!,
+            highlightColor: Colors.grey[700]!,
+            child: GridView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.85,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) => Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+            ),
           );
         }
         if (state.musclesByGroupResource.isError) {
@@ -154,36 +186,69 @@ class WorkOutBody extends StatelessWidget {
             itemCount: muscles.length,
             itemBuilder: (context, index) {
               final muscle = muscles[index];
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                    image: NetworkImage(muscle.image ?? ''),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              return GestureDetector(
+                onTap: () {
+                  // ontext.push(RouteNames.muscleDetails, extra: {'id': muscle.id, 'name': muscle.name});
+                  //print('Tapped on muscle: ${muscle.name} with id: ${muscle.id}');
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.center,
-                      colors: [
-                        Colors.black.withOpacity(0.9),
-                        Colors.transparent,
-                      ],
-                    ),
                   ),
-                  alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    muscle.name ?? '',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.network(
+                        muscle.image ?? '',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: Colors.grey[900],
+                            child: const Icon(
+                              Icons.broken_image_outlined,
+                              color: Colors.white54,
+                              size: 40,
+                            ),
+                          );
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Shimmer.fromColors(
+                            baseColor: Colors.grey[800]!,
+                            highlightColor: Colors.grey[700]!,
+                            child: Container(color: Colors.white),
+                          );
+                        },
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.center,
+                            colors: [
+                              Colors.black.withOpacity(0.9),
+                              Colors.transparent,
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            muscle.name ?? '',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               );

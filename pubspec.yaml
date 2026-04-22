@@ -51,6 +51,7 @@ dependencies:
   flutter_native_splash: ^2.4.7
   pin_code_fields: ^9.3.0
   percent_indicator: ^4.2.5
+  shimmer: ^3.0.0
 
 dev_dependencies:
   bloc_test: any
