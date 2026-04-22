@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
+import 'package:super_fitness_app/features/meals/data/models/response/meals_by_category_dto.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_categories_dto.dart';
 import 'package:super_fitness_app/features/signin/data/models/post/signin_post_model.dart';
 import 'package:super_fitness_app/features/signin/data/models/response/signin_response.dart';
@@ -44,4 +45,11 @@ abstract class ApiClient {
 
   @GET("https://${AppEndpoints.mealsBaseUrl}${AppEndpoints.mealsCategoryPath}")
   Future<HttpResponse<MealsCategoriesDto>> getMealsCategories();
+
+  @GET(
+    "https://${AppEndpoints.mealsBaseUrl}${AppEndpoints.mealsByCategoryPath}",
+  )
+  Future<HttpResponse<MealsByCategoryDto>> getMealsByCategory(
+    @Query('c') String category,
+  );
 }
