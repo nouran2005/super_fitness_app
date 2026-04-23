@@ -18,6 +18,19 @@ class TestAssetLoader extends AssetLoader {
       'signIn': 'Sign in',
       'dontHaveAccount': 'Dont have an account yet ?',
       'registerNow': 'Register',
+
+      'recommendationToDay': 'Recommendation To Day',
+      'upcomingWorkouts': 'Upcoming Workouts',
+      'recommendationForYou': 'Recommendation For You',
+      'hi': 'Hi',
+      'letsStartYourDay': "Let's Start Your Day",
+      'category': 'Category',
+      'gym': 'Gym',
+      'fitness': 'Fitness',
+      'yoga': 'Yoga',
+      'aerobics': 'Aerobics',
+      'trainer': 'Trainer',
+      'seeAll': 'See All',
     };
   }
 }

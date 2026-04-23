@@ -131,5 +131,20 @@
   "makeSureIts8CharactersOrMore": "Make Sure Its 8 Characters Or More",
   "createNewPassword": "Create New Password",
   "done": "Done",
-  "passwordResetSuccess": "Password Reset Successfully"
+  "passwordResetSuccess": "Password Reset Successfully",
+  "hi": "Hi",
+  "letsStartYourDay": "Let's Start Your Day",
+  "category": "Category",
+  "gym": "Gym",
+  "fitness": "Fitness",
+  "yoga": "Yoga",
+  "aerobics": "Aerobics",
+  "trainer": "Trainer",
+  "upcomingFeature": "Upcoming Feature",
+  "availableSoon": "The {} section will be available soon!",
+  "gotIt": "Got it",
+  "recommendationToDay": "Recommendation To Day",
+  "recommendationForYou": "Recommendation For You",
+  "seeAll": "See All",
+  "upcomingWorkouts": "Upcoming Workouts"
 }
