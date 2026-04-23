@@ -134,4 +134,6 @@ abstract class LocaleKeys {
   static const createNewPassword = 'createNewPassword';
   static const done = 'done';
   static const passwordResetSuccess = 'passwordResetSuccess';
+  static const foodRecommendation = 'foodRecommendation';
+  static const noMealsfound = 'noMealsfound';
 }
