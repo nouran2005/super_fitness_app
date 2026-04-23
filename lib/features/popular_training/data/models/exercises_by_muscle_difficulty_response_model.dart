@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/features/popular_training/domain/entities/exercises_by_muscle_difficulty_entity.dart';
 
 part 'exercises_by_muscle_difficulty_response_model.g.dart';
 
@@ -33,6 +34,12 @@ class ExercisesByMuscleDifficultyResponseModel {
 
   Map<String, dynamic> toJson() =>
       _$ExercisesByMuscleDifficultyResponseModelToJson(this);
+
+  ExercisesByMuscleDifficultyResponseEntity toEntity() {
+    return ExercisesByMuscleDifficultyResponseEntity(
+      exercises: exercises?.map((e) => e.toEntity()).toList() ?? [],
+    );
+  }
 }
 
 @JsonSerializable()
@@ -181,4 +188,13 @@ class ExerciseByMuscleDifficultyModel {
 
   Map<String, dynamic> toJson() =>
       _$ExerciseByMuscleDifficultyModelToJson(this);
+
+  ExerciseEntity toEntity() {
+    return ExerciseEntity(
+      id: id ?? '',
+      exercise: exercise ?? '',
+      difficultyLevel: difficultyLevel ?? '',
+      shortYoutubeDemonstration: shortYoutubeDemonstration ?? '',
+    );
+  }
 }

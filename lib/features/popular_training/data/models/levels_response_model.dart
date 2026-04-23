@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/features/popular_training/domain/entities/levels_entity.dart';
 
 part 'levels_response_model.g.dart';
 
@@ -16,6 +17,17 @@ class LevelsResponseModel {
       _$LevelsResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LevelsResponseModelToJson(this);
+
+  LevelsEntity toEntity() {
+    return LevelsEntity(
+      ids:
+          levels
+              ?.map((e) => e.id ?? '')
+              .where((id) => id.isNotEmpty)
+              .toList() ??
+          [],
+    );
+  }
 }
 
 @JsonSerializable()

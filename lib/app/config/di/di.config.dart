@@ -47,6 +47,16 @@ import '../../../features/popular_training/api/datasources_impl/popular_training
     as _i723;
 import '../../../features/popular_training/data/datasources/popular_training_remote_datasource.dart'
     as _i869;
+import '../../../features/popular_training/data/repos/popular_training_repo_impl.dart'
+    as _i75;
+import '../../../features/popular_training/domain/repos/popular_training_repo.dart'
+    as _i689;
+import '../../../features/popular_training/domain/usecases/get_exercises_by_muscle_difficulty_usecase.dart'
+    as _i970;
+import '../../../features/popular_training/domain/usecases/get_levels_usecase.dart'
+    as _i1023;
+import '../../../features/popular_training/domain/usecases/get_random_muscles_usecase.dart'
+    as _i727;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -98,6 +108,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
       () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.lazySingleton<_i689.PopularTrainingRepo>(
+      () => _i75.PopularTrainingRepoImpl(
+        gh<_i869.PopularTrainingRemoteDataSource>(),
+      ),
+    );
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
@@ -130,6 +145,17 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i225.VerifyCodeUseCase>(
       () => _i225.VerifyCodeUseCase(gh<_i409.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i970.GetExercisesByMuscleDifficultyUseCase>(
+      () => _i970.GetExercisesByMuscleDifficultyUseCase(
+        gh<_i689.PopularTrainingRepo>(),
+      ),
+    );
+    gh.factory<_i1023.GetLevelsUseCase>(
+      () => _i1023.GetLevelsUseCase(gh<_i689.PopularTrainingRepo>()),
+    );
+    gh.factory<_i727.GetRandomMusclesUseCase>(
+      () => _i727.GetRandomMusclesUseCase(gh<_i689.PopularTrainingRepo>()),
     );
     gh.factory<_i128.SignupUseCase>(
       () => _i128.SignupUseCase(gh<_i234.AuthRepository>()),
