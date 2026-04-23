@@ -13,7 +13,7 @@ class AppSectionsBottomNavBar extends StatelessWidget {
   });
 
   final List<AppSectionDestination> destinations;
-  final int currentIndex;
+  final int? currentIndex;
   final ValueChanged<int> onDestinationSelected;
 
   @override
@@ -21,7 +21,7 @@ class AppSectionsBottomNavBar extends StatelessWidget {
     return SafeArea(
       minimum: const EdgeInsets.fromLTRB(24, 0, 24, 24),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         decoration: BoxDecoration(
           color: const Color(0xFF232323),
           borderRadius: BorderRadius.circular(36),

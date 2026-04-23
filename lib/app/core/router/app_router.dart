@@ -63,9 +63,6 @@ final GoRouter appRouter = GoRouter(
       path: RouteNames.signIn,
       builder: (context, state) => const SigninPage(),
     ),
-    GoRoute(
-      path: RouteNames.meals,
-      builder: (context, state) => const MealsPage(),
-    ),
+    GoRoute(path: RouteNames.meals, builder: (context, state) => MealsPage()),
   ],
 );

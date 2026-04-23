@@ -131,5 +131,7 @@
   "makeSureIts8CharactersOrMore": "Make Sure Its 8 Characters Or More",
   "createNewPassword": "Create New Password",
   "done": "Done",
-  "passwordResetSuccess": "Password Reset Successfully"
+  "passwordResetSuccess": "Password Reset Successfully",
+  "foodRecommendation": "Food Recommendation",
+  "noMealsfound": "No meals found for this category. Please select another category."
 }
