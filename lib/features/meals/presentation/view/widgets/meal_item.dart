@@ -10,30 +10,24 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    double width = size.width;
-    double height = size.height;
     return InkWell(
       onTap: onTap,
       child: Stack(
         children: [
-          SizedBox(
-            height: height * 0.2,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                mealItem.strMealThumb.toString(),
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) =>
-                    const Center(child: Icon(Icons.image_not_supported)),
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              mealItem.strMealThumb.toString(),
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) =>
+                  const Center(child: Icon(Icons.image_not_supported)),
             ),
           ),
 
           Positioned(
-            bottom: height * 0.035,
-            left: width * 0.1,
-            right: width * 0.1,
+            bottom: 30,
+            left: 12,
+            right: 12,
             child: Text(
               mealItem.strMeal.toString(),
               maxLines: 2,

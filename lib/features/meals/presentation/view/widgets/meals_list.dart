@@ -40,7 +40,7 @@ class MealsList extends StatelessWidget {
         return Expanded(
           child: GridView.builder(
             itemCount: state.mealsByCategoryResource.data?.meals?.length ?? 0,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 20,
               mainAxisSpacing: 0,
