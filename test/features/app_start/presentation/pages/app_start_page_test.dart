@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
-import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/app_start/presentation/pages/app_start_page.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_cubit.dart';
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_states.dart';
@@ -16,7 +14,6 @@ import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
-import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
 import 'app_start_page_test.mocks.dart';
