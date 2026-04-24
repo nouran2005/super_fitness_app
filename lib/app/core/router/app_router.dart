@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
-import 'package:super_fitness_app/features/popular_training/presentation/views/screens/popular_screen.dart';
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 import 'package:super_fitness_app/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +15,7 @@ import 'package:super_fitness_app/features/auth/presentation/register/view/pages
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: RouteNames.popularTraining,
+  initialLocation: RouteNames.signIn,
   routes: [
     GoRoute(
       path: RouteNames.appStart,
@@ -62,10 +61,6 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.signIn,
       builder: (context, state) => const SigninPage(),
-    ),
-    GoRoute(
-      path: RouteNames.popularTraining,
-      builder: (context, state) => const PopularScreen(),
     ),
   ],
 );

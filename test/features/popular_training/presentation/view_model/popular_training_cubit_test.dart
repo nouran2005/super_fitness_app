@@ -156,7 +156,7 @@ void main() {
               .having(
                 (s) => s.popularExercises.error,
                 'error message',
-                'No muscles or levels available.',
+                'no_muscles_or_levels_available',
               ),
         ]),
       );
