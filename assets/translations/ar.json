@@ -131,5 +131,8 @@
   "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "done": "تم",
-  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
+  "no_muscles_or_levels_available": "لا توجد عضلات أو مستويات متاحة",
+  "Tasks": "تدريبات",
+  "PopularsTraining": "التدريبات الأكثر رواجًا"
 }

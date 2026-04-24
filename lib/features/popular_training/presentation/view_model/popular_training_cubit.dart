@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
@@ -12,6 +13,7 @@ import 'package:super_fitness_app/features/popular_training/domain/usecases/get_
 import 'package:super_fitness_app/features/popular_training/domain/usecases/get_random_muscles_usecase.dart';
 import 'package:super_fitness_app/features/popular_training/presentation/view_model/popular_training_events.dart';
 import 'package:super_fitness_app/features/popular_training/presentation/view_model/popular_training_state.dart';
+import 'package:super_fitness_app/generated/locale_keys.g.dart';
 
 typedef _Combo = ({
   String muscleId,
@@ -64,7 +66,9 @@ class PopularTrainingCubit extends Cubit<PopularTrainingState> {
     if (muscles.isEmpty || levelIds.isEmpty) {
       emit(
         state.copyWith(
-          popularExercises: Resource.error('No muscles or levels available.'),
+          popularExercises: Resource.error(
+            LocaleKeys.no_muscles_or_levels_available.tr(),
+          ),
         ),
       );
       return;
