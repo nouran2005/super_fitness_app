@@ -12,7 +12,7 @@ class MealsRepositoryImpl extends MealsRepository {
   MealsRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<ApiResult<MealDetailsModel>> getMealDetailsById(String mealId) async {
+  Future<ApiResult<MealDetailsModel>> getMealDetailsById(int mealId) async {
     final response = await remoteDataSource.getMealDetailsById(mealId);
 
     switch (response) {

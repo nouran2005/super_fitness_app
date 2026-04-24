@@ -131,5 +131,8 @@
   "makeSureIts8CharactersOrMore": "Make Sure Its 8 Characters Or More",
   "createNewPassword": "Create New Password",
   "done": "Done",
-  "passwordResetSuccess": "Password Reset Successfully"
+  "passwordResetSuccess": "Password Reset Successfully",
+  "ingredients": "Ingredients",
+  "noIngredientsAvailable": "No Ingredients Available",
+  "watchCookingVideo": "Watch Cooking Video"
 }

@@ -11,7 +11,7 @@ class MealsRemoteDataSourceImpl extends MealsRemoteDataSourceContract {
   MealsRemoteDataSourceImpl({required this.apiClient});
 
   @override
-  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(String mealId) {
+  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(int mealId) {
     return safeApiCall(call: () => apiClient.getMealDetailsById(mealId));
   }
 }
