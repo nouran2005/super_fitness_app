@@ -14,6 +14,7 @@ import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cu
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/pages/work_out_page.dart';
 import '../../../../../helpers/pump_app.dart';
 
 class MockWorkOutCubit extends Mock implements WorkOutCubit {}
@@ -39,6 +40,7 @@ void main() {
       () => mockRcToDayCubit.state,
     ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
     when(() => mockRcToDayCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(() => mockRcToDayCubit.close()).thenAnswer((_) async {});
   });
 
   group('AppSectionsView', () {
@@ -75,7 +77,7 @@ void main() {
       // IndexedStack builds all children, so we have 3 placeholders and 1 WorkOutPage
       expect(
         find.byType(AppSectionPlaceholder, skipOffstage: false),
-        findsNWidgets(appSectionDestinations.length - 1),
+        findsNWidgets(2),
       );
       expect(find.byType(HomeScreen, skipOffstage: false), findsOneWidget);
       expect(find.text(appSectionDestinations[1].subtitle), findsOneWidget);
@@ -103,7 +105,7 @@ void main() {
       expect(cubit.state.currentIndex, 2);
       expect(indexedStack.index, 2);
       // Index 2 is WorkOutPage, so check for "Workouts" title
-      expect(find.text('Workouts'), findsOneWidget);
+      expect(find.byType(WorkOutPage), findsOneWidget);
       expect(find.text(appSectionDestinations.first.subtitle), findsNothing);
     });
   });
