@@ -18,6 +18,19 @@ class TestAssetLoader extends AssetLoader {
       'signIn': 'Sign in',
       'dontHaveAccount': 'Dont have an account yet ?',
       'registerNow': 'Register',
+      'work_outs': 'Workouts',
+      'recommendationToDay': 'Recommendation To Day',
+      'upcomingWorkouts': 'Upcoming Workouts',
+      'recommendationForYou': 'Recommendation For You',
+      'hi': 'Hi',
+      'letsStartYourDay': "Let's Start Your Day",
+      'category': 'Category',
+      'gym': 'Gym',
+      'fitness': 'Fitness',
+      'yoga': 'Yoga',
+      'aerobics': 'Aerobics',
+      'trainer': 'Trainer',
+      'seeAll': 'See All',
       'PopularsTraining': 'Popular Training',
       'Tasks': 'Tasks',
       'something_went_wrong': 'Something went wrong',
@@ -30,7 +43,6 @@ extension PumpApp on WidgetTester {
   Future<void> pumpLocalizedWidget(
     Widget child, {
     bool withScaffold = true,
-
     bool settle = true,
   }) async {
     await pumpWidget(
@@ -55,6 +67,11 @@ extension PumpApp on WidgetTester {
       ),
     );
 
+    if (settle) {
+      await pumpAndSettle();
+    } else {
+      await pump();
+    }
     if (settle) {
       await pumpAndSettle();
     } else {

@@ -43,6 +43,15 @@ import '../../../features/forget_password/domain/usecases/verify_code_usecase.da
     as _i225;
 import '../../../features/forget_password/presentation/view_model/forget_password_cubit.dart'
     as _i488;
+import '../../../features/home/api/home_remote_data_source_imp.dart' as _i874;
+import '../../../features/home/data/dataScources/home_remote_data_source.dart'
+    as _i599;
+import '../../../features/home/data/repo/home_repo_impl.dart' as _i758;
+import '../../../features/home/domain/repo/home_repo.dart' as _i242;
+import '../../../features/home/domain/usecase/get_random_muscles_usecase.dart'
+    as _i784;
+import '../../../features/home/presentation/manger/Rc_to_day_cubit.dart'
+    as _i956;
 import '../../../features/popular_training/api/datasources_impl/popular_training_remote_datasource_impl.dart'
     as _i723;
 import '../../../features/popular_training/data/datasources/popular_training_remote_datasource.dart'
@@ -75,6 +84,20 @@ import '../../../features/signin/domain/use_cases/signin_use_case.dart'
     as _i983;
 import '../../../features/signin/presentation/view_model/cubit/signin_cubit.dart'
     as _i985;
+import '../../../features/work_out/api/datasources/work_out_remote_data_source_impl.dart'
+    as _i626;
+import '../../../features/work_out/data/datasources/work_out_remote_data_source_contract.dart'
+    as _i165;
+import '../../../features/work_out/data/repositories/work_out_repository_impl.dart'
+    as _i292;
+import '../../../features/work_out/domain/repositories/work_out_repository.dart'
+    as _i845;
+import '../../../features/work_out/domain/use_cases/get_all_muscles_by_muscle_group_use_case.dart'
+    as _i459;
+import '../../../features/work_out/domain/use_cases/get_all_muscles_group_use_case.dart'
+    as _i55;
+import '../../../features/work_out/presentation/view_model/cubit/work_out_cubit.dart'
+    as _i1053;
 import '../../core/api_manger/api_client.dart' as _i890;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
@@ -104,8 +127,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i466.ForgetPasswordRemoteDataSource>(
       () => _i278.ForgetPasswordRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.factory<_i599.HomeRemoteDataSource>(
+      () => _i874.HomeRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
     gh.factory<_i435.AuthRemoteDataSourceContract>(
       () => _i339.AuthRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
+    );
+    gh.factory<_i165.WorkOutRemoteDataSourceContract>(
+      () => _i626.WorkOutRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
     );
     gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
       () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
@@ -118,6 +147,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.factory<_i242.HomeRepo>(
+      () => _i758.HomeRepoImpl(gh<_i599.HomeRemoteDataSource>()),
+    );
     gh.factory<_i23.SigninLocalDataSourceContract>(
       () =>
           _i709.SigninLocalDataSourceImpl(authStorage: gh<_i603.AuthStorage>()),
@@ -125,6 +157,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i234.AuthRepository>(
       () => _i365.AuthRepositoryImpl(
         remoteDataSource: gh<_i435.AuthRemoteDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i845.WorkOutRepository>(
+      () => _i292.WorkOutRepositoryImpl(
+        remoteDataSource: gh<_i165.WorkOutRemoteDataSourceContract>(),
       ),
     );
     gh.factory<_i64.SigninRepository>(
@@ -138,6 +175,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i132.ForgetPasswordRepoImpl(
         gh<_i466.ForgetPasswordRemoteDataSource>(),
       ),
+    );
+    gh.factory<_i459.GetAllMusclesByMuscleGroupUseCase>(
+      () => _i459.GetAllMusclesByMuscleGroupUseCase(
+        gh<_i845.WorkOutRepository>(),
+      ),
+    );
+    gh.factory<_i55.GetAllMusclesGroupUseCase>(
+      () => _i55.GetAllMusclesGroupUseCase(gh<_i845.WorkOutRepository>()),
     );
     gh.factory<_i747.ForgetPasswordUseCase>(
       () => _i747.ForgetPasswordUseCase(gh<_i409.ForgetPasswordRepo>()),
@@ -165,6 +210,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i22.SignupCubit>(
       () => _i22.SignupCubit(gh<_i128.SignupUseCase>()),
     );
+    gh.factory<_i784.GetRandomMusclesUseCase>(
+      () => _i784.GetRandomMusclesUseCase(gh<_i242.HomeRepo>()),
+    );
     gh.factory<_i488.ForgetPasswordCubit>(
       () => _i488.ForgetPasswordCubit(
         gh<_i747.ForgetPasswordUseCase>(),
@@ -172,8 +220,17 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i347.ResetPasswordUseCase>(),
       ),
     );
+    gh.factory<_i1053.WorkOutCubit>(
+      () => _i1053.WorkOutCubit(
+        gh<_i55.GetAllMusclesGroupUseCase>(),
+        gh<_i459.GetAllMusclesByMuscleGroupUseCase>(),
+      ),
+    );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
+    );
+    gh.factory<_i956.RcToDayCubit>(
+      () => _i956.RcToDayCubit(gh<_i784.GetRandomMusclesUseCase>()),
     );
     gh.factory<_i590.PopularTrainingCubit>(
       () => _i590.PopularTrainingCubit(

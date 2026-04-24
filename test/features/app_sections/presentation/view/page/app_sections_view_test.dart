@@ -1,21 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/model/app_section_destination.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/page/app_sections_view.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_section_placeholder.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
-
+import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
+import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/pages/work_out_page.dart';
 import '../../../../../helpers/pump_app.dart';
 
+class MockWorkOutCubit extends Mock implements WorkOutCubit {}
+
+class MockRcToDayCubit extends Mock implements RcToDayCubit {}
+
 void main() {
+  late MockWorkOutCubit mockWorkOutCubit;
+  late MockRcToDayCubit mockRcToDayCubit;
+
+  setUp(() async {
+    await getIt.reset();
+    mockWorkOutCubit = MockWorkOutCubit();
+    mockRcToDayCubit = MockRcToDayCubit();
+    getIt.registerSingleton<WorkOutCubit>(mockWorkOutCubit);
+    getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
+
+    when(() => mockWorkOutCubit.state).thenReturn(WorkOutStates());
+    when(() => mockWorkOutCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(() => mockWorkOutCubit.close()).thenAnswer((_) async {});
+
+    when(
+      () => mockRcToDayCubit.state,
+    ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
+    when(() => mockRcToDayCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(() => mockRcToDayCubit.close()).thenAnswer((_) async {});
+  });
+
   group('AppSectionsView', () {
     Future<void> pumpView(WidgetTester tester, AppSectionsCubit cubit) async {
       await tester.pumpLocalizedWidget(
         BlocProvider.value(value: cubit, child: const AppSectionsView()),
+        settle: false,
       );
-      await tester.pumpAndSettle();
+      await tester.pump();
     }
 
     Finder navTapTarget(int index) {
@@ -40,10 +74,12 @@ void main() {
       );
 
       expect(indexedStack.index, 1);
+      // IndexedStack builds all children, so we have 3 placeholders and 1 WorkOutPage
       expect(
         find.byType(AppSectionPlaceholder, skipOffstage: false),
-        findsNWidgets(appSectionDestinations.length),
+        findsNWidgets(2),
       );
+      expect(find.byType(HomeScreen, skipOffstage: false), findsOneWidget);
       expect(find.text(appSectionDestinations[1].subtitle), findsOneWidget);
       expect(find.text(appSectionDestinations.first.subtitle), findsNothing);
     });
@@ -57,7 +93,10 @@ void main() {
       await pumpView(tester, cubit);
 
       await tester.tap(navTapTarget(2));
-      await tester.pumpAndSettle();
+      await tester.pump(); // Start transition
+      await tester.pump(
+        const Duration(milliseconds: 300),
+      ); // Finish transition if any
 
       final indexedStack = tester.widget<IndexedStack>(
         find.byType(IndexedStack),
@@ -65,7 +104,8 @@ void main() {
 
       expect(cubit.state.currentIndex, 2);
       expect(indexedStack.index, 2);
-      expect(find.text(appSectionDestinations[2].subtitle), findsOneWidget);
+      // Index 2 is WorkOutPage, so check for "Workouts" title
+      expect(find.byType(WorkOutPage), findsOneWidget);
       expect(find.text(appSectionDestinations.first.subtitle), findsNothing);
     });
   });

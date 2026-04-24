@@ -16,7 +16,7 @@ class PopularTrainingRemoteDataSourceImpl
 
   @override
   Future<ApiResult<MusclesRandomResponseModel>> getRandomMuscles() {
-    return safeApiCall(call: () => _apiClient.getRandomMuscles());
+    return safeApiCall(call: () => _apiClient.getRandom20Muscles());
   }
 
   @override

@@ -52,6 +52,7 @@ dependencies:
   flutter_native_splash: ^2.4.7
   pin_code_fields: ^9.3.0
   percent_indicator: ^4.2.5
+  shimmer: ^3.0.0
   cached_network_image: ^3.4.1
 
 dev_dependencies:
@@ -86,7 +87,9 @@ flutter:
     - assets/translations/
     - assets/images/
     - assets/jsons/
-    
+    - assets/images/sections background.png
+    - assets/images/prfofle photo .png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -9,6 +9,10 @@ class AppEndpoints {
   static const String verifyResetCodePath = 'auth/verifyResetCode';
   static const String resetPasswordPath = 'auth/resetPassword';
   static const String forgotPasswordPath = 'auth/forgotPassword';
+  static const String randomMusclesPath = 'muscles/random';
+  static const String getAllMusclesGroup = 'muscles';
+  static const String getAllMusclesByMuscleGroup =
+      'musclesGroup/{muscleGroupId}';
   static const String musclesRandomPath = 'muscles/random';
   static const String levelsPath = 'levels';
   static const String exercisesByMuscleDifficulty =

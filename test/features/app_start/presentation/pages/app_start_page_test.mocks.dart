@@ -3,25 +3,37 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i7;
+import 'dart:async' as _i9;
 
 import 'package:flutter/material.dart' as _i4;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i9;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i11;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_cubit.dart'
-    as _i6;
-import 'package:super_fitness_app/features/app_start/presentation/manager/app_intent.dart'
     as _i8;
+import 'package:super_fitness_app/features/app_start/presentation/manager/app_intent.dart'
+    as _i10;
 import 'package:super_fitness_app/features/app_start/presentation/manager/app_states.dart'
     as _i2;
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart'
+    as _i16;
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_intents.dart'
+    as _i17;
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart'
+    as _i7;
 import 'package:super_fitness_app/features/signin/domain/use_cases/signin_use_case.dart'
     as _i3;
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart'
-    as _i10;
+    as _i12;
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_events.dart'
-    as _i11;
+    as _i13;
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart'
     as _i5;
+import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart'
+    as _i14;
+import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_events.dart'
+    as _i15;
+import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart'
+    as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -59,10 +71,20 @@ class _FakeSigninStates_3 extends _i1.SmartFake implements _i5.SigninStates {
     : super(parent, parentInvocation);
 }
 
+class _FakeWorkOutStates_4 extends _i1.SmartFake implements _i6.WorkOutStates {
+  _FakeWorkOutStates_4(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeRcToDayStates_5 extends _i1.SmartFake implements _i7.RcToDayStates {
+  _FakeRcToDayStates_5(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [AppCubit].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppCubit extends _i1.Mock implements _i6.AppCubit {
+class MockAppCubit extends _i1.Mock implements _i8.AppCubit {
   MockAppCubit() {
     _i1.throwOnMissingStub(this);
   }
@@ -76,12 +98,12 @@ class MockAppCubit extends _i1.Mock implements _i6.AppCubit {
           as _i2.AppState);
 
   @override
-  _i7.Stream<_i2.AppState> get stream =>
+  _i9.Stream<_i2.AppState> get stream =>
       (super.noSuchMethod(
             Invocation.getter(#stream),
-            returnValue: _i7.Stream<_i2.AppState>.empty(),
+            returnValue: _i9.Stream<_i2.AppState>.empty(),
           )
-          as _i7.Stream<_i2.AppState>);
+          as _i9.Stream<_i2.AppState>);
 
   @override
   bool get isClosed =>
@@ -89,7 +111,7 @@ class MockAppCubit extends _i1.Mock implements _i6.AppCubit {
           as bool);
 
   @override
-  void doIntent(_i8.AppIntent? intent) => super.noSuchMethod(
+  void doIntent(_i10.AppIntent? intent) => super.noSuchMethod(
     Invocation.method(#doIntent, [intent]),
     returnValueForMissingStub: null,
   );
@@ -101,7 +123,7 @@ class MockAppCubit extends _i1.Mock implements _i6.AppCubit {
   );
 
   @override
-  void onChange(_i9.Change<_i2.AppState>? change) => super.noSuchMethod(
+  void onChange(_i11.Change<_i2.AppState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -119,19 +141,19 @@ class MockAppCubit extends _i1.Mock implements _i6.AppCubit {
   );
 
   @override
-  _i7.Future<void> close() =>
+  _i9.Future<void> close() =>
       (super.noSuchMethod(
             Invocation.method(#close, []),
-            returnValue: _i7.Future<void>.value(),
-            returnValueForMissingStub: _i7.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
-          as _i7.Future<void>);
+          as _i9.Future<void>);
 }
 
 /// A class which mocks [SigninCubit].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSigninCubit extends _i1.Mock implements _i10.SigninCubit {
+class MockSigninCubit extends _i1.Mock implements _i12.SigninCubit {
   MockSigninCubit() {
     _i1.throwOnMissingStub(this);
   }
@@ -178,12 +200,12 @@ class MockSigninCubit extends _i1.Mock implements _i10.SigninCubit {
           as _i5.SigninStates);
 
   @override
-  _i7.Stream<_i5.SigninStates> get stream =>
+  _i9.Stream<_i5.SigninStates> get stream =>
       (super.noSuchMethod(
             Invocation.getter(#stream),
-            returnValue: _i7.Stream<_i5.SigninStates>.empty(),
+            returnValue: _i9.Stream<_i5.SigninStates>.empty(),
           )
-          as _i7.Stream<_i5.SigninStates>);
+          as _i9.Stream<_i5.SigninStates>);
 
   @override
   bool get isClosed =>
@@ -191,28 +213,28 @@ class MockSigninCubit extends _i1.Mock implements _i10.SigninCubit {
           as bool);
 
   @override
-  void doIntent(_i11.SigninEvents? event) => super.noSuchMethod(
+  void doIntent(_i13.SigninEvents? event) => super.noSuchMethod(
     Invocation.method(#doIntent, [event]),
     returnValueForMissingStub: null,
   );
 
   @override
-  _i7.Future<void> signIn() =>
+  _i9.Future<void> signIn() =>
       (super.noSuchMethod(
             Invocation.method(#signIn, []),
-            returnValue: _i7.Future<void>.value(),
-            returnValueForMissingStub: _i7.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
-          as _i7.Future<void>);
+          as _i9.Future<void>);
 
   @override
-  _i7.Future<void> close() =>
+  _i9.Future<void> close() =>
       (super.noSuchMethod(
             Invocation.method(#close, []),
-            returnValue: _i7.Future<void>.value(),
-            returnValueForMissingStub: _i7.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
-          as _i7.Future<void>);
+          as _i9.Future<void>);
 
   @override
   void emit(_i5.SigninStates? state) => super.noSuchMethod(
@@ -221,7 +243,7 @@ class MockSigninCubit extends _i1.Mock implements _i10.SigninCubit {
   );
 
   @override
-  void onChange(_i9.Change<_i5.SigninStates>? change) => super.noSuchMethod(
+  void onChange(_i11.Change<_i5.SigninStates>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -237,4 +259,142 @@ class MockSigninCubit extends _i1.Mock implements _i10.SigninCubit {
     Invocation.method(#onError, [error, stackTrace]),
     returnValueForMissingStub: null,
   );
+}
+
+/// A class which mocks [WorkOutCubit].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockWorkOutCubit extends _i1.Mock implements _i14.WorkOutCubit {
+  MockWorkOutCubit() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.WorkOutStates get state =>
+      (super.noSuchMethod(
+            Invocation.getter(#state),
+            returnValue: _FakeWorkOutStates_4(this, Invocation.getter(#state)),
+          )
+          as _i6.WorkOutStates);
+
+  @override
+  _i9.Stream<_i6.WorkOutStates> get stream =>
+      (super.noSuchMethod(
+            Invocation.getter(#stream),
+            returnValue: _i9.Stream<_i6.WorkOutStates>.empty(),
+          )
+          as _i9.Stream<_i6.WorkOutStates>);
+
+  @override
+  bool get isClosed =>
+      (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
+          as bool);
+
+  @override
+  void doEvent(_i15.WorkOutEvent? event) => super.noSuchMethod(
+    Invocation.method(#doEvent, [event]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void emit(_i6.WorkOutStates? state) => super.noSuchMethod(
+    Invocation.method(#emit, [state]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void onChange(_i11.Change<_i6.WorkOutStates>? change) => super.noSuchMethod(
+    Invocation.method(#onChange, [change]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void addError(Object? error, [StackTrace? stackTrace]) => super.noSuchMethod(
+    Invocation.method(#addError, [error, stackTrace]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void onError(Object? error, StackTrace? stackTrace) => super.noSuchMethod(
+    Invocation.method(#onError, [error, stackTrace]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  _i9.Future<void> close() =>
+      (super.noSuchMethod(
+            Invocation.method(#close, []),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
+          )
+          as _i9.Future<void>);
+}
+
+/// A class which mocks [RcToDayCubit].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRcToDayCubit extends _i1.Mock implements _i16.RcToDayCubit {
+  MockRcToDayCubit() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.RcToDayStates get state =>
+      (super.noSuchMethod(
+            Invocation.getter(#state),
+            returnValue: _FakeRcToDayStates_5(this, Invocation.getter(#state)),
+          )
+          as _i7.RcToDayStates);
+
+  @override
+  _i9.Stream<_i7.RcToDayStates> get stream =>
+      (super.noSuchMethod(
+            Invocation.getter(#stream),
+            returnValue: _i9.Stream<_i7.RcToDayStates>.empty(),
+          )
+          as _i9.Stream<_i7.RcToDayStates>);
+
+  @override
+  bool get isClosed =>
+      (super.noSuchMethod(Invocation.getter(#isClosed), returnValue: false)
+          as bool);
+
+  @override
+  void doIntent(_i17.RcToDayIntents? intent) => super.noSuchMethod(
+    Invocation.method(#doIntent, [intent]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void emit(_i7.RcToDayStates? state) => super.noSuchMethod(
+    Invocation.method(#emit, [state]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void onChange(_i11.Change<_i7.RcToDayStates>? change) => super.noSuchMethod(
+    Invocation.method(#onChange, [change]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void addError(Object? error, [StackTrace? stackTrace]) => super.noSuchMethod(
+    Invocation.method(#addError, [error, stackTrace]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void onError(Object? error, StackTrace? stackTrace) => super.noSuchMethod(
+    Invocation.method(#onError, [error, stackTrace]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  _i9.Future<void> close() =>
+      (super.noSuchMethod(
+            Invocation.method(#close, []),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
+          )
+          as _i9.Future<void>);
 }
