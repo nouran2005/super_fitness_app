@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:super_fitness_app/app/core/values/api_constants.dart';
 import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
@@ -46,18 +47,18 @@ abstract class ApiClient {
 
   @GET(AppEndpoints.randomMusclesPath)
   Future<HttpResponse<RecommendationToDay>> getRandomMuscles(
-    @Header('Accept-Language') String language,
+    @Header(ApiConstants.acceptLanguage) String language,
   );
 
   @GET(AppEndpoints.getAllMusclesGroup)
   Future<HttpResponse<AllMusclesGroupResponse>> getAllMusclesGroup({
-    @Header("accept-language") required String language,
+    @Header(ApiConstants.acceptLanguage) required String language,
   });
 
   @GET(AppEndpoints.getAllMusclesByMuscleGroup)
   Future<HttpResponse<AllMusclesByMuscleGroupResponse>>
   getAllMusclesByMuscleGroup({
-    @Header("accept-language") required String language,
+    @Header(ApiConstants.acceptLanguage) required String language,
     @Path("muscleGroupId") required String muscleGroupId,
   });
 }
