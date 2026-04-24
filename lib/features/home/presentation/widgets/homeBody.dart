@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/widgets/section_header.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/app_Par.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/categorySection.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/recommendation_section.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscle_group_sections.dart';
+import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscles_horizontal_list.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -51,8 +55,15 @@ class HomeBody extends StatelessWidget {
                       const SizedBox(height: 24),
                       SectionHeader(
                         title: LocaleKeys.upcomingWorkouts.tr(),
-                        onSeeAllTap: () {},
+                        onSeeAllTap: () {
+                          context.read<AppSectionsCubit>().changePage(2);
+                        },
                       ),
+                      const SizedBox(height: 12),
+                      const MuscleGroupSections(),
+                      const SizedBox(height: 16),
+                      const MusclesHorizontalList(),
+                      const SizedBox(height: 24),
                       SectionHeader(
                         title: LocaleKeys.recommendationForYou.tr(),
                         onSeeAllTap: () {},

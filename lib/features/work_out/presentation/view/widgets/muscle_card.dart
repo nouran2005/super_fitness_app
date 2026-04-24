@@ -4,7 +4,8 @@ import 'package:super_fitness_app/features/work_out/domain/entities/muscle_entit
 
 class MuscleCard extends StatelessWidget {
   final MuscleEntity muscle;
-  const MuscleCard({super.key, required this.muscle});
+  final bool isSmall;
+  const MuscleCard({super.key, required this.muscle, this.isSmall = false});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,10 @@ class MuscleCard extends StatelessWidget {
         //print('Tapped on muscle: ${muscle.name} with id: ${muscle.id}');
       },
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(isSmall ? 24 : 16),
+          color: Colors.grey[900],
+        ),
         clipBehavior: Clip.antiAlias,
         child: Stack(
           fit: StackFit.expand,
@@ -23,12 +27,11 @@ class MuscleCard extends StatelessWidget {
               muscle.image ?? '',
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  color: Colors.grey[900],
-                  child: const Icon(
+                return Center(
+                  child: Icon(
                     Icons.broken_image_outlined,
                     color: Colors.white54,
-                    size: 40,
+                    size: isSmall ? 30 : 40,
                   ),
                 );
               },
@@ -41,30 +44,55 @@ class MuscleCard extends StatelessWidget {
                 );
               },
             ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.center,
-                  colors: [Colors.black.withAlpha(150), Colors.transparent],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Align(
+            if (isSmall)
+              Align(
                 alignment: Alignment.bottomCenter,
-                child: Text(
-                  muscle.name ?? '',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 8,
+                  ),
+                  decoration: BoxDecoration(color: Colors.black.withAlpha(120)),
+                  child: Text(
+                    muscle.name ?? '',
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              )
+            else ...[
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.center,
+                    colors: [Colors.black.withAlpha(150), Colors.transparent],
                   ),
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    muscle.name ?? '',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ],
         ),
       ),
