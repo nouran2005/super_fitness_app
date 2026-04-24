@@ -6,10 +6,30 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/page/a
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_section_placeholder.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view/widgets/app_sections_bottom_nav_bar.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
+import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/app/config/di/di.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
+
+import 'app_sections_view_test.mocks.dart';
+
+@GenerateMocks([RcToDayCubit])
 
 import '../../../../../helpers/pump_app.dart';
 
 void main() {
+  setUp(() async {
+    await getIt.reset();
+    final mockRcToDayCubit = MockRcToDayCubit();
+    getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
+
+    when(mockRcToDayCubit.state).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
+    when(mockRcToDayCubit.stream).thenAnswer((_) => Stream.empty());
+  });
+
   group('AppSectionsView', () {
     Future<void> pumpView(WidgetTester tester, AppSectionsCubit cubit) async {
       await tester.pumpLocalizedWidget(
@@ -42,8 +62,9 @@ void main() {
       expect(indexedStack.index, 1);
       expect(
         find.byType(AppSectionPlaceholder, skipOffstage: false),
-        findsNWidgets(appSectionDestinations.length),
+        findsNWidgets(appSectionDestinations.length - 1),
       );
+      expect(find.byType(HomeScreen, skipOffstage: false), findsOneWidget);
       expect(find.text(appSectionDestinations[1].subtitle), findsOneWidget);
       expect(find.text(appSectionDestinations.first.subtitle), findsNothing);
     });

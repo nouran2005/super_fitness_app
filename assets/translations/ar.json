@@ -131,5 +131,20 @@
   "makeSureIts8CharactersOrMore": "تأكد من أن كلمة المرور تتكون من 8 أحرف على الأقل",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "done": "تم",
-  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح"
+  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
+  "hi": "أهلاً",
+  "letsStartYourDay": "لنبدأ يومك",
+  "category": "الفئة",
+  "gym": "صالة الألعاب",
+  "fitness": "لياقة بدنية",
+  "yoga": "يوجا",
+  "aerobics": "أيروبيكس",
+  "trainer": "مدرب",
+  "upcomingFeature": "ميزة قادمة",
+  "availableSoon": "سيكون قسم {} متاحاً قريباً!",
+  "gotIt": "فهمت",
+  "recommendationToDay": "توصيات اليوم",
+  "recommendationForYou": "توصيات لك",
+  "seeAll": "مشاهدة الكل",
+  "upcomingWorkouts": "التمارين القادمة"
 }

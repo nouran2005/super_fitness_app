@@ -15,9 +15,11 @@ import 'package:super_fitness_app/features/signin/presentation/view/pages/signin
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_cubit.dart';
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
 import 'app_start_page_test.mocks.dart';
 
-@GenerateMocks([AppCubit, SigninCubit])
+@GenerateMocks([AppCubit, SigninCubit, RcToDayCubit])
 void main() {
   late MockAppCubit mockCubit;
 
@@ -25,8 +27,14 @@ void main() {
     await getIt.reset();
     mockCubit = MockAppCubit();
     final mockSigninCubit = MockSigninCubit();
+    final mockRcToDayCubit = MockRcToDayCubit();
     getIt.registerSingleton<AppCubit>(mockCubit);
     getIt.registerSingleton<SigninCubit>(mockSigninCubit);
+    getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
+
+    // Stub RcToDayCubit state
+    when(mockRcToDayCubit.state).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
+    when(mockRcToDayCubit.stream).thenAnswer((_) => Stream.empty());
 
     // Stub SigninCubit state to avoid null errors during build
     when(

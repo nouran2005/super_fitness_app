@@ -8,6 +8,7 @@ abstract class RouteNames {
   static const verifyResetCode = '/verify-reset-code';
   static const resetPassword = '/reset-password';
   static const home = '/home';
+  static const homeScreen = '/home-screen';
   static const profile = '/profile';
   static const login = '/signin';
 }
