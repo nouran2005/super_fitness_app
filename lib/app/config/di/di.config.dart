@@ -57,6 +57,8 @@ import '../../../features/popular_training/domain/usecases/get_levels_usecase.da
     as _i1023;
 import '../../../features/popular_training/domain/usecases/get_random_muscles_usecase.dart'
     as _i727;
+import '../../../features/popular_training/presentation/view_model/popular_training_cubit.dart'
+    as _i590;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -172,6 +174,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
+    );
+    gh.factory<_i590.PopularTrainingCubit>(
+      () => _i590.PopularTrainingCubit(
+        gh<_i727.GetRandomMusclesUseCase>(),
+        gh<_i1023.GetLevelsUseCase>(),
+        gh<_i970.GetExercisesByMuscleDifficultyUseCase>(),
+      ),
     );
     gh.factory<_i985.SigninCubit>(
       () => _i985.SigninCubit(signinUseCase: gh<_i983.SigninUseCase>()),

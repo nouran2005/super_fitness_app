@@ -37,6 +37,7 @@ class ExercisesByMuscleDifficultyResponseModel {
 
   ExercisesByMuscleDifficultyResponseEntity toEntity() {
     return ExercisesByMuscleDifficultyResponseEntity(
+      totalExercises: totalExercises ?? 0,
       exercises: exercises?.map((e) => e.toEntity()).toList() ?? [],
     );
   }

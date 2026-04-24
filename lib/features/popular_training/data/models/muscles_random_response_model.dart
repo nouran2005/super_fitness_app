@@ -27,10 +27,16 @@ class MusclesRandomResponseModel {
 
   MusclesRandomEntity toEntity() {
     return MusclesRandomEntity(
-      ids:
+      muscles:
           muscles
-              ?.map((e) => e.id ?? '')
-              .where((id) => id.isNotEmpty)
+              ?.where((e) => e.id != null && e.id!.isNotEmpty)
+              .map(
+                (e) => MuscleEntity(
+                  id: e.id!,
+                  name: e.name ?? '',
+                  image: e.image ?? '',
+                ),
+              )
               .toList() ??
           [],
     );

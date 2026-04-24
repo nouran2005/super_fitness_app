@@ -1,7 +1,11 @@
 class ExercisesByMuscleDifficultyResponseEntity {
   final List<ExerciseEntity> exercises;
+  final int totalExercises;
 
-  const ExercisesByMuscleDifficultyResponseEntity({required this.exercises});
+  const ExercisesByMuscleDifficultyResponseEntity({
+    required this.exercises,
+    required this.totalExercises,
+  });
 }
 
 class ExerciseEntity {

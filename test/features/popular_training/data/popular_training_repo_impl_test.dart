@@ -53,7 +53,9 @@ void main() {
       totalMuscles: 1,
       muscles: [RandomMuscleModel(id: '1', name: 'Biceps', image: 'image.png')],
     );
-    final tEntity = const MusclesRandomEntity(ids: ['1']);
+    final tEntity = const MusclesRandomEntity(
+      muscles: [MuscleEntity(id: '1', name: 'Biceps', image: 'image.png')],
+    );
     const tErrorMessage = 'Something went wrong';
 
     test(
@@ -67,7 +69,16 @@ void main() {
 
         expect(result, isA<SuccessApiResult<MusclesRandomEntity>>());
         final success = result as SuccessApiResult<MusclesRandomEntity>;
-        expect(success.data.ids, equals(tEntity.ids));
+        expect(success.data.muscles.length, equals(tEntity.muscles.length));
+        expect(success.data.muscles.first.id, equals(tEntity.muscles.first.id));
+        expect(
+          success.data.muscles.first.name,
+          equals(tEntity.muscles.first.name),
+        );
+        expect(
+          success.data.muscles.first.image,
+          equals(tEntity.muscles.first.image),
+        );
         verify(mockDataSource.getRandomMuscles()).called(1);
         verifyNoMoreInteractions(mockDataSource);
       },
@@ -150,6 +161,7 @@ void main() {
       ],
     );
     final tEntity = const ExercisesByMuscleDifficultyResponseEntity(
+      totalExercises: 1,
       exercises: [
         ExerciseEntity(
           id: '1',
