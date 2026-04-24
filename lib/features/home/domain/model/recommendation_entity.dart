@@ -3,11 +3,7 @@ class RecommendationEntity {
   final int? totalMuscles;
   final List<MuscleEntity>? muscles;
 
-  const RecommendationEntity({
-    this.message,
-    this.totalMuscles,
-    this.muscles,
-  });
+  const RecommendationEntity({this.message, this.totalMuscles, this.muscles});
 }
 
 class MuscleEntity {
@@ -15,9 +11,5 @@ class MuscleEntity {
   final String? name;
   final String? image;
 
-  const MuscleEntity({
-    this.id,
-    this.name,
-    this.image,
-  });
+  const MuscleEntity({this.id, this.name, this.image});
 }

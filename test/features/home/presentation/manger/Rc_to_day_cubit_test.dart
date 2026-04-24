@@ -59,7 +59,9 @@ void main() {
     blocTest<RcToDayCubit, RcToDayStates>(
       'emits [loading, error] when GetRandomMusclesIntent is added and fails',
       build: () {
-        when(mockGetRandomMusclesUseCase.execute()).thenThrow(Exception('Error'));
+        when(
+          mockGetRandomMusclesUseCase.execute(),
+        ).thenThrow(Exception('Error'));
         return cubit;
       },
       act: (cubit) => cubit.doIntent(GetRandomMusclesIntent()),

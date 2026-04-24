@@ -23,7 +23,6 @@ class CategoryItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (name == LocaleKeys.trainer) {
-          
           onTap?.call();
         } else {
           UpcomingFeatureDialog.show(context, name);
@@ -39,10 +38,7 @@ class CategoryItem extends StatelessWidget {
             SizedBox(
               width: screenWidth * 0.14,
               height: screenWidth * 0.14,
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.contain,
-              ),
+              child: Image.asset(imagePath, fit: BoxFit.contain),
             ),
             const SizedBox(height: 4),
             Text(

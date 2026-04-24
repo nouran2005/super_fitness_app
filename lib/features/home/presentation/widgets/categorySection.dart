@@ -12,10 +12,19 @@ class _CategoryData {
 
 const List<_CategoryData> _categories = [
   _CategoryData(imagePath: 'assets/images/Gym.png', name: LocaleKeys.gym),
-  _CategoryData(imagePath: 'assets/images/fitness.png', name: LocaleKeys.fitness),
+  _CategoryData(
+    imagePath: 'assets/images/fitness.png',
+    name: LocaleKeys.fitness,
+  ),
   _CategoryData(imagePath: 'assets/images/yoga.png', name: LocaleKeys.yoga),
-  _CategoryData(imagePath: 'assets/images/Aerobics.png', name: LocaleKeys.aerobics),
-  _CategoryData(imagePath: 'assets/images/Trainer.png', name: LocaleKeys.trainer),
+  _CategoryData(
+    imagePath: 'assets/images/Aerobics.png',
+    name: LocaleKeys.aerobics,
+  ),
+  _CategoryData(
+    imagePath: 'assets/images/Trainer.png',
+    name: LocaleKeys.trainer,
+  ),
 ];
 
 class CategorySection extends StatelessWidget {

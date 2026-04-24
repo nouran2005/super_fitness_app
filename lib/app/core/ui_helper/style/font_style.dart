@@ -176,7 +176,6 @@ class AppStyles {
     fontWeight: FontWeight.w100,
     fontSize: 14,
     height: 1.2,
-    color: Color(0xFFD3D3D3), 
-
+    color: Color(0xFFD3D3D3),
   );
 }

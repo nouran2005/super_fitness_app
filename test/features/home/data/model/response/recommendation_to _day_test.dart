@@ -4,11 +4,7 @@ import 'package:super_fitness_app/features/home/domain/model/recommendation_enti
 
 void main() {
   group('RecommendationToDay Model', () {
-    final tMuscleJson = {
-      '_id': '1',
-      'name': 'Bicep',
-      'image': 'image_url',
-    };
+    final tMuscleJson = {'_id': '1', 'name': 'Bicep', 'image': 'image_url'};
 
     final tRecommendationJson = {
       'message': 'Success',
@@ -29,9 +25,7 @@ void main() {
       final model = RecommendationToDay(
         message: 'Success',
         totalMuscles: 1,
-        muscles: [
-          Muscle(id: '1', name: 'Bicep', image: 'image_url'),
-        ],
+        muscles: [Muscle(id: '1', name: 'Bicep', image: 'image_url')],
       );
 
       final result = model.toJson();
@@ -45,9 +39,7 @@ void main() {
       final model = RecommendationToDay(
         message: 'Success',
         totalMuscles: 1,
-        muscles: [
-          Muscle(id: '1', name: 'Bicep', image: 'image_url'),
-        ],
+        muscles: [Muscle(id: '1', name: 'Bicep', image: 'image_url')],
       );
 
       final result = model.toEntity();

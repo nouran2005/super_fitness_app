@@ -18,7 +18,7 @@ class TestAssetLoader extends AssetLoader {
       'signIn': 'Sign in',
       'dontHaveAccount': 'Dont have an account yet ?',
       'registerNow': 'Register',
-
+      'work_outs': 'Workouts',
       'recommendationToDay': 'Recommendation To Day',
       'upcomingWorkouts': 'Upcoming Workouts',
       'recommendationForYou': 'Recommendation For You',
@@ -39,6 +39,7 @@ extension PumpApp on WidgetTester {
   Future<void> pumpLocalizedWidget(
     Widget child, {
     bool withScaffold = true,
+    bool settle = true,
   }) async {
     await pumpWidget(
       EasyLocalization(
@@ -62,6 +63,10 @@ extension PumpApp on WidgetTester {
       ),
     );
 
-    await pumpAndSettle();
+    if (settle) {
+      await pumpAndSettle();
+    } else {
+      await pump();
+    }
   }
 }

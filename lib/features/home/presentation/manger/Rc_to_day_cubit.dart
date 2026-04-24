@@ -10,7 +10,7 @@ class RcToDayCubit extends Cubit<RcToDayStates> {
   final GetRandomMusclesUseCase _getRandomMusclesUseCase;
 
   RcToDayCubit(this._getRandomMusclesUseCase)
-      : super(RcToDayStates(recommendationResource: Resource.initial()));
+    : super(RcToDayStates(recommendationResource: Resource.initial()));
 
   void doIntent(RcToDayIntents intent) {
     switch (intent) {
@@ -25,7 +25,9 @@ class RcToDayCubit extends Cubit<RcToDayStates> {
       final result = await _getRandomMusclesUseCase.execute();
       emit(state.copyWith(recommendationResource: Resource.success(result)));
     } catch (e) {
-      emit(state.copyWith(recommendationResource: Resource.error(e.toString())));
+      emit(
+        state.copyWith(recommendationResource: Resource.error(e.toString())),
+      );
     }
   }
 }

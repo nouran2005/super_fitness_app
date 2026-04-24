@@ -19,7 +19,9 @@ void main() {
 
   test('should call getRandomMuscles from repository', () async {
     const recommendation = RecommendationEntity(message: 'Success');
-    when(mockHomeRepo.getRandomMuscles()).thenAnswer((_) async => recommendation);
+    when(
+      mockHomeRepo.getRandomMuscles(),
+    ).thenAnswer((_) async => recommendation);
 
     final result = await useCase.execute();
 

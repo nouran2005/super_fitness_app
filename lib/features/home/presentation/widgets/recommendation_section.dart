@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/recommendation_item.dart';
@@ -22,10 +22,7 @@ class RecommendationSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionHeader(
-          title: title,
-          showSeeAll: showSeeAll,
-        ),
+        SectionHeader(title: title, showSeeAll: showSeeAll),
         const SizedBox(height: 8),
         SizedBox(
           height: screenWidth * 0.27,
@@ -34,7 +31,9 @@ class RecommendationSection extends StatelessWidget {
               final resource = state.recommendationResource;
 
               if (resource.isLoading) {
-                return const Center(child: CircularProgressIndicator(color: Colors.orange));
+                return const Center(
+                  child: CircularProgressIndicator(color: Colors.orange),
+                );
               }
 
               if (resource.isError) {
@@ -48,9 +47,11 @@ class RecommendationSection extends StatelessWidget {
 
               if (resource.isSuccess && resource.data != null) {
                 final muscles = resource.data!.muscles ?? [];
-                
-                final randomMuscles = (List.of(muscles)..shuffle()).take(3).toList();
-                
+
+                final randomMuscles = (List.of(
+                  muscles,
+                )..shuffle()).take(3).toList();
+
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                   child: Row(

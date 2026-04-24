@@ -6,9 +6,12 @@ class RcToDayStates {
 
   RcToDayStates({required this.recommendationResource});
 
-  RcToDayStates copyWith({Resource<RecommendationEntity>? recommendationResource}) {
+  RcToDayStates copyWith({
+    Resource<RecommendationEntity>? recommendationResource,
+  }) {
     return RcToDayStates(
-      recommendationResource: recommendationResource ?? this.recommendationResource,
+      recommendationResource:
+          recommendationResource ?? this.recommendationResource,
     );
   }
 }

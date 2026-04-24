@@ -44,7 +44,10 @@ class UpcomingFeatureDialog extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             child: Text(
               LocaleKeys.gotIt.tr(),
-              style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                color: Colors.orange,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],

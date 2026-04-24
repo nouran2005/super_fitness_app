@@ -19,15 +19,23 @@ void main() {
     dataSource = HomeRemoteDataSourceImpl(mockApiClient);
   });
 
-  test('should call getRandomMuscles on ApiClient with correct language', () async {
-    final model = RecommendationToDay(message: 'Success');
-    final response = HttpResponse(model, Response(requestOptions: RequestOptions(path: '')));
-    
-    when(mockApiClient.getRandomMuscles('en')).thenAnswer((_) async => response);
+  test(
+    'should call getRandomMuscles on ApiClient with correct language',
+    () async {
+      final model = RecommendationToDay(message: 'Success');
+      final response = HttpResponse(
+        model,
+        Response(requestOptions: RequestOptions(path: '')),
+      );
 
-    final result = await dataSource.getRandomMuscles();
+      when(
+        mockApiClient.getRandomMuscles('en'),
+      ).thenAnswer((_) async => response);
 
-    expect(result, model);
-    verify(mockApiClient.getRandomMuscles('en')).called(1);
-  });
+      final result = await dataSource.getRandomMuscles();
+
+      expect(result, model);
+      verify(mockApiClient.getRandomMuscles('en')).called(1);
+    },
+  );
 }

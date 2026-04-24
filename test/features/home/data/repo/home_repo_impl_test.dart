@@ -17,13 +17,18 @@ void main() {
     repository = HomeRepoImpl(mockRemoteDataSource);
   });
 
-  test('should return RecommendationEntity when remote fetch is successful', () async {
-    final model = RecommendationToDay(message: 'Success', muscles: []);
-    when(mockRemoteDataSource.getRandomMuscles()).thenAnswer((_) async => model);
+  test(
+    'should return RecommendationEntity when remote fetch is successful',
+    () async {
+      final model = RecommendationToDay(message: 'Success', muscles: []);
+      when(
+        mockRemoteDataSource.getRandomMuscles(),
+      ).thenAnswer((_) async => model);
 
-    final result = await repository.getRandomMuscles();
+      final result = await repository.getRandomMuscles();
 
-    expect(result.message, 'Success');
-    verify(mockRemoteDataSource.getRandomMuscles()).called(1);
-  });
+      expect(result.message, 'Success');
+      verify(mockRemoteDataSource.getRandomMuscles()).called(1);
+    },
+  );
 }
