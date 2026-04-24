@@ -12,10 +12,11 @@ import 'package:super_fitness_app/features/forget_password/presentation/views/sc
 import 'package:super_fitness_app/features/forget_password/presentation/views/screens/verify_reset_code_screen.dart';
 import 'package:super_fitness_app/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/signup_onboarding_page.dart';
+import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: RouteNames.signIn,
+  initialLocation: RouteNames.home,
   routes: [
     GoRoute(
       path: RouteNames.appStart,
@@ -61,6 +62,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.signIn,
       builder: (context, state) => const SigninPage(),
+    ),
+
+    GoRoute(
+      path: RouteNames.homeScreen,
+      builder: (context, state) => const HomeScreen(),
     ),
   ],
 );

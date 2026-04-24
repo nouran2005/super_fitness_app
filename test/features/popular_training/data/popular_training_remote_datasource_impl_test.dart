@@ -38,7 +38,7 @@ void main() {
     test(
       'should return SuccessApiResult when the API call completes successfully',
       () async {
-        when(mockApiClient.getRandomMuscles()).thenAnswer(
+        when(mockApiClient.getRandom20Muscles()).thenAnswer(
           (_) async =>
               HttpResponse(tResponseModel, fakeResponse(tResponseModel)),
         );
@@ -50,7 +50,7 @@ void main() {
           (result as SuccessApiResult<MusclesRandomResponseModel>).data,
           tResponseModel,
         );
-        verify(mockApiClient.getRandomMuscles()).called(1);
+        verify(mockApiClient.getRandom20Muscles()).called(1);
         verifyNoMoreInteractions(mockApiClient);
       },
     );
@@ -58,7 +58,7 @@ void main() {
     test(
       'should return ErrorApiResult when the API throws a DioException',
       () async {
-        when(mockApiClient.getRandomMuscles()).thenThrow(
+        when(mockApiClient.getRandom20Muscles()).thenThrow(
           DioException(
             requestOptions: RequestOptions(path: ''),
             message: 'No internet connection',
@@ -83,7 +83,7 @@ void main() {
           requestOptions: RequestOptions(path: ''),
         );
         when(
-          mockApiClient.getRandomMuscles(),
+          mockApiClient.getRandom20Muscles(),
         ).thenAnswer((_) async => HttpResponse(tResponseModel, badResponse));
 
         final result = await dataSource.getRandomMuscles();

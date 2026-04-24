@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
+
 enum Status { initial, loading, success, error }
 
-class Resource<T> {
+class Resource<T> extends Equatable {
   final Status status;
   final T? data;
   final String? error;
@@ -21,4 +23,7 @@ class Resource<T> {
   bool get isLoading => status == Status.loading;
   bool get isSuccess => status == Status.success;
   bool get isError => status == Status.error;
+
+  @override
+  List<Object?> get props => [status, data, error];
 }

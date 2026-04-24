@@ -162,4 +162,20 @@ class AppStyles {
     letterSpacing: 0,
     color: Color(0xFF0C1015),
   );
+
+  static const TextStyle baloo18Medium = TextStyle(
+    fontFamily: 'Baloo Thambi 2',
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+    height: 1.4,
+    color: AppColors.white,
+  );
+
+  static const TextStyle baloo12Regular = TextStyle(
+    fontFamily: 'Baloo Thambi 2',
+    fontWeight: FontWeight.w100,
+    fontSize: 14,
+    height: 1.2,
+    color: Color(0xFFD3D3D3),
+  );
 }
