@@ -10,22 +10,35 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/widget
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
-
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
+import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 import '../../../../../helpers/pump_app.dart';
 
 class MockWorkOutCubit extends Mock implements WorkOutCubit {}
 
+class MockRcToDayCubit extends Mock implements RcToDayCubit {}
+
 void main() {
   late MockWorkOutCubit mockWorkOutCubit;
+  late MockRcToDayCubit mockRcToDayCubit;
 
   setUp(() async {
     await getIt.reset();
     mockWorkOutCubit = MockWorkOutCubit();
+    mockRcToDayCubit = MockRcToDayCubit();
     getIt.registerSingleton<WorkOutCubit>(mockWorkOutCubit);
+    getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
 
     when(() => mockWorkOutCubit.state).thenReturn(WorkOutStates());
     when(() => mockWorkOutCubit.stream).thenAnswer((_) => const Stream.empty());
     when(() => mockWorkOutCubit.close()).thenAnswer((_) async {});
+
+    when(
+      () => mockRcToDayCubit.state,
+    ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
+    when(() => mockRcToDayCubit.stream).thenAnswer((_) => const Stream.empty());
   });
 
   group('AppSectionsView', () {
@@ -62,8 +75,9 @@ void main() {
       // IndexedStack builds all children, so we have 3 placeholders and 1 WorkOutPage
       expect(
         find.byType(AppSectionPlaceholder, skipOffstage: false),
-        findsNWidgets(3),
+        findsNWidgets(appSectionDestinations.length - 1),
       );
+      expect(find.byType(HomeScreen, skipOffstage: false), findsOneWidget);
       expect(find.text(appSectionDestinations[1].subtitle), findsOneWidget);
       expect(find.text(appSectionDestinations.first.subtitle), findsNothing);
     });

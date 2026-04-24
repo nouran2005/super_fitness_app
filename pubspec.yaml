@@ -85,7 +85,9 @@ flutter:
     - assets/translations/
     - assets/images/
     - assets/jsons/
-    
+    - assets/images/sections background.png
+    - assets/images/prfofle photo .png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

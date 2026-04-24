@@ -11,6 +11,7 @@ import 'package:super_fitness_app/features/forget_password/data/models/request/v
 import 'package:super_fitness_app/features/forget_password/data/models/response/forget_password_response_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/response/reset_password_response_model.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/response/verify_code_response_model.dart';
+import 'package:super_fitness_app/features/home/data/model/response/recommendation_to _day.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_by_muscle_group_response.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_group_response.dart';
 
@@ -41,6 +42,11 @@ abstract class ApiClient {
   @POST(AppEndpoints.resetPasswordPath)
   Future<HttpResponse<ResetPasswordResponseModel>> resetPassword(
     @Body() ResetPasswordRequestModel requestModel,
+  );
+
+  @GET(AppEndpoints.randomMusclesPath)
+  Future<HttpResponse<RecommendationToDay>> getRandomMuscles(
+    @Header('Accept-Language') String language,
   );
 
   @GET(AppEndpoints.getAllMusclesGroup)

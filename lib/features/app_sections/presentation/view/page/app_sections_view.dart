@@ -6,6 +6,7 @@ import 'package:super_fitness_app/features/app_sections/presentation/view/widget
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view/pages/work_out_page.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_state.dart';
+import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 
 class AppSectionsView extends StatelessWidget {
   const AppSectionsView({super.key});
@@ -19,10 +20,7 @@ class AppSectionsView extends StatelessWidget {
           body: IndexedStack(
             index: state.currentIndex,
             children: [
-              AppSectionPlaceholder(
-                title: appSectionDestinations[0].title,
-                subtitle: appSectionDestinations[0].subtitle,
-              ),
+              const HomeScreen(),
               AppSectionPlaceholder(
                 title: appSectionDestinations[1].title,
                 subtitle: appSectionDestinations[1].subtitle,

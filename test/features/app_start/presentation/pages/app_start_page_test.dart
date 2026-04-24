@@ -16,11 +16,14 @@ import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/
 import 'package:super_fitness_app/features/signin/presentation/view_model/cubit/signin_states.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
+import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
+import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
 import 'app_start_page_test.mocks.dart';
 
 import '../../../../helpers/pump_app.dart';
 
-@GenerateMocks([AppCubit, SigninCubit, WorkOutCubit])
+@GenerateMocks([AppCubit, SigninCubit, WorkOutCubit, RcToDayCubit])
 void main() {
   late MockAppCubit mockCubit;
   late MockSigninCubit mockSigninCubit;
@@ -35,10 +38,12 @@ void main() {
     mockCubit = MockAppCubit();
     mockSigninCubit = MockSigninCubit();
     mockWorkOutCubit = MockWorkOutCubit();
+    final mockRcToDayCubit = MockRcToDayCubit();
 
     getIt.registerSingleton<AppCubit>(mockCubit);
     getIt.registerSingleton<SigninCubit>(mockSigninCubit);
     getIt.registerSingleton<WorkOutCubit>(mockWorkOutCubit);
+    getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
 
     // Default stubs
     when(
@@ -47,6 +52,12 @@ void main() {
     when(mockCubit.stream).thenAnswer((_) => const Stream.empty());
     when(mockCubit.doIntent(any)).thenReturn(null);
     when(mockCubit.close()).thenAnswer((_) async {});
+
+    // Stub RcToDayCubit state
+    when(
+      mockRcToDayCubit.state,
+    ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
+    when(mockRcToDayCubit.stream).thenAnswer((_) => Stream.empty());
 
     when(
       mockSigninCubit.state,
