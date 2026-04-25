@@ -147,7 +147,9 @@
   "recommendationForYou": "توصيات لك",
   "seeAll": "مشاهدة الكل",
   "upcomingWorkouts": "التمارين القادمة",
-  "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
   "work_out": "التمرين",
-  "try_adjusting_your_filters_or_check_back_later": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا."
+  "try_adjusting_your_filters_or_check_back_later": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا.",
+  "no_muscles_or_levels_available": "لا توجد عضلات أو مستويات متاحة",
+  "Tasks": "تدريبات",
+  "PopularsTraining": "التدريبات الأكثر رواجًا"
 }

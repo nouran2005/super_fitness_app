@@ -31,6 +31,10 @@ class TestAssetLoader extends AssetLoader {
       'aerobics': 'Aerobics',
       'trainer': 'Trainer',
       'seeAll': 'See All',
+      'PopularsTraining': 'Popular Training',
+      'Tasks': 'Tasks',
+      'something_went_wrong': 'Something went wrong',
+      'no_muscles_or_levels_available': 'No muscles or levels available.',
     };
   }
 }
@@ -63,6 +67,11 @@ extension PumpApp on WidgetTester {
       ),
     );
 
+    if (settle) {
+      await pumpAndSettle();
+    } else {
+      await pump();
+    }
     if (settle) {
       await pumpAndSettle();
     } else {
