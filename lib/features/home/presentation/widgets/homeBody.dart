@@ -4,6 +4,7 @@ import 'package:super_fitness_app/app/core/widgets/section_header.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/app_Par.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/categorySection.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/recommendation_section.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/views/widgets/popular_training_list.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscle_group_sections.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscles_horizontal_list.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
@@ -68,6 +69,9 @@ class HomeBody extends StatelessWidget {
                         title: LocaleKeys.recommendationForYou.tr(),
                         onSeeAllTap: () {},
                       ),
+                      const SizedBox(height: 24),
+                      PopularTrainingList(),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 ),

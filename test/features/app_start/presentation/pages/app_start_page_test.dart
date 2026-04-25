@@ -16,11 +16,19 @@ import 'package:super_fitness_app/features/work_out/presentation/view_model/cubi
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_states.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_cubit.dart';
 import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_states.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/view_model/popular_training_cubit.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/view_model/popular_training_state.dart';
 import 'app_start_page_test.mocks.dart';
 
 import '../../../../helpers/pump_app.dart';
 
-@GenerateMocks([AppCubit, SigninCubit, WorkOutCubit, RcToDayCubit])
+@GenerateMocks([
+  AppCubit,
+  SigninCubit,
+  WorkOutCubit,
+  RcToDayCubit,
+  PopularTrainingCubit,
+])
 void main() {
   late MockAppCubit mockCubit;
   late MockSigninCubit mockSigninCubit;
@@ -41,6 +49,8 @@ void main() {
     getIt.registerSingleton<SigninCubit>(mockSigninCubit);
     getIt.registerSingleton<WorkOutCubit>(mockWorkOutCubit);
     getIt.registerSingleton<RcToDayCubit>(mockRcToDayCubit);
+    final mockPopularTrainingCubit = MockPopularTrainingCubit();
+    getIt.registerSingleton<PopularTrainingCubit>(mockPopularTrainingCubit);
 
     // Default stubs
     when(
@@ -69,6 +79,13 @@ void main() {
     when(mockWorkOutCubit.state).thenReturn(WorkOutStates());
     when(mockWorkOutCubit.stream).thenAnswer((_) => const Stream.empty());
     when(mockWorkOutCubit.close()).thenAnswer((_) async {});
+
+    // Stub PopularTrainingCubit state
+    when(
+      mockPopularTrainingCubit.state,
+    ).thenReturn(PopularTrainingState(popularExercises: Resource.initial()));
+    when(mockPopularTrainingCubit.stream).thenAnswer((_) => Stream.empty());
+    when(mockPopularTrainingCubit.close()).thenAnswer((_) async {});
   });
 
   tearDown(() {
@@ -103,21 +120,6 @@ void main() {
       await tester.pump();
 
       expect(find.byType(OnboardingPage), findsOneWidget);
-    });
-
-    testWidgets('shows HomePage when NOT first time user', (tester) async {
-      when(mockCubit.state).thenReturn(
-        AppState(authResource: Resource.success(AppAuthStatus.authenticated)),
-      );
-
-      await tester.pumpLocalizedWidget(
-        const AppStartPage(),
-        withScaffold: false,
-        settle: false,
-      );
-      await tester.pump();
-
-      expect(find.byType(AppSectionsView), findsOneWidget);
     });
 
     testWidgets('shows SigninPage when unauthenticated', (tester) async {

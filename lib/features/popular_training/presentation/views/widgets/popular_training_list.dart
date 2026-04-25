@@ -31,7 +31,9 @@ class PopularTrainingList extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
             child: Text(
               LocaleKeys.PopularsTraining.tr(),
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge!.copyWith(fontSize: screenWidth * 0.05),
             ),
           ),
           const SizedBox(height: 12),
