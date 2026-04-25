@@ -27,6 +27,16 @@ import '../../../features/auth/domain/repositories/auth_repository.dart'
 import '../../../features/auth/domain/use_cases/signup_use_case.dart' as _i128;
 import '../../../features/auth/presentation/register/view_model/signup_cubit.dart'
     as _i22;
+import '../../../features/Exercise/api/dataScources/exercise_remote_data_source_impl.dart'
+    as _i524;
+import '../../../features/Exercise/data/dataScources/exercise_remote_data_source.dart'
+    as _i391;
+import '../../../features/Exercise/data/repo/exercise_repo_impl.dart' as _i690;
+import '../../../features/Exercise/domain/repo/exercise_repo.dart' as _i983;
+import '../../../features/Exercise/domain/usecase/get_exercises_use_case.dart'
+    as _i832;
+import '../../../features/Exercise/presentation/manger/exercise_cubit.dart'
+    as _i572;
 import '../../../features/forget_password/api/datasources_impl/forget_password_remote_datasource_impl.dart'
     as _i278;
 import '../../../features/forget_password/data/datasources/forget_password_remote_datasource.dart'
@@ -111,8 +121,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i466.ForgetPasswordRemoteDataSource>(
       () => _i278.ForgetPasswordRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.factory<_i391.ExerciseRemoteDataSource>(
+      () => _i524.ExerciseRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
     gh.factory<_i599.HomeRemoteDataSource>(
       () => _i874.HomeRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
+    gh.factory<_i983.ExerciseRepo>(
+      () => _i690.ExerciseRepoImpl(gh<_i391.ExerciseRemoteDataSource>()),
     );
     gh.factory<_i435.AuthRemoteDataSourceContract>(
       () => _i339.AuthRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
@@ -134,6 +150,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i365.AuthRepositoryImpl(
         remoteDataSource: gh<_i435.AuthRemoteDataSourceContract>(),
       ),
+    );
+    gh.factory<_i832.GetExercisesUseCase>(
+      () => _i832.GetExercisesUseCase(gh<_i983.ExerciseRepo>()),
     );
     gh.factory<_i845.WorkOutRepository>(
       () => _i292.WorkOutRepositoryImpl(
@@ -190,6 +209,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i55.GetAllMusclesGroupUseCase>(),
         gh<_i459.GetAllMusclesByMuscleGroupUseCase>(),
       ),
+    );
+    gh.factory<_i572.ExerciseCubit>(
+      () => _i572.ExerciseCubit(gh<_i832.GetExercisesUseCase>()),
     );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),

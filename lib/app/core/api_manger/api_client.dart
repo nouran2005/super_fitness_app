@@ -15,6 +15,7 @@ import 'package:super_fitness_app/features/forget_password/data/models/response/
 import 'package:super_fitness_app/features/home/data/model/response/recommendation_to _day.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_by_muscle_group_response.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_group_response.dart';
+import 'package:super_fitness_app/features/Exercise/data/model/response/ExerciseRESponse.dart';
 
 part 'api_client.g.dart';
 
@@ -60,5 +61,10 @@ abstract class ApiClient {
   getAllMusclesByMuscleGroup({
     @Header(ApiConstants.acceptLanguage) required String language,
     @Path("muscleGroupId") required String muscleGroupId,
+  });
+
+  @GET(AppEndpoints.exercisesPath)
+  Future<HttpResponse<ExerciseResponse>> getExercises({
+    @Header(ApiConstants.acceptLanguage) required String language,
   });
 }

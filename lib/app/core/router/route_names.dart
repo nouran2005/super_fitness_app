@@ -11,4 +11,5 @@ abstract class RouteNames {
   static const homeScreen = '/home-screen';
   static const profile = '/profile';
   static const login = '/signin';
+  static const exercises = '/exercises';
 }

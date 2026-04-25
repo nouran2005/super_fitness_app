@@ -13,4 +13,5 @@ class AppEndpoints {
   static const String getAllMusclesGroup = 'muscles';
   static const String getAllMusclesByMuscleGroup =
       'musclesGroup/{muscleGroupId}';
+  static const String exercisesPath = 'exercises';
 }

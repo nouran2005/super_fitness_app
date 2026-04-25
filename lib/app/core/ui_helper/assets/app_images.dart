@@ -66,4 +66,8 @@ class Assets {
   /// Assets for exerciseLoading
   static const String exerciseLoadingPath =
       'assets/jsons/exercise_loading.json';
+  static const String imagesExerciseBackground =
+      "assets/images/exesrice background .png";
+  static const String imagesSectionsBackground =
+      "assets/images/sections background.png";
 }
