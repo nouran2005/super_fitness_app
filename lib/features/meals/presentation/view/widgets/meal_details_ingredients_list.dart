@@ -72,14 +72,13 @@ class MealsIngredientsList extends StatelessWidget {
     ].where((e) => e != null && e.isNotEmpty).toList();
 
     return GlassBlurContainer(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(20),
-      ),
+      borderRadius: BorderRadius.circular(20),
       borderColor: Colors.transparent,
       blurSigma: 20,
       backgroundColor: AppColors.grey.withOpacity(0.2),
       child: ListView.separated(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         separatorBuilder: (context, index) {
           return Divider(color: AppColors.grey.withOpacity(0.4), thickness: 1);

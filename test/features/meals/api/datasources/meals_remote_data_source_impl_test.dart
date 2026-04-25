@@ -135,7 +135,7 @@ void main() {
           mockApiClient.getMealDetailsById(any),
         ).thenAnswer((_) async => fakeResponse);
         final result =
-            await dataSource.getMealDetailsById(1)
+            await dataSource.getMealDetailsById("1")
                 as SuccessApiResult<MealsDetailsDto>;
         expect(result, isA<SuccessApiResult<MealsDetailsDto>>());
         expect(result.data, fakeDto);
@@ -149,7 +149,7 @@ void main() {
         ).thenThrow(Exception('Network error'));
 
         final result =
-            await dataSource.getMealDetailsById(1)
+            await dataSource.getMealDetailsById("1")
                 as ErrorApiResult<MealsDetailsDto>;
 
         expect(result, isA<ErrorApiResult<MealsDetailsDto>>());

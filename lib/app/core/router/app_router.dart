@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meal_details_args.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meals_page.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meal_details_page.dart';
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
@@ -70,8 +71,8 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.mealDeails,
       builder: (context, state) {
-        final mealId = state.extra as int;
-        return MealDetailsPage(mealId: mealId);
+        final args = state.extra as MealDetailsArgs;
+        return MealDetailsPage(mealId: args.mealId, meals: args.meals);
       },
     ),
   ],

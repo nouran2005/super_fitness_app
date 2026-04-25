@@ -55,7 +55,7 @@ class MealsRepositoryImpl extends MealsRepository {
     }
   }
 
-  Future<ApiResult<MealDetailsModel>> getMealDetailsById(int mealId) async {
+  Future<ApiResult<MealDetailsModel>> getMealDetailsById(String mealId) async {
     final response = await remoteDataSource.getMealDetailsById(mealId);
 
     switch (response) {

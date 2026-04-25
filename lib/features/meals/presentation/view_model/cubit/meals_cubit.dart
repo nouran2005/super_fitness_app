@@ -92,7 +92,7 @@ class MealsCubit extends Cubit<MealsStates> {
     }
   }
 
-  Future<void> _getMealDetails({required int mealId}) async {
+  Future<void> _getMealDetails({required String mealId}) async {
     emit(state.copyWith(mealDetailsResource: Resource.loading()));
     final result = await _mealDetailsUseCase.call(mealId: mealId);
     switch (result) {

@@ -22,7 +22,7 @@ class MealsRemoteDataSourceImpl extends MealsRemoteDataSourceContract {
     return safeApiCall(call: () => apiClient.getMealsByCategory(category));
   }
 
-  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(int mealId) {
+  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(String mealId) {
     return safeApiCall(call: () => apiClient.getMealDetailsById(mealId));
   }
 }

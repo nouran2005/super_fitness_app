@@ -1,8 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meal_details_args.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meals_by_categoty_model.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_item.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/shimmer_grid_loading.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
@@ -51,10 +55,15 @@ class MealsList extends StatelessWidget {
               return MealItem(
                 mealItem: meal!,
                 onTap: () {
-                  // context.push(
-                  //   RouteNames.productDetails,
-                  //   extra: product.id,
-                  // );
+                  context.push(
+                    RouteNames.mealDeails,
+                    extra: MealDetailsArgs(
+                      mealId: meal.idMeal!,
+                      meals: (meals.meals ?? [])
+                          .whereType<MealsModel>()
+                          .toList(),
+                    ),
+                  );
                 },
               );
             },

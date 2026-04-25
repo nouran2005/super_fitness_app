@@ -138,7 +138,7 @@ void main() {
           mockDataSource.getMealDetailsById(any),
         ).thenAnswer((_) async => SuccessApiResult(data: tDetailsDto));
 
-        final result = await repository.getMealDetailsById(1);
+        final result = await repository.getMealDetailsById("1");
 
         expect(result, isA<SuccessApiResult<MealDetailsModel>>());
 
@@ -158,7 +158,7 @@ void main() {
         mockDataSource.getMealDetailsById(any),
       ).thenAnswer((_) async => ErrorApiResult(error: "error"));
 
-      final result = await repository.getMealDetailsById(1);
+      final result = await repository.getMealDetailsById("1");
 
       expect(result, isA<ErrorApiResult<MealDetailsModel>>());
 

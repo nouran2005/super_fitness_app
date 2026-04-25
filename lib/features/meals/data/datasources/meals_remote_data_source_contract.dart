@@ -8,5 +8,5 @@ abstract class MealsRemoteDataSourceContract {
 
   Future<ApiResult<MealsByCategoryDto>> getMealsByCategory(String category);
 
-  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(int mealId);
+  Future<ApiResult<MealsDetailsDto>> getMealDetailsById(String mealId);
 }

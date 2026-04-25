@@ -195,7 +195,7 @@ void main() {
         return cubit;
       },
 
-      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: 1)),
+      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: "1")),
 
       expect: () => [
         isA<MealsStates>().having(
@@ -211,7 +211,7 @@ void main() {
       ],
 
       verify: (_) {
-        verify(mockDetailsByIdUsecase.call(mealId: 1)).called(1);
+        verify(mockDetailsByIdUsecase.call(mealId: "1")).called(1);
 
         verifyNoMoreInteractions(mockDetailsByIdUsecase);
       },
@@ -227,7 +227,7 @@ void main() {
         return cubit;
       },
 
-      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: 1)),
+      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: "1")),
 
       expect: () => [
         isA<MealsStates>().having(
@@ -243,7 +243,7 @@ void main() {
       ],
 
       verify: (_) {
-        verify(mockDetailsByIdUsecase.call(mealId: 1)).called(1);
+        verify(mockDetailsByIdUsecase.call(mealId: "1")).called(1);
 
         verifyNoMoreInteractions(mockDetailsByIdUsecase);
       },

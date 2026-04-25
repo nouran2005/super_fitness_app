@@ -9,7 +9,7 @@ import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_body.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/video_launch_widget.dart';
-import 'package:super_fitness_app/features/meals/presentation/view/widgets/meals_ingredients_list.dart';
+import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_ingredients_list.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 
@@ -38,7 +38,9 @@ void main() {
       child: MaterialApp(
         home: BlocProvider<MealsCubit>(
           create: (_) => mockCubit,
-          child: const Scaffold(body: MealDetailsBody(mealId: 1)),
+          child: const Scaffold(
+            body: MealDetailsBody(mealId: "1", meals: []),
+          ),
         ),
       ),
     );

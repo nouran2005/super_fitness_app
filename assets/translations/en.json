@@ -136,5 +136,6 @@
   "noMealsfound": "No meals found for this category. Please select another category.",
   "ingredients": "Ingredients",
   "noIngredientsAvailable": "No Ingredients Available",
-  "watchCookingVideo": "Watch Cooking Video"
+  "watchCookingVideo": "Watch Cooking Video",
+  "relatedMeals": "Related Meals"
 }

@@ -8,5 +8,5 @@ abstract class MealsRepository {
 
   Future<ApiResult<MealsByCategoryModel>> getMealsByCategory(String category);
 
-  Future<ApiResult<MealDetailsModel>> getMealDetailsById(int mealId);
+  Future<ApiResult<MealDetailsModel>> getMealDetailsById(String mealId);
 }

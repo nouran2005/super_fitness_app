@@ -55,6 +55,6 @@ abstract class ApiClient {
 
   @GET("https://${AppEndpoints.mealsBaseUrl}${AppEndpoints.foodDetailsPath}")
   Future<HttpResponse<MealsDetailsDto>> getMealDetailsById(
-    @Query('i') int mealId,
+    @Query('i') String mealId,
   );
 }

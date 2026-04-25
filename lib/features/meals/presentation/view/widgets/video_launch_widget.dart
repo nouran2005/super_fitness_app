@@ -6,14 +6,33 @@ import 'package:super_fitness_app/generated/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class VideoLaunchWidget extends StatelessWidget {
-  const VideoLaunchWidget({super.key, required this.meal});
-  final String meal;
+  const VideoLaunchWidget({
+    super.key,
+    required this.youtubeUrl,
+    this.thumbnail,
+  });
+
+  final String? youtubeUrl;
+  final String? thumbnail;
+
+  bool get hasVideo => youtubeUrl != null && youtubeUrl!.isNotEmpty;
+
   @override
   Widget build(BuildContext context) {
+    if (!hasVideo && (thumbnail == null || thumbnail!.isEmpty)) {
+      return const SizedBox.shrink();
+    }
+
+    if (!hasVideo) {
+      return SizedBox();
+    }
+
     return GestureDetector(
       onTap: () async {
-        final Uri url = Uri.parse(meal);
-        await launchUrl(url, mode: LaunchMode.externalApplication);
+        final Uri? url = Uri.tryParse(youtubeUrl!);
+        if (url != null) {
+          await launchUrl(url, mode: LaunchMode.externalApplication);
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -23,8 +42,8 @@ class VideoLaunchWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.play_arrow, color: Colors.white),
-            SizedBox(width: 8),
+            const Icon(Icons.play_arrow, color: Colors.white),
+            const SizedBox(width: 8),
             Text(
               LocaleKeys.watchCookingVideo.tr(),
               style: AppStyles.font30WhiteSemiBold.copyWith(fontSize: 18),

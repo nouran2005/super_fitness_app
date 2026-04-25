@@ -11,6 +11,6 @@ class SelectCategoryEvent extends MealsIntent {
 }
 
 class GetMealDetailsIntent extends MealsIntent {
-  final int mealId;
+  final String mealId;
   GetMealDetailsIntent({required this.mealId});
 }

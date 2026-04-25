@@ -8,7 +8,7 @@ class GetMealDetailsByIdUsecase {
   final MealsRepository mealsRepository;
   GetMealDetailsByIdUsecase({required this.mealsRepository});
 
-  Future<ApiResult<MealDetailsModel>> call({required int mealId}) async {
+  Future<ApiResult<MealDetailsModel>> call({required String mealId}) async {
     return await mealsRepository.getMealDetailsById(mealId);
   }
 }

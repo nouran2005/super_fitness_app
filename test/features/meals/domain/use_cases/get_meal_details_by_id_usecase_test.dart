@@ -24,7 +24,7 @@ void main() {
     );
   });
 
-  const tMealId = 1;
+  const tMealId = "1";
 
   final tMealDetailsModel = MealDetailsModel(
     meals: [
