@@ -7,6 +7,9 @@ import 'package:super_fitness_app/features/meals/data/models/response/meals_by_c
 import 'package:super_fitness_app/features/meals/data/models/response/meals_categories_dto.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meals_by_categoty_model.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meals_categories_model.dart';
+import 'package:super_fitness_app/features/meals/data/extension/meal_details_dto_extension.dart';
+import 'package:super_fitness_app/features/meals/data/models/response/meals_details_dto.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
 import 'package:super_fitness_app/features/meals/domain/repositories/meals_repository.dart';
 
 @Injectable(as: MealsRepository)
@@ -48,6 +51,22 @@ class MealsRepositoryImpl extends MealsRepository {
       case ErrorApiResult<MealsByCategoryDto>():
         return ErrorApiResult<MealsByCategoryModel>(
           error: mealsByCategoryResponse.error.toString(),
+        );
+    }
+  }
+
+  Future<ApiResult<MealDetailsModel>> getMealDetailsById(int mealId) async {
+    final response = await remoteDataSource.getMealDetailsById(mealId);
+
+    switch (response) {
+      case SuccessApiResult<MealsDetailsDto>():
+        MealsDetailsDto dto = response.data;
+        MealDetailsModel meal = dto.toMealDetailsModel();
+        return SuccessApiResult<MealDetailsModel>(data: meal);
+
+      case ErrorApiResult<MealsDetailsDto>():
+        return ErrorApiResult<MealDetailsModel>(
+          error: response.error.toString(),
         );
     }
   }

@@ -133,5 +133,8 @@
   "done": "Done",
   "passwordResetSuccess": "Password Reset Successfully",
   "foodRecommendation": "Food Recommendation",
-  "noMealsfound": "No meals found for this category. Please select another category."
+  "noMealsfound": "No meals found for this category. Please select another category.",
+  "ingredients": "Ingredients",
+  "noIngredientsAvailable": "No Ingredients Available",
+  "watchCookingVideo": "Watch Cooking Video"
 }

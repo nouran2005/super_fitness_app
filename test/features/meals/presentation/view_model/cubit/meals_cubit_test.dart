@@ -4,8 +4,10 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meals_categories_model.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meals_by_categoty_model.dart';
+import 'package:super_fitness_app/features/meals/domain/use_cases/get_meal_details_by_id_usecase.dart';
 import 'package:super_fitness_app/features/meals/domain/use_cases/get_meals_categories_usecase.dart';
 import 'package:super_fitness_app/features/meals/domain/use_cases/get_meals_by_category_usecase.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
@@ -14,17 +16,27 @@ import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/m
 
 import 'meals_cubit_test.mocks.dart';
 
-@GenerateMocks([GetMealsCategoriesUsecase, GetMealsByCategoryUsecase])
+@GenerateMocks([
+  GetMealsCategoriesUsecase,
+  GetMealsByCategoryUsecase,
+  GetMealDetailsByIdUsecase,
+])
 void main() {
   late MockGetMealsCategoriesUsecase mockCategoriesUsecase;
   late MockGetMealsByCategoryUsecase mockByCategoryUsecase;
+  late MockGetMealDetailsByIdUsecase mockDetailsByIdUsecase;
   late MealsCubit cubit;
 
   setUp(() {
     mockCategoriesUsecase = MockGetMealsCategoriesUsecase();
     mockByCategoryUsecase = MockGetMealsByCategoryUsecase();
+    mockDetailsByIdUsecase = MockGetMealDetailsByIdUsecase();
 
-    cubit = MealsCubit(mockCategoriesUsecase, mockByCategoryUsecase);
+    cubit = MealsCubit(
+      mockCategoriesUsecase,
+      mockByCategoryUsecase,
+      mockDetailsByIdUsecase,
+    );
   });
 
   setUpAll(() {
@@ -34,6 +46,9 @@ void main() {
 
     provideDummy<ApiResult<MealsCategoriesModel>>(
       SuccessApiResult<MealsCategoriesModel>(data: MealsCategoriesModel()),
+    );
+    provideDummy<ApiResult<MealDetailsModel>>(
+      SuccessApiResult<MealDetailsModel>(data: MealDetailsModel()),
     );
   });
 
@@ -52,6 +67,17 @@ void main() {
   final tMealsModel = MealsByCategoryModel(
     meals: [
       MealsModel(strMeal: "Chicken Soup", strMealThumb: "img", idMeal: "10"),
+    ],
+  );
+
+  final tMealDetailsModel = MealDetailsModel(
+    meals: [
+      DetailsModel(
+        idMeal: "1",
+        strMeal: "Chicken Soup",
+        strCategory: "Dinner",
+        strArea: "Egypt",
+      ),
     ],
   );
 
@@ -154,6 +180,72 @@ void main() {
         verify(
           mockByCategoryUsecase.call(category: anyNamed('category')),
         ).called(1);
+      },
+    );
+  });
+
+  group("GetMealDetailsIntent", () {
+    blocTest<MealsCubit, MealsStates>(
+      'emits [loading → success]',
+      build: () {
+        when(
+          mockDetailsByIdUsecase.call(mealId: anyNamed('mealId')),
+        ).thenAnswer((_) async => SuccessApiResult(data: tMealDetailsModel));
+
+        return cubit;
+      },
+
+      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: 1)),
+
+      expect: () => [
+        isA<MealsStates>().having(
+          (s) => s.mealDetailsResource.status,
+          'loading',
+          Status.loading,
+        ),
+        isA<MealsStates>().having(
+          (s) => s.mealDetailsResource.status,
+          'success',
+          Status.success,
+        ),
+      ],
+
+      verify: (_) {
+        verify(mockDetailsByIdUsecase.call(mealId: 1)).called(1);
+
+        verifyNoMoreInteractions(mockDetailsByIdUsecase);
+      },
+    );
+
+    blocTest<MealsCubit, MealsStates>(
+      'emits error when usecase fails',
+      build: () {
+        when(
+          mockDetailsByIdUsecase.call(mealId: anyNamed('mealId')),
+        ).thenAnswer((_) async => ErrorApiResult(error: "error"));
+
+        return cubit;
+      },
+
+      act: (cubit) => cubit.doIntent(GetMealDetailsIntent(mealId: 1)),
+
+      expect: () => [
+        isA<MealsStates>().having(
+          (s) => s.mealDetailsResource.status,
+          'loading',
+          Status.loading,
+        ),
+        isA<MealsStates>().having(
+          (s) => s.mealDetailsResource.status,
+          'error',
+          Status.error,
+        ),
+      ],
+
+      verify: (_) {
+        verify(mockDetailsByIdUsecase.call(mealId: 1)).called(1);
+
+        verifyNoMoreInteractions(mockDetailsByIdUsecase);
       },
     );
   });

@@ -7,14 +7,21 @@ import 'package:super_fitness_app/features/meals/domain/entities/meals_categorie
 import 'package:super_fitness_app/features/meals/domain/use_cases/get_meals_by_category_usecase.dart';
 import 'package:super_fitness_app/features/meals/domain/use_cases/get_meals_categories_usecase.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_intent.dart';
+import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
+import 'package:super_fitness_app/features/meals/domain/use_cases/get_meal_details_by_id_usecase.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 
 @injectable
 class MealsCubit extends Cubit<MealsStates> {
   final GetMealsCategoriesUsecase _mealsUseCase;
   final GetMealsByCategoryUsecase _mealsByCategoryUsecase;
-  MealsCubit(this._mealsUseCase, this._mealsByCategoryUsecase)
-    : super(MealsStates());
+  final GetMealDetailsByIdUsecase _mealDetailsUseCase;
+
+  MealsCubit(
+    this._mealsUseCase,
+    this._mealsByCategoryUsecase,
+    this._mealDetailsUseCase,
+  ) : super(MealsStates());
 
   void doIntent(MealsIntent intent) {
     if (intent is GetMealsCategoriesIntent) {
@@ -23,6 +30,11 @@ class MealsCubit extends Cubit<MealsStates> {
     }
     if (intent is SelectCategoryEvent) {
       _selectCategory(intent.selectedIndex);
+      return;
+    }
+
+    if (intent is GetMealDetailsIntent) {
+      _getMealDetails(mealId: intent.mealId);
       return;
     }
   }
@@ -77,6 +89,19 @@ class MealsCubit extends Cubit<MealsStates> {
         emit(
           state.copyWith(mealsByCategoryResource: Resource.error(result.error)),
         );
+    }
+  }
+
+  Future<void> _getMealDetails({required int mealId}) async {
+    emit(state.copyWith(mealDetailsResource: Resource.loading()));
+    final result = await _mealDetailsUseCase.call(mealId: mealId);
+    switch (result) {
+      case SuccessApiResult<MealDetailsModel>():
+        emit(
+          state.copyWith(mealDetailsResource: Resource.success(result.data)),
+        );
+      case ErrorApiResult<MealDetailsModel>():
+        emit(state.copyWith(mealDetailsResource: Resource.error(result.error)));
     }
   }
 }

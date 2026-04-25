@@ -133,5 +133,8 @@
   "done": "تم",
   "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
   "foodRecommendation": "توصيات الطعام",
-  "noMealsfound": "لم يتم العثور على وجبات لهذه الفئة. يرجى اختيار فئة أخرى."
+  "noMealsfound": "لم يتم العثور على وجبات لهذه الفئة. يرجى اختيار فئة أخرى.",
+  "ingredients": "المكونات",
+  "noIngredientsAvailable": "لا يوجد مكونات متاحة",
+   "watchCookingVideo": "شاهد فيديو الوصفة"
 }

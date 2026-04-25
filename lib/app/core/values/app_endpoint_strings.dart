@@ -15,4 +15,5 @@ class AppEndpoints {
   // MEALS PATHS
   static const String mealsCategoryPath = 'categories.php';
   static const String mealsByCategoryPath = 'filter.php';
+  static const String foodDetailsPath = 'lookup.php';
 }
