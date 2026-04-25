@@ -17,4 +17,18 @@ class ExerciseRemoteDataSourceImpl implements ExerciseRemoteDataSource {
       call: () => _apiClient.getExercises(language: 'en'),
     );
   }
+
+  @override
+  Future<ApiResult<ExerciseResponse>> getExercisesRandom({
+    required String muscleGroupId,
+    required String difficultyId,
+  }) {
+    return safeApiCall<ExerciseResponse>(
+      call: () => _apiClient.getExercisesRandom(
+        language: 'en',
+        muscleGroupId: muscleGroupId,
+        difficultyId: difficultyId,
+      ),
+    );
+  }
 }

@@ -27,7 +27,7 @@ class ExerciseHeader extends StatelessWidget {
             bottomRight: Radius.circular(30),
           ),
           child: Container(
-            height: size.height * 0.45,
+            height: size.height * 0.35,
             width: double.infinity,
             decoration: const BoxDecoration(color: Colors.black),
             child: Stack(
@@ -47,7 +47,6 @@ class ExerciseHeader extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                 ),
-                // Overlay Gradient
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
@@ -66,24 +65,22 @@ class ExerciseHeader extends StatelessWidget {
             ),
           ),
         ),
-        // Title Overlay
         Positioned(
           bottom: size.height * 0.05,
           left: 0,
           right: 0,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               title,
               textAlign: TextAlign.center,
               style: AppStyles.font30WhiteSemiBold.copyWith(
-                fontSize: size.width * 0.07,
+                fontSize: size.width * 0.06,  
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
         ),
-        // Back Button
         Positioned(
           top: padding.top + 10,
           left: 20,
@@ -91,11 +88,10 @@ class ExerciseHeader extends StatelessWidget {
             onTap: () => Navigator.pop(context),
             child: CircleAvatar(
               backgroundColor: AppColors.primary,
-              radius: size.width * 0.045,
+              radius: size.width * 0.04,
               child: Image.asset(
-                Assets.imagesArrowBack,
-                color: AppColors.white,
-                width: size.width * 0.045,
+                Assets.imagesArrowBack, 
+                width: size.width * 0.04,
               ),
             ),
           ),

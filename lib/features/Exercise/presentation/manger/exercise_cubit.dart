@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/features/Exercise/domain/model/exercise_entity.dart';
+import 'package:super_fitness_app/features/Exercise/domain/usecase/get_exercises_random_use_case.dart';
 import 'package:super_fitness_app/features/Exercise/domain/usecase/get_exercises_use_case.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise_intent.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise_states.dart';
@@ -10,14 +11,13 @@ import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise
 @injectable
 class ExerciseCubit extends Cubit<ExerciseStates> {
   final GetExercisesUseCase _getExercisesUseCase;
+  final GetExercisesRandomUseCase _getExercisesRandomUseCase;
 
-  ExerciseCubit(this._getExercisesUseCase)
+  ExerciseCubit(this._getExercisesUseCase, this._getExercisesRandomUseCase)
     : super(
         ExerciseStates(
           exerciseResource: Resource.initial(),
-          beginnerResource: Resource.initial(),
-          intermediateResource: Resource.initial(),
-          advancedResource: Resource.initial(),
+          currentExercisesResource: Resource.initial(),
         ),
       );
 
@@ -27,101 +27,35 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       case GetCategoriesIntent():
         _getExercises();
         break;
-      case GetBeginnerExercisesIntent():
-        _getBeginnerExercises();
-        break;
-      case GetIntermediateExercisesIntent():
-        _getIntermediateExercises();
-        break;
-      case GetAdvancedExercisesIntent():
-        _getAdvancedExercises();
+      case GetExercisesRandomIntent():
+        _getExercisesRandom(intent.muscleGroupId, intent.difficultyId);
         break;
     }
   }
 
   Future<void> _getExercises() async {
-    emit(
-      state.copyWith(
-        exerciseResource: Resource.loading(),
-        beginnerResource: Resource.loading(),
-        intermediateResource: Resource.loading(),
-        advancedResource: Resource.loading(),
-      ),
-    );
+    emit(state.copyWith(exerciseResource: Resource.loading()));
     final result = await _getExercisesUseCase.execute();
     switch (result) {
       case SuccessApiResult<ExerciseResponseEntity>():
-        final data = result.data;
-        final beginner =
-            data.categories?.firstWhere((c) => c.name == 'Beginner').exercises ??
-            [];
-        final intermediate =
-            data.categories
-                ?.firstWhere((c) => c.name == 'Intermediate')
-                .exercises ??
-            [];
-        final advanced =
-            data.categories?.firstWhere((c) => c.name == 'Advanced').exercises ??
-            [];
-
-        emit(
-          state.copyWith(
-            exerciseResource: Resource.success(data),
-            beginnerResource: Resource.success(beginner),
-            intermediateResource: Resource.success(intermediate),
-            advancedResource: Resource.success(advanced),
-          ),
-        );
+        emit(state.copyWith(exerciseResource: Resource.success(result.data)));
       case ErrorApiResult<ExerciseResponseEntity>():
-        emit(
-          state.copyWith(
-            exerciseResource: Resource.error(result.error),
-            beginnerResource: Resource.error(result.error),
-            intermediateResource: Resource.error(result.error),
-            advancedResource: Resource.error(result.error),
-          ),
-        );
+        emit(state.copyWith(exerciseResource: Resource.error(result.error)));
     }
   }
 
-  Future<void> _getBeginnerExercises() async {
-    if (state.exerciseResource.isSuccess) {
-      final beginner =
-          state.exerciseResource.data?.categories
-              ?.firstWhere((c) => c.name == 'Beginner')
-              .exercises ??
-          [];
-      emit(state.copyWith(beginnerResource: Resource.success(beginner)));
-    } else {
-      await _getExercises();
-    }
-  }
-
-  Future<void> _getIntermediateExercises() async {
-    if (state.exerciseResource.isSuccess) {
-      final intermediate =
-          state.exerciseResource.data?.categories
-              ?.firstWhere((c) => c.name == 'Intermediate')
-              .exercises ??
-          [];
-      emit(
-        state.copyWith(intermediateResource: Resource.success(intermediate)),
-      );
-    } else {
-      await _getExercises();
-    }
-  }
-
-  Future<void> _getAdvancedExercises() async {
-    if (state.exerciseResource.isSuccess) {
-      final advanced =
-          state.exerciseResource.data?.categories
-              ?.firstWhere((c) => c.name == 'Advanced')
-              .exercises ??
-          [];
-      emit(state.copyWith(advancedResource: Resource.success(advanced)));
-    } else {
-      await _getExercises();
+  Future<void> _getExercisesRandom(String muscleId, String difficultyId) async {
+    emit(state.copyWith(currentExercisesResource: Resource.loading()));
+    final result = await _getExercisesRandomUseCase.execute(
+      muscleGroupId: muscleId,
+      difficultyId: difficultyId,
+    );
+    switch (result) {
+      case SuccessApiResult<ExerciseResponseEntity>(): 
+        final allExercises = result.data.categories?.expand((c) => c.exercises).toList() ?? [];
+        emit(state.copyWith(currentExercisesResource: Resource.success(allExercises)));
+      case ErrorApiResult<ExerciseResponseEntity>():
+        emit(state.copyWith(currentExercisesResource: Resource.error(result.error)));
     }
   }
 }

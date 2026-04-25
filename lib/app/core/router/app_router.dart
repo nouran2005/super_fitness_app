@@ -72,7 +72,9 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: RouteNames.exercises,
-      builder: (context, state) => const ExerciseScreen(),
+      builder: (context, state) => ExerciseScreen(
+        muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+      ),
     ),
   ],
 );

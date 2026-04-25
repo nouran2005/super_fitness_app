@@ -14,4 +14,5 @@ class AppEndpoints {
   static const String getAllMusclesByMuscleGroup =
       'musclesGroup/{muscleGroupId}';
   static const String exercisesPath = 'exercises';
+  static const String exercisesRandomPath = 'exercises/random';
 }

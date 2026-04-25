@@ -44,19 +44,20 @@ class ExerciseListView extends StatelessWidget {
           return GestureDetector(
             onTap: () => onExerciseSelected(exercise),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              // Increased vertical padding to make items "higher"
+              padding: const EdgeInsets.symmetric(vertical: 22), 
               child: Row(
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(18),
                     child: Image.network(
                       thumbnail,
-                      width: size.width * 0.2,
-                      height: size.width * 0.2,
+                      width: size.width * 0.22, // Slightly larger thumbnail
+                      height: size.width * 0.22,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
-                        width: size.width * 0.2,
-                        height: size.width * 0.2,
+                        width: size.width * 0.22,
+                        height: size.width * 0.22,
                         color: Colors.white10,
                         child: const Icon(Icons.fitness_center, color: Colors.white24),
                       ),
@@ -69,25 +70,27 @@ class ExerciseListView extends StatelessWidget {
                       children: [
                         Text(
                           exercise.exercise ?? 'Exercise',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: AppStyles.font16Black.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: size.width * 0.04,
+                            fontSize: size.width * 0.035, // Made smaller
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 8),
                         Text(
                           '3 Groups * 15 Times',
                           style: AppStyles.subtitle.copyWith(
                             color: Colors.white60,
-                            fontSize: size.width * 0.03,
+                            fontSize: size.width * 0.025, // Made smaller
                           ),
                         ),
                       ],
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(12),
                     decoration: const BoxDecoration(
                       color: AppColors.primary,
                       shape: BoxShape.circle,

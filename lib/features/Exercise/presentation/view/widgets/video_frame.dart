@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class VideoFrame extends StatefulWidget {
   final String videoUrl;
@@ -19,49 +19,44 @@ class _VideoFrameState extends State<VideoFrame> {
   @override
   void initState() {
     super.initState();
-    final videoId = YoutubePlayerLoader.convertUrlToId(widget.videoUrl);
-    _controller = YoutubePlayerController(
-      initialVideoId: videoId ?? '',
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
+    final videoId = _convertUrlToId(widget.videoUrl);
+    _controller = YoutubePlayerController.fromVideoId(
+      videoId: videoId ?? '',
+      params: const YoutubePlayerParams(
+        showControls: true,
+        showFullscreenButton: true, // Enables the FS button in the player
         mute: false,
-        disableDragSeek: false,
-        loop: false,
-        isLive: false,
-        forceHD: false,
-        enableCaption: true,
+        showVideoAnnotations: false,
+        enableJavaScript: true,
       ),
     );
   }
 
-  @override
-  void deactivate() {
-    _controller.pause();
-    super.deactivate();
+  String? _convertUrlToId(String url) {
+    final uri = Uri.tryParse(url);
+    if (uri == null) return null;
+    if (uri.host == 'youtu.be') {
+      return uri.pathSegments.first;
+    } else if (uri.host.contains('youtube.com')) {
+      return uri.queryParameters['v'];
+    }
+    return null;
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller.close();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(
+    return YoutubePlayerScaffold(
       controller: _controller,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.amber,
-      progressColors: const ProgressBarColors(
-        playedColor: Colors.amber,
-        handleColor: Colors.amberAccent,
-      ),
+      aspectRatio: 16 / 9,
+      builder: (context, player) {
+        return player;
+      },
     );
-  }
-}
-
-class YoutubePlayerLoader {
-  static String? convertUrlToId(String url) {
-    return YoutubePlayer.convertUrlToId(url);
   }
 }

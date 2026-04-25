@@ -3,4 +3,8 @@ import 'package:super_fitness_app/features/Exercise/data/model/response/Exercise
 
 abstract class ExerciseRemoteDataSource {
   Future<ApiResult<ExerciseResponse>> getExercises();
+  Future<ApiResult<ExerciseResponse>> getExercisesRandom({
+    required String muscleGroupId,
+    required String difficultyId,
+  });
 }

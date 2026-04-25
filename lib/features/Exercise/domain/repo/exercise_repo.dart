@@ -3,4 +3,8 @@ import 'package:super_fitness_app/features/Exercise/domain/model/exercise_entity
 
 abstract class ExerciseRepo {
   Future<ApiResult<ExerciseResponseEntity>> getExercises();
+  Future<ApiResult<ExerciseResponseEntity>> getExercisesRandom({
+    required String muscleGroupId,
+    required String difficultyId,
+  });
 }

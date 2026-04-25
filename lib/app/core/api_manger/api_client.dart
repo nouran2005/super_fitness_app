@@ -67,4 +67,12 @@ abstract class ApiClient {
   Future<HttpResponse<ExerciseResponse>> getExercises({
     @Header(ApiConstants.acceptLanguage) required String language,
   });
+
+  @GET(AppEndpoints.exercisesRandomPath)
+  Future<HttpResponse<ExerciseResponse>> getExercisesRandom({
+    @Header(ApiConstants.acceptLanguage) required String language,
+    @Query("targetMuscleGroupId") required String muscleGroupId,
+    @Query("difficultyLevelId") required String difficultyId,
+    @Query("limit") int limit = 160,
+  });
 }

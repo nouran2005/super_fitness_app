@@ -25,4 +25,25 @@ class ExerciseRepoImpl implements ExerciseRepo {
         );
     }
   }
+
+  @override
+  Future<ApiResult<ExerciseResponseEntity>> getExercisesRandom({
+    required String muscleGroupId,
+    required String difficultyId,
+  }) async {
+    final result = await _remoteDataSource.getExercisesRandom(
+      muscleGroupId: muscleGroupId,
+      difficultyId: difficultyId,
+    );
+    switch (result) {
+      case SuccessApiResult<ExerciseResponse>():
+        return SuccessApiResult<ExerciseResponseEntity>(
+          data: result.data.toEntity(),
+        );
+      case ErrorApiResult<ExerciseResponse>():
+        return ErrorApiResult<ExerciseResponseEntity>(
+          error: result.error,
+        );
+    }
+  }
 }

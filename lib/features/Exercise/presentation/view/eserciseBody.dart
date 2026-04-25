@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
+import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
+import 'package:super_fitness_app/features/Exercise/domain/model/exercise_entity.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise_cubit.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise_intent.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/manger/exercise_states.dart';
@@ -12,7 +14,9 @@ import 'package:super_fitness_app/features/Exercise/presentation/view/widgets/ex
 import 'package:super_fitness_app/features/Exercise/presentation/view/widgets/video_overlay.dart';
 
 class ExerciseBody extends StatefulWidget {
-  const ExerciseBody({super.key});
+  final String muscleGroupId;
+
+  const ExerciseBody({super.key, required this.muscleGroupId});
 
   @override
   State<ExerciseBody> createState() => _ExerciseBodyState();
@@ -25,10 +29,30 @@ class _ExerciseBodyState extends State<ExerciseBody> {
   String? _selectedVideoUrl;
   bool _showVideoFrame = false;
 
+  final List<Map<String, String>> _difficultyLevels = [
+    {"id": "69d982ed85f6bfa972bf2216", "name": "Beginner"},
+    {"id": "69d982ed85f6bfa972bf221c", "name": "Intermediate"},
+    {"id": "69d982ed85f6bfa972bf221e", "name": "Novice"},
+    {"id": "69d982ed85f6bfa972bf2222", "name": "Advanced"},
+    {"id": "69d982ee85f6bfa972bf2228", "name": "Expert"},
+    {"id": "69d982ee85f6bfa972bf223a", "name": "Grand Master"},
+    {"id": "69d982ef85f6bfa972bf223c", "name": "Master"},
+    {"id": "69d982ef85f6bfa972bf2242", "name": "Legendary"},
+  ];
+
   @override
   void initState() {
     super.initState();
-    context.read<ExerciseCubit>().doIntent(const GetExercisesIntent());
+    _fetchExercises();
+  }
+
+  void _fetchExercises() {
+    context.read<ExerciseCubit>().doIntent(
+      GetExercisesRandomIntent(
+        muscleGroupId: widget.muscleGroupId,
+        difficultyId: _difficultyLevels[_selectedCategoryIndex]["id"]!,
+      ),
+    );
   }
 
   String _getYoutubeThumbnail(String url, {bool highRes = false}) {
@@ -49,6 +73,7 @@ class _ExerciseBodyState extends State<ExerciseBody> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final padding = MediaQuery.of(context).padding;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -63,68 +88,63 @@ class _ExerciseBodyState extends State<ExerciseBody> {
             ),
           ),
           
-          BlocBuilder<ExerciseCubit, ExerciseStates>(
-            builder: (context, state) {
-              if (state.exerciseResource.isLoading) {
-                return const Center(child: CircularProgressIndicator());
-              }
-
-              if (state.exerciseResource.isError) {
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text(
-                      state.exerciseResource.error ?? 'Error',
-                      textAlign: TextAlign.center,
-                      style: AppStyles.font14White,
-                    ),
-                  ),
-                );
-              }
-
-              if (state.exerciseResource.isSuccess) {
-                final data = state.exerciseResource.data!;
-                final categories = data.categories ?? [];
-                final selectedCategory =
-                    categories.isNotEmpty ? categories[_selectedCategoryIndex] : null;
-                final exercises = selectedCategory?.exercises ?? [];
-
-                if (_selectedHeaderTitle == null && exercises.isNotEmpty) {
-                  _selectedHeaderTitle = exercises.first.exercise;
-                  _selectedHeaderImageUrl = _getYoutubeThumbnail(
-                    exercises.first.shortYoutubeDemonstrationLink ?? '',
-                    highRes: true,
-                  );
-                  _selectedVideoUrl = exercises.first.shortYoutubeDemonstrationLink;
+          BlocConsumer<ExerciseCubit, ExerciseStates>(
+            listener: (context, state) {
+              if (state.currentExercisesResource.isSuccess) {
+                final exercises = state.currentExercisesResource.data!;
+                if (exercises.isNotEmpty) {
+                  setState(() {
+                    _selectedHeaderTitle = exercises.first.exercise;
+                    _selectedHeaderImageUrl = _getYoutubeThumbnail(
+                      exercises.first.shortYoutubeDemonstrationLink ?? '',
+                      highRes: true,
+                    );
+                    _selectedVideoUrl = exercises.first.shortYoutubeDemonstrationLink;
+                  });
                 }
+              }
+            },
+            builder: (context, state) {
+              final exercises = state.currentExercisesResource.data ?? [];
+              final isLoading = state.currentExercisesResource.isLoading;
 
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ExerciseHeader(
-                        imageUrl: _selectedHeaderImageUrl,
-                        title: _selectedHeaderTitle ?? 'Exercise',
-                      ),
-                      const ExerciseStatsRow(),
-                      ExerciseCategoryTabs(
-                        categories: categories,
-                        selectedCategoryIndex: _selectedCategoryIndex,
-                        onCategorySelected: (index) {
-                          setState(() {
-                            _selectedCategoryIndex = index;
-                            _showVideoFrame = false;
-                            final newExercises = categories[index].exercises;
-                            if (newExercises.isNotEmpty) {
-                              _selectedHeaderTitle = newExercises.first.exercise;
-                              _selectedHeaderImageUrl = _getYoutubeThumbnail(
-                                newExercises.first.shortYoutubeDemonstrationLink ?? '',
-                                highRes: true,
-                              );
-                              _selectedVideoUrl = newExercises.first.shortYoutubeDemonstrationLink;
-                            }
-                          });
-                        },
-                      ),
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ExerciseHeader(
+                      imageUrl: _selectedHeaderImageUrl,
+                      title: _selectedHeaderTitle ?? 'Exercise',
+                    ),
+                    const ExerciseStatsRow(),
+                    
+                    ExerciseCategoryTabs(
+                      categories: _difficultyLevels.map((l) => ExerciseCategoryEntity(name: l["name"]!, exercises: [])).toList(),
+                      selectedCategoryIndex: _selectedCategoryIndex,
+                      onCategorySelected: (index) {
+                        setState(() {
+                          _selectedCategoryIndex = index;
+                          _showVideoFrame = false;
+                        });
+                        _fetchExercises();
+                      },
+                    ),
+
+                    if (isLoading)
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 50),
+                        child: Center(child: CircularProgressIndicator(color: AppColors.primary)),
+                      )
+                    else if (exercises.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 50),
+                        child: Center(
+                          child: Text(
+                            'No exercises found for this level',
+                            style: AppStyles.font14White,
+                          ),
+                        ),
+                      )
+                    else
                       ExerciseListView(
                         exercises: exercises,
                         getYoutubeThumbnail: (url) => _getYoutubeThumbnail(url, highRes: false),
@@ -140,13 +160,10 @@ class _ExerciseBodyState extends State<ExerciseBody> {
                           });
                         },
                       ),
-                      SizedBox(height: size.height * 0.1),
-                    ],
-                  ),
-                );
-              }
-
-              return const SizedBox();
+                    SizedBox(height: size.height * 0.1),
+                  ],
+                ),
+              );
             },
           ),
 

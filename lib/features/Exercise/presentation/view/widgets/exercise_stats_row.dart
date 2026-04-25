@@ -11,7 +11,7 @@ class ExerciseStatsRow extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: size.width * 0.05,
-        vertical: size.height * 0.03,
+        vertical: size.height * 0.02, // Reduced vertical padding
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,8 +26,8 @@ class ExerciseStatsRow extends StatelessWidget {
   Widget _buildStatChip(String label, Size size, {bool isCalorie = false}) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: size.width * 0.05,
-        vertical: 10,
+        horizontal: size.width * 0.04,
+        vertical: 8,
       ),
       decoration: BoxDecoration(
         color: Colors.transparent,
@@ -39,7 +39,7 @@ class ExerciseStatsRow extends StatelessWidget {
         style: AppStyles.font14White.copyWith(
           color: isCalorie ? AppColors.primary : AppColors.white,
           fontWeight: FontWeight.bold,
-          fontSize: size.width * 0.035,
+          fontSize: size.width * 0.03, // Reduced from 0.035
         ),
       ),
     );
