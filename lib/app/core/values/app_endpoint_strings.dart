@@ -16,4 +16,13 @@ class AppEndpoints {
   static const String mealsCategoryPath = 'categories.php';
   static const String mealsByCategoryPath = 'filter.php';
   static const String foodDetailsPath = 'lookup.php';
+
+  static const String randomMusclesPath = 'muscles/random';
+  static const String getAllMusclesGroup = 'muscles';
+  static const String getAllMusclesByMuscleGroup =
+      'musclesGroup/{muscleGroupId}';
+  static const String musclesRandomPath = 'muscles/random';
+  static const String levelsPath = 'levels';
+  static const String exercisesByMuscleDifficulty =
+      "exercises/by-muscle-difficulty";
 }

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
@@ -17,12 +18,22 @@ class MealsBody extends StatelessWidget {
     double width = size.width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 40),
+      padding: const EdgeInsets.only(
+        left: 16.0,
+        right: 16,
+        top: 40,
+        bottom: 60,
+      ),
       child: Column(
         children: [
           Row(
             children: [
-              Image.asset(Assets.imagesArrowBack),
+              InkWell(
+                onTap: () {
+                  context.pop();
+                },
+                child: Image.asset(Assets.imagesArrowBack),
+              ),
               SizedBox(width: width * 0.12),
               Text(
                 LocaleKeys.foodRecommendation.tr(),

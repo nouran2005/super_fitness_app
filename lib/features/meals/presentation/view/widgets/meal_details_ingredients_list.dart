@@ -72,6 +72,7 @@ class MealsIngredientsList extends StatelessWidget {
     ].where((e) => e != null && e.isNotEmpty).toList();
 
     return GlassBlurContainer(
+      padding: EdgeInsets.all(8),
       borderRadius: BorderRadius.circular(20),
       borderColor: Colors.transparent,
       blurSigma: 20,
@@ -81,12 +82,18 @@ class MealsIngredientsList extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         separatorBuilder: (context, index) {
-          return Divider(color: AppColors.grey.withOpacity(0.4), thickness: 1);
+          return Divider(
+            color: AppColors.grey.withOpacity(0.4),
+            thickness: 1,
+            height: 1,
+          );
         },
         itemCount: ingredients.length,
         itemBuilder: (context, index) {
           return ListTile(
-            minTileHeight: 1,
+            contentPadding: EdgeInsets.zero,
+            visualDensity: VisualDensity.compact,
+            dense: true,
             title: Text(
               '${ingredients[index]}',
               style: AppStyles.black16Medium.copyWith(

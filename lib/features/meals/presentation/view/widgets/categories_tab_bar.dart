@@ -19,8 +19,6 @@ class _CategoriesTabBarState extends State<CategoriesTabBar>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    double width = size.width;
     final cubit = BlocProvider.of<MealsCubit>(context);
     return BlocBuilder<MealsCubit, MealsStates>(
       builder: (context, state) {
@@ -47,7 +45,7 @@ class _CategoriesTabBarState extends State<CategoriesTabBar>
           tabAlignment: TabAlignment.start,
           controller: _tabController,
           isScrollable: true,
-          labelPadding: EdgeInsets.only(right: width * 0.2, left: width * 0.03),
+          labelPadding: EdgeInsets.only(right: 16),
           splashFactory: NoSplash.splashFactory,
           indicator: const BoxDecoration(),
           labelColor: AppColors.white,
