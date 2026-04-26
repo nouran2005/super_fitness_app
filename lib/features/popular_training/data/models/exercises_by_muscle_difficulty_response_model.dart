@@ -196,6 +196,7 @@ class ExerciseByMuscleDifficultyModel {
       exercise: exercise ?? '',
       difficultyLevel: difficultyLevel ?? '',
       shortYoutubeDemonstration: shortYoutubeDemonstration ?? '',
+      muscleGroupId: targetMuscleGroup,
     );
   }
 }

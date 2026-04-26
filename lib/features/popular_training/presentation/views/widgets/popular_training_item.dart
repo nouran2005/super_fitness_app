@@ -1,7 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
+import 'package:super_fitness_app/app/core/values/muscle_group_ids.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/popular_training_entity.dart';
 import 'package:super_fitness_app/features/popular_training/presentation/views/widgets/container_title.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
@@ -20,7 +25,16 @@ class PopularTrainingItem extends StatelessWidget {
     final cardWidth = screenWidth * 0.5;
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.push(
+          RouteNames.exercises,
+          extra: {
+            'muscleGroupId': MuscleGroupIds.getId(entity.exercise.muscleGroupId) ?? '69d982ed85f6bfa972bf2218',
+            'initialExerciseId': entity.exercise.id,
+            'initialDifficultyLevel': entity.exercise.difficultyLevel,
+          },
+        );
+      },
       child: SizedBox(
         width: screenWidth * 0.58,
         height: screenHeight * 0.22,

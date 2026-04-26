@@ -9,6 +9,7 @@ final List<PopularTrainingEntity> popularTrainingMockData = List.generate(
       exercise: 'Skeletonizer Exercise Name',
       difficultyLevel: 'Beginner',
       shortYoutubeDemonstration: '',
+      muscleGroupId: '69d982ed85f6bfa972bf2218',
     ),
     muscleImage: 'http://dummyimage.com/100x100/000/fff',
     muscleName: 'Muscle',

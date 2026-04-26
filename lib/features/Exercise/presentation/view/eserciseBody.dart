@@ -15,8 +15,15 @@ import 'package:super_fitness_app/features/Exercise/presentation/view/widgets/vi
 
 class ExerciseBody extends StatefulWidget {
   final String muscleGroupId;
+  final String? initialExerciseId;
+  final String? initialDifficultyLevel;
 
-  const ExerciseBody({super.key, required this.muscleGroupId});
+  const ExerciseBody({
+    super.key,
+    required this.muscleGroupId,
+    this.initialExerciseId,
+    this.initialDifficultyLevel,
+  });
 
   @override
   State<ExerciseBody> createState() => _ExerciseBodyState();
@@ -43,6 +50,16 @@ class _ExerciseBodyState extends State<ExerciseBody> {
   @override
   void initState() {
     super.initState();
+    if (widget.initialDifficultyLevel != null) {
+      final index = _difficultyLevels.indexWhere(
+        (l) =>
+            l["name"]!.toLowerCase() ==
+            widget.initialDifficultyLevel!.toLowerCase(),
+      );
+      if (index != -1) {
+        _selectedCategoryIndex = index;
+      }
+    }
     _fetchExercises();
   }
 
@@ -93,13 +110,28 @@ class _ExerciseBodyState extends State<ExerciseBody> {
               if (state.currentExercisesResource.isSuccess) {
                 final exercises = state.currentExercisesResource.data!;
                 if (exercises.isNotEmpty) {
+                  ExerciseEntity? selectedExercise;
+                  if (widget.initialExerciseId != null) {
+                    selectedExercise = exercises.firstWhere(
+                      (e) => e.id == widget.initialExerciseId,
+                      orElse: () => exercises.first,
+                    );
+                  } else {
+                    selectedExercise = exercises.first;
+                  }
+
                   setState(() {
-                    _selectedHeaderTitle = exercises.first.exercise;
+                    _selectedHeaderTitle = selectedExercise!.exercise;
                     _selectedHeaderImageUrl = _getYoutubeThumbnail(
-                      exercises.first.shortYoutubeDemonstrationLink ?? '',
+                      selectedExercise.shortYoutubeDemonstrationLink ?? '',
                       highRes: true,
                     );
-                    _selectedVideoUrl = exercises.first.shortYoutubeDemonstrationLink;
+                    _selectedVideoUrl =
+                        selectedExercise.shortYoutubeDemonstrationLink;
+                    if (widget.initialExerciseId != null &&
+                        selectedExercise.id == widget.initialExerciseId) {
+                      _showVideoFrame = true;
+                    }
                   });
                 }
               }
@@ -147,7 +179,8 @@ class _ExerciseBodyState extends State<ExerciseBody> {
                     else
                       ExerciseListView(
                         exercises: exercises,
-                        getYoutubeThumbnail: (url) => _getYoutubeThumbnail(url, highRes: false),
+                        getYoutubeThumbnail: (url) =>
+                            _getYoutubeThumbnail(url, highRes: false),
                         onExerciseSelected: (exercise) {
                           setState(() {
                             _selectedHeaderImageUrl = _getYoutubeThumbnail(
