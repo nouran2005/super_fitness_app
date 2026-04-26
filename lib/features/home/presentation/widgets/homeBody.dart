@@ -111,7 +111,7 @@ class HomeBody extends StatelessWidget {
                                     child: RecommendationItem(
                                       onTap: () {
                                         context.push(
-                                          RouteNames.mealDeails,
+                                          RouteNames.mealDetails,
                                           extra: MealDetailsArgs(
                                             mealId: itemMeal.idMeal!,
                                             meals: meal,

@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const email = 'email';
@@ -134,4 +134,31 @@ abstract class LocaleKeys {
   static const createNewPassword = 'createNewPassword';
   static const done = 'done';
   static const passwordResetSuccess = 'passwordResetSuccess';
+  static const foodRecommendation = 'foodRecommendation';
+  static const noMealsfound = 'noMealsfound';
+  static const ingredients = 'ingredients';
+  static const noIngredientsAvailable = 'noIngredientsAvailable';
+  static const watchCookingVideo = 'watchCookingVideo';
+  static const relatedMeals = 'relatedMeals';
+  static const hi = 'hi';
+  static const letsStartYourDay = 'letsStartYourDay';
+  static const category = 'category';
+  static const gym = 'gym';
+  static const fitness = 'fitness';
+  static const yoga = 'yoga';
+  static const aerobics = 'aerobics';
+  static const trainer = 'trainer';
+  static const upcomingFeature = 'upcomingFeature';
+  static const availableSoon = 'availableSoon';
+  static const gotIt = 'gotIt';
+  static const recommendationToDay = 'recommendationToDay';
+  static const recommendationForYou = 'recommendationForYou';
+  static const seeAll = 'seeAll';
+  static const upcomingWorkouts = 'upcomingWorkouts';
+  static const work_out = 'work_out';
+  static const try_adjusting_your_filters_or_check_back_later = 'try_adjusting_your_filters_or_check_back_later';
+  static const no_muscles_or_levels_available = 'no_muscles_or_levels_available';
+  static const Tasks = 'Tasks';
+  static const PopularsTraining = 'PopularsTraining';
+
 }

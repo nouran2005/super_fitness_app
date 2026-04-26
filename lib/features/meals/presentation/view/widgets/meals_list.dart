@@ -56,7 +56,7 @@ class MealsList extends StatelessWidget {
                 mealItem: meal!,
                 onTap: () {
                   context.push(
-                    RouteNames.mealDeails,
+                    RouteNames.mealDetails,
                     extra: MealDetailsArgs(
                       mealId: meal.idMeal!,
                       meals: (meals.meals ?? [])

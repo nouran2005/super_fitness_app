@@ -20,7 +20,7 @@ import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseS
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: RouteNames.meals,
+  initialLocation: RouteNames.signIn,
   routes: [
     GoRoute(
       path: RouteNames.appStart,
@@ -71,7 +71,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: RouteNames.meals, builder: (context, state) => MealsPage()),
 
     GoRoute(
-      path: RouteNames.mealDeails,
+      path: RouteNames.mealDetails,
       builder: (context, state) {
         final args = state.extra as MealDetailsArgs;
         return MealDetailsPage(mealId: args.mealId, meals: args.meals);

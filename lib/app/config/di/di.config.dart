@@ -64,6 +64,38 @@ import '../../../features/home/domain/usecase/get_random_muscles_usecase.dart'
     as _i784;
 import '../../../features/home/presentation/manger/Rc_to_day_cubit.dart'
     as _i956;
+import '../../../features/meals/api/datasources/meals_remote_data_source_impl.dart'
+    as _i77;
+import '../../../features/meals/data/datasources/meals_remote_data_source_contract.dart'
+    as _i158;
+import '../../../features/meals/data/repositories/meals_repository_impl.dart'
+    as _i60;
+import '../../../features/meals/domain/repositories/meals_repository.dart'
+    as _i936;
+import '../../../features/meals/domain/use_cases/get_meal_details_by_id_usecase.dart'
+    as _i1023;
+import '../../../features/meals/domain/use_cases/get_meals_by_category_usecase.dart'
+    as _i447;
+import '../../../features/meals/domain/use_cases/get_meals_categories_usecase.dart'
+    as _i601;
+import '../../../features/meals/presentation/view_model/cubit/meals_cubit.dart'
+    as _i316;
+import '../../../features/popular_training/api/datasources_impl/popular_training_remote_datasource_impl.dart'
+    as _i723;
+import '../../../features/popular_training/data/datasources/popular_training_remote_datasource.dart'
+    as _i869;
+import '../../../features/popular_training/data/repos/popular_training_repo_impl.dart'
+    as _i75;
+import '../../../features/popular_training/domain/repos/popular_training_repo.dart'
+    as _i689;
+import '../../../features/popular_training/domain/usecases/get_exercises_by_muscle_difficulty_usecase.dart'
+    as _i970;
+import '../../../features/popular_training/domain/usecases/get_levels_usecase.dart'
+    as _i1023;
+import '../../../features/popular_training/domain/usecases/get_random_muscles_usecase.dart'
+    as _i727;
+import '../../../features/popular_training/presentation/view_model/popular_training_cubit.dart'
+    as _i590;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -138,6 +170,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i165.WorkOutRemoteDataSourceContract>(
       () => _i626.WorkOutRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
     );
+    gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
+      () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
+    gh.lazySingleton<_i689.PopularTrainingRepo>(
+      () => _i75.PopularTrainingRepoImpl(
+        gh<_i869.PopularTrainingRemoteDataSource>(),
+      ),
+    );
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
@@ -152,6 +192,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i365.AuthRepositoryImpl(
         remoteDataSource: gh<_i435.AuthRemoteDataSourceContract>(),
       ),
+    );
+    gh.factory<_i158.MealsRemoteDataSourceContract>(
+      () => _i77.MealsRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
     );
     gh.factory<_i94.GetExercisesRandomUseCase>(
       () => _i94.GetExercisesRandomUseCase(gh<_i983.ExerciseRepo>()),
@@ -199,6 +242,22 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i225.VerifyCodeUseCase>(
       () => _i225.VerifyCodeUseCase(gh<_i409.ForgetPasswordRepo>()),
     );
+    gh.factory<_i970.GetExercisesByMuscleDifficultyUseCase>(
+      () => _i970.GetExercisesByMuscleDifficultyUseCase(
+        gh<_i689.PopularTrainingRepo>(),
+      ),
+    );
+    gh.factory<_i1023.GetLevelsUseCase>(
+      () => _i1023.GetLevelsUseCase(gh<_i689.PopularTrainingRepo>()),
+    );
+    gh.factory<_i727.GetRandomMusclesUseCase>(
+      () => _i727.GetRandomMusclesUseCase(gh<_i689.PopularTrainingRepo>()),
+    );
+    gh.factory<_i936.MealsRepository>(
+      () => _i60.MealsRepositoryImpl(
+        remoteDataSource: gh<_i158.MealsRemoteDataSourceContract>(),
+      ),
+    );
     gh.factory<_i128.SignupUseCase>(
       () => _i128.SignupUseCase(gh<_i234.AuthRepository>()),
     );
@@ -227,8 +286,37 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i956.RcToDayCubit>(
       () => _i956.RcToDayCubit(gh<_i784.GetRandomMusclesUseCase>()),
     );
+    gh.factory<_i590.PopularTrainingCubit>(
+      () => _i590.PopularTrainingCubit(
+        gh<_i727.GetRandomMusclesUseCase>(),
+        gh<_i1023.GetLevelsUseCase>(),
+        gh<_i970.GetExercisesByMuscleDifficultyUseCase>(),
+      ),
+    );
+    gh.factory<_i447.GetMealsByCategoryUsecase>(
+      () => _i447.GetMealsByCategoryUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
+    gh.factory<_i601.GetMealsCategoriesUsecase>(
+      () => _i601.GetMealsCategoriesUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
+    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
+      () => _i1023.GetMealDetailsByIdUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
     gh.factory<_i985.SigninCubit>(
       () => _i985.SigninCubit(signinUseCase: gh<_i983.SigninUseCase>()),
+    );
+    gh.factory<_i316.MealsCubit>(
+      () => _i316.MealsCubit(
+        gh<_i601.GetMealsCategoriesUsecase>(),
+        gh<_i447.GetMealsByCategoryUsecase>(),
+        gh<_i1023.GetMealDetailsByIdUsecase>(),
+      ),
     );
     return this;
   }

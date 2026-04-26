@@ -7,8 +7,6 @@ import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
-import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_body.dart';
-import 'package:super_fitness_app/features/meals/presentation/view/widgets/video_launch_widget.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_ingredients_list.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';

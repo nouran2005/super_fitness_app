@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/home/presentation/widgets/upcoming_feature_dialog.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -24,6 +26,8 @@ class CategoryItem extends StatelessWidget {
       onTap: () {
         if (name == LocaleKeys.trainer) {
           onTap?.call();
+        } else if (name == LocaleKeys.fitness) {
+          context.push(RouteNames.exercises);
         } else {
           UpcomingFeatureDialog.show(context, name);
         }

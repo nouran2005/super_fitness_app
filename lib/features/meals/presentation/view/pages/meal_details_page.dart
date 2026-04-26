@@ -213,7 +213,7 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
                                     mealItem: item,
                                     onTap: () {
                                       context.push(
-                                        RouteNames.mealDeails,
+                                        RouteNames.mealDetails,
                                         extra: MealDetailsArgs(
                                           mealId: item.idMeal.toString(),
                                           meals: widget.meals,
