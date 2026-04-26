@@ -13,5 +13,6 @@ abstract class RouteNames {
   static const login = '/signin';
 
   static const meals = '/meals';
-  static const mealDeails = '/mealDetails';
+  static const mealDetails = '/mealDetails';
+  static const exercises = '/exercises';
 }

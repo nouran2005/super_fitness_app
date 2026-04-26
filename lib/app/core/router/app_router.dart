@@ -16,6 +16,7 @@ import 'package:super_fitness_app/features/forget_password/presentation/views/sc
 import 'package:super_fitness_app/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/signup_onboarding_page.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
+import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseScreen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
@@ -79,6 +80,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.homeScreen,
       builder: (context, state) => const HomeScreen(),
+    ),
+
+    GoRoute(
+      path: RouteNames.exercises,
+      builder: (context, state) => ExerciseScreen(
+        muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+      ),
     ),
   ],
 );

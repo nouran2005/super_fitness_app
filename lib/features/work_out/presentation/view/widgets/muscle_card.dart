@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:super_fitness_app/features/work_out/domain/entities/muscle_entity.dart';
 
@@ -11,8 +13,7 @@ class MuscleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //context.push(RouteNames.muscleDetails, extra: {'id': muscle.id, 'name': muscle.name});
-        //print('Tapped on muscle: ${muscle.name} with id: ${muscle.id}');
+        context.push(RouteNames.exercises);
       },
       child: Container(
         decoration: BoxDecoration(

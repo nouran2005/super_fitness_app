@@ -21,6 +21,7 @@ import 'package:super_fitness_app/features/forget_password/data/models/response/
 import 'package:super_fitness_app/features/home/data/model/response/recommendation_to _day.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_by_muscle_group_response.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_group_response.dart';
+import 'package:super_fitness_app/features/Exercise/data/model/response/ExerciseRESponse.dart';
 
 part 'api_client.g.dart';
 
@@ -93,5 +94,18 @@ abstract class ApiClient {
   getExercisesByMuscleDifficulty({
     @Query(ApiConstants.primeMoverMuscleId) required String primeMoverMuscleId,
     @Query(ApiConstants.difficultyLevelId) required String difficultyLevelId,
+  });
+
+  @GET(AppEndpoints.exercisesPath)
+  Future<HttpResponse<ExerciseResponse>> getExercises({
+    @Header(ApiConstants.acceptLanguage) required String language,
+  });
+
+  @GET(AppEndpoints.exercisesRandomPath)
+  Future<HttpResponse<ExerciseResponse>> getExercisesRandom({
+    @Header(ApiConstants.acceptLanguage) required String language,
+    @Query("targetMuscleGroupId") required String muscleGroupId,
+    @Query("difficultyLevelId") required String difficultyId,
+    @Query("limit") int limit = 160,
   });
 }

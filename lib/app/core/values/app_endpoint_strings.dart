@@ -25,4 +25,6 @@ class AppEndpoints {
   static const String levelsPath = 'levels';
   static const String exercisesByMuscleDifficulty =
       "exercises/by-muscle-difficulty";
+  static const String exercisesPath = 'exercises';
+  static const String exercisesRandomPath = 'exercises/random';
 }
