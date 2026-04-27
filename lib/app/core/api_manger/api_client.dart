@@ -10,6 +10,7 @@ import 'package:super_fitness_app/features/meals/data/models/response/meals_deta
 import 'package:super_fitness_app/features/popular_training/data/models/exercises_by_muscle_difficulty_response_model.dart';
 import 'package:super_fitness_app/features/popular_training/data/models/levels_response_model.dart';
 import 'package:super_fitness_app/features/popular_training/data/models/muscles_random_response_model.dart';
+import 'package:super_fitness_app/features/profile/data/models/response/profile_data_dto.dart';
 import 'package:super_fitness_app/features/signin/data/models/post/signin_post_model.dart';
 import 'package:super_fitness_app/features/signin/data/models/response/signin_response.dart';
 import 'package:super_fitness_app/features/forget_password/data/models/request/forget_password_request_model.dart';
@@ -108,4 +109,9 @@ abstract class ApiClient {
     @Query("difficultyLevelId") required String difficultyId,
     @Query("limit") int limit = 160,
   });
+
+  @GET(AppEndpoints.profilePath)
+  Future<HttpResponse<ProfileDataDto>> getProfileData(
+    @Header(ApiConstants.authorization) String token,
+  );
 }

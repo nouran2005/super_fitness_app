@@ -20,9 +20,7 @@ class ExerciseRepoImpl implements ExerciseRepo {
           data: result.data.toEntity(),
         );
       case ErrorApiResult<ExerciseResponse>():
-        return ErrorApiResult<ExerciseResponseEntity>(
-          error: result.error,
-        );
+        return ErrorApiResult<ExerciseResponseEntity>(error: result.error);
     }
   }
 
@@ -41,9 +39,7 @@ class ExerciseRepoImpl implements ExerciseRepo {
           data: result.data.toEntity(),
         );
       case ErrorApiResult<ExerciseResponse>():
-        return ErrorApiResult<ExerciseResponseEntity>(
-          error: result.error,
-        );
+        return ErrorApiResult<ExerciseResponseEntity>(error: result.error);
     }
   }
 }

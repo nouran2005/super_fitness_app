@@ -29,7 +29,9 @@ class PopularTrainingItem extends StatelessWidget {
         context.push(
           RouteNames.exercises,
           extra: {
-            'muscleGroupId': MuscleGroupIds.getId(entity.exercise.muscleGroupId) ?? '69d982ed85f6bfa972bf2218',
+            'muscleGroupId':
+                MuscleGroupIds.getId(entity.exercise.muscleGroupId) ??
+                '69d982ed85f6bfa972bf2218',
             'initialExerciseId': entity.exercise.id,
             'initialDifficultyLevel': entity.exercise.difficultyLevel,
           },

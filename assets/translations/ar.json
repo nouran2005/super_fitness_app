@@ -157,5 +157,11 @@
   "try_adjusting_your_filters_or_check_back_later": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا.",
   "no_muscles_or_levels_available": "لا توجد عضلات أو مستويات متاحة",
   "Tasks": "تدريبات",
-  "PopularsTraining": "التدريبات الأكثر رواجًا"
+  "PopularsTraining": "التدريبات الأكثر رواجًا",
+  "editProfile": "تعديل البيانات",
+  "changePassword": "تغيير كلمة المرور",
+  "selectLanguage": "اختر لغة",
+  "security": "الامان",
+  "privacyPolicy": "سياسة الخصوصية",
+  "help": "المساعدة"
 }

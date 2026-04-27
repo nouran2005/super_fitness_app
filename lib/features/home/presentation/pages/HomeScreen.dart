@@ -7,6 +7,8 @@ import 'package:super_fitness_app/features/home/presentation/manger/Rc_to_day_in
 import 'package:super_fitness_app/features/home/presentation/widgets/homeBody.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_intent.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_events.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_cubit.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view_model/cubit/work_out_events.dart';
 
@@ -30,6 +32,10 @@ class HomeScreen extends StatelessWidget {
           create: (context) =>
               getIt<WorkOutCubit>()
                 ..doEvent(GetAllMusclesGroup(language: language)),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<ProfileCubit>()..doIntent(ProfileDataEvent()),
         ),
       ],
       child: const Scaffold(body: HomeBody()),

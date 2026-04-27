@@ -157,5 +157,11 @@
   "try_adjusting_your_filters_or_check_back_later": "Try adjusting your filters or check back later.",
   "no_muscles_or_levels_available": "No muscles or levels available.",
   "Tasks": "Tasks",
-  "PopularsTraining": "Popular Training"
+  "PopularsTraining": "Popular Training",
+  "editProfile": "Edit Profile",
+  "changePassword": "Change Password",
+  "selectLanguage": "Select Language",
+  "security": "Security",
+  "privacyPolicy": "Privacy Policy",
+  "help": "Help"
 }

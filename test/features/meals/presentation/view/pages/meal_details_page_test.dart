@@ -12,6 +12,7 @@ import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/m
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 
 import 'meal_details_page_test.mocks.dart';
+
 /*
 @GenerateMocks([MealsCubit])
 void main() {

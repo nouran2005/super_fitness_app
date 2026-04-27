@@ -17,7 +17,7 @@ class ExerciseHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;
-    
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -37,10 +37,11 @@ class ExerciseHeader extends StatelessWidget {
                       ? Image.network(
                           imageUrl!,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Image.asset(
-                            Assets.imagesExerciseBackground,
-                            fit: BoxFit.cover,
-                          ),
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                                Assets.imagesExerciseBackground,
+                                fit: BoxFit.cover,
+                              ),
                         )
                       : Image.asset(
                           Assets.imagesExerciseBackground,
@@ -75,7 +76,7 @@ class ExerciseHeader extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: AppStyles.font30WhiteSemiBold.copyWith(
-                fontSize: size.width * 0.06,  
+                fontSize: size.width * 0.06,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -90,7 +91,7 @@ class ExerciseHeader extends StatelessWidget {
               backgroundColor: AppColors.primary,
               radius: size.width * 0.04,
               child: Image.asset(
-                Assets.imagesArrowBack, 
+                Assets.imagesArrowBack,
                 width: size.width * 0.04,
               ),
             ),
