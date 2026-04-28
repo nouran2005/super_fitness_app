@@ -160,5 +160,7 @@ abstract class  LocaleKeys {
   static const no_muscles_or_levels_available = 'no_muscles_or_levels_available';
   static const Tasks = 'Tasks';
   static const PopularsTraining = 'PopularsTraining';
+  static const oldPassword = 'oldPassword';
+  static const newPassword = 'newPassword';
 
 }

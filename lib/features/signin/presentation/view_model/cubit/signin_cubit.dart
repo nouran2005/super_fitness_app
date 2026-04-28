@@ -50,7 +50,7 @@ class SigninCubit extends Cubit<SigninStates> {
               "${LocaleKeys.welcomeBack.tr()} ${result.data.firstName} ${result.data.lastName}!",
           type: ToastificationType.success,
         );
-        navigatorKey.currentContext?.go(RouteNames.home);
+        navigatorKey.currentContext?.go(RouteNames.changePassword);
         // return;
         break;
       case ErrorApiResult<SigninEntity>():

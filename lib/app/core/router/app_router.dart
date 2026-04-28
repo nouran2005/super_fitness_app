@@ -17,11 +17,16 @@ import 'package:super_fitness_app/features/onboarding/presentation/pages/onboard
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/signup_onboarding_page.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseScreen.dart';
+import 'package:super_fitness_app/features/changePassword/presentation/view/pages/change_password_page.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: RouteNames.home,
+  initialLocation: RouteNames.signIn,
   routes: [
+    GoRoute(
+      path: RouteNames.changePassword,
+      builder: (context, state) => const ChangePasswordPage(),
+    ),
     GoRoute(
       path: RouteNames.appStart,
       builder: (context, state) => const AppStartPage(),

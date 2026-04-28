@@ -10,8 +10,8 @@ import 'package:super_fitness_app/features/meals/domain/entities/meal_details_mo
 import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_ingredients_list.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
-
-import 'meal_details_page_test.mocks.dart';
+/*
+import 'meal_details_page_test.mocks.dart';*/
 /*
 @GenerateMocks([MealsCubit])
 void main() {

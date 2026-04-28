@@ -22,6 +22,9 @@ import 'package:super_fitness_app/features/home/data/model/response/recommendati
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_by_muscle_group_response.dart';
 import 'package:super_fitness_app/features/work_out/data/models/responses/all_muscles_group_response.dart';
 import 'package:super_fitness_app/features/Exercise/data/model/response/ExerciseRESponse.dart';
+import 'package:super_fitness_app/features/changePassword/data/model/request/changepassRequest.dart';
+import 'package:super_fitness_app/features/changePassword/data/model/response/change_password_response.dart';
+
 
 part 'api_client.g.dart';
 
@@ -108,4 +111,9 @@ abstract class ApiClient {
     @Query("difficultyLevelId") required String difficultyId,
     @Query("limit") int limit = 160,
   });
+  @PATCH("${AppEndpoints.authPath}/${AppEndpoints.changePasswordPath}")
+  Future<HttpResponse<ChangePasswordResponse>> changePassword(
+    @Body() ChangePasswordRequest request,
+  );
 }
+
