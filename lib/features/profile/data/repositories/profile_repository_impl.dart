@@ -7,7 +7,7 @@ import 'package:super_fitness_app/features/profile/domain/entities/profile_data_
 import 'package:super_fitness_app/features/profile/domain/repositories/profile_repository.dart';
 
 @Injectable(as: ProfileRepository)
-class ProfileRepositoryImpl extends ProfileRepository {
+class ProfileRepositoryImpl implements ProfileRepository {
   final ProfileRemoteDataSourceContract remoteDataSource;
   ProfileRepositoryImpl({required this.remoteDataSource});
 
@@ -26,5 +26,20 @@ class ProfileRepositoryImpl extends ProfileRepository {
           error: response.error.toString(),
         );
     }
+  }
+
+  @override
+  Future<String> helpData() async {
+    return await remoteDataSource.helpData();
+  }
+
+  @override
+  Future<String> privacyData() async {
+    return await remoteDataSource.privacyData();
+  }
+
+  @override
+  Future<String> securityData() async {
+    return await remoteDataSource.securityData();
   }
 }

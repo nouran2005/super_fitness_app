@@ -3,4 +3,10 @@ import 'package:super_fitness_app/features/profile/domain/entities/profile_data_
 
 abstract class ProfileRepository {
   Future<ApiResult<ProfileDataModel>> getProfileData(String token);
+
+  Future<String> helpData();
+
+  Future<String> privacyData();
+
+  Future<String> securityData();
 }

@@ -1,9 +1,15 @@
 import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meal_details_args.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meals_page.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meal_details_page.dart';
+import 'package:super_fitness_app/features/profile/presentation/view/pages/help_page.dart';
+import 'package:super_fitness_app/features/profile/presentation/view/pages/privacy_page.dart';
+import 'package:super_fitness_app/features/profile/presentation/view/pages/security_page.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_events.dart';
 import 'package:super_fitness_app/features/signin/presentation/view/pages/signin_page.dart';
 import 'package:super_fitness_app/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,6 +102,38 @@ final GoRouter appRouter = GoRouter(
         }
         return ExerciseScreen(
           muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+        );
+      },
+    ),
+
+    GoRoute(
+      path: RouteNames.helpPage,
+      builder: (context, state) {
+        return BlocProvider<ProfileCubit>(
+          create: (context) => getIt<ProfileCubit>()..doIntent(HelpDataEvent()),
+          child: HelpPage(),
+        );
+      },
+    ),
+
+    GoRoute(
+      path: RouteNames.privacyPage,
+      builder: (context, state) {
+        return BlocProvider<ProfileCubit>(
+          create: (context) =>
+              getIt<ProfileCubit>()..doIntent(PrivacyDataEvent()),
+          child: PrivacyPage(),
+        );
+      },
+    ),
+
+    GoRoute(
+      path: RouteNames.securityPage,
+      builder: (context, state) {
+        return BlocProvider<ProfileCubit>(
+          create: (context) =>
+              getIt<ProfileCubit>()..doIntent(SecurityDataEvent()),
+          child: SecurityPage(),
         );
       },
     ),

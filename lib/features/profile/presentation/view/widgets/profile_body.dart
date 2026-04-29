@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/assets/app_images.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
@@ -93,19 +95,25 @@ class ProfileBody extends StatelessWidget {
                     TextListWidget(
                       assetName: Assets.imagesSecurity,
                       title: LocaleKeys.security.tr(),
-                      onTap: () {},
+                      onTap: () {
+                        context.push(RouteNames.securityPage);
+                      },
                     ),
                     DividerWidget(),
                     TextListWidget(
                       assetName: Assets.imagesPrivacy,
                       title: LocaleKeys.privacyPolicy.tr(),
-                      onTap: () {},
+                      onTap: () {
+                        context.push(RouteNames.privacyPage);
+                      },
                     ),
                     DividerWidget(),
                     TextListWidget(
                       assetName: Assets.imagesHelp,
                       title: LocaleKeys.help.tr(),
-                      onTap: () {},
+                      onTap: () {
+                        context.push(RouteNames.helpPage);
+                      },
                     ),
                     DividerWidget(),
                     TextListWidget(

@@ -3,4 +3,10 @@ import 'package:super_fitness_app/features/profile/data/models/response/profile_
 
 abstract class ProfileRemoteDataSourceContract {
   Future<ApiResult<ProfileDataDto>> getProfileData(String token);
+
+  Future<String> helpData();
+
+  Future<String> privacyData();
+
+  Future<String> securityData();
 }

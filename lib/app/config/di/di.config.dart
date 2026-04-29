@@ -96,6 +96,24 @@ import '../../../features/popular_training/domain/usecases/get_random_muscles_us
     as _i727;
 import '../../../features/popular_training/presentation/view_model/popular_training_cubit.dart'
     as _i590;
+import '../../../features/profile/api/datasources/profile_remote_data_source_impl.dart'
+    as _i394;
+import '../../../features/profile/data/datasources/profile_remote_data_source_contract.dart'
+    as _i376;
+import '../../../features/profile/data/repositories/profile_repository_impl.dart'
+    as _i695;
+import '../../../features/profile/domain/repositories/profile_repository.dart'
+    as _i919;
+import '../../../features/profile/domain/use_cases/get_help_data_usecase.dart'
+    as _i26;
+import '../../../features/profile/domain/use_cases/get_privacy_policy_data_usecase.dart'
+    as _i1039;
+import '../../../features/profile/domain/use_cases/get_profile_data_usecase.dart'
+    as _i260;
+import '../../../features/profile/domain/use_cases/get_security_data_usecase.dart'
+    as _i52;
+import '../../../features/profile/presentation/view_model/cubit/profile_cubit.dart'
+    as _i683;
 import '../../../features/signin/api/datasources/signin_local_data_source_impl.dart'
     as _i709;
 import '../../../features/signin/api/datasources/signin_remote_data_source_impl.dart'
@@ -181,6 +199,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.factory<_i376.ProfileRemoteDataSourceContract>(
+      () => _i394.ProfileRemoteDataSourceImpl(apiClient: gh<_i890.ApiClient>()),
+    );
     gh.factory<_i242.HomeRepo>(
       () => _i758.HomeRepoImpl(gh<_i599.HomeRemoteDataSource>()),
     );
@@ -258,6 +279,11 @@ extension GetItInjectableX on _i174.GetIt {
         remoteDataSource: gh<_i158.MealsRemoteDataSourceContract>(),
       ),
     );
+    gh.factory<_i919.ProfileRepository>(
+      () => _i695.ProfileRepositoryImpl(
+        remoteDataSource: gh<_i376.ProfileRemoteDataSourceContract>(),
+      ),
+    );
     gh.factory<_i128.SignupUseCase>(
       () => _i128.SignupUseCase(gh<_i234.AuthRepository>()),
     );
@@ -282,6 +308,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
+    );
+    gh.factory<_i26.GetHelpDataUsecase>(
+      () => _i26.GetHelpDataUsecase(gh<_i919.ProfileRepository>()),
+    );
+    gh.factory<_i1039.GetPrivacyPolicyDataUsecase>(
+      () => _i1039.GetPrivacyPolicyDataUsecase(gh<_i919.ProfileRepository>()),
+    );
+    gh.factory<_i52.GetSecurityDataUsecase>(
+      () => _i52.GetSecurityDataUsecase(gh<_i919.ProfileRepository>()),
     );
     gh.factory<_i956.RcToDayCubit>(
       () => _i956.RcToDayCubit(gh<_i784.GetRandomMusclesUseCase>()),
@@ -308,6 +343,9 @@ extension GetItInjectableX on _i174.GetIt {
         mealsRepository: gh<_i936.MealsRepository>(),
       ),
     );
+    gh.factory<_i260.GetProfileDataUsecase>(
+      () => _i260.GetProfileDataUsecase(repo: gh<_i919.ProfileRepository>()),
+    );
     gh.factory<_i985.SigninCubit>(
       () => _i985.SigninCubit(signinUseCase: gh<_i983.SigninUseCase>()),
     );
@@ -316,6 +354,15 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i601.GetMealsCategoriesUsecase>(),
         gh<_i447.GetMealsByCategoryUsecase>(),
         gh<_i1023.GetMealDetailsByIdUsecase>(),
+      ),
+    );
+    gh.factory<_i683.ProfileCubit>(
+      () => _i683.ProfileCubit(
+        gh<_i603.AuthStorage>(),
+        gh<_i260.GetProfileDataUsecase>(),
+        gh<_i26.GetHelpDataUsecase>(),
+        gh<_i1039.GetPrivacyPolicyDataUsecase>(),
+        gh<_i52.GetSecurityDataUsecase>(),
       ),
     );
     return this;
