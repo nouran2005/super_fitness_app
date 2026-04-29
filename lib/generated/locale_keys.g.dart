@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const email = 'email';
@@ -156,9 +156,10 @@ abstract class  LocaleKeys {
   static const seeAll = 'seeAll';
   static const upcomingWorkouts = 'upcomingWorkouts';
   static const work_out = 'work_out';
-  static const try_adjusting_your_filters_or_check_back_later = 'try_adjusting_your_filters_or_check_back_later';
-  static const no_muscles_or_levels_available = 'no_muscles_or_levels_available';
+  static const try_adjusting_your_filters_or_check_back_later =
+      'try_adjusting_your_filters_or_check_back_later';
+  static const no_muscles_or_levels_available =
+      'no_muscles_or_levels_available';
   static const Tasks = 'Tasks';
   static const PopularsTraining = 'PopularsTraining';
-
 }

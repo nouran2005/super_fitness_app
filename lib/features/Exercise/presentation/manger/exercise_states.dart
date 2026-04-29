@@ -16,7 +16,8 @@ class ExerciseStates {
   }) {
     return ExerciseStates(
       exerciseResource: exerciseResource ?? this.exerciseResource,
-      currentExercisesResource: currentExercisesResource ?? this.currentExercisesResource,
+      currentExercisesResource:
+          currentExercisesResource ?? this.currentExercisesResource,
     );
   }
 }

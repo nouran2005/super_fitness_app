@@ -25,10 +25,7 @@ class ExerciseStatsRow extends StatelessWidget {
 
   Widget _buildStatChip(String label, Size size, {bool isCalorie = false}) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: size.width * 0.04,
-        vertical: 8,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(25),

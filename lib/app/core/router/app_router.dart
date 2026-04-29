@@ -17,6 +17,7 @@ import 'package:super_fitness_app/features/onboarding/presentation/pages/onboard
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/signup_onboarding_page.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseScreen.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_page.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
@@ -88,17 +89,20 @@ final GoRouter appRouter = GoRouter(
         final extra = state.extra;
         if (extra is Map<String, dynamic>) {
           return ExerciseScreen(
-            muscleGroupId: extra['muscleGroupId'] as String? ??
-                '69d982ed85f6bfa972bf2218',
+            muscleGroupId:
+                extra['muscleGroupId'] as String? ?? '69d982ed85f6bfa972bf2218',
             initialExerciseId: extra['initialExerciseId'] as String?,
             initialDifficultyLevel: extra['initialDifficultyLevel'] as String?,
           );
         }
         return ExerciseScreen(
-          muscleGroupId:
-              state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+          muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
         );
       },
+    ),
+    GoRoute(
+      path: RouteNames.smartCoach,
+      builder: (context, state) => const SmartCoachPage(),
     ),
   ],
 );
