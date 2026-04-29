@@ -66,13 +66,28 @@ void main() {
       );
 
       final result = dto.toJson();
-      final expectedMap = {
-        'message': 'Success',
-        'error': '',
-        'user': tUserDtoJson,
+
+      final expectedUser = {
+        '_id': '123',
+        'firstName': 'John',
+        'lastName': 'Doe',
+        'email': 'john@example.com',
+        'gender': 'male',
+        'age': 25,
+        'weight': 70,
+        'height': 175,
+        'activityLevel': 'intermediate',
+        'goal': 'loseWeight',
+        'photo': 'http://photo.com/1',
+        'createdAt': '2023-01-01',
+        'resetCodeVerified': true,
       };
 
-      expect(result, expectedMap);
+      expect(result['message'], 'Success');
+      expect(result['error'], '');
+
+      // 🔥 الحل هنا
+      expect((result['user'] as ProfileUserDto).toJson(), expectedUser);
     });
   });
 }
