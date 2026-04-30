@@ -88,15 +88,14 @@ final GoRouter appRouter = GoRouter(
         final extra = state.extra;
         if (extra is Map<String, dynamic>) {
           return ExerciseScreen(
-            muscleGroupId: extra['muscleGroupId'] as String? ??
-                '69d982ed85f6bfa972bf2218',
+            muscleGroupId:
+                extra['muscleGroupId'] as String? ?? '69d982ed85f6bfa972bf2218',
             initialExerciseId: extra['initialExerciseId'] as String?,
             initialDifficultyLevel: extra['initialDifficultyLevel'] as String?,
           );
         }
         return ExerciseScreen(
-          muscleGroupId:
-              state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+          muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
         );
       },
     ),

@@ -42,9 +42,12 @@ class _ExerciseCategoryTabsState extends State<ExerciseCategoryTabs> {
   void _scrollToSelected() {
     if (_scrollController.hasClients) {
       final screenWidth = MediaQuery.of(context).size.width;
-      final tabWidth = screenWidth * 0.25; 
-      final targetOffset = (widget.selectedCategoryIndex * tabWidth) - (screenWidth / 2) + (tabWidth / 2);
-      
+      final tabWidth = screenWidth * 0.25;
+      final targetOffset =
+          (widget.selectedCategoryIndex * tabWidth) -
+          (screenWidth / 2) +
+          (tabWidth / 2);
+
       _scrollController.animateTo(
         targetOffset.clamp(0, _scrollController.position.maxScrollExtent),
         duration: const Duration(milliseconds: 300),
@@ -88,13 +91,15 @@ class _ExerciseCategoryTabsState extends State<ExerciseCategoryTabs> {
               decoration: BoxDecoration(
                 color: isSelected ? AppColors.primary : Colors.transparent,
                 borderRadius: BorderRadius.circular(25),
-                boxShadow: isSelected ? [
-                  BoxShadow(
-                    color: AppColors.primary.withOpacity(0.3),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  )
-                ] : [],
+                boxShadow: isSelected
+                    ? [
+                        BoxShadow(
+                          color: AppColors.primary.withOpacity(0.3),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ]
+                    : [],
               ),
               child: Text(
                 widget.categories[index].name,

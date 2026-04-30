@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -27,6 +27,10 @@ import '../../../features/auth/domain/repositories/auth_repository.dart'
 import '../../../features/auth/domain/use_cases/signup_use_case.dart' as _i128;
 import '../../../features/auth/presentation/register/view_model/signup_cubit.dart'
     as _i22;
+import '../../../features/edit_profile/api/datasources_impl/edit_profile_remote_datasource_impl.dart'
+    as _i474;
+import '../../../features/edit_profile/data/datasources/edit_profile_remote_datasource.dart'
+    as _i368;
 import '../../../features/Exercise/api/dataScources/exercise_remote_data_source_impl.dart'
     as _i524;
 import '../../../features/Exercise/data/dataScources/exercise_remote_data_source.dart'
@@ -202,6 +206,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i832.GetExercisesUseCase>(
       () => _i832.GetExercisesUseCase(gh<_i983.ExerciseRepo>()),
     );
+    gh.lazySingleton<_i368.EditProfileRemoteDataSource>(
+      () => _i474.EditProfileRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
     gh.factory<_i845.WorkOutRepository>(
       () => _i292.WorkOutRepositoryImpl(
         remoteDataSource: gh<_i165.WorkOutRemoteDataSourceContract>(),
@@ -293,6 +300,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i970.GetExercisesByMuscleDifficultyUseCase>(),
       ),
     );
+    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
+      () => _i1023.GetMealDetailsByIdUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
     gh.factory<_i447.GetMealsByCategoryUsecase>(
       () => _i447.GetMealsByCategoryUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
@@ -300,11 +312,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i601.GetMealsCategoriesUsecase>(
       () => _i601.GetMealsCategoriesUsecase(
-        mealsRepository: gh<_i936.MealsRepository>(),
-      ),
-    );
-    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
-      () => _i1023.GetMealDetailsByIdUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
       ),
     );

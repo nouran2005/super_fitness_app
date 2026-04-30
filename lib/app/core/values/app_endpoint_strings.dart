@@ -27,4 +27,7 @@ class AppEndpoints {
       "exercises/by-muscle-difficulty";
   static const String exercisesPath = 'exercises';
   static const String exercisesRandomPath = 'exercises/random';
+  static const String getLoggedUserDataPath = 'auth/profile-data';
+  static const String editProfilePath = 'auth/editProfile';
+  static const String uploadProfileImagePath = 'auth/upload-photo';
 }

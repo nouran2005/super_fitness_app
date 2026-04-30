@@ -20,10 +20,7 @@ class ExerciseCategoryEntity {
   final String name;
   final List<ExerciseEntity> exercises;
 
-  const ExerciseCategoryEntity({
-    required this.name,
-    required this.exercises,
-  });
+  const ExerciseCategoryEntity({required this.name, required this.exercises});
 }
 
 class ExerciseEntity {

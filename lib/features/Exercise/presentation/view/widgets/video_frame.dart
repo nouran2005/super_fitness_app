@@ -4,10 +4,7 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 class VideoFrame extends StatefulWidget {
   final String videoUrl;
 
-  const VideoFrame({
-    super.key,
-    required this.videoUrl,
-  });
+  const VideoFrame({super.key, required this.videoUrl});
 
   @override
   State<VideoFrame> createState() => _VideoFrameState();

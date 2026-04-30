@@ -82,9 +82,9 @@ class _ExerciseBodyState extends State<ExerciseBody> {
       videoId = uri.queryParameters['v'];
     }
     if (videoId == null) return '';
-    return highRes 
-      ? 'https://img.youtube.com/vi/$videoId/maxresdefault.jpg'
-      : 'https://img.youtube.com/vi/$videoId/0.jpg';
+    return highRes
+        ? 'https://img.youtube.com/vi/$videoId/maxresdefault.jpg'
+        : 'https://img.youtube.com/vi/$videoId/0.jpg';
   }
 
   @override
@@ -104,7 +104,7 @@ class _ExerciseBodyState extends State<ExerciseBody> {
               colorBlendMode: BlendMode.darken,
             ),
           ),
-          
+
           BlocConsumer<ExerciseCubit, ExerciseStates>(
             listener: (context, state) {
               if (state.currentExercisesResource.isSuccess) {
@@ -148,9 +148,16 @@ class _ExerciseBodyState extends State<ExerciseBody> {
                       title: _selectedHeaderTitle ?? 'Exercise',
                     ),
                     const ExerciseStatsRow(),
-                    
+
                     ExerciseCategoryTabs(
-                      categories: _difficultyLevels.map((l) => ExerciseCategoryEntity(name: l["name"]!, exercises: [])).toList(),
+                      categories: _difficultyLevels
+                          .map(
+                            (l) => ExerciseCategoryEntity(
+                              name: l["name"]!,
+                              exercises: [],
+                            ),
+                          )
+                          .toList(),
                       selectedCategoryIndex: _selectedCategoryIndex,
                       onCategorySelected: (index) {
                         setState(() {
@@ -164,7 +171,11 @@ class _ExerciseBodyState extends State<ExerciseBody> {
                     if (isLoading)
                       const Padding(
                         padding: EdgeInsets.symmetric(vertical: 50),
-                        child: Center(child: CircularProgressIndicator(color: AppColors.primary)),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.primary,
+                          ),
+                        ),
                       )
                     else if (exercises.isEmpty)
                       Padding(
@@ -188,7 +199,8 @@ class _ExerciseBodyState extends State<ExerciseBody> {
                               highRes: true,
                             );
                             _selectedHeaderTitle = exercise.exercise;
-                            _selectedVideoUrl = exercise.shortYoutubeDemonstrationLink;
+                            _selectedVideoUrl =
+                                exercise.shortYoutubeDemonstrationLink;
                             _showVideoFrame = true;
                           });
                         },
