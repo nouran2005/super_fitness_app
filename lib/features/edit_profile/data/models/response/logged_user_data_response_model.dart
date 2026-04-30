@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/features/edit_profile/domain/entities/logged_user_data_response_entity.dart';
 
 part 'logged_user_data_response_model.g.dart';
 
@@ -16,6 +17,13 @@ class LoggedUserDataResponseModel {
       _$LoggedUserDataResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoggedUserDataResponseModelToJson(this);
+
+  LoggedUserDataResponseEntity toEntity() {
+    return LoggedUserDataResponseEntity(
+      message: message,
+      user: user?.toEntity(),
+    );
+  }
 }
 
 @JsonSerializable()
@@ -83,4 +91,23 @@ class LoggedUserModel {
       _$LoggedUserModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoggedUserModelToJson(this);
+
+  LoggedUserEntity toEntity() {
+    return LoggedUserEntity(
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      gender: gender,
+      age: age,
+      weight: weight,
+      height: height,
+      activityLevel: activityLevel,
+      goal: goal,
+      photo: photo,
+      createdAt: createdAt,
+      passwordChangedAt: passwordChangedAt,
+      resetCodeVerified: resetCodeVerified,
+    );
+  }
 }

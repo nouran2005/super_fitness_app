@@ -31,6 +31,16 @@ import '../../../features/edit_profile/api/datasources_impl/edit_profile_remote_
     as _i474;
 import '../../../features/edit_profile/data/datasources/edit_profile_remote_datasource.dart'
     as _i368;
+import '../../../features/edit_profile/data/repos/edit_profile_repo_impl.dart'
+    as _i202;
+import '../../../features/edit_profile/domain/repos/edit_profile_repo.dart'
+    as _i485;
+import '../../../features/edit_profile/domain/usecases/edit_profile_usecase.dart'
+    as _i276;
+import '../../../features/edit_profile/domain/usecases/get_logged_user_data_usecase.dart'
+    as _i729;
+import '../../../features/edit_profile/domain/usecases/upload_profile_image_usecase.dart'
+    as _i489;
 import '../../../features/Exercise/api/dataScources/exercise_remote_data_source_impl.dart'
     as _i524;
 import '../../../features/Exercise/data/dataScources/exercise_remote_data_source.dart'
@@ -226,6 +236,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i466.ForgetPasswordRemoteDataSource>(),
       ),
     );
+    gh.lazySingleton<_i485.EditProfileRepo>(
+      () => _i202.EditProfileRepoImpl(gh<_i368.EditProfileRemoteDataSource>()),
+    );
     gh.factory<_i572.ExerciseCubit>(
       () => _i572.ExerciseCubit(
         gh<_i832.GetExercisesUseCase>(),
@@ -286,6 +299,15 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i55.GetAllMusclesGroupUseCase>(),
         gh<_i459.GetAllMusclesByMuscleGroupUseCase>(),
       ),
+    );
+    gh.factory<_i276.EditProfileUseCase>(
+      () => _i276.EditProfileUseCase(gh<_i485.EditProfileRepo>()),
+    );
+    gh.factory<_i729.GetLoggedUserDataUseCase>(
+      () => _i729.GetLoggedUserDataUseCase(gh<_i485.EditProfileRepo>()),
+    );
+    gh.factory<_i489.UploadProfileImageUseCase>(
+      () => _i489.UploadProfileImageUseCase(gh<_i485.EditProfileRepo>()),
     );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
