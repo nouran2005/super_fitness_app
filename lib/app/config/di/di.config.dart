@@ -112,10 +112,14 @@ import '../../../features/signin/domain/use_cases/signin_use_case.dart'
     as _i983;
 import '../../../features/signin/presentation/view_model/cubit/signin_cubit.dart'
     as _i985;
-import '../../../features/smart_coach/data/data_source/smart_coach_chat/local_data_source/smart_coach_chat_local_data_source.dart'
-    as _i351;
-import '../../../features/smart_coach/domain/repositories/smart_coach_chat/smart_coach_chat_repository.dart'
-    as _i266;
+import '../../../features/smart_coach/api/datasources/smart_coach_chat_local_data_source_impl.dart'
+    as _i691;
+import '../../../features/smart_coach/data/datasources/smart_coach_chat_local_data_source_contract.dart'
+    as _i1004;
+import '../../../features/smart_coach/data/repositories/smart_coach_chat_repository_impl.dart'
+    as _i417;
+import '../../../features/smart_coach/domain/repositories/smart_coach_chat_repository.dart'
+    as _i403;
 import '../../../features/smart_coach/domain/use_cases/create_chat_use_case.dart'
     as _i672;
 import '../../../features/smart_coach/domain/use_cases/get_all_chats_use_case.dart'
@@ -167,8 +171,13 @@ extension GetItInjectableX on _i174.GetIt {
       () => networkModule.dio(gh<_i603.AuthStorage>()),
     );
     gh.factory<_i858.AppCubit>(() => _i858.AppCubit(gh<_i603.AuthStorage>()));
-    gh.factory<_i351.SmartCoachChatLocalDataSource>(
-      () => _i351.SmartCoachChatLocalDataSourceImpl(gh<_i622.DatabaseHelper>()),
+    gh.factory<_i1004.SmartCoachChatLocalDataSource>(
+      () => _i691.SmartCoachChatLocalDataSourceImpl(gh<_i622.DatabaseHelper>()),
+    );
+    gh.factory<_i403.SmartCoachChatRepository>(
+      () => _i417.SmartCoachChatRepositoryImpl(
+        gh<_i1004.SmartCoachChatLocalDataSource>(),
+      ),
     );
     gh.lazySingleton<_i890.ApiClient>(
       () => networkModule.authApiClient(gh<_i361.Dio>()),
@@ -194,11 +203,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
       () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
-    gh.factory<_i266.SmartCoachChatRepository>(
-      () => _i266.SmartCoachChatRepositoryImpl(
-        gh<_i351.SmartCoachChatLocalDataSource>(),
-      ),
-    );
     gh.lazySingleton<_i689.PopularTrainingRepo>(
       () => _i75.PopularTrainingRepoImpl(
         gh<_i869.PopularTrainingRemoteDataSource>(),
@@ -206,19 +210,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i420.SigninRemoteDataSourceContract>(
       () => _i953.SigninRemoteDataSourceImpl(gh<_i890.ApiClient>()),
-    );
-    gh.factory<_i672.CreateChatUseCase>(
-      () => _i672.CreateChatUseCase(gh<_i266.SmartCoachChatRepository>()),
-    );
-    gh.factory<_i539.GetAllChatsUseCase>(
-      () => _i539.GetAllChatsUseCase(gh<_i266.SmartCoachChatRepository>()),
-    );
-    gh.factory<_i760.GetMessagesByChatUseCase>(
-      () =>
-          _i760.GetMessagesByChatUseCase(gh<_i266.SmartCoachChatRepository>()),
-    );
-    gh.factory<_i429.InsertMessageUseCase>(
-      () => _i429.InsertMessageUseCase(gh<_i266.SmartCoachChatRepository>()),
     );
     gh.factory<_i242.HomeRepo>(
       () => _i758.HomeRepoImpl(gh<_i599.HomeRemoteDataSource>()),
@@ -240,15 +231,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i832.GetExercisesUseCase>(
       () => _i832.GetExercisesUseCase(gh<_i983.ExerciseRepo>()),
-    );
-    gh.factory<_i908.SmartCoachCubit>(
-      () => _i908.SmartCoachCubit(
-        gh<_i672.CreateChatUseCase>(),
-        gh<_i539.GetAllChatsUseCase>(),
-        gh<_i760.GetMessagesByChatUseCase>(),
-        gh<_i429.InsertMessageUseCase>(),
-        gh<_i834.GeminiService>(),
-      ),
     );
     gh.factory<_i845.WorkOutRepository>(
       () => _i292.WorkOutRepositoryImpl(
@@ -272,6 +254,19 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i832.GetExercisesUseCase>(),
         gh<_i94.GetExercisesRandomUseCase>(),
       ),
+    );
+    gh.factory<_i672.CreateChatUseCase>(
+      () => _i672.CreateChatUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i539.GetAllChatsUseCase>(
+      () => _i539.GetAllChatsUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i760.GetMessagesByChatUseCase>(
+      () =>
+          _i760.GetMessagesByChatUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i429.InsertMessageUseCase>(
+      () => _i429.InsertMessageUseCase(gh<_i403.SmartCoachChatRepository>()),
     );
     gh.factory<_i459.GetAllMusclesByMuscleGroupUseCase>(
       () => _i459.GetAllMusclesByMuscleGroupUseCase(
@@ -330,6 +325,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i983.SigninUseCase>(
       () => _i983.SigninUseCase(signinRepository: gh<_i64.SigninRepository>()),
+    );
+    gh.factory<_i908.SmartCoachCubit>(
+      () => _i908.SmartCoachCubit(
+        gh<_i672.CreateChatUseCase>(),
+        gh<_i539.GetAllChatsUseCase>(),
+        gh<_i760.GetMessagesByChatUseCase>(),
+        gh<_i429.InsertMessageUseCase>(),
+        gh<_i834.GeminiService>(),
+      ),
     );
     gh.factory<_i956.RcToDayCubit>(
       () => _i956.RcToDayCubit(gh<_i784.GetRandomMusclesUseCase>()),

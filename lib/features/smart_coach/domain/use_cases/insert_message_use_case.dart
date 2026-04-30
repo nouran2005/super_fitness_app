@@ -1,4 +1,4 @@
-import 'package:super_fitness_app/features/smart_coach/domain/repositories/smart_coach_chat/smart_coach_chat_repository.dart';
+import 'package:super_fitness_app/features/smart_coach/domain/repositories/smart_coach_chat_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

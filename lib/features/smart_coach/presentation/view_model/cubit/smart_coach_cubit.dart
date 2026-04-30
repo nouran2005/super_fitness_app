@@ -69,7 +69,7 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
       _getAllChats();
       _getMessagesByChat(chatId);
     } catch (e) {
-      // Handle error
+      emit(state.copyWith(messagesResource: Resource.error(e.toString())));
     }
   }
 
@@ -79,47 +79,51 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
 
     int? chatId = state.currentChatId;
     if (chatId == null) {
-      chatId = await _createChatUseCase.call(title: "Chat");
-      emit(state.copyWith(currentChatId: chatId));
-      await _getAllChats();
+      try {
+        chatId = await _createChatUseCase.call(title: "Chat");
+        emit(state.copyWith(currentChatId: chatId));
+        await _getAllChats();
+      } catch (e) {
+        return;
+      }
     }
 
-    // 1. Insert user message locally
-    await _insertMessageUseCase.call(
-      chatId: chatId,
-      role: 'user',
-      content: trimmedContent,
-    );
-
-    // 2. Refresh UI to show user message and set sending state
-    final messagesAfterUser = await _getMessagesByChatUseCase.call(chatId);
-    emit(
-      state.copyWith(
-        messagesResource: Resource.success(messagesAfterUser),
-        isSendingMessage: true,
-      ),
-    );
-
-    // 3. Prepare history for Gemini (Fix: Exclude the latest user message to avoid duplication)
-    // We send the latest message separately in the stream call.
-    final history = messagesAfterUser.sublist(0, messagesAfterUser.length - 1);
-
-    String fullResponse = "";
-    bool isFirstChunk = true;
-
     try {
+      await _insertMessageUseCase.call(
+        chatId: chatId,
+        role: 'user',
+        content: trimmedContent,
+      );
+
+      final List<Map<String, dynamic>> currentMessages = List.from(
+        state.messagesResource.data ?? [],
+      );
+      currentMessages.add({
+        'role': 'user',
+        'content': trimmedContent,
+        'isError': false,
+      });
+
+      emit(
+        state.copyWith(
+          messagesResource: Resource.success(List.from(currentMessages)),
+          isSendingMessage: true,
+        ),
+      );
+
+      final history = currentMessages.sublist(0, currentMessages.length - 1);
+
+      String fullResponse = "";
+      bool isFirstChunk = true;
+
+      print("DEBUG: Starting Gemini stream...");
       final stream = _geminiService.sendMessageStream(trimmedContent, history);
 
       await for (final chunk in stream) {
         fullResponse += chunk;
-
-        // 4. Update UI progressively (Streaming effect)
-        final List<Map<String, dynamic>> currentMessages = List.from(
-          state.messagesResource.data ?? [],
-        );
+        print("DEBUG: Received chunk: $chunk");
 
         if (isFirstChunk) {
-          // Add a new transient bot message for streaming
           currentMessages.add({
             'role': 'bot',
             'content': fullResponse,
@@ -127,7 +131,6 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
           });
           isFirstChunk = false;
         } else {
-          // Update the last message (the one we just added)
           currentMessages[currentMessages.length - 1] = {
             'role': 'bot',
             'content': fullResponse,
@@ -136,33 +139,25 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
         }
 
         emit(
-          state.copyWith(messagesResource: Resource.success(currentMessages)),
+          state.copyWith(
+            messagesResource: Resource.success(List.from(currentMessages)),
+          ),
         );
       }
 
-      // 5. Finalize: Save to DB only if it's not an error message
-      if (!fullResponse.startsWith('⚠️') && fullResponse.isNotEmpty) {
+      if (fullResponse.isNotEmpty) {
         await _insertMessageUseCase.call(
           chatId: chatId,
           role: 'bot',
           content: fullResponse,
         );
-
-        // Final refresh from DB to ensure sync
-        final finalMessages = await _getMessagesByChatUseCase.call(chatId);
-        emit(
-          state.copyWith(
-            messagesResource: Resource.success(finalMessages),
-            isSendingMessage: false,
-          ),
-        );
-      } else {
-        // If it was an error, we keep the transient message in the state but don't save to DB
-        emit(state.copyWith(isSendingMessage: false));
       }
-    } catch (e) {
+
       emit(state.copyWith(isSendingMessage: false));
-      // Handle unexpected stream errors
+      print("DEBUG: Stream finished and UI finalized.");
+    } catch (e) {
+      print("DEBUG: Error in _sendMessage: $e");
+      emit(state.copyWith(isSendingMessage: false));
     }
   }
 }

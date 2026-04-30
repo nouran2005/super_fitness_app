@@ -1,19 +1,6 @@
-import 'package:super_fitness_app/features/smart_coach/data/data_source/smart_coach_chat/local_data_source/smart_coach_chat_local_data_source.dart';
 import 'package:injectable/injectable.dart';
-
-abstract interface class SmartCoachChatRepository {
-  Future<int> createChat(String? title);
-
-  Future<List<Map<String, dynamic>>> getAllChats();
-
-  Future<int> insertMessage({
-    required int chatId,
-    required String role,
-    required String content,
-  });
-
-  Future<List<Map<String, dynamic>>> getMessagesByChat(int chatId);
-}
+import 'package:super_fitness_app/features/smart_coach/data/datasources/smart_coach_chat_local_data_source_contract.dart';
+import 'package:super_fitness_app/features/smart_coach/domain/repositories/smart_coach_chat_repository.dart';
 
 @Injectable(as: SmartCoachChatRepository)
 class SmartCoachChatRepositoryImpl implements SmartCoachChatRepository {

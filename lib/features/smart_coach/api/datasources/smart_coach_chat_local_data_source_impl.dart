@@ -1,19 +1,6 @@
 import 'package:super_fitness_app/app/core/local/database_helper.dart';
 import 'package:injectable/injectable.dart';
-
-abstract interface class SmartCoachChatLocalDataSource {
-  Future<int> createChat(String? title);
-
-  Future<List<Map<String, dynamic>>> getAllChats();
-
-  Future<int> insertMessage({
-    required int chatId,
-    required String role,
-    required String content,
-  });
-
-  Future<List<Map<String, dynamic>>> getMessagesByChat(int chatId);
-}
+import 'package:super_fitness_app/features/smart_coach/data/datasources/smart_coach_chat_local_data_source_contract.dart';
 
 @Injectable(as: SmartCoachChatLocalDataSource)
 class SmartCoachChatLocalDataSourceImpl
