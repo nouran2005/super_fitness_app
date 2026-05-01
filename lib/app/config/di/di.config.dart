@@ -41,6 +41,8 @@ import '../../../features/edit_profile/domain/usecases/get_logged_user_data_usec
     as _i729;
 import '../../../features/edit_profile/domain/usecases/upload_profile_image_usecase.dart'
     as _i489;
+import '../../../features/edit_profile/presentation/view_model/edit_profile_cubit.dart'
+    as _i348;
 import '../../../features/Exercise/api/dataScources/exercise_remote_data_source_impl.dart'
     as _i524;
 import '../../../features/Exercise/data/dataScources/exercise_remote_data_source.dart'
@@ -335,6 +337,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i601.GetMealsCategoriesUsecase>(
       () => _i601.GetMealsCategoriesUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
+    gh.factory<_i348.EditProfileCubit>(
+      () => _i348.EditProfileCubit(
+        gh<_i276.EditProfileUseCase>(),
+        gh<_i729.GetLoggedUserDataUseCase>(),
+        gh<_i489.UploadProfileImageUseCase>(),
       ),
     );
     gh.factory<_i985.SigninCubit>(

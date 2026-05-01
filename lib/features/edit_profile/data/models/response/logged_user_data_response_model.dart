@@ -94,20 +94,13 @@ class LoggedUserModel {
 
   LoggedUserEntity toEntity() {
     return LoggedUserEntity(
-      id: id,
       firstName: firstName,
       lastName: lastName,
       email: email,
-      gender: gender,
-      age: age,
       weight: weight,
-      height: height,
       activityLevel: activityLevel,
       goal: goal,
       photo: photo,
-      createdAt: createdAt,
-      passwordChangedAt: passwordChangedAt,
-      resetCodeVerified: resetCodeVerified,
     );
   }
 }
