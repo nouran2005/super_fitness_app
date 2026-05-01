@@ -3,8 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
-import 'package:go_router/go_router.dart';
-import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/values/muscle_group_ids.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/popular_training_entity.dart';

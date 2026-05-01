@@ -5,6 +5,9 @@ class HorizontalWheelPicker extends StatefulWidget {
   final int initialValue;
   final String label;
   final Function(int) onChanged;
+  final double selectedFontSize;
+  final double unselectedFontSize;
+  final double viewportFraction;
 
   const HorizontalWheelPicker({
     super.key,
@@ -12,6 +15,9 @@ class HorizontalWheelPicker extends StatefulWidget {
     required this.initialValue,
     required this.label,
     required this.onChanged,
+    this.selectedFontSize = 25,
+    this.unselectedFontSize = 13,
+    this.viewportFraction = 0.17,
   });
 
   @override
@@ -28,7 +34,7 @@ class _HorizontalWheelPickerState extends State<HorizontalWheelPicker> {
     super.initState();
     currentIndex = widget.items.indexOf(widget.initialValue);
     controller = PageController(
-      viewportFraction: 0.17,
+      viewportFraction: widget.viewportFraction,
       initialPage: currentIndex,
     );
   }
@@ -56,7 +62,9 @@ class _HorizontalWheelPickerState extends State<HorizontalWheelPicker> {
                 child: Text(
                   widget.items[index].toString(),
                   style: TextStyle(
-                    fontSize: isSelected ? 25 : 13,
+                    fontSize: isSelected
+                        ? widget.selectedFontSize
+                        : widget.unselectedFontSize,
                     color: isSelected
                         ? Theme.of(context).colorScheme.primary
                         : Colors.grey,

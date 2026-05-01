@@ -11,10 +11,10 @@ abstract class RouteNames {
   static const homeScreen = '/home-screen';
   static const profile = '/profile';
   static const login = '/signin';
-
   static const meals = '/meals';
   static const mealDetails = '/mealDetails';
   static const exercises = '/exercises';
   static const smartCoach = '/smart-coach';
   static const smartCoachChat = '/smart-coach-chat';
+  static const editProfile = '/edit-profile';
 }

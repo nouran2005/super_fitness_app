@@ -173,6 +173,18 @@
   "quota_reached": "⚠️ تم الوصول للحد المسموح. يرجى المحاولة مرة أخرى خلال دقيقة.",
   "something_went_wrong_try_again": "⚠️ حدث خطأ ما. يرجى المحاولة مرة أخرى.",
   "chat_title_prefix": "محادثة",
-  "hi_name": "أهلاً {},"
-
+  "hi_name": "أهلاً {},",
+  "editProfile": "تعديل الملف الشخصي",
+  "tapToEdit": "اضغط للتعديل",
+  "saveChanges": "حفظ التغييرات",
+  "yourWeight": "وزنك",
+  "yourGoal": "هدفك",
+  "yourActivityLevel": "مستوى نشاطك",
+  "activityLevelQuestionTitle": "مستوى نشاطك البدني\nالمعتاد ؟",
+  "unsavedChanges": "تغييرات غير محفوظة",
+  "unsavedChangesMessage": "لديك تغييرات غير محفوظة. هل تريد حفظها أم تجاهلها؟",
+  "discard": "تجاهل",
+  "somethingWentWrong": "حدث خطأ ما",
+  "retry": "إعادة المحاولة",
+  "userDataUpdatedSuccessfully": "تم تحديث بيانات المستخدم بنجاح"
 }

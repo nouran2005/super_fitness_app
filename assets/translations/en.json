@@ -173,5 +173,18 @@
   "quota_reached": "⚠️ Quota reached. Please try again in a minute.",
   "something_went_wrong_try_again": "⚠️ Something went wrong. Please try again.",
   "chat_title_prefix": "Chat",
-  "hi_name": "Hi {},"
+  "hi_name": "Hi {},",
+  "editProfile": "Edit Profile",
+  "tapToEdit": "Tap to Edit",
+  "saveChanges": "Save Changes",
+  "yourWeight": "Your Weight",
+  "yourGoal": "Your Goal",
+  "yourActivityLevel": "Your activity level",
+  "activityLevelQuestionTitle": "YOUR REGULAR PHYSICAL\nACTIVITY LEVEL ?",
+  "unsavedChanges": "Unsaved Changes",
+  "unsavedChangesMessage": "You have unsaved changes. Do you want to save them or discard them?",
+  "discard": "Discard",
+  "somethingWentWrong": "Something went wrong",
+  "retry": "Retry",
+  "userDataUpdatedSuccessfully": "User data updated successfully"
 }
