@@ -162,4 +162,17 @@ abstract class LocaleKeys {
       'no_muscles_or_levels_available';
   static const Tasks = 'Tasks';
   static const PopularsTraining = 'PopularsTraining';
+  static const editProfile = 'editProfile';
+  static const tapToEdit = 'tapToEdit';
+  static const saveChanges = 'saveChanges';
+  static const yourWeight = 'yourWeight';
+  static const yourGoal = 'yourGoal';
+  static const yourActivityLevel = 'yourActivityLevel';
+  static const activityLevelQuestionTitle = 'activityLevelQuestionTitle';
+  static const unsavedChanges = 'unsavedChanges';
+  static const unsavedChangesMessage = 'unsavedChangesMessage';
+  static const discard = 'discard';
+  static const somethingWentWrong = 'somethingWentWrong';
+  static const retry = 'retry';
+  static const userDataUpdatedSuccessfully = 'userDataUpdatedSuccessfully';
 }

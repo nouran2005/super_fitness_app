@@ -5,8 +5,8 @@ class Validators {
   static bool notEmpty(String? text) => text != null && text.trim().isNotEmpty;
 
   static String? firstNameValidator(String? val) {
-    RegExp nameRegExp = RegExp(r'^[a-zA-Z\s]{3,50}$');
-    if (val == null || val.isEmpty) {
+    RegExp nameRegExp = RegExp(r"^[a-zA-Z0-9\s\-\'\-\.]{2,50}$");
+    if (val == null || val.trim().isEmpty) {
       return LocaleKeys.firstNameRequired.tr();
     } else if (!nameRegExp.hasMatch(val)) {
       return LocaleKeys.nameInvalid.tr();
@@ -16,8 +16,8 @@ class Validators {
   }
 
   static String? lastNameValidator(String? val) {
-    RegExp nameRegExp = RegExp(r'^[a-zA-Z\s]{3,50}$');
-    if (val == null || val.isEmpty) {
+    RegExp nameRegExp = RegExp(r"^[a-zA-Z0-9\s\-\'\-\.]{2,50}$");
+    if (val == null || val.trim().isEmpty) {
       return LocaleKeys.lastNameRequired.tr();
     } else if (!nameRegExp.hasMatch(val)) {
       return LocaleKeys.nameInvalid.tr();

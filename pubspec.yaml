@@ -37,6 +37,12 @@ dependencies:
   cached_network_image: ^3.4.1
   youtube_player_iframe: ^5.2.2
   webview_flutter: ^4.13.1
+  image_picker: ^1.2.2
+  permission_handler: ^11.3.1
+  path: ^1.9.0
+  flutter_image_compress: ^2.3.0
+  image_cropper: ^8.0.2
+  
 
 dev_dependencies:
   bloc_test: any

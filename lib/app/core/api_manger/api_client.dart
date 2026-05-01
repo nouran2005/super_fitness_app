@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/app/core/values/api_constants.dart';
@@ -5,6 +7,8 @@ import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
+import 'package:super_fitness_app/features/edit_profile/data/models/request/edit_profile_request_model.dart';
+import 'package:super_fitness_app/features/edit_profile/data/models/response/logged_user_data_response_model.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_by_category_dto.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_categories_dto.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_details_dto.dart';
@@ -120,4 +124,17 @@ abstract class ApiClient {
   Future<HttpResponse<LogoutResponse>> logout({
     @Header("Authorization") required String token,
   });
+  @GET(AppEndpoints.getLoggedUserDataPath)
+  Future<HttpResponse<LoggedUserDataResponseModel>> getLoggedUserData();
+
+  @PUT(AppEndpoints.editProfilePath)
+  Future<HttpResponse<LoggedUserDataResponseModel>> editProfile(
+    @Body() EditProfileRequestModel requestModel,
+  );
+
+  @PUT(AppEndpoints.uploadProfileImagePath)
+  @MultiPart()
+  Future<HttpResponse<String>> uploadImage(
+    @Part(name: ApiConstants.photo) File photo,
+  );
 }

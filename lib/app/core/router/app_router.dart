@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
+import 'package:super_fitness_app/features/edit_profile/presentation/views/screens/edit_profile_screen.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meal_details_args.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meals_page.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meal_details_page.dart';
@@ -136,6 +137,10 @@ final GoRouter appRouter = GoRouter(
           child: SecurityPage(),
         );
       },
+    ),
+    GoRoute(
+      path: RouteNames.editProfile,
+      builder: (context, state) => EditProfileScreen(),
     ),
   ],
 );

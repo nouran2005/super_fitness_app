@@ -70,7 +70,9 @@ class ProfileBody extends StatelessWidget {
                       TextListWidget(
                         assetName: Assets.imagesProfile,
                         title: LocaleKeys.editProfile.tr(),
-                        onTap: () {},
+                        onTap: () {
+                          context.push(RouteNames.editProfile);
+                        },
                       ),
                       DividerWidget(),
                       TextListWidget(

@@ -166,5 +166,17 @@
   "help": "Help",
   "areYouSureToLogout": "Are You Sure To Logout?",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "tapToEdit": "Tap to Edit",
+  "saveChanges": "Save Changes",
+  "yourWeight": "Your Weight",
+  "yourGoal": "Your Goal",
+  "yourActivityLevel": "Your activity level",
+  "activityLevelQuestionTitle": "YOUR REGULAR PHYSICAL\nACTIVITY LEVEL ?",
+  "unsavedChanges": "Unsaved Changes",
+  "unsavedChangesMessage": "You have unsaved changes. Do you want to save them or discard them?",
+  "discard": "Discard",
+  "somethingWentWrong": "Something went wrong",
+  "retry": "Retry",
+  "userDataUpdatedSuccessfully": "User data updated successfully"
 }

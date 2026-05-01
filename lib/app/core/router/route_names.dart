@@ -11,7 +11,6 @@ abstract class RouteNames {
   static const homeScreen = '/home-screen';
   static const profile = '/profile';
   static const login = '/signin';
-
   static const meals = '/meals';
   static const mealDetails = '/mealDetails';
   static const exercises = '/exercises';
@@ -19,4 +18,5 @@ abstract class RouteNames {
   static const helpPage = '/help';
   static const privacyPage = '/privacy';
   static const securityPage = '/security';
+  static const editProfile = '/edit-profile';
 }
