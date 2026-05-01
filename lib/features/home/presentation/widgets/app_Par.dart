@@ -60,7 +60,7 @@ class CustomAppBar extends StatelessWidget {
           CircleAvatar(
             radius: screenWidth * 0.06,
             backgroundColor: AppColors.grey,
-            backgroundImage: AssetImage(photoAsset),
+            backgroundImage: NetworkImage(photoAsset),
           ),
         ],
       ),

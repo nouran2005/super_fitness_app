@@ -11,6 +11,8 @@ class AppEndpoints {
   static const String verifyResetCodePath = 'auth/verifyResetCode';
   static const String resetPasswordPath = 'auth/resetPassword';
   static const String forgotPasswordPath = 'auth/forgotPassword';
+  static const String profilePath = 'auth/profile-data';
+  static const String logoutPath = 'auth/logout';
 
   // MEALS PATHS
   static const String mealsCategoryPath = 'categories.php';
