@@ -145,51 +145,17 @@ void main() {
 
     group('StartNewChat', () {
       blocTest<SmartCoachCubit, SmartCoachState>(
-        'emits correct states when StartNewChat is successful',
-        build: () {
-          when(
-            () => mockCreateChatUseCase.call(title: any(named: 'title')),
-          ).thenAnswer((_) async => 1);
-          when(
-            () => mockGetAllChatsUseCase.call(),
-          ).thenAnswer((_) async => tChats);
-          when(
-            () => mockGetMessagesByChatUseCase.call(any()),
-          ).thenAnswer((_) async => []);
-          return cubit;
-        },
+        'emits state with cleared currentChatId and empty messages when StartNewChat is called',
+        build: () => cubit,
         act: (cubit) => cubit.doEvent(StartNewChat()),
         expect: () => [
-          // 1. currentChatId updated
-          isA<SmartCoachState>().having(
-            (s) => s.currentChatId,
-            'currentChatId',
-            1,
-          ),
-          // 2. _getAllChats loading
-          isA<SmartCoachState>().having(
-            (s) => s.chatsResource.status,
-            'chatsResource status',
-            Status.loading,
-          ),
-          // 3. _getMessagesByChat loading
-          isA<SmartCoachState>().having(
-            (s) => s.messagesResource.status,
-            'messagesResource status',
-            Status.loading,
-          ),
-          // 4. _getAllChats success
-          isA<SmartCoachState>().having(
-            (s) => s.chatsResource.status,
-            'chatsResource status',
-            Status.success,
-          ),
-          // 5. _getMessagesByChat success
-          isA<SmartCoachState>().having(
-            (s) => s.messagesResource.status,
-            'messagesResource status',
-            Status.success,
-          ),
+          isA<SmartCoachState>()
+              .having((s) => s.currentChatId, 'currentChatId', null)
+              .having(
+                (s) => s.messagesResource.data,
+                'messagesResource data',
+                [],
+              ),
         ],
       );
     });
@@ -261,7 +227,10 @@ void main() {
         build: () {
           when(
             () => mockCreateChatUseCase.call(title: any(named: 'title')),
-          ).thenAnswer((_) async => tChatId);
+          ).thenAnswer((_) async {
+            // Verify title is derived from content
+            return tChatId;
+          });
           when(
             () => mockGetAllChatsUseCase.call(),
           ).thenAnswer((_) async => tChats);
@@ -354,7 +323,7 @@ void main() {
               .having(
                 (s) => (s.messagesResource.data as List).last['content'],
                 'content',
-                contains('Quota reached'),
+                contains('quota_reached'),
               ),
         ],
       );

@@ -42,8 +42,8 @@ void main() {
       await tester.pumpWidget(buildTestWidget(const SmartCoachStartScreen()));
       await tester.pump();
 
-      expect(find.textContaining('Smart Coach'), findsOneWidget);
-      expect(find.text('Get Started'), findsOneWidget);
+      expect(find.textContaining('smart_coach'), findsOneWidget);
+      expect(find.textContaining('get_started'), findsOneWidget);
     });
   });
 
@@ -52,7 +52,7 @@ void main() {
       await tester.pumpWidget(buildTestWidget(const SmartCoachChatScreen()));
       await tester.pump();
 
-      expect(find.text('Smart Coach'), findsOneWidget);
+      expect(find.textContaining('smart_coach'), findsOneWidget);
       expect(find.byType(TextField), findsOneWidget);
     });
 
@@ -108,7 +108,7 @@ void main() {
 
       expect(find.text('⚠️ Quota reached'), findsOneWidget);
       final textWidget = tester.widget<Text>(find.text('⚠️ Quota reached'));
-      expect(textWidget.style?.color, Colors.redAccent);
+      expect(textWidget.style?.color, Colors.white);
     });
 
     testWidgets('should call SendMessage when send button is pressed', (

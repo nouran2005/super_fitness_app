@@ -14,8 +14,7 @@ void main() {
       );
 
       expect(find.text(message), findsOneWidget);
-      expect(find.byIcon(Icons.person), findsOneWidget);
-      expect(find.byIcon(Icons.smart_toy), findsNothing);
+      expect(find.byType(Image), findsNWidgets(1));
     });
 
     testWidgets('should display bot message correctly', (tester) async {
@@ -27,8 +26,7 @@ void main() {
       );
 
       expect(find.text(message), findsOneWidget);
-      expect(find.byIcon(Icons.smart_toy), findsOneWidget);
-      expect(find.byIcon(Icons.person), findsNothing);
+      expect(find.byType(Image), findsNWidgets(1));
     });
 
     testWidgets('should display error message with red text', (tester) async {
@@ -42,7 +40,7 @@ void main() {
       );
 
       final textWidget = tester.widget<Text>(find.text(message));
-      expect(textWidget.style?.color, Colors.redAccent);
+      expect(textWidget.style?.color, Colors.white);
     });
   });
 

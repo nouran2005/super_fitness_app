@@ -40,7 +40,7 @@ void main() {
       scaffoldState.openDrawer();
       await tester.pumpAndSettle();
 
-      expect(find.text('No previous chats'), findsOneWidget);
+      expect(find.textContaining('no_previous_chats'), findsOneWidget);
     });
 
     testWidgets('should render chat list when chats are available', (
