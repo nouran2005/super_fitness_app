@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format width=80
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -376,11 +376,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i970.GetExercisesByMuscleDifficultyUseCase>(),
       ),
     );
-    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
-      () => _i1023.GetMealDetailsByIdUsecase(
-        mealsRepository: gh<_i936.MealsRepository>(),
-      ),
-    );
     gh.factory<_i447.GetMealsByCategoryUsecase>(
       () => _i447.GetMealsByCategoryUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
@@ -388,6 +383,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i601.GetMealsCategoriesUsecase>(
       () => _i601.GetMealsCategoriesUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
+    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
+      () => _i1023.GetMealDetailsByIdUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
       ),
     );

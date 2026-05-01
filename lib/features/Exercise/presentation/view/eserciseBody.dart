@@ -119,7 +119,6 @@ class _ExerciseBodyState extends State<ExerciseBody> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padding = MediaQuery.of(context).padding;
 
     return Scaffold(
       backgroundColor: Colors.black,
