@@ -64,16 +64,9 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
   }
 
   Future<void> _startNewChat() async {
-    try {
-      final chatId = await _createChatUseCase.call(
-        title: "new_chat_title".tr(),
-      );
-      emit(state.copyWith(currentChatId: chatId));
-      _getAllChats();
-      _getMessagesByChat(chatId);
-    } catch (e) {
-      emit(state.copyWith(messagesResource: Resource.error(e.toString())));
-    }
+    emit(
+      state.copyWith(clearChatId: true, messagesResource: Resource.success([])),
+    );
   }
 
   Future<void> _sendMessage(String content) async {
@@ -83,9 +76,12 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
     int? chatId = state.currentChatId;
     if (chatId == null) {
       try {
-        chatId = await _createChatUseCase.call(
-          title: "default_chat_title".tr(),
-        );
+        // Use first message as title (truncated)
+        String title = trimmedContent.length > 30
+            ? '${trimmedContent.substring(0, 30)}...'
+            : trimmedContent;
+
+        chatId = await _createChatUseCase.call(title: title);
         emit(state.copyWith(currentChatId: chatId));
         await _getAllChats();
       } catch (e) {

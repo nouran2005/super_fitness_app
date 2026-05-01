@@ -24,11 +24,12 @@ class SmartCoachState extends Equatable {
     Resource<List<Map<String, dynamic>>>? messagesResource,
     int? currentChatId,
     bool? isSendingMessage,
+    bool clearChatId = false,
   }) {
     return SmartCoachState(
       chatsResource: chatsResource ?? this.chatsResource,
       messagesResource: messagesResource ?? this.messagesResource,
-      currentChatId: currentChatId ?? this.currentChatId,
+      currentChatId: clearChatId ? null : (currentChatId ?? this.currentChatId),
       isSendingMessage: isSendingMessage ?? this.isSendingMessage,
     );
   }

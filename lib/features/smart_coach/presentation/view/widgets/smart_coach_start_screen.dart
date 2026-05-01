@@ -96,7 +96,6 @@ class SmartCoachStartScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        // Robot Character
                         Transform.translate(
                           offset: const Offset(0, 40),
                           child: Padding(
