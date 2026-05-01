@@ -35,6 +35,9 @@ class TestAssetLoader extends AssetLoader {
       'Tasks': 'Tasks',
       'something_went_wrong': 'Something went wrong',
       'no_muscles_or_levels_available': 'No muscles or levels available.',
+      'resendCode': 'Resend Code',
+      'otpCode': 'OTP Code',
+      'enterYourOtpCheckYourEmail': 'Enter the OTP sent to your email.',
     };
   }
 }

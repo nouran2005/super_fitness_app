@@ -75,9 +75,6 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
             );
           }
 
-          if (_controller == null) {
-            return const SizedBox.shrink();
-          }
           if (state.mealDetailsResource.isLoading) {
             return const Center(
               child: CircularProgressIndicator(color: AppColors.primary),
@@ -89,6 +86,10 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
                 state.mealDetailsResource.error ?? LocaleKeys.unknownError.tr(),
               ),
             );
+          }
+
+          if (_controller == null) {
+            return const SizedBox.shrink();
           }
 
           return YoutubePlayerBuilder(
