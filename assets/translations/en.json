@@ -163,5 +163,8 @@
   "selectLanguage": "Select Language",
   "security": "Security",
   "privacyPolicy": "Privacy Policy",
-  "help": "Help"
+  "help": "Help",
+  "areYouSureToLogout": "Are You Sure To Logout?",
+  "yes": "Yes",
+  "no": "No"
 }

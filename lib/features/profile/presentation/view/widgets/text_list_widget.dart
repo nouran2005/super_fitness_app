@@ -7,7 +7,6 @@ class TextListWidget extends StatelessWidget {
   final String assetName;
   final String title;
   final bool hasSwitch;
-  final bool isLogout;
   final VoidCallback? onTap;
 
   final bool? switchValue;
@@ -18,7 +17,6 @@ class TextListWidget extends StatelessWidget {
     required this.assetName,
     required this.title,
     this.hasSwitch = false,
-    this.isLogout = false,
     this.onTap,
     this.switchValue,
     this.onSwitchChanged,

@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/app/core/values/api_constants.dart';
 import 'package:super_fitness_app/app/core/values/app_endpoint_strings.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
+import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_by_category_dto.dart';
 import 'package:super_fitness_app/features/meals/data/models/response/meals_categories_dto.dart';
@@ -114,4 +115,9 @@ abstract class ApiClient {
   Future<HttpResponse<ProfileDataDto>> getProfileData(
     @Header(ApiConstants.authorization) String token,
   );
+
+  @GET(AppEndpoints.logoutPath)
+  Future<HttpResponse<LogoutResponse>> logout({
+    @Header("Authorization") required String token,
+  });
 }

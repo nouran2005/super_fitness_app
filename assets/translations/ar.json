@@ -163,5 +163,8 @@
   "selectLanguage": "اختر لغة",
   "security": "الامان",
   "privacyPolicy": "سياسة الخصوصية",
-  "help": "المساعدة"
+  "help": "المساعدة",
+  "areYouSureToLogout": "هل متأكد من تسجيل الخروج؟",
+  "yes": "نعم",
+  "no": "لا"
 }
