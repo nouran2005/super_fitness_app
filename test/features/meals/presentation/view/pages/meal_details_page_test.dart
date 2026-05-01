@@ -12,6 +12,8 @@ import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/m
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../../../../../helpers/pump_app.dart';
+
 import 'meals_page_test.mocks.dart';
 
 void main() {
@@ -24,26 +26,16 @@ void main() {
     when(mockCubit.stream).thenAnswer((_) => const Stream<MealsStates>.empty());
   });
 
-  Widget buildWidget() {
-    return EasyLocalization(
-      supportedLocales: const [Locale('en')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      startLocale: const Locale('en'),
-      child: MaterialApp(
-        home: MealDetailsPage(mealId: "1", meals: []),
-      ),
-    );
-  }
-
   group("MealDetailsPage Widget Tests", () {
     testWidgets('should show loading indicator', (tester) async {
       when(
         mockCubit.state,
       ).thenReturn(MealsStates(mealDetailsResource: Resource.loading()));
 
-      await tester.pumpWidget(buildWidget());
-      await tester.pump();
+      await tester.pumpLocalizedWidget(
+        MealDetailsPage(mealId: "1", meals: []),
+        settle: false,
+      );
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
@@ -55,8 +47,10 @@ void main() {
         ),
       );
 
-      await tester.pumpWidget(buildWidget());
-      await tester.pump();
+      await tester.pumpLocalizedWidget(
+        MealDetailsPage(mealId: "1", meals: []),
+        settle: false,
+      );
 
       expect(find.text("Something went wrong"), findsOneWidget);
     });
@@ -78,11 +72,17 @@ void main() {
         MealsStates(mealDetailsResource: Resource.success(mealModel)),
       );
 
-      await tester.pumpWidget(buildWidget());
-      await tester.pumpAndSettle();
+      await tester.pumpLocalizedWidget(
+        MealDetailsPage(mealId: "1", meals: []),
+        settle: false,
+      );
+      await tester.pump(const Duration(seconds: 1));
 
       expect(find.text('Chicken Soup'), findsOneWidget);
-      expect(find.byType(YoutubePlayer), findsOneWidget);
+      expect(
+        find.byKey(const Key('youtube_player_placeholder')),
+        findsOneWidget,
+      );
       expect(find.byType(MealsIngredientsList), findsOneWidget);
     });
   });

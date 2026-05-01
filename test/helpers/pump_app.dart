@@ -38,6 +38,12 @@ class TestAssetLoader extends AssetLoader {
       'resendCode': 'Resend Code',
       'otpCode': 'OTP Code',
       'enterYourOtpCheckYourEmail': 'Enter the OTP sent to your email.',
+      'confirm': 'Confirm',
+      'didntReceiveVerificationCode': "Didn't receive the verification code?",
+      'pleaseEnterTheCompleteOtpCode': 'Please enter the complete OTP code',
+      'watchCookingVideo': 'Watch Cooking Video',
+      'ingredients': 'Ingredients',
+      'relatedMeals': 'Related Meals',
     };
   }
 }

@@ -38,6 +38,7 @@ void main() {
     testWidgets('renders correctly', (WidgetTester tester) async {
       await tester.pumpLocalizedWidget(
         const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
       );
 
       expect(find.byType(ElevatedButton), findsWidgets);
@@ -48,6 +49,7 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
       );
 
       await tester.tap(find.byType(ElevatedButton).first);
@@ -61,6 +63,7 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
       );
 
       tester.testTextInput.enterText('1234');
@@ -79,6 +82,7 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
       );
 
       final resendFinder = find.byType(GestureDetector);
