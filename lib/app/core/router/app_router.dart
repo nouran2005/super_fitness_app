@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/register_page.dart';
+import 'package:super_fitness_app/features/edit_profile/presentation/views/screens/edit_profile_screen.dart';
 import 'package:super_fitness_app/features/meals/domain/entities/meal_details_args.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meals_page.dart';
 import 'package:super_fitness_app/features/meals/presentation/view/pages/meal_details_page.dart';
@@ -88,17 +89,20 @@ final GoRouter appRouter = GoRouter(
         final extra = state.extra;
         if (extra is Map<String, dynamic>) {
           return ExerciseScreen(
-            muscleGroupId: extra['muscleGroupId'] as String? ??
-                '69d982ed85f6bfa972bf2218',
+            muscleGroupId:
+                extra['muscleGroupId'] as String? ?? '69d982ed85f6bfa972bf2218',
             initialExerciseId: extra['initialExerciseId'] as String?,
             initialDifficultyLevel: extra['initialDifficultyLevel'] as String?,
           );
         }
         return ExerciseScreen(
-          muscleGroupId:
-              state.extra as String? ?? '69d982ed85f6bfa972bf2218',
+          muscleGroupId: state.extra as String? ?? '69d982ed85f6bfa972bf2218',
         );
       },
+    ),
+    GoRoute(
+      path: RouteNames.editProfile,
+      builder: (context, state) => EditProfileScreen(),
     ),
   ],
 );

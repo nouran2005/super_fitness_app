@@ -157,5 +157,18 @@
   "try_adjusting_your_filters_or_check_back_later": "Try adjusting your filters or check back later.",
   "no_muscles_or_levels_available": "No muscles or levels available.",
   "Tasks": "Tasks",
-  "PopularsTraining": "Popular Training"
+  "PopularsTraining": "Popular Training",
+  "editProfile": "Edit Profile",
+  "tapToEdit": "Tap to Edit",
+  "saveChanges": "Save Changes",
+  "yourWeight": "Your Weight",
+  "yourGoal": "Your Goal",
+  "yourActivityLevel": "Your activity level",
+  "activityLevelQuestionTitle": "YOUR REGULAR PHYSICAL\nACTIVITY LEVEL ?",
+  "unsavedChanges": "Unsaved Changes",
+  "unsavedChangesMessage": "You have unsaved changes. Do you want to save them or discard them?",
+  "discard": "Discard",
+  "somethingWentWrong": "Something went wrong",
+  "retry": "Retry",
+  "userDataUpdatedSuccessfully": "User data updated successfully"
 }

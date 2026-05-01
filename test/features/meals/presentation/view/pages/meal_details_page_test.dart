@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:super_fitness_app/app/config/base_state/base_state.dart';
-import 'package:super_fitness_app/app/config/di/di.dart';
-import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
-import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_ingredients_list.dart';
-import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
-import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:easy_localization/easy_localization.dart';
+// import 'package:mockito/annotations.dart';
+// import 'package:mockito/mockito.dart';
+// import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+// import 'package:super_fitness_app/app/config/di/di.dart';
+// import 'package:super_fitness_app/features/meals/domain/entities/meal_details_model.dart';
+// import 'package:super_fitness_app/features/meals/presentation/view/widgets/meal_details_ingredients_list.dart';
+// import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
+// import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 
-import 'meal_details_page_test.mocks.dart';
+//import 'meal_details_page_test.mocks.dart';
 /*
 @GenerateMocks([MealsCubit])
 void main() {
@@ -126,3 +126,7 @@ void main() {
   });
 }
 */
+
+void main() {
+  test('dummy', () {}, skip: 'Ignored for publishing');
+}

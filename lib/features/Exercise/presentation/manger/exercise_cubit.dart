@@ -51,11 +51,20 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       difficultyId: difficultyId,
     );
     switch (result) {
-      case SuccessApiResult<ExerciseResponseEntity>(): 
-        final allExercises = result.data.categories?.expand((c) => c.exercises).toList() ?? [];
-        emit(state.copyWith(currentExercisesResource: Resource.success(allExercises)));
+      case SuccessApiResult<ExerciseResponseEntity>():
+        final allExercises =
+            result.data.categories?.expand((c) => c.exercises).toList() ?? [];
+        emit(
+          state.copyWith(
+            currentExercisesResource: Resource.success(allExercises),
+          ),
+        );
       case ErrorApiResult<ExerciseResponseEntity>():
-        emit(state.copyWith(currentExercisesResource: Resource.error(result.error)));
+        emit(
+          state.copyWith(
+            currentExercisesResource: Resource.error(result.error),
+          ),
+        );
     }
   }
 }

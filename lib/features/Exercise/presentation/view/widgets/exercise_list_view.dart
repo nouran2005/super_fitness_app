@@ -45,7 +45,7 @@ class ExerciseListView extends StatelessWidget {
             onTap: () => onExerciseSelected(exercise),
             child: Padding(
               // Increased vertical padding to make items "higher"
-              padding: const EdgeInsets.symmetric(vertical: 22), 
+              padding: const EdgeInsets.symmetric(vertical: 22),
               child: Row(
                 children: [
                   ClipRRect(
@@ -59,7 +59,10 @@ class ExerciseListView extends StatelessWidget {
                         width: size.width * 0.22,
                         height: size.width * 0.22,
                         color: Colors.white10,
-                        child: const Icon(Icons.fitness_center, color: Colors.white24),
+                        child: const Icon(
+                          Icons.fitness_center,
+                          color: Colors.white24,
+                        ),
                       ),
                     ),
                   ),

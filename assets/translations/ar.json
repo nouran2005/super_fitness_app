@@ -157,5 +157,18 @@
   "try_adjusting_your_filters_or_check_back_later": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا.",
   "no_muscles_or_levels_available": "لا توجد عضلات أو مستويات متاحة",
   "Tasks": "تدريبات",
-  "PopularsTraining": "التدريبات الأكثر رواجًا"
+  "PopularsTraining": "التدريبات الأكثر رواجًا",
+  "editProfile": "تعديل الملف الشخصي",
+  "tapToEdit": "اضغط للتعديل",
+  "saveChanges": "حفظ التغييرات",
+  "yourWeight": "وزنك",
+  "yourGoal": "هدفك",
+  "yourActivityLevel": "مستوى نشاطك",
+  "activityLevelQuestionTitle": "مستوى نشاطك البدني\nالمعتاد ؟",
+  "unsavedChanges": "تغييرات غير محفوظة",
+  "unsavedChangesMessage": "لديك تغييرات غير محفوظة. هل تريد حفظها أم تجاهلها؟",
+  "discard": "تجاهل",
+  "somethingWentWrong": "حدث خطأ ما",
+  "retry": "إعادة المحاولة",
+  "userDataUpdatedSuccessfully": "تم تحديث بيانات المستخدم بنجاح"
 }
