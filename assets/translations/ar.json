@@ -157,5 +157,22 @@
   "try_adjusting_your_filters_or_check_back_later": "حاول ضبط الفلاتر الخاصة بك أو تحقق مرة أخرى لاحقًا.",
   "no_muscles_or_levels_available": "لا توجد عضلات أو مستويات متاحة",
   "Tasks": "تدريبات",
-  "PopularsTraining": "التدريبات الأكثر رواجًا"
+  "PopularsTraining": "التدريبات الأكثر رواجًا",
+  "smart_coach": "المدرب الذكي",
+  "i_am_your_smart_coach": "أنا مدربك الذكي",
+  "how_can_i_assist_you_today": "كيف يمكنني مساعدتك اليوم؟",
+  "get_started": "ابدأ الآن",
+  "previous_conversations": "المحادثات السابقة",
+  "start_new_chat": "بدء محادثة جديدة",
+  "no_previous_chats": "لا توجد محادثات سابقة",
+  "coach_is_thinking": "المدرب يفكر...",
+  "type_a_message": "اكتب رسالة...",
+  "new_chat_title": "محادثة جديدة",
+  "default_chat_title": "محادثة",
+  "quota_reached_wait": "⚠️ تم الوصول للحد المسموح. يرجى الانتظار {} ثانية قبل المحاولة مرة أخرى.",
+  "quota_reached": "⚠️ تم الوصول للحد المسموح. يرجى المحاولة مرة أخرى خلال دقيقة.",
+  "something_went_wrong_try_again": "⚠️ حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+  "chat_title_prefix": "محادثة",
+  "hi_name": "أهلاً {},"
+
 }

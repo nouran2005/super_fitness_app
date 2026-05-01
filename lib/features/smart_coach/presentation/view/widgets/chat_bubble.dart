@@ -15,79 +15,77 @@ class ChatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: isUser
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!isUser) ...[
             Container(
-              padding: const EdgeInsets.all(4),
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.black.withOpacity(0.5),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
-                Icons.smart_toy,
-                size: 20,
-                color: Colors.white54,
+              child: ClipOval(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Image.asset(
+                    'assets/images/Robot skipping with a rope.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 12),
           ],
           Flexible(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
               decoration: BoxDecoration(
                 color: isError
-                    ? Theme.of(context).colorScheme.primary.withAlpha(200)
+                    ? Theme.of(context).primaryColor.withOpacity(0.9)
                     : (isUser
-                          ? Theme.of(context).colorScheme.primary.withAlpha(200)
-                          : const Color(0xFF2C2C2C)),
+                          ? Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.9)
+                          : Colors.grey.withOpacity(0.2)),
                 borderRadius: BorderRadius.only(
                   topLeft: const Radius.circular(20),
                   topRight: const Radius.circular(20),
-                  bottomLeft: Radius.circular(isUser ? 20 : 4),
-                  bottomRight: Radius.circular(isUser ? 4 : 20),
+                  bottomLeft: Radius.circular(isUser ? 20 : 0),
+                  bottomRight: Radius.circular(isUser ? 0 : 20),
                 ),
-                boxShadow: isUser
-                    ? [
-                        BoxShadow(
-                          color: isError
-                              ? Colors.redAccent.withAlpha(100)
-                              : Theme.of(
-                                  context,
-                                ).colorScheme.primary.withAlpha(100),
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
-                        ),
-                      ]
-                    : null,
               ),
               child: Text(
                 message,
                 style: TextStyle(
-                  color: isError ? Colors.redAccent : Colors.white,
-                  fontSize: 15,
-                  height: 1.4,
+                  color: isError ? Colors.white : Colors.white.withOpacity(0.9),
+                  fontSize: 16,
+                  height: 1.5,
                 ),
               ),
             ),
           ),
           if (isUser) ...[
-            const SizedBox(width: 8),
+            const SizedBox(width: 12),
             Container(
-              padding: const EdgeInsets.all(4),
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
-                color: Colors.deepOrange.withAlpha(1),
+                color: Colors.white.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
-                Icons.person,
-                size: 20,
-                color: Colors.deepOrange,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/prfofle photo .png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const Icon(Icons.person, color: Colors.white),
+                ),
               ),
             ),
           ],

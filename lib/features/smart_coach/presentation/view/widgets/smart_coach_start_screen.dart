@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_event.dart';
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/core/router/route_names.dart';
+import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'smart_coach_drawer.dart';
 
 class SmartCoachStartScreen extends StatelessWidget {
@@ -12,126 +14,169 @@ class SmartCoachStartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
+      extendBodyBehindAppBar: true,
       endDrawer: const SmartCoachDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Navigator.of(context).canPop()
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-                onPressed: () => Navigator.of(context).pop(),
+            ? Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ),
+                ),
               )
             : null,
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: const Icon(Icons.menu, color: Colors.deepOrange),
+              icon: const Icon(
+                Icons.menu_open,
+                color: Colors.deepOrange,
+                size: 30,
+              ),
               onPressed: () {
                 Scaffold.of(context).openEndDrawer();
               },
             ),
           ),
+          const SizedBox(width: 16),
         ],
       ),
       body: Stack(
         children: [
-          // Background Gradient or Effect
           Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment.center,
-                  radius: 1.0,
-                  colors: [
-                    Colors.deepOrange.withOpacity(0.05),
-                    Colors.transparent,
-                  ],
-                ),
-              ),
+            child: Image.asset(
+              'assets/images/chatbot bg.png',
+              fit: BoxFit.cover,
             ),
           ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20),
-                  const Text(
-                    'Hi Ahmed,',
-                    style: TextStyle(color: Colors.white70, fontSize: 16),
-                  ),
-                  const Text(
-                    'I Am Your Smart Coach',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 60),
-                  // Robot Illustration placeholder
-                  Container(
-                    height: 300,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.smart_toy_outlined,
-                        size: 200,
-                        color: Colors.white24,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 60),
-                  const Text(
-                    'How Can I Assist You\nToday ?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.1,
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 60,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange,
-                        foregroundColor: Colors.white,
-                        elevation: 8,
-                        shadowColor: Colors.deepOrange.withOpacity(0.5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+          Positioned.fill(
+            child: Container(color: Colors.black.withOpacity(0.3)),
+          ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 100),
+                        Text(
+                          'hi_name'.tr(args: ['Ahmed']),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      onPressed: () {
-                        final cubit = context.read<SmartCoachCubit>();
-                        cubit.doEvent(StartNewChat());
-                        context.push(RouteNames.smartCoachChat, extra: cubit);
-                      },
-                      child: const Text(
-                        'Get Started',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          'i_am_your_smart_coach'.tr(),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 20),
+                        // Robot Character
+                        Transform.translate(
+                          offset: const Offset(0, 40),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            child: Image.asset(
+                              'assets/images/Robot skipping with a rope.png',
+                              height: MediaQuery.of(context).size.height * 0.35,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 0),
+                        Padding(
+                          padding: const EdgeInsets.all(24.0),
+                          child: GlassBlurContainer(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 30,
+                              horizontal: 24,
+                            ),
+                            backgroundColor: Colors.black.withOpacity(0.4),
+                            borderRadius: BorderRadius.circular(40),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'how_can_i_assist_you_today'.tr(),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.1,
+                                  ),
+                                ),
+                                const SizedBox(height: 30),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 56,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Theme.of(
+                                        context,
+                                      ).colorScheme.primary,
+                                      foregroundColor: Colors.white,
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(28),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      final cubit = context
+                                          .read<SmartCoachCubit>();
+                                      cubit.doEvent(StartNewChat());
+                                      context.push(
+                                        RouteNames.smartCoachChat,
+                                        extra: cubit,
+                                      );
+                                    },
+                                    child: Text(
+                                      'get_started'.tr(),
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 120,
-                  ), // More padding to ensure it's above the floating nav bar
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
         ],
       ),

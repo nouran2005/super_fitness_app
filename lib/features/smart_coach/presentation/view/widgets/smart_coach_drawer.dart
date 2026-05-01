@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
@@ -15,11 +16,11 @@ class SmartCoachDrawer extends StatelessWidget {
       backgroundColor: const Color(0xFF1A1A1A),
       child: Column(
         children: [
-          const SafeArea(
+          SafeArea(
             child: Padding(
               padding: EdgeInsets.all(24.0),
               child: Text(
-                'Previous Conversations',
+                'previous_conversations'.tr(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
@@ -38,9 +39,9 @@ class SmartCoachDrawer extends StatelessWidget {
               ),
               child: const Icon(Icons.add, color: Colors.deepOrange, size: 20),
             ),
-            title: const Text(
-              'Start New Chat',
-              style: TextStyle(
+            title: Text(
+              'start_new_chat'.tr(),
+              style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
@@ -66,7 +67,7 @@ class SmartCoachDrawer extends StatelessWidget {
                   );
                 }
                 if (chats.isEmpty) {
-                  return const Center(
+                  return Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -77,7 +78,7 @@ class SmartCoachDrawer extends StatelessWidget {
                         ),
                         SizedBox(height: 16),
                         Text(
-                          'No previous chats',
+                          'no_previous_chats'.tr(),
                           style: TextStyle(color: Colors.white54),
                         ),
                       ],
@@ -110,7 +111,8 @@ class SmartCoachDrawer extends StatelessWidget {
                           size: 20,
                         ),
                         title: Text(
-                          chat['title'] ?? 'Chat ${chat['id']}',
+                          chat['title'] ??
+                              '${'chat_title_prefix'.tr()} ${chat['id']}',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(

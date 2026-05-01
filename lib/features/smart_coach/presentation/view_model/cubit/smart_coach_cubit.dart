@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
@@ -64,7 +65,9 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
 
   Future<void> _startNewChat() async {
     try {
-      final chatId = await _createChatUseCase.call(title: "New Chat");
+      final chatId = await _createChatUseCase.call(
+        title: "new_chat_title".tr(),
+      );
       emit(state.copyWith(currentChatId: chatId));
       _getAllChats();
       _getMessagesByChat(chatId);
@@ -80,7 +83,9 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
     int? chatId = state.currentChatId;
     if (chatId == null) {
       try {
-        chatId = await _createChatUseCase.call(title: "Chat");
+        chatId = await _createChatUseCase.call(
+          title: "default_chat_title".tr(),
+        );
         emit(state.copyWith(currentChatId: chatId));
         await _getAllChats();
       } catch (e) {
@@ -167,13 +172,12 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
         final match = regExp.firstMatch(errorMessage);
         if (match != null) {
           final seconds = match.group(1);
-          errorMessage =
-              "⚠️ Quota reached. Please wait $seconds seconds before trying again.";
+          errorMessage = 'quota_reached_wait'.tr(args: [seconds ?? '']);
         } else {
-          errorMessage = "⚠️ Quota reached. Please try again in a minute.";
+          errorMessage = 'quota_reached'.tr();
         }
       } else if (!errorMessage.startsWith('⚠️')) {
-        errorMessage = "⚠️ Something went wrong. Please try again.";
+        errorMessage = 'something_went_wrong_try_again'.tr();
       }
 
       final List<Map<String, dynamic>> currentMessages = List.from(

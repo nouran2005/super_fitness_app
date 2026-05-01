@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_event.dart';
@@ -33,176 +34,209 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.transparent,
       endDrawer: const SmartCoachDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Navigator.of(context).canPop()
-            ? IconButton(
-                icon: const Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.deepOrange,
+            ? Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
               )
             : null,
-        title: const Text(
-          'Smart Coach',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        title: Text(
+          'smart_coach'.tr(),
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: const Icon(Icons.menu, color: Colors.deepOrange),
+              icon: const Icon(
+                Icons.menu_open,
+                color: Colors.deepOrange,
+                size: 30,
+              ),
               onPressed: () {
                 Scaffold.of(context).openEndDrawer();
               },
             ),
           ),
+          const SizedBox(width: 16),
         ],
       ),
-      body: BlocConsumer<SmartCoachCubit, SmartCoachState>(
-        listener: (context, state) {
-          if (state.messagesResource.isSuccess) {
-            _scrollToBottom();
-          }
-        },
-        builder: (context, state) {
-          final messages = state.messagesResource.data ?? [];
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/chatbot bg.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: Container(color: Colors.black.withOpacity(0.5)),
+          ),
+          BlocConsumer<SmartCoachCubit, SmartCoachState>(
+            listener: (context, state) {
+              if (state.messagesResource.isSuccess) {
+                _scrollToBottom();
+              }
+            },
+            builder: (context, state) {
+              final messages = state.messagesResource.data ?? [];
 
-          return Column(
-            children: [
-              Expanded(
-                child: BlocBuilder<SmartCoachCubit, SmartCoachState>(
-                  builder: (context, state) {
-                    final messages = state.messagesResource.data ?? [];
-                    final isSending = state.isSendingMessage;
+              return Column(
+                children: [
+                  const SizedBox(height: kToolbarHeight + 40),
+                  Expanded(
+                    child: BlocBuilder<SmartCoachCubit, SmartCoachState>(
+                      builder: (context, state) {
+                        final messages = state.messagesResource.data ?? [];
+                        final isSending = state.isSendingMessage;
 
-                    return ListView.builder(
-                      controller: _scrollController,
-                      padding: const EdgeInsets.all(16),
-                      itemCount:
-                          messages.length +
-                          (isSending &&
-                                  (messages.isEmpty ||
-                                      messages.last['role'] != 'bot')
-                              ? 1
-                              : 0),
-                      itemBuilder: (context, index) {
-                        if (index == messages.length) {
-                          return const TypingIndicator();
-                        }
-                        final message = messages[index];
-                        final isUser = message['role'] == 'user';
-                        final isError = message['isError'] == true;
+                        return ListView.builder(
+                          controller: _scrollController,
+                          padding: const EdgeInsets.all(16),
+                          itemCount:
+                              messages.length +
+                              (isSending &&
+                                      (messages.isEmpty ||
+                                          messages.last['role'] != 'bot')
+                                  ? 1
+                                  : 0),
+                          itemBuilder: (context, index) {
+                            if (index == messages.length) {
+                              return const TypingIndicator();
+                            }
+                            final message = messages[index];
+                            final isUser = message['role'] == 'user';
+                            final isError = message['isError'] == true;
 
-                        return ChatBubble(
-                          message: message['content'],
-                          isUser: isUser,
-                          isError: isError,
+                            return ChatBubble(
+                              message: message['content'],
+                              isUser: isUser,
+                              isError: isError,
+                            );
+                          },
                         );
                       },
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                decoration: const BoxDecoration(
-                  color: Color(0xFF2C2C2C),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 10,
-                      offset: Offset(0, -2),
                     ),
-                  ],
-                ),
-                child: SafeArea(
-                  child: BlocBuilder<SmartCoachCubit, SmartCoachState>(
-                    builder: (context, state) {
-                      final isSending = state.isSendingMessage;
-                      return Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: _controller,
-                              enabled: !isSending,
-                              style: const TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintText: isSending
-                                    ? 'Coach is thinking...'
-                                    : 'Type a message...',
-                                hintStyle: const TextStyle(
-                                  color: Colors.white54,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(24),
-                                  borderSide: BorderSide.none,
-                                ),
-                                filled: true,
-                                fillColor: const Color(0xFF3C3C3C),
-                                contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 12,
-                                ),
-                              ),
-                              onSubmitted: (text) {
-                                if (text.trim().isNotEmpty && !isSending) {
-                                  context.read<SmartCoachCubit>().doEvent(
-                                    SendMessage(text),
-                                  );
-                                  _controller.clear();
-                                }
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          GestureDetector(
-                            onTap: isSending
-                                ? null
-                                : () {
-                                    final text = _controller.text.trim();
-                                    if (text.isNotEmpty) {
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.4),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 10,
+                          offset: Offset(0, -2),
+                        ),
+                      ],
+                    ),
+                    child: SafeArea(
+                      child: BlocBuilder<SmartCoachCubit, SmartCoachState>(
+                        builder: (context, state) {
+                          final isSending = state.isSendingMessage;
+                          return Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: _controller,
+                                  enabled: !isSending,
+                                  style: const TextStyle(color: Colors.white),
+                                  decoration: InputDecoration(
+                                    hintText: isSending
+                                        ? 'coach_is_thinking'.tr()
+                                        : 'type_a_message'.tr(),
+                                    hintStyle: const TextStyle(
+                                      color: Colors.white54,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(24),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white.withOpacity(0.1),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                      vertical: 12,
+                                    ),
+                                  ),
+                                  onSubmitted: (text) {
+                                    if (text.trim().isNotEmpty && !isSending) {
                                       context.read<SmartCoachCubit>().doEvent(
                                         SendMessage(text),
                                       );
                                       _controller.clear();
                                     }
                                   },
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 200),
-                              opacity: isSending ? 0.5 : 1.0,
-                              child: Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: const BoxDecoration(
-                                  color: Colors.deepOrange,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Icon(
-                                  Icons.send,
-                                  color: Colors.white,
-                                  size: 20,
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                              const SizedBox(width: 8),
+                              GestureDetector(
+                                onTap: isSending
+                                    ? null
+                                    : () {
+                                        final text = _controller.text.trim();
+                                        if (text.isNotEmpty) {
+                                          context
+                                              .read<SmartCoachCubit>()
+                                              .doEvent(SendMessage(text));
+                                          _controller.clear();
+                                        }
+                                      },
+                                child: AnimatedOpacity(
+                                  duration: const Duration(milliseconds: 200),
+                                  opacity: isSending ? 0.5 : 1.0,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).primaryColor,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.send,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          );
-        },
+                ],
+              );
+            },
+          ),
+        ],
       ),
     );
   }
