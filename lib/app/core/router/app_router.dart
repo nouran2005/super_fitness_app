@@ -18,6 +18,8 @@ import 'package:super_fitness_app/features/auth/presentation/register/view/pages
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseScreen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_chat_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
@@ -103,6 +105,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.smartCoach,
       builder: (context, state) => const SmartCoachPage(),
+    ),
+    GoRoute(
+      path: RouteNames.smartCoachChat,
+      builder: (context, state) {
+        final cubit = state.extra as SmartCoachCubit;
+        return SmartCoachChatPage(cubit: cubit);
+      },
     ),
   ],
 );

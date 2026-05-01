@@ -5,6 +5,7 @@ import 'package:super_fitness_app/features/smart_coach/presentation/view_model/c
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_state.dart';
 import 'typing_indicator.dart';
 import 'chat_bubble.dart';
+import 'smart_coach_drawer.dart';
 
 class SmartCoachChatScreen extends StatefulWidget {
   const SmartCoachChatScreen({super.key});
@@ -33,6 +34,7 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
+      endDrawer: const SmartCoachDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -53,9 +55,13 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.menu, color: Colors.deepOrange),
-            onPressed: () {},
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.menu, color: Colors.deepOrange),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+            ),
           ),
         ],
       ),

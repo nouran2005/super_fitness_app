@@ -16,4 +16,5 @@ abstract class RouteNames {
   static const mealDetails = '/mealDetails';
   static const exercises = '/exercises';
   static const smartCoach = '/smart-coach';
+  static const smartCoachChat = '/smart-coach-chat';
 }

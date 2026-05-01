@@ -14,42 +14,84 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.75,
-        ),
-        decoration: BoxDecoration(
-          color: isError
-              ? Colors.red.withOpacity(0.1)
-              : (isUser
-                    ? Theme.of(context).colorScheme.primary
-                    : const Color(0xFF2C2C2C)),
-          border: isError
-              ? Border.all(color: Colors.redAccent.withOpacity(0.5))
-              : null,
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(16),
-            topRight: const Radius.circular(16),
-            bottomLeft: isUser
-                ? const Radius.circular(16)
-                : const Radius.circular(0),
-            bottomRight: isUser
-                ? const Radius.circular(0)
-                : const Radius.circular(16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: isUser
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          if (!isUser) ...[
+            Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.1),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.smart_toy,
+                size: 20,
+                color: Colors.white54,
+              ),
+            ),
+            const SizedBox(width: 8),
+          ],
+          Flexible(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: isError
+                    ? Theme.of(context).colorScheme.primary.withAlpha(200)
+                    : (isUser
+                          ? Theme.of(context).colorScheme.primary.withAlpha(200)
+                          : const Color(0xFF2C2C2C)),
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(20),
+                  topRight: const Radius.circular(20),
+                  bottomLeft: Radius.circular(isUser ? 20 : 4),
+                  bottomRight: Radius.circular(isUser ? 4 : 20),
+                ),
+                boxShadow: isUser
+                    ? [
+                        BoxShadow(
+                          color: isError
+                              ? Colors.redAccent.withAlpha(100)
+                              : Theme.of(
+                                  context,
+                                ).colorScheme.primary.withAlpha(100),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ]
+                    : null,
+              ),
+              child: Text(
+                message,
+                style: TextStyle(
+                  color: isError ? Colors.redAccent : Colors.white,
+                  fontSize: 15,
+                  height: 1.4,
+                ),
+              ),
+            ),
           ),
-        ),
-        child: Text(
-          message,
-          style: TextStyle(
-            color: isError ? Colors.redAccent : Colors.white,
-            fontSize: 16,
-            fontWeight: isError ? FontWeight.w500 : FontWeight.normal,
-          ),
-        ),
+          if (isUser) ...[
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.deepOrange.withAlpha(1),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.person,
+                size: 20,
+                color: Colors.deepOrange,
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
