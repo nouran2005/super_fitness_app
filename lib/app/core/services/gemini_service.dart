@@ -85,7 +85,7 @@ class GeminiService {
     final geminiKey = dotenv.get('gemini_key', fallback: "");
 
     _model = GenerativeModel(
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       apiKey: geminiKey,
       systemInstruction: Content.system(
         "You are a professional fitness coach. Help users with workouts, nutrition, and calorie calculation in a simple, clear, and friendly way. Ensure responses are concise and practical.",

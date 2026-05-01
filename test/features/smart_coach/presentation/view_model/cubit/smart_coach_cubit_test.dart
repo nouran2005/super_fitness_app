@@ -318,6 +318,46 @@ void main() {
           ),
         ],
       );
+
+      blocTest<SmartCoachCubit, SmartCoachState>(
+        'emits error message when Gemini service throws quota exceeded error',
+        build: () {
+          when(
+            () => mockInsertMessageUseCase.call(
+              chatId: any(named: 'chatId'),
+              role: any(named: 'role'),
+              content: any(named: 'content'),
+            ),
+          ).thenAnswer((_) async => 1);
+
+          when(
+            () => mockGeminiService.sendMessageStream(any(), any()),
+          ).thenAnswer((_) => Stream.error('Quota exceeded'));
+
+          return cubit;
+        },
+        seed: () => SmartCoachState.initial().copyWith(
+          currentChatId: tChatId,
+          messagesResource: Resource.success([]),
+        ),
+        act: (cubit) => cubit.doEvent(SendMessage(tContent)),
+        expect: () => [
+          // User message added
+          isA<SmartCoachState>().having(
+            (s) => s.isSendingMessage,
+            'isSendingMessage',
+            true,
+          ),
+          // Error message added and isSendingMessage: false
+          isA<SmartCoachState>()
+              .having((s) => s.isSendingMessage, 'isSendingMessage', false)
+              .having(
+                (s) => (s.messagesResource.data as List).last['content'],
+                'content',
+                contains('Quota reached'),
+              ),
+        ],
+      );
     });
   });
 }

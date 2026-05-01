@@ -120,6 +120,9 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
       final stream = _geminiService.sendMessageStream(trimmedContent, history);
 
       await for (final chunk in stream) {
+        if (chunk.startsWith('⚠️')) {
+          throw chunk;
+        }
         fullResponse += chunk;
         print("DEBUG: Received chunk: $chunk");
 
@@ -157,7 +160,37 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
       print("DEBUG: Stream finished and UI finalized.");
     } catch (e) {
       print("DEBUG: Error in _sendMessage: $e");
-      emit(state.copyWith(isSendingMessage: false));
+      String errorMessage = e.toString();
+      if (errorMessage.contains('Quota exceeded') ||
+          errorMessage.contains('429')) {
+        final regExp = RegExp(r"retry in ([\d\.]+)s");
+        final match = regExp.firstMatch(errorMessage);
+        if (match != null) {
+          final seconds = match.group(1);
+          errorMessage =
+              "⚠️ Quota reached. Please wait $seconds seconds before trying again.";
+        } else {
+          errorMessage = "⚠️ Quota reached. Please try again in a minute.";
+        }
+      } else if (!errorMessage.startsWith('⚠️')) {
+        errorMessage = "⚠️ Something went wrong. Please try again.";
+      }
+
+      final List<Map<String, dynamic>> currentMessages = List.from(
+        state.messagesResource.data ?? [],
+      );
+      currentMessages.add({
+        'role': 'bot',
+        'content': errorMessage,
+        'isError': true,
+      });
+
+      emit(
+        state.copyWith(
+          messagesResource: Resource.success(List.from(currentMessages)),
+          isSendingMessage: false,
+        ),
+      );
     }
   }
 }
