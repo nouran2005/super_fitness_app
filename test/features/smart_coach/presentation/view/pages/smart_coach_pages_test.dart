@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:super_fitness_app/app/config/di/di.dart';
@@ -35,7 +36,15 @@ void main() {
   group('SmartCoachChatPage Tests', () {
     testWidgets('should render SmartCoachChatScreen', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: SmartCoachChatPage(cubit: mockSmartCoachCubit)),
+        MultiBlocProvider(
+          providers: [
+            BlocProvider<ProfileCubit>.value(value: mockProfileCubit),
+            BlocProvider<SmartCoachCubit>.value(value: mockSmartCoachCubit),
+          ],
+          child: MaterialApp(
+            home: SmartCoachChatPage(cubit: mockSmartCoachCubit),
+          ),
+        ),
       );
 
       expect(find.byType(TextField), findsOneWidget);
