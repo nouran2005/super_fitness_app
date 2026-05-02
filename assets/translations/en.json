@@ -194,5 +194,7 @@
   "discard": "Discard",
   "somethingWentWrong": "Something went wrong",
   "retry": "Retry",
-  "userDataUpdatedSuccessfully": "User data updated successfully"
+  "userDataUpdatedSuccessfully": "User data updated successfully",
+  "oldPassword": "Old Password",
+  "newPassword": "New Password"
 }

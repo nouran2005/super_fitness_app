@@ -20,4 +20,5 @@ abstract class RouteNames {
   static const privacyPage = '/privacy';
   static const securityPage = '/security';
   static const editProfile = '/edit-profile';
+  static const changePassword = '/change-password';
 }

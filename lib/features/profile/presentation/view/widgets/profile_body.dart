@@ -70,15 +70,22 @@ class ProfileBody extends StatelessWidget {
                       TextListWidget(
                         assetName: Assets.imagesProfile,
                         title: LocaleKeys.editProfile.tr(),
-                        onTap: () {
-                          context.push(RouteNames.editProfile);
+                        onTap: () async {
+                          await context.push(RouteNames.editProfile);
+                          if (context.mounted) {
+                            context.read<ProfileCubit>().doIntent(
+                              ProfileDataEvent(),
+                            );
+                          }
                         },
                       ),
                       DividerWidget(),
                       TextListWidget(
                         assetName: Assets.imagesChangePassword,
                         title: LocaleKeys.changePassword.tr(),
-                        onTap: () {},
+                        onTap: () {
+                          context.push(RouteNames.changePassword);
+                        },
                       ),
                       DividerWidget(),
                       BlocConsumer<ProfileCubit, ProfileState>(

@@ -27,11 +27,16 @@ import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseS
 import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_chat_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
+import 'package:super_fitness_app/features/changePassword/presentation/view/pages/change_password_page.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: RouteNames.login,
+  initialLocation: RouteNames.signIn,
   routes: [
+    GoRoute(
+      path: RouteNames.changePassword,
+      builder: (context, state) => const ChangePasswordPage(),
+    ),
     GoRoute(
       path: RouteNames.appStart,
       builder: (context, state) => const AppStartPage(),

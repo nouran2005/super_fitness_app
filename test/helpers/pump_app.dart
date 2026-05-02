@@ -69,6 +69,12 @@ class TestAssetLoader extends AssetLoader {
       'intermediate': 'Intermediate',
       'advance': 'Advance',
       'trueBeast': 'True Beast',
+      'createNewPassword': 'Create New Password',
+      'done': 'Done',
+      'field_cant_be_empty': 'Field cant be empty',
+      'makeSureIts8CharactersOrMore': 'Make Sure Its 8 Characters Or More',
+      'back': 'Back',
+      'passwordResetSuccess': 'Password Reset Successfully',
     };
   }
 }

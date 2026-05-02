@@ -179,6 +179,7 @@ abstract class LocaleKeys {
       'something_went_wrong_try_again';
   static const chat_title_prefix = 'chat_title_prefix';
   static const hi_name = 'hi_name';
+  static const editProfile = 'editProfile';
   static const changePassword = 'changePassword';
   static const selectLanguage = 'selectLanguage';
   static const security = 'security';
@@ -187,7 +188,6 @@ abstract class LocaleKeys {
   static const areYouSureToLogout = 'areYouSureToLogout';
   static const yes = 'yes';
   static const no = 'no';
-  static const editProfile = 'editProfile';
   static const tapToEdit = 'tapToEdit';
   static const saveChanges = 'saveChanges';
   static const yourWeight = 'yourWeight';
@@ -200,4 +200,6 @@ abstract class LocaleKeys {
   static const somethingWentWrong = 'somethingWentWrong';
   static const retry = 'retry';
   static const userDataUpdatedSuccessfully = 'userDataUpdatedSuccessfully';
+  static const oldPassword = 'oldPassword';
+  static const newPassword = 'newPassword';
 }
