@@ -65,7 +65,18 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: h * 0.05),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.white,
+                      ),
+                      onPressed: () => context.pop(),
+                    ),
+                  ],
+                ),
+                SizedBox(height: h * 0.02),
                 Image.asset(Assets.appIcon, height: h * 0.10),
                 SizedBox(height: h * 0.05),
                 Padding(
