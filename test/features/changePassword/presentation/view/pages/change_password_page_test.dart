@@ -5,7 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
-import 'package:super_fitness_app/app/config/di/di.dart'; 
+import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/features/changePassword/presentation/view/widgets/change_password_body.dart';
 import 'package:super_fitness_app/features/changePassword/presentation/view_model/cubit/change_password_cubit.dart';
 import 'package:super_fitness_app/features/changePassword/presentation/view_model/cubit/change_password_state.dart';
@@ -24,10 +24,16 @@ void main() {
 
     when(mockCubit.oldPasswordController).thenReturn(TextEditingController());
     when(mockCubit.newPasswordController).thenReturn(TextEditingController());
-    when(mockCubit.confirmPasswordController).thenReturn(TextEditingController());
-    
-    when(mockCubit.stream).thenAnswer((_) => Stream<ChangePasswordStates>.empty());
-    when(mockCubit.state).thenReturn(ChangePasswordStates(changePasswordResource: Resource.initial()));
+    when(
+      mockCubit.confirmPasswordController,
+    ).thenReturn(TextEditingController());
+
+    when(
+      mockCubit.stream,
+    ).thenAnswer((_) => Stream<ChangePasswordStates>.empty());
+    when(mockCubit.state).thenReturn(
+      ChangePasswordStates(changePasswordResource: Resource.initial()),
+    );
   });
 
   group("ChangePasswordBody Widget Tests", () {
@@ -44,8 +50,9 @@ void main() {
       expect(find.text(LocaleKeys.done.tr()), findsOneWidget);
     });
 
-    testWidgets('should show validation errors when fields are empty',
-        (tester) async {
+    testWidgets('should show validation errors when fields are empty', (
+      tester,
+    ) async {
       await tester.pumpLocalizedWidget(
         BlocProvider<ChangePasswordCubit>.value(
           value: mockCubit,
@@ -60,6 +67,5 @@ void main() {
 
       expect(find.text(LocaleKeys.field_cant_be_empty.tr()), findsWidgets);
     });
-
   });
 }

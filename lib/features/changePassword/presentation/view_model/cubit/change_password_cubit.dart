@@ -10,7 +10,6 @@ import 'package:super_fitness_app/features/changePassword/presentation/view_mode
 import 'package:super_fitness_app/app/config/auth_storage/auth_storage.dart';
 import 'package:super_fitness_app/app/core/widgets/loading_overlay/loading_overlay.dart';
 
-
 @injectable
 class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
   final ChangePasswordUseCase _useCase;
@@ -21,8 +20,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
   final confirmPasswordController = TextEditingController();
 
   ChangePasswordCubit(this._useCase, this._authStorage)
-      : super(ChangePasswordStates(changePasswordResource: Resource.initial()));
-
+    : super(ChangePasswordStates(changePasswordResource: Resource.initial()));
 
   void doIntent(ChangePasswordIntent intent) {
     if (intent is ChangePasswordSubmitIntent) {
@@ -47,16 +45,12 @@ class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
           await _authStorage.saveToken(result.data.token!);
         }
         emit(
-          state.copyWith(
-            changePasswordResource: Resource.success(result.data),
-          ),
+          state.copyWith(changePasswordResource: Resource.success(result.data)),
         );
 
       case ErrorApiResult():
         emit(
-          state.copyWith(
-            changePasswordResource: Resource.error(result.error),
-          ),
+          state.copyWith(changePasswordResource: Resource.error(result.error)),
         );
     }
   }

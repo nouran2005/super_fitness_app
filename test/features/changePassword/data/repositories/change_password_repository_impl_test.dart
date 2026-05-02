@@ -27,26 +27,32 @@ void main() {
     final request = ChangePasswordRequest(password: "old", newPassword: "new");
     final response = ChangePasswordResponse(message: "Success");
 
-    test('should return SuccessApiResult when remote data source is successful', () async {
-      when(mockRemoteDataSource.changePassword(any)).thenAnswer(
-        (_) async => SuccessApiResult(data: response),
-      );
+    test(
+      'should return SuccessApiResult when remote data source is successful',
+      () async {
+        when(
+          mockRemoteDataSource.changePassword(any),
+        ).thenAnswer((_) async => SuccessApiResult(data: response));
 
-      final result = await repository.changePassword(request);
+        final result = await repository.changePassword(request);
 
-      expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
-      verify(mockRemoteDataSource.changePassword(request)).called(1);
-    });
+        expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
+        verify(mockRemoteDataSource.changePassword(request)).called(1);
+      },
+    );
 
-    test('should return ErrorApiResult when remote data source fails', () async {
-      when(mockRemoteDataSource.changePassword(any)).thenAnswer(
-        (_) async => ErrorApiResult(error: "Server Error"),
-      );
+    test(
+      'should return ErrorApiResult when remote data source fails',
+      () async {
+        when(
+          mockRemoteDataSource.changePassword(any),
+        ).thenAnswer((_) async => ErrorApiResult(error: "Server Error"));
 
-      final result = await repository.changePassword(request);
+        final result = await repository.changePassword(request);
 
-      expect(result, isA<ErrorApiResult<ChangePasswordResponse>>());
-      verify(mockRemoteDataSource.changePassword(request)).called(1);
-    });
+        expect(result, isA<ErrorApiResult<ChangePasswordResponse>>());
+        verify(mockRemoteDataSource.changePassword(request)).called(1);
+      },
+    );
   });
 }

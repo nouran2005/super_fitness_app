@@ -73,9 +73,9 @@ class ProfileBody extends StatelessWidget {
                         onTap: () async {
                           await context.push(RouteNames.editProfile);
                           if (context.mounted) {
-                            context
-                                .read<ProfileCubit>()
-                                .doIntent(ProfileDataEvent());
+                            context.read<ProfileCubit>().doIntent(
+                              ProfileDataEvent(),
+                            );
                           }
                         },
                       ),

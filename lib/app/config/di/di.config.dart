@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format width=80
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -161,6 +161,24 @@ import '../../../features/signin/domain/use_cases/signin_use_case.dart'
     as _i983;
 import '../../../features/signin/presentation/view_model/cubit/signin_cubit.dart'
     as _i985;
+import '../../../features/smart_coach/api/datasources/smart_coach_chat_local_data_source_impl.dart'
+    as _i691;
+import '../../../features/smart_coach/data/datasources/smart_coach_chat_local_data_source_contract.dart'
+    as _i1004;
+import '../../../features/smart_coach/data/repositories/smart_coach_chat_repository_impl.dart'
+    as _i417;
+import '../../../features/smart_coach/domain/repositories/smart_coach_chat_repository.dart'
+    as _i403;
+import '../../../features/smart_coach/domain/use_cases/create_chat_use_case.dart'
+    as _i672;
+import '../../../features/smart_coach/domain/use_cases/get_all_chats_use_case.dart'
+    as _i539;
+import '../../../features/smart_coach/domain/use_cases/get_messages_by_chat_use_case.dart'
+    as _i760;
+import '../../../features/smart_coach/domain/use_cases/insert_message_use_case.dart'
+    as _i429;
+import '../../../features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart'
+    as _i908;
 import '../../../features/work_out/api/datasources/work_out_remote_data_source_impl.dart'
     as _i626;
 import '../../../features/work_out/data/datasources/work_out_remote_data_source_contract.dart'
@@ -176,6 +194,8 @@ import '../../../features/work_out/domain/use_cases/get_all_muscles_group_use_ca
 import '../../../features/work_out/presentation/view_model/cubit/work_out_cubit.dart'
     as _i1053;
 import '../../core/api_manger/api_client.dart' as _i890;
+import '../../core/local/database_helper.dart' as _i622;
+import '../../core/services/gemini_service.dart' as _i834;
 import '../auth_storage/auth_storage.dart' as _i603;
 import '../network/network_module.dart' as _i200;
 import 'external_libs_module.dart' as _i993;
@@ -194,10 +214,20 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i603.AuthStorage>(() => _i603.AuthStorage());
+    gh.lazySingleton<_i622.DatabaseHelper>(() => _i622.DatabaseHelper());
+    gh.lazySingleton<_i834.GeminiService>(() => _i834.GeminiService());
     gh.lazySingleton<_i361.Dio>(
       () => networkModule.dio(gh<_i603.AuthStorage>()),
     );
     gh.factory<_i858.AppCubit>(() => _i858.AppCubit(gh<_i603.AuthStorage>()));
+    gh.factory<_i1004.SmartCoachChatLocalDataSource>(
+      () => _i691.SmartCoachChatLocalDataSourceImpl(gh<_i622.DatabaseHelper>()),
+    );
+    gh.factory<_i403.SmartCoachChatRepository>(
+      () => _i417.SmartCoachChatRepositoryImpl(
+        gh<_i1004.SmartCoachChatLocalDataSource>(),
+      ),
+    );
     gh.lazySingleton<_i890.ApiClient>(
       () => networkModule.authApiClient(gh<_i361.Dio>()),
     );
@@ -294,6 +324,19 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i94.GetExercisesRandomUseCase>(),
       ),
     );
+    gh.factory<_i672.CreateChatUseCase>(
+      () => _i672.CreateChatUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i539.GetAllChatsUseCase>(
+      () => _i539.GetAllChatsUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i760.GetMessagesByChatUseCase>(
+      () =>
+          _i760.GetMessagesByChatUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
+    gh.factory<_i429.InsertMessageUseCase>(
+      () => _i429.InsertMessageUseCase(gh<_i403.SmartCoachChatRepository>()),
+    );
     gh.factory<_i37.ChangePasswordUseCase>(
       () => _i37.ChangePasswordUseCase(gh<_i457.ChangePasswordRepository>()),
     );
@@ -382,6 +425,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i52.GetSecurityDataUsecase>(
       () => _i52.GetSecurityDataUsecase(gh<_i919.ProfileRepository>()),
     );
+    gh.factory<_i908.SmartCoachCubit>(
+      () => _i908.SmartCoachCubit(
+        gh<_i672.CreateChatUseCase>(),
+        gh<_i539.GetAllChatsUseCase>(),
+        gh<_i760.GetMessagesByChatUseCase>(),
+        gh<_i429.InsertMessageUseCase>(),
+        gh<_i834.GeminiService>(),
+      ),
+    );
     gh.factory<_i956.RcToDayCubit>(
       () => _i956.RcToDayCubit(gh<_i784.GetRandomMusclesUseCase>()),
     );
@@ -392,11 +444,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i970.GetExercisesByMuscleDifficultyUseCase>(),
       ),
     );
-    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
-      () => _i1023.GetMealDetailsByIdUsecase(
-        mealsRepository: gh<_i936.MealsRepository>(),
-      ),
-    );
     gh.factory<_i447.GetMealsByCategoryUsecase>(
       () => _i447.GetMealsByCategoryUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
@@ -404,6 +451,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i601.GetMealsCategoriesUsecase>(
       () => _i601.GetMealsCategoriesUsecase(
+        mealsRepository: gh<_i936.MealsRepository>(),
+      ),
+    );
+    gh.factory<_i1023.GetMealDetailsByIdUsecase>(
+      () => _i1023.GetMealDetailsByIdUsecase(
         mealsRepository: gh<_i936.MealsRepository>(),
       ),
     );

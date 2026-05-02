@@ -13,9 +13,7 @@ class ChangePasswordPage extends StatelessWidget {
     final cubit = getIt<ChangePasswordCubit>();
     return BlocProvider(
       create: (context) => cubit,
-      child: AuthBlurryBackground(
-        widget: ChangePasswordBody(cubit: cubit),
-      ),
+      child: AuthBlurryBackground(widget: ChangePasswordBody(cubit: cubit)),
     );
   }
 }

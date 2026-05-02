@@ -6,7 +6,10 @@ void main() {
   group('ChangePassword Models Tests', () {
     group('ChangePasswordRequest', () {
       test('should serialize to JSON correctly', () {
-        final request = ChangePasswordRequest(password: 'old123', newPassword: 'new123');
+        final request = ChangePasswordRequest(
+          password: 'old123',
+          newPassword: 'new123',
+        );
         final json = request.toJson();
 
         expect(json['password'], 'old123');
@@ -24,7 +27,10 @@ void main() {
 
     group('ChangePasswordResponse', () {
       test('should serialize to JSON correctly', () {
-        final response = ChangePasswordResponse(message: 'Success', token: 'token123');
+        final response = ChangePasswordResponse(
+          message: 'Success',
+          token: 'token123',
+        );
         final json = response.toJson();
 
         expect(json['message'], 'Success');

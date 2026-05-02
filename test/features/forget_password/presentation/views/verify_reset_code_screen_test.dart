@@ -6,6 +6,7 @@ import 'package:super_fitness_app/app/config/di/di.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/view_model/forget_password_state.dart';
 import 'package:super_fitness_app/features/forget_password/presentation/views/screens/verify_reset_code_screen.dart';
+import '../../../../helpers/pump_app.dart';
 
 import 'forget_password_screens_test.mocks.dart';
 
@@ -33,16 +34,12 @@ void main() {
     getIt.reset();
   });
 
-  Widget buildTestableWidget() {
-    return const MaterialApp(
-      home: Scaffold(body: VerifyResetCodeScreen(email: 'test@test.com')),
-    );
-  }
-
   group('VerifyResetCodeScreen Tests', () {
     testWidgets('renders correctly', (WidgetTester tester) async {
-      await tester.pumpWidget(buildTestableWidget());
-      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpLocalizedWidget(
+        const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
+      );
 
       expect(find.byType(ElevatedButton), findsWidgets);
     });
@@ -50,8 +47,10 @@ void main() {
     testWidgets('shows snackbar if OTP is incomplete', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget());
-      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpLocalizedWidget(
+        const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
+      );
 
       await tester.tap(find.byType(ElevatedButton).first);
       await tester.pump();
@@ -62,8 +61,10 @@ void main() {
     testWidgets('calls VerifyCodeProcessEvent with complete OTP', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget());
-      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpLocalizedWidget(
+        const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
+      );
 
       tester.testTextInput.enterText('1234');
       await tester.pump(const Duration(seconds: 1));
@@ -79,8 +80,10 @@ void main() {
     testWidgets('calls ForgetPasswordProcessEvent when Resend is tapped', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(buildTestableWidget());
-      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpLocalizedWidget(
+        const VerifyResetCodeScreen(email: 'test@test.com'),
+        settle: false,
+      );
 
       final resendFinder = find.byType(GestureDetector);
       if (resendFinder.evaluate().isNotEmpty) {

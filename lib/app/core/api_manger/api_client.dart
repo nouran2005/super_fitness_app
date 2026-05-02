@@ -31,7 +31,6 @@ import 'package:super_fitness_app/features/Exercise/data/model/response/Exercise
 import 'package:super_fitness_app/features/changePassword/data/model/request/changepassRequest.dart';
 import 'package:super_fitness_app/features/changePassword/data/model/response/change_password_response.dart';
 
-
 part 'api_client.g.dart';
 
 @RestApi(baseUrl: AppEndpoints.baseUrl)
@@ -145,4 +144,3 @@ abstract class ApiClient {
     @Body() ChangePasswordRequest request,
   );
 }
-

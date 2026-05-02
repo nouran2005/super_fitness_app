@@ -25,37 +25,39 @@ void main() {
     final request = ChangePasswordRequest(password: "old", newPassword: "new");
     final response = ChangePasswordResponse(message: "Success");
 
-    test('should return SuccessApiResult when ApiClient call is successful', () async {
-      when(mockApiClient.changePassword(any)).thenAnswer(
-        (_) async => HttpResponse(
-          response,
-          Response(
-            requestOptions: RequestOptions(path: ''),
-            statusCode: 200,
+    test(
+      'should return SuccessApiResult when ApiClient call is successful',
+      () async {
+        when(mockApiClient.changePassword(any)).thenAnswer(
+          (_) async => HttpResponse(
+            response,
+            Response(requestOptions: RequestOptions(path: ''), statusCode: 200),
           ),
-        ),
+        );
 
-      );
+        final result = await dataSource.changePassword(request);
 
-      final result = await dataSource.changePassword(request);
+        expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
+        verify(mockApiClient.changePassword(request)).called(1);
+      },
+    );
 
-      expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
-      verify(mockApiClient.changePassword(request)).called(1);
-    });
+    test(
+      'should return ErrorApiResult when ApiClient call throws DioException',
+      () async {
+        when(mockApiClient.changePassword(any)).thenThrow(
+          DioException(
+            requestOptions: RequestOptions(path: ''),
+            message: "Network error",
+            type: DioExceptionType.connectionError,
+          ),
+        );
 
-    test('should return ErrorApiResult when ApiClient call throws DioException', () async {
-      when(mockApiClient.changePassword(any)).thenThrow(
-        DioException(
-          requestOptions: RequestOptions(path: ''),
-          message: "Network error",
-          type: DioExceptionType.connectionError,
-        ),
-      );
+        final result = await dataSource.changePassword(request);
 
-      final result = await dataSource.changePassword(request);
-
-      expect(result, isA<ErrorApiResult<ChangePasswordResponse>>());
-      verify(mockApiClient.changePassword(request)).called(1);
-    });
+        expect(result, isA<ErrorApiResult<ChangePasswordResponse>>());
+        verify(mockApiClient.changePassword(request)).called(1);
+      },
+    );
   });
 }

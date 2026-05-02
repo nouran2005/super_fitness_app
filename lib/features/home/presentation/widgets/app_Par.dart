@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/ui_helper/color/colors.dart';
 import 'package:super_fitness_app/app/core/ui_helper/style/font_style.dart';
 import 'package:super_fitness_app/generated/locale_keys.g.dart';
@@ -57,10 +59,15 @@ class CustomAppBar extends StatelessWidget {
               ],
             ),
           ),
-          CircleAvatar(
-            radius: screenWidth * 0.06,
-            backgroundColor: AppColors.grey,
-            backgroundImage: NetworkImage(photoAsset),
+          GestureDetector(
+            onTap: () {
+              context.push(RouteNames.smartCoach);
+            },
+            child: CircleAvatar(
+              radius: screenWidth * 0.06,
+              backgroundColor: AppColors.grey,
+              backgroundImage: NetworkImage(photoAsset),
+            ),
           ),
         ],
       ),

@@ -24,6 +24,9 @@ import 'package:super_fitness_app/features/onboarding/presentation/pages/onboard
 import 'package:super_fitness_app/features/auth/presentation/register/view/pages/signup_onboarding_page.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:super_fitness_app/features/Exercise/presentation/pages/exerciseScreen.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_chat_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
 import 'package:super_fitness_app/features/changePassword/presentation/view/pages/change_password_page.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -141,6 +144,17 @@ final GoRouter appRouter = GoRouter(
               getIt<ProfileCubit>()..doIntent(SecurityDataEvent()),
           child: SecurityPage(),
         );
+      },
+    ),
+    GoRoute(
+      path: RouteNames.smartCoach,
+      builder: (context, state) => const SmartCoachPage(),
+    ),
+    GoRoute(
+      path: RouteNames.smartCoachChat,
+      builder: (context, state) {
+        final cubit = state.extra as SmartCoachCubit;
+        return SmartCoachChatPage(cubit: cubit);
       },
     ),
     GoRoute(

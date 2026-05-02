@@ -27,21 +27,24 @@ void main() {
     final request = ChangePasswordRequest(password: "old", newPassword: "new");
     final response = ChangePasswordResponse(message: "Success");
 
-    test('should call changePassword on repository and return success', () async {
-      when(mockRepository.changePassword(any)).thenAnswer(
-        (_) async => SuccessApiResult(data: response),
-      );
+    test(
+      'should call changePassword on repository and return success',
+      () async {
+        when(
+          mockRepository.changePassword(any),
+        ).thenAnswer((_) async => SuccessApiResult(data: response));
 
-      final result = await useCase.execute(request);
+        final result = await useCase.execute(request);
 
-      expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
-      verify(mockRepository.changePassword(request)).called(1);
-    });
+        expect(result, isA<SuccessApiResult<ChangePasswordResponse>>());
+        verify(mockRepository.changePassword(request)).called(1);
+      },
+    );
 
     test('should return error when repository fails', () async {
-      when(mockRepository.changePassword(any)).thenAnswer(
-        (_) async => ErrorApiResult(error: "Error"),
-      );
+      when(
+        mockRepository.changePassword(any),
+      ).thenAnswer((_) async => ErrorApiResult(error: "Error"));
 
       final result = await useCase.execute(request);
 

@@ -2,8 +2,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:super_fitness_app/app/config/auth_storage/auth_storage.dart'; 
-import 'package:super_fitness_app/app/core/network/api_result.dart'; 
+import 'package:super_fitness_app/app/config/auth_storage/auth_storage.dart';
+import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/features/changePassword/data/model/response/change_password_response.dart';
 import 'package:super_fitness_app/features/changePassword/domain/use_cases/change_password_usecase.dart';
 import 'package:super_fitness_app/features/changePassword/presentation/view_model/cubit/change_password_cubit.dart';
@@ -37,11 +37,13 @@ void main() {
       'emits [loading, success] when password change is successful',
       build: () {
         final cubit = ChangePasswordCubit(mockUseCase, mockAuthStorage);
-        final response =
-            ChangePasswordResponse(message: "Success", token: "new_token");
-        when(mockUseCase.execute(any)).thenAnswer(
-          (_) async => SuccessApiResult(data: response),
+        final response = ChangePasswordResponse(
+          message: "Success",
+          token: "new_token",
         );
+        when(
+          mockUseCase.execute(any),
+        ).thenAnswer((_) async => SuccessApiResult(data: response));
         when(mockAuthStorage.saveToken(any)).thenAnswer((_) async => {});
 
         cubit.oldPasswordController.text = "old_pass";
@@ -51,9 +53,15 @@ void main() {
       act: (cubit) => cubit.doIntent(ChangePasswordSubmitIntent()),
       expect: () => [
         isA<ChangePasswordStates>().having(
-            (s) => s.changePasswordResource.isLoading, 'loading', true),
+          (s) => s.changePasswordResource.isLoading,
+          'loading',
+          true,
+        ),
         isA<ChangePasswordStates>().having(
-            (s) => s.changePasswordResource.isSuccess, 'success', true),
+          (s) => s.changePasswordResource.isSuccess,
+          'success',
+          true,
+        ),
       ],
       verify: (_) {
         verify(mockUseCase.execute(any)).called(1);
@@ -65,15 +73,23 @@ void main() {
       'emits [loading, error] when password change fails',
       build: () {
         final cubit = ChangePasswordCubit(mockUseCase, mockAuthStorage);
-        when(mockUseCase.execute(any)).thenAnswer(
-          (_) async => ErrorApiResult(error: "Invalid password"),
-        );
+        when(
+          mockUseCase.execute(any),
+        ).thenAnswer((_) async => ErrorApiResult(error: "Invalid password"));
         return cubit;
       },
       act: (cubit) => cubit.doIntent(ChangePasswordSubmitIntent()),
       expect: () => [
-        isA<ChangePasswordStates>().having((s) => s.changePasswordResource.isLoading, 'loading', true),
-        isA<ChangePasswordStates>().having((s) => s.changePasswordResource.isError, 'error', true),
+        isA<ChangePasswordStates>().having(
+          (s) => s.changePasswordResource.isLoading,
+          'loading',
+          true,
+        ),
+        isA<ChangePasswordStates>().having(
+          (s) => s.changePasswordResource.isError,
+          'error',
+          true,
+        ),
       ],
     );
   });

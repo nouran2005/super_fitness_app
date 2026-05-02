@@ -8,6 +8,7 @@ import 'package:super_fitness_app/features/profile/presentation/view/pages/profi
 import 'package:super_fitness_app/features/work_out/presentation/view/pages/work_out_page.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_state.dart';
 import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_page.dart';
 
 class AppSectionsView extends StatelessWidget {
   const AppSectionsView({super.key});
@@ -22,10 +23,7 @@ class AppSectionsView extends StatelessWidget {
             index: state.currentIndex,
             children: [
               const HomeScreen(),
-              AppSectionPlaceholder(
-                title: appSectionDestinations[1].title,
-                subtitle: appSectionDestinations[1].subtitle,
-              ),
+              const SmartCoachPage(),
               const WorkOutPage(),
               const ProfilePage(),
             ],

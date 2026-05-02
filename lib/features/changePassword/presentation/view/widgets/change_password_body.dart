@@ -44,13 +44,13 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
           if (state.changePasswordResource.isSuccess) {
             showToast(
               title: LocaleKeys.success.tr(),
-              description: state.changePasswordResource.data?.message ??
+              description:
+                  state.changePasswordResource.data?.message ??
                   LocaleKeys.passwordResetSuccess.tr(),
               type: ToastificationType.success,
             );
             context.go(RouteNames.signIn);
           } else if (state.changePasswordResource.isError) {
-
             showToast(
               title: LocaleKeys.error.tr(),
               description: state.changePasswordResource.error ?? "Error",
@@ -99,7 +99,6 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -122,7 +121,6 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
                         hintText: LocaleKeys.oldPassword.tr(),
                         obscureText: true,
                         prefixIcon: const Icon(Icons.lock_outline_rounded),
-
                       ),
                       SizedBox(height: h * 0.02),
                       CustomTextFormField(
@@ -135,7 +133,6 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
                         hintText: LocaleKeys.newPassword.tr(),
                         obscureText: true,
                         prefixIcon: const Icon(Icons.lock_outline_rounded),
-
                       ),
                       SizedBox(height: h * 0.02),
                       CustomTextFormField(
@@ -146,15 +143,15 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
                         controller: widget.cubit.confirmPasswordController,
                         validator: (value) =>
                             Validations.validatePasswordVerification(
-                          value,
-                          widget.cubit.newPasswordController.text,
-                        ),
+                              value,
+                              widget.cubit.newPasswordController.text,
+                            ),
                         hintText: LocaleKeys.confirmPassword.tr(),
                         obscureText: true,
                         prefixIcon: const Icon(Icons.lock_outline_rounded),
                       ),
                       SizedBox(height: h * 0.015),
-                       
+
                       SizedBox(height: h * 0.04),
                       BlocBuilder<ChangePasswordCubit, ChangePasswordStates>(
                         builder: (context, state) {

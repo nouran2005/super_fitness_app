@@ -14,10 +14,11 @@ abstract class RouteNames {
   static const meals = '/meals';
   static const mealDetails = '/mealDetails';
   static const exercises = '/exercises';
+  static const smartCoach = '/smart-coach';
+  static const smartCoachChat = '/smart-coach-chat';
   static const helpPage = '/help';
   static const privacyPage = '/privacy';
   static const securityPage = '/security';
   static const editProfile = '/edit-profile';
   static const changePassword = '/change-password';
 }
-

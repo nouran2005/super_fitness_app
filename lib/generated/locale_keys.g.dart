@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const email = 'email';
@@ -156,10 +156,29 @@ abstract class  LocaleKeys {
   static const seeAll = 'seeAll';
   static const upcomingWorkouts = 'upcomingWorkouts';
   static const work_out = 'work_out';
-  static const try_adjusting_your_filters_or_check_back_later = 'try_adjusting_your_filters_or_check_back_later';
-  static const no_muscles_or_levels_available = 'no_muscles_or_levels_available';
+  static const try_adjusting_your_filters_or_check_back_later =
+      'try_adjusting_your_filters_or_check_back_later';
+  static const no_muscles_or_levels_available =
+      'no_muscles_or_levels_available';
   static const Tasks = 'Tasks';
   static const PopularsTraining = 'PopularsTraining';
+  static const smart_coach = 'smart_coach';
+  static const i_am_your_smart_coach = 'i_am_your_smart_coach';
+  static const how_can_i_assist_you_today = 'how_can_i_assist_you_today';
+  static const get_started = 'get_started';
+  static const previous_conversations = 'previous_conversations';
+  static const start_new_chat = 'start_new_chat';
+  static const no_previous_chats = 'no_previous_chats';
+  static const coach_is_thinking = 'coach_is_thinking';
+  static const type_a_message = 'type_a_message';
+  static const new_chat_title = 'new_chat_title';
+  static const default_chat_title = 'default_chat_title';
+  static const quota_reached_wait = 'quota_reached_wait';
+  static const quota_reached = 'quota_reached';
+  static const something_went_wrong_try_again =
+      'something_went_wrong_try_again';
+  static const chat_title_prefix = 'chat_title_prefix';
+  static const hi_name = 'hi_name';
   static const editProfile = 'editProfile';
   static const changePassword = 'changePassword';
   static const selectLanguage = 'selectLanguage';
@@ -183,5 +202,4 @@ abstract class  LocaleKeys {
   static const userDataUpdatedSuccessfully = 'userDataUpdatedSuccessfully';
   static const oldPassword = 'oldPassword';
   static const newPassword = 'newPassword';
-
 }
