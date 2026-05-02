@@ -76,7 +76,6 @@ class SmartCoachCubit extends Cubit<SmartCoachState> {
     int? chatId = state.currentChatId;
     if (chatId == null) {
       try {
-        // Use first message as title (truncated)
         String title = trimmedContent.length > 30
             ? '${trimmedContent.substring(0, 30)}...'
             : trimmedContent;

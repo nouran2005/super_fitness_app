@@ -1,4 +1,4 @@
-abstract interface class SmartCoachChatRepository {
+abstract class SmartCoachChatRepository {
   Future<int> createChat(String? title);
 
   Future<List<Map<String, dynamic>>> getAllChats();
