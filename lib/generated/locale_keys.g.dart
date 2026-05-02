@@ -179,6 +179,14 @@ abstract class LocaleKeys {
       'something_went_wrong_try_again';
   static const chat_title_prefix = 'chat_title_prefix';
   static const hi_name = 'hi_name';
+  static const changePassword = 'changePassword';
+  static const selectLanguage = 'selectLanguage';
+  static const security = 'security';
+  static const privacyPolicy = 'privacyPolicy';
+  static const help = 'help';
+  static const areYouSureToLogout = 'areYouSureToLogout';
+  static const yes = 'yes';
+  static const no = 'no';
   static const editProfile = 'editProfile';
   static const tapToEdit = 'tapToEdit';
   static const saveChanges = 'saveChanges';

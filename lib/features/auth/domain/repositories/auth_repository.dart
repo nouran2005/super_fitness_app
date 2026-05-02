@@ -1,4 +1,5 @@
 import 'package:super_fitness_app/app/core/network/api_result.dart';
+import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/domain/entities/signup_model.dart';
 
 abstract class AuthRepository {
@@ -15,4 +16,6 @@ abstract class AuthRepository {
     required String goal,
     required String activityLevel,
   });
+
+  Future<ApiResult<LogoutResponse>> logout({required String token});
 }

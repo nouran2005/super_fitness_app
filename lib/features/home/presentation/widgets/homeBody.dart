@@ -12,6 +12,8 @@ import 'package:super_fitness_app/features/meals/domain/entities/meals_by_catego
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_cubit.dart';
 import 'package:super_fitness_app/features/meals/presentation/view_model/cubit/meals_states.dart';
 import 'package:super_fitness_app/features/popular_training/presentation/views/widgets/popular_training_list.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_states.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscle_group_sections.dart';
 import 'package:super_fitness_app/features/work_out/presentation/view/widgets/muscles_horizontal_list.dart';
 import 'package:super_fitness_app/features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart';
@@ -48,9 +50,15 @@ class HomeBody extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 16),
-                      CustomAppBar(
-                        userName: 'Ahmed',
-                        photoAsset: 'assets/images/prfofle photo .png',
+                      BlocBuilder<ProfileCubit, ProfileState>(
+                        builder: (context, state) {
+                          return CustomAppBar(
+                            userName: (state.profileData.data?.user?.firstName)
+                                .toString(),
+                            photoAsset: (state.profileData.data?.user?.photo)
+                                .toString(),
+                          );
+                        },
                       ),
                       const SizedBox(height: 8),
                       const CategorySection(),

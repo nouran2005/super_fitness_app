@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/features/auth/data/datasources/auth_remote_data_source_contract.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
+import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
 import 'package:super_fitness_app/features/auth/domain/entities/signup_model.dart';
 import 'package:super_fitness_app/features/auth/domain/repositories/auth_repository.dart';
@@ -50,5 +51,17 @@ class AuthRepositoryImpl extends AuthRepository {
           error: signupResponse.error.toString(),
         );
     }
+  }
+
+  @override
+  Future<ApiResult<LogoutResponse>> logout({required String token}) async {
+    final result = await remoteDataSource.logout(token: token);
+    if (result is SuccessApiResult<LogoutResponse>) {
+      return SuccessApiResult<LogoutResponse>(data: result.data);
+    }
+    if (result is ErrorApiResult<LogoutResponse>) {
+      return ErrorApiResult<LogoutResponse>(error: result.error);
+    }
+    return ErrorApiResult<LogoutResponse>(error: 'Unexpected error');
   }
 }

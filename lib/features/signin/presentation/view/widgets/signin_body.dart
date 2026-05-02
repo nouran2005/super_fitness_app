@@ -128,6 +128,7 @@ class _SigninBodyState extends State<SigninBody> {
                         if (formKey.currentState!.validate()) {
                           widget.cubit.signIn();
                         }
+                        FocusScope.of(context).unfocus();
                       },
                     ),
                     SizedBox(height: h * 0.03),

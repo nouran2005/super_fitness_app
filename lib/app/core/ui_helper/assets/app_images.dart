@@ -58,6 +58,13 @@ class Assets {
       "assets/images/onboarding_background.jpg";
   static const String imagesProfile = "assets/images/profile.svg";
   static const String imagesWorkout = "assets/images/workout.svg";
+  static const String imagesChangePassword =
+      "assets/images/change_password.svg";
+  static const String imagesHelp = "assets/images/help.svg";
+  static const String imagesLogout = "assets/images/logout.svg";
+  static const String imagesSecurity = "assets/images/security.svg";
+  static const String imagesPrivacy = "assets/images/privacy.svg";
+  static const String imagesLanguage = "assets/images/language.svg";
 
   /// Assets for imagesuser
   /// assets/images/user.png
