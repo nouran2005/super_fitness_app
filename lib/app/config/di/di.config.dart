@@ -24,7 +24,10 @@ import '../../../features/auth/data/repositories/auth_repository_impl.dart'
     as _i365;
 import '../../../features/auth/domain/repositories/auth_repository.dart'
     as _i234;
+import '../../../features/auth/domain/use_cases/logout_usecase.dart' as _i89;
 import '../../../features/auth/domain/use_cases/signup_use_case.dart' as _i128;
+import '../../../features/auth/presentation/logout/view_model/logout_cubit.dart'
+    as _i450;
 import '../../../features/auth/presentation/register/view_model/signup_cubit.dart'
     as _i22;
 import '../../../features/changePassword/api/datasources/change_password_remote_datasource_impl.dart'
@@ -279,6 +282,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i466.ForgetPasswordRemoteDataSource>(),
       ),
     );
+    gh.factory<_i89.LogoutUsecase>(
+      () => _i89.LogoutUsecase(gh<_i234.AuthRepository>()),
+    );
     gh.lazySingleton<_i485.EditProfileRepo>(
       () => _i202.EditProfileRepoImpl(gh<_i368.EditProfileRemoteDataSource>()),
     );
@@ -331,6 +337,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i128.SignupUseCase>(
       () => _i128.SignupUseCase(gh<_i234.AuthRepository>()),
+    );
+    gh.factory<_i450.LogoutCubit>(
+      () =>
+          _i450.LogoutCubit(gh<_i89.LogoutUsecase>(), gh<_i603.AuthStorage>()),
     );
     gh.factory<_i22.SignupCubit>(
       () => _i22.SignupCubit(gh<_i128.SignupUseCase>()),

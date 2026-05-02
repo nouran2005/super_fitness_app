@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const email = 'email';
@@ -156,13 +156,19 @@ abstract class LocaleKeys {
   static const seeAll = 'seeAll';
   static const upcomingWorkouts = 'upcomingWorkouts';
   static const work_out = 'work_out';
-  static const try_adjusting_your_filters_or_check_back_later =
-      'try_adjusting_your_filters_or_check_back_later';
-  static const no_muscles_or_levels_available =
-      'no_muscles_or_levels_available';
+  static const try_adjusting_your_filters_or_check_back_later = 'try_adjusting_your_filters_or_check_back_later';
+  static const no_muscles_or_levels_available = 'no_muscles_or_levels_available';
   static const Tasks = 'Tasks';
   static const PopularsTraining = 'PopularsTraining';
   static const editProfile = 'editProfile';
+  static const changePassword = 'changePassword';
+  static const selectLanguage = 'selectLanguage';
+  static const security = 'security';
+  static const privacyPolicy = 'privacyPolicy';
+  static const help = 'help';
+  static const areYouSureToLogout = 'areYouSureToLogout';
+  static const yes = 'yes';
+  static const no = 'no';
   static const tapToEdit = 'tapToEdit';
   static const saveChanges = 'saveChanges';
   static const yourWeight = 'yourWeight';
@@ -177,4 +183,5 @@ abstract class LocaleKeys {
   static const userDataUpdatedSuccessfully = 'userDataUpdatedSuccessfully';
   static const oldPassword = 'oldPassword';
   static const newPassword = 'newPassword';
+
 }
