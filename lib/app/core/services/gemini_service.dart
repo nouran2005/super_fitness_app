@@ -82,7 +82,7 @@ class GeminiService {
   late final GenerativeModel _model;
 
   GeminiService() {
-    final geminiKey = dotenv.get('gemini_key', fallback: "");
+    final geminiKey = dotenv.get('GEMINI_API_KEY', fallback: "");
 
     _model = GenerativeModel(
       model: 'gemini-2.5-flash',

@@ -13,8 +13,8 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
   Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
   await dotenv.load(fileName: "assets/.env");
+  await EasyLocalization.ensureInitialized();
   await configureDependencies();
 
   runApp(
