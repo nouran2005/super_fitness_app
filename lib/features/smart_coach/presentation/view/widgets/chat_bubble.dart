@@ -4,12 +4,14 @@ class ChatBubble extends StatelessWidget {
   final String message;
   final bool isUser;
   final bool isError;
+  final String? photo;
 
   const ChatBubble({
     super.key,
     required this.message,
     required this.isUser,
     this.isError = false,
+    this.photo,
   });
 
   @override
@@ -80,12 +82,19 @@ class ChatBubble extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               child: ClipOval(
-                child: Image.asset(
-                  'assets/images/prfofle photo .png',
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.person, color: Colors.white),
-                ),
+                child: (photo != null && photo!.isNotEmpty)
+                    ? Image.network(
+                        photo!,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Icon(Icons.person, color: Colors.white),
+                      )
+                    : Image.asset(
+                        'assets/images/prfofle photo .png',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Icon(Icons.person, color: Colors.white),
+                      ),
               ),
             ),
           ],

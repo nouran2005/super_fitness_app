@@ -8,6 +8,9 @@ import 'typing_indicator.dart';
 import 'chat_bubble.dart';
 import 'smart_coach_drawer.dart';
 
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_states.dart';
+
 class SmartCoachChatScreen extends StatefulWidget {
   const SmartCoachChatScreen({super.key});
 
@@ -70,6 +73,19 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
         ),
         centerTitle: true,
         actions: [
+          BlocBuilder<ProfileCubit, ProfileState>(
+            builder: (context, state) {
+              return CircleAvatar(
+                radius: 18,
+                backgroundColor: Colors.white.withOpacity(0.2),
+                backgroundImage: (state.profileData.data?.user?.photo != null)
+                    ? NetworkImage(state.profileData.data!.user!.photo!)
+                    : const AssetImage('assets/images/prfofle photo .png')
+                          as ImageProvider,
+              );
+            },
+          ),
+          const SizedBox(width: 8),
           Builder(
             builder: (context) => IconButton(
               icon: const Icon(
@@ -104,16 +120,13 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
             },
             builder: (context, state) {
               final messages = state.messagesResource.data ?? [];
-
+              final isSending = state.isSendingMessage;
               return Column(
                 children: [
                   const SizedBox(height: kToolbarHeight + 40),
                   Expanded(
-                    child: BlocBuilder<SmartCoachCubit, SmartCoachState>(
-                      builder: (context, state) {
-                        final messages = state.messagesResource.data ?? [];
-                        final isSending = state.isSendingMessage;
-
+                    child: BlocBuilder<ProfileCubit, ProfileState>(
+                      builder: (context, profileState) {
                         return ListView.builder(
                           controller: _scrollController,
                           padding: const EdgeInsets.all(16),
@@ -136,6 +149,7 @@ class _SmartCoachChatScreenState extends State<SmartCoachChatScreen> {
                               message: message['content'],
                               isUser: isUser,
                               isError: isError,
+                              photo: profileState.profileData.data?.user?.photo,
                             );
                           },
                         );

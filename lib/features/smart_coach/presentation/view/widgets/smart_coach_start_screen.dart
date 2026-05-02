@@ -8,6 +8,9 @@ import 'package:super_fitness_app/app/core/router/route_names.dart';
 import 'package:super_fitness_app/app/core/widgets/glass_blur_container.dart';
 import 'smart_coach_drawer.dart';
 
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_states.dart';
+
 class SmartCoachStartScreen extends StatelessWidget {
   const SmartCoachStartScreen({super.key});
 
@@ -41,6 +44,19 @@ class SmartCoachStartScreen extends StatelessWidget {
               )
             : null,
         actions: [
+          BlocBuilder<ProfileCubit, ProfileState>(
+            builder: (context, state) {
+              return CircleAvatar(
+                radius: 18,
+                backgroundColor: Colors.white.withOpacity(0.2),
+                backgroundImage: (state.profileData.data?.user?.photo != null)
+                    ? NetworkImage(state.profileData.data!.user!.photo!)
+                    : const AssetImage('assets/images/prfofle photo .png')
+                          as ImageProvider,
+              );
+            },
+          ),
+          const SizedBox(width: 8),
           Builder(
             builder: (context) => IconButton(
               icon: const Icon(
@@ -77,14 +93,23 @@ class SmartCoachStartScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(height: 100),
-                        Text(
-                          'hi_name'.tr(args: ['Ahmed']),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        BlocBuilder<ProfileCubit, ProfileState>(
+                          builder: (context, state) {
+                            return Text(
+                              'hi_name'.tr(
+                                args: [
+                                  state.profileData.data?.user?.firstName ??
+                                      'User',
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            );
+                          },
                         ),
                         Text(
                           'i_am_your_smart_coach'.tr(),
