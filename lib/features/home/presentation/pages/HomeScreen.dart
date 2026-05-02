@@ -33,10 +33,6 @@ class HomeScreen extends StatelessWidget {
               getIt<WorkOutCubit>()
                 ..doEvent(GetAllMusclesGroup(language: language)),
         ),
-        BlocProvider(
-          create: (context) =>
-              getIt<ProfileCubit>()..doIntent(ProfileDataEvent()),
-        ),
       ],
       child: const Scaffold(body: HomeBody()),
     );

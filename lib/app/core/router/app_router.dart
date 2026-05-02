@@ -59,10 +59,13 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: RouteNames.home,
-      builder: (context, state) => BlocProvider(
-        create: (_) => AppSectionsCubit(),
-        child: const AppSectionsView(),
-      ),
+      builder: (context, state) {
+        context.read<ProfileCubit>().doIntent(ProfileDataEvent());
+        return BlocProvider(
+          create: (_) => AppSectionsCubit(),
+          child: const AppSectionsView(),
+        );
+      },
     ),
     GoRoute(
       path: RouteNames.forgetPassword,
@@ -118,32 +121,24 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: RouteNames.helpPage,
       builder: (context, state) {
-        return BlocProvider<ProfileCubit>(
-          create: (context) => getIt<ProfileCubit>()..doIntent(HelpDataEvent()),
-          child: HelpPage(),
-        );
+        context.read<ProfileCubit>().doIntent(HelpDataEvent());
+        return HelpPage();
       },
     ),
 
     GoRoute(
       path: RouteNames.privacyPage,
       builder: (context, state) {
-        return BlocProvider<ProfileCubit>(
-          create: (context) =>
-              getIt<ProfileCubit>()..doIntent(PrivacyDataEvent()),
-          child: PrivacyPage(),
-        );
+        context.read<ProfileCubit>().doIntent(PrivacyDataEvent());
+        return PrivacyPage();
       },
     ),
 
     GoRoute(
       path: RouteNames.securityPage,
       builder: (context, state) {
-        return BlocProvider<ProfileCubit>(
-          create: (context) =>
-              getIt<ProfileCubit>()..doIntent(SecurityDataEvent()),
-          child: SecurityPage(),
-        );
+        context.read<ProfileCubit>().doIntent(SecurityDataEvent());
+        return SecurityPage();
       },
     ),
     GoRoute(

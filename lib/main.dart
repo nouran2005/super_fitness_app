@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -43,14 +44,17 @@ class _SuperFitnessAppState extends State<SuperFitnessApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ToastificationWrapper(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        theme: AppTheme.lightTheme,
-        routerConfig: appRouter,
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => getIt<ProfileCubit>())],
+      child: ToastificationWrapper(
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          theme: AppTheme.lightTheme,
+          routerConfig: appRouter,
+        ),
       ),
     );
   }
