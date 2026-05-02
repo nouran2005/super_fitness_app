@@ -27,6 +27,18 @@ import '../../../features/auth/domain/repositories/auth_repository.dart'
 import '../../../features/auth/domain/use_cases/signup_use_case.dart' as _i128;
 import '../../../features/auth/presentation/register/view_model/signup_cubit.dart'
     as _i22;
+import '../../../features/changePassword/api/datasources/change_password_remote_datasource_impl.dart'
+    as _i738;
+import '../../../features/changePassword/data/datasources/change_password_remote_datasource.dart'
+    as _i192;
+import '../../../features/changePassword/data/repositories/change_password_repository_impl.dart'
+    as _i342;
+import '../../../features/changePassword/domain/repositories/change_password_repository.dart'
+    as _i457;
+import '../../../features/changePassword/domain/use_cases/change_password_usecase.dart'
+    as _i37;
+import '../../../features/changePassword/presentation/view_model/cubit/change_password_cubit.dart'
+    as _i160;
 import '../../../features/edit_profile/api/datasources_impl/edit_profile_remote_datasource_impl.dart'
     as _i474;
 import '../../../features/edit_profile/data/datasources/edit_profile_remote_datasource.dart'
@@ -195,6 +207,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i599.HomeRemoteDataSource>(
       () => _i874.HomeRemoteDataSourceImpl(gh<_i890.ApiClient>()),
     );
+    gh.factory<_i192.ChangePasswordRemoteDataSource>(
+      () => _i738.ChangePasswordRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
     gh.factory<_i983.ExerciseRepo>(
       () => _i690.ExerciseRepoImpl(gh<_i391.ExerciseRemoteDataSource>()),
     );
@@ -206,6 +221,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i869.PopularTrainingRemoteDataSource>(
       () => _i723.PopularTrainingRemoteDataSourceImpl(gh<_i890.ApiClient>()),
+    );
+    gh.factory<_i457.ChangePasswordRepository>(
+      () => _i342.ChangePasswordRepositoryImpl(
+        gh<_i192.ChangePasswordRemoteDataSource>(),
+      ),
     );
     gh.lazySingleton<_i689.PopularTrainingRepo>(
       () => _i75.PopularTrainingRepoImpl(
@@ -267,6 +287,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i832.GetExercisesUseCase>(),
         gh<_i94.GetExercisesRandomUseCase>(),
       ),
+    );
+    gh.factory<_i37.ChangePasswordUseCase>(
+      () => _i37.ChangePasswordUseCase(gh<_i457.ChangePasswordRepository>()),
     );
     gh.factory<_i459.GetAllMusclesByMuscleGroupUseCase>(
       () => _i459.GetAllMusclesByMuscleGroupUseCase(
@@ -383,6 +406,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i260.GetProfileDataUsecase>(
       () => _i260.GetProfileDataUsecase(repo: gh<_i919.ProfileRepository>()),
+    );
+    gh.factory<_i160.ChangePasswordCubit>(
+      () => _i160.ChangePasswordCubit(
+        gh<_i37.ChangePasswordUseCase>(),
+        gh<_i603.AuthStorage>(),
+      ),
     );
     gh.factory<_i985.SigninCubit>(
       () => _i985.SigninCubit(signinUseCase: gh<_i983.SigninUseCase>()),

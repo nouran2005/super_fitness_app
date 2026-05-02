@@ -175,4 +175,6 @@ abstract class LocaleKeys {
   static const somethingWentWrong = 'somethingWentWrong';
   static const retry = 'retry';
   static const userDataUpdatedSuccessfully = 'userDataUpdatedSuccessfully';
+  static const oldPassword = 'oldPassword';
+  static const newPassword = 'newPassword';
 }
