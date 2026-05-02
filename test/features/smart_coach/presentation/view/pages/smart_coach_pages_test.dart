@@ -2,30 +2,42 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:super_fitness_app/app/config/di/di.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_states.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/pages/smart_coach_chat_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_state.dart';
-import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_event.dart';
 
 class MockSmartCoachCubit extends MockCubit<SmartCoachState>
     implements SmartCoachCubit {}
 
+class MockProfileCubit extends MockCubit<ProfileState>
+    implements ProfileCubit {}
+
 void main() {
-  late MockSmartCoachCubit mockCubit;
+  late MockSmartCoachCubit mockSmartCoachCubit;
+  late MockProfileCubit mockProfileCubit;
+
+  setUpAll(() {
+    getIt.allowReassignment = true;
+    mockProfileCubit = MockProfileCubit();
+    // Register the mock in GetIt so the Page can find it
+    getIt.registerSingleton<ProfileCubit>(mockProfileCubit);
+  });
 
   setUp(() {
-    mockCubit = MockSmartCoachCubit();
-    // Default state
-    when(() => mockCubit.state).thenReturn(SmartCoachState.initial());
+    mockSmartCoachCubit = MockSmartCoachCubit();
+    when(() => mockSmartCoachCubit.state).thenReturn(SmartCoachState.initial());
+    when(() => mockProfileCubit.state).thenReturn(ProfileState());
   });
 
   group('SmartCoachChatPage Tests', () {
     testWidgets('should render SmartCoachChatScreen', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: SmartCoachChatPage(cubit: mockCubit)),
+        MaterialApp(home: SmartCoachChatPage(cubit: mockSmartCoachCubit)),
       );
 
-      // Verify that SmartCoachChatScreen (which contains a TextField or similar) is rendered
       expect(find.byType(TextField), findsOneWidget);
     });
   });

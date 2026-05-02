@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:super_fitness_app/app/config/base_state/base_state.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_cubit.dart';
+import 'package:super_fitness_app/features/profile/presentation/view_model/cubit/profile_states.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/widgets/smart_coach_chat_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/widgets/smart_coach_start_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_cubit.dart';
@@ -12,28 +13,40 @@ import 'package:super_fitness_app/features/smart_coach/presentation/view_model/c
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/cubit/smart_coach_event.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/widgets/chat_bubble.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view/widgets/typing_indicator.dart';
-import 'package:super_fitness_app/app/core/router/route_names.dart';
 
 class MockSmartCoachCubit extends MockCubit<SmartCoachState>
     implements SmartCoachCubit {}
 
+class MockProfileCubit extends MockCubit<ProfileState>
+    implements ProfileCubit {}
+
 class SmartCoachEventFake extends Fake implements SmartCoachEvent {}
 
 void main() {
-  late MockSmartCoachCubit mockCubit;
+  late MockSmartCoachCubit mockSmartCoachCubit;
+  late MockProfileCubit mockProfileCubit;
 
   setUpAll(() {
     registerFallbackValue(SmartCoachEventFake());
   });
 
   setUp(() {
-    mockCubit = MockSmartCoachCubit();
-    when(() => mockCubit.state).thenReturn(SmartCoachState.initial());
+    mockSmartCoachCubit = MockSmartCoachCubit();
+    mockProfileCubit = MockProfileCubit();
+
+    when(() => mockSmartCoachCubit.state).thenReturn(SmartCoachState.initial());
+    when(() => mockProfileCubit.state).thenReturn(ProfileState());
   });
 
   Widget buildTestWidget(Widget child) {
     return MaterialApp(
-      home: BlocProvider<SmartCoachCubit>.value(value: mockCubit, child: child),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<SmartCoachCubit>.value(value: mockSmartCoachCubit),
+          BlocProvider<ProfileCubit>.value(value: mockProfileCubit),
+        ],
+        child: child,
+      ),
     );
   }
 
@@ -61,7 +74,7 @@ void main() {
         {'role': 'user', 'content': 'Hello', 'isError': false},
         {'role': 'bot', 'content': 'Hi!', 'isError': false},
       ];
-      when(() => mockCubit.state).thenReturn(
+      when(() => mockSmartCoachCubit.state).thenReturn(
         SmartCoachState.initial().copyWith(
           messagesResource: Resource.success(tMessages),
         ),
@@ -78,7 +91,7 @@ void main() {
     testWidgets(
       'should display TypingIndicator when isSendingMessage is true',
       (tester) async {
-        when(() => mockCubit.state).thenReturn(
+        when(() => mockSmartCoachCubit.state).thenReturn(
           SmartCoachState.initial().copyWith(
             isSendingMessage: true,
             messagesResource: Resource.success([]),
@@ -97,7 +110,7 @@ void main() {
         {'role': 'user', 'content': 'hi', 'isError': false},
         {'role': 'bot', 'content': '⚠️ Quota reached', 'isError': true},
       ];
-      when(() => mockCubit.state).thenReturn(
+      when(() => mockSmartCoachCubit.state).thenReturn(
         SmartCoachState.initial().copyWith(
           messagesResource: Resource.success(tMessages),
         ),
@@ -129,7 +142,9 @@ void main() {
       await tester.tap(sendButtonFinder);
       await tester.pump();
 
-      verify(() => mockCubit.doEvent(any(that: isA<SendMessage>()))).called(1);
+      verify(
+        () => mockSmartCoachCubit.doEvent(any(that: isA<SendMessage>())),
+      ).called(1);
     });
   });
 }
