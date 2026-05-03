@@ -3,6 +3,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/features/auth/data/datasources/auth_remote_data_source_contract.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
+import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/user_dto.dart';
 import 'package:super_fitness_app/features/auth/data/repositories/auth_repository_impl.dart';
@@ -159,5 +160,53 @@ void main() {
       expect(request.goal, tGoal);
       expect(request.activityLevel, tActivityLevel);
     });
+  });
+
+  group('AuthRepositoryImpl.logout', () {
+    test(
+      'should return SuccessApiResult<LogoutModel> when datasource succeeds',
+      () async {
+        // arrange
+        final dto = LogoutResponse(message: 'message', error: '');
+        when(
+          () => mockDataSource.logout(token: ''),
+        ).thenAnswer((_) async => SuccessApiResult<LogoutResponse>(data: dto));
+
+        // act
+        final result = await mockDataSource.logout(token: '');
+
+        // assert
+        expect(result, isA<SuccessApiResult<LogoutResponse>>());
+        final data = (result as SuccessApiResult<LogoutResponse>).data;
+        expect(data.error, '');
+        expect(data.message, 'message');
+
+        verify(() => mockDataSource.logout(token: '')).called(1);
+        verifyNoMoreInteractions(mockDataSource);
+      },
+    );
+
+    test(
+      'should return ErrorApiResult<LogoutResponse> when datasource returns error',
+      () async {
+        // arrange
+        when(() => mockDataSource.logout(token: '')).thenAnswer(
+          (_) async => ErrorApiResult<LogoutResponse>(error: 'something wrong'),
+        );
+
+        // act
+        final result = await repository.logout(token: '');
+
+        // assert
+        expect(result, isA<ErrorApiResult<LogoutResponse>>());
+        expect(
+          (result as ErrorApiResult<LogoutResponse>).error,
+          'something wrong',
+        );
+
+        verify(() => mockDataSource.logout(token: '')).called(1);
+        verifyNoMoreInteractions(mockDataSource);
+      },
+    );
   });
 }

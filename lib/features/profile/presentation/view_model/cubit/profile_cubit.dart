@@ -81,22 +81,22 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   Future<void> _loadPrivacyPolicyData() async {
-    emit(state.copyWith(help: Resource.loading()));
+    emit(state.copyWith(privacy: Resource.loading()));
     try {
       final data = await _privacyUsecase.call();
-      emit(state.copyWith(help: Resource.success(data)));
+      emit(state.copyWith(privacy: Resource.success(data)));
     } catch (e) {
-      emit(state.copyWith(help: Resource.error(e.toString())));
+      emit(state.copyWith(privacy: Resource.error(e.toString())));
     }
   }
 
   Future<void> _loadSecurityData() async {
-    emit(state.copyWith(help: Resource.loading()));
+    emit(state.copyWith(security: Resource.loading()));
     try {
       final data = await _securityUsecase.call();
-      emit(state.copyWith(help: Resource.success(data)));
+      emit(state.copyWith(security: Resource.success(data)));
     } catch (e) {
-      emit(state.copyWith(help: Resource.error(e.toString())));
+      emit(state.copyWith(security: Resource.error(e.toString())));
     }
   }
 }

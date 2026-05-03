@@ -25,10 +25,10 @@ class SecurityPage extends StatelessWidget {
             blurAlpha: 40,
             image: Assets.imagesHomeBackground,
             widget: BlocConsumer<ProfileCubit, ProfileState>(
-              listenWhen: (previous, current) => previous.help != current.help,
+              // listenWhen: (previous, current) => previous.security != current.security,
               listener: (context, state) {
-                if (state.help != null &&
-                    state.help!.isSuccess &&
+                if (state.security != null &&
+                    state.security!.isSuccess &&
                     controller == null) {
                   controller = WebViewController()
                     ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -43,17 +43,17 @@ class SecurityPage extends StatelessWidget {
                         },
                       ),
                     )
-                    ..loadRequest(Uri.parse(state.help!.data!));
+                    ..loadRequest(Uri.parse(state.security!.data!));
                 }
               },
               builder: (context, state) {
-                if (state.help == null || state.help!.isLoading) {
+                if (state.security == null || state.security!.isLoading) {
                   return const Center(child: CircularProgressIndicator());
                 }
-                if (state.help!.isError) {
+                if (state.security!.isError) {
                   return Center(
                     child: Text(
-                      state.help!.error ?? 'Error loading help data',
+                      state.security!.error ?? 'Error loading help data',
                       style: const TextStyle(color: Colors.white),
                     ),
                   );

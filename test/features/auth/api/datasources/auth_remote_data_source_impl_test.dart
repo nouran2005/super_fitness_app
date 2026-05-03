@@ -7,6 +7,7 @@ import 'package:super_fitness_app/app/core/api_manger/api_client.dart';
 import 'package:super_fitness_app/app/core/network/api_result.dart';
 import 'package:super_fitness_app/features/auth/api/datasources/auth_remote_data_source_impl.dart';
 import 'package:super_fitness_app/features/auth/data/models/request/signup_request.dart';
+import 'package:super_fitness_app/features/auth/data/models/response/logout_response.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/signup_dto.dart';
 import 'package:super_fitness_app/features/auth/data/models/response/user_dto.dart';
 import 'auth_remote_data_source_impl_test.mocks.dart';
@@ -87,6 +88,43 @@ void main() {
       expect(result, isA<ErrorApiResult<SignupDto>>());
       expect(result.error.toString(), contains("Network error"));
       verify(mockApiClient.signUp(any)).called(1);
+    });
+  });
+
+  group("AuthRemoteDataSourceImpl.logout()", () {
+    test('should return ApiSuccess when logout succeeds', () async {
+      final fakeDto = LogoutResponse(message: 'Success', error: '');
+      final fakeResponse = HttpResponse(
+        fakeDto,
+        Response(
+          requestOptions: RequestOptions(path: '/auth/logout'),
+          statusCode: 200,
+        ),
+      );
+      when(
+        mockApiClient.logout(token: 'token'),
+      ).thenAnswer((_) async => fakeResponse);
+
+      final result =
+          await dataSource.logout(token: 'token')
+              as SuccessApiResult<LogoutResponse>;
+
+      expect(result, isA<SuccessApiResult<LogoutResponse>>());
+      expect(result.data.message, fakeDto.message);
+      verify(mockApiClient.logout(token: 'token')).called(1);
+    });
+
+    test('should return ApiFailure when logout throws exception', () async {
+      when(
+        mockApiClient.logout(token: ''),
+      ).thenThrow(Exception('Network error'));
+
+      final result =
+          await dataSource.logout(token: '') as ErrorApiResult<LogoutResponse>;
+
+      expect(result, isA<ErrorApiResult<LogoutResponse>>());
+      expect(result.error.toString(), contains("Network error"));
+      verify(mockApiClient.logout(token: '')).called(1);
     });
   });
 }

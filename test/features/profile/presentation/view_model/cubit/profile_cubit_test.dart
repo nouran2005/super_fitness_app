@@ -183,13 +183,13 @@ void main() {
       act: (c) => c.doIntent(PrivacyDataEvent()),
       expect: () => [
         isA<ProfileState>().having(
-          (s) => s.help?.status,
+          (s) => s.privacy?.status,
           'status',
           Status.loading,
         ),
         isA<ProfileState>()
-            .having((s) => s.help?.status, 'status', Status.success)
-            .having((s) => s.help?.data, 'data', 'Privacy Link'),
+            .having((s) => s.privacy?.status, 'status', Status.success)
+            .having((s) => s.privacy?.data, 'data', 'Privacy Link'),
       ],
     );
   });
@@ -206,13 +206,13 @@ void main() {
       act: (c) => c.doIntent(SecurityDataEvent()),
       expect: () => [
         isA<ProfileState>().having(
-          (s) => s.help?.status,
+          (s) => s.security?.status,
           'status',
           Status.loading,
         ),
         isA<ProfileState>()
-            .having((s) => s.help?.status, 'status', Status.success)
-            .having((s) => s.help?.data, 'data', 'Security Link'),
+            .having((s) => s.security?.status, 'status', Status.success)
+            .having((s) => s.security?.data, 'data', 'Security Link'),
       ],
     );
   });
