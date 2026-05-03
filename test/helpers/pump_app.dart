@@ -75,6 +75,15 @@ class TestAssetLoader extends AssetLoader {
       'makeSureIts8CharactersOrMore': 'Make Sure Its 8 Characters Or More',
       'back': 'Back',
       'passwordResetSuccess': 'Password Reset Successfully',
+      'resend': 'Resend',
+      'upcomingFeature': 'Upcoming Feature',
+      'availableSoon': '{} coming soon!',
+      'gotIt': 'Got it!',
+      'nutrition': 'Nutrition',
+      'changePassword': 'Change Password',
+      'currentPassword': 'Current Password',
+      'newPassword': 'New Password',
+      'confirmPassword': 'Confirm Password',
     };
   }
 }
