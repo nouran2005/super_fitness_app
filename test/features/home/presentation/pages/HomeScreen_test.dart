@@ -21,12 +21,22 @@ import 'package:super_fitness_app/features/home/presentation/pages/HomeScreen.da
 
 import '../../../../helpers/pump_app.dart';
 
-class MockRcToDayCubit extends MockCubit<RcToDayStates> implements RcToDayCubit {}
+class MockRcToDayCubit extends MockCubit<RcToDayStates>
+    implements RcToDayCubit {}
+
 class MockMealsCubit extends MockCubit<MealsStates> implements MealsCubit {}
-class MockWorkOutCubit extends MockCubit<WorkOutStates> implements WorkOutCubit {}
-class MockProfileCubit extends MockCubit<ProfileState> implements ProfileCubit {}
-class MockAppSectionsCubit extends MockCubit<AppSectionsState> implements AppSectionsCubit {}
-class MockPopularTrainingCubit extends MockCubit<PopularTrainingState> implements PopularTrainingCubit {}
+
+class MockWorkOutCubit extends MockCubit<WorkOutStates>
+    implements WorkOutCubit {}
+
+class MockProfileCubit extends MockCubit<ProfileState>
+    implements ProfileCubit {}
+
+class MockAppSectionsCubit extends MockCubit<AppSectionsState>
+    implements AppSectionsCubit {}
+
+class MockPopularTrainingCubit extends MockCubit<PopularTrainingState>
+    implements PopularTrainingCubit {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -41,24 +51,28 @@ void main() {
   setUp(() {
     rcToDayCubit = MockRcToDayCubit();
     when(() => rcToDayCubit.stream).thenAnswer((_) => const Stream.empty());
-    when(() => rcToDayCubit.state).thenReturn(RcToDayStates(
-      recommendationResource: Resource.initial(),
-    ));
+    when(
+      () => rcToDayCubit.state,
+    ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
 
     mealsCubit = MockMealsCubit();
     when(() => mealsCubit.stream).thenAnswer((_) => const Stream.empty());
-    when(() => mealsCubit.state).thenReturn(MealsStates(
-      mealsByCategoryResource: Resource.initial(),
-      mealsCategoriesResource: Resource.initial(),
-      mealDetailsResource: Resource.initial(),
-    ));
+    when(() => mealsCubit.state).thenReturn(
+      MealsStates(
+        mealsByCategoryResource: Resource.initial(),
+        mealsCategoriesResource: Resource.initial(),
+        mealDetailsResource: Resource.initial(),
+      ),
+    );
 
     workOutCubit = MockWorkOutCubit();
     when(() => workOutCubit.stream).thenAnswer((_) => const Stream.empty());
-    when(() => workOutCubit.state).thenReturn(WorkOutStates(
-      musclesGroupResource: Resource.initial(),
-      musclesByGroupResource: Resource.initial(),
-    ));
+    when(() => workOutCubit.state).thenReturn(
+      WorkOutStates(
+        musclesGroupResource: Resource.initial(),
+        musclesByGroupResource: Resource.initial(),
+      ),
+    );
 
     profileCubit = MockProfileCubit();
     when(() => profileCubit.stream).thenAnswer((_) => const Stream.empty());
@@ -69,10 +83,12 @@ void main() {
     when(() => appSectionsCubit.state).thenReturn(const AppSectionsState());
 
     popularTrainingCubit = MockPopularTrainingCubit();
-    when(() => popularTrainingCubit.stream).thenAnswer((_) => const Stream.empty());
-    when(() => popularTrainingCubit.state).thenReturn(PopularTrainingState(
-      popularExercises: Resource.initial(),
-    ));
+    when(
+      () => popularTrainingCubit.stream,
+    ).thenAnswer((_) => const Stream.empty());
+    when(
+      () => popularTrainingCubit.state,
+    ).thenReturn(PopularTrainingState(popularExercises: Resource.initial()));
 
     getIt.registerSingleton<RcToDayCubit>(rcToDayCubit);
     getIt.registerSingleton<MealsCubit>(mealsCubit);

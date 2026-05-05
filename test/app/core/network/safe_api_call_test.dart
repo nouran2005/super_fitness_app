@@ -9,10 +9,7 @@ void main() {
     test('returns SuccessApiResult for 2xx status codes', () async {
       final response = HttpResponse(
         'data',
-        Response(
-          requestOptions: RequestOptions(path: ''),
-          statusCode: 200,
-        ),
+        Response(requestOptions: RequestOptions(path: ''), statusCode: 200),
       );
 
       final result = await safeApiCall(call: () async => response);
@@ -25,10 +22,7 @@ void main() {
     test('returns ErrorApiResult for non-2xx status codes', () async {
       final response = HttpResponse(
         'data',
-        Response(
-          requestOptions: RequestOptions(path: ''),
-          statusCode: 400,
-        ),
+        Response(requestOptions: RequestOptions(path: ''), statusCode: 400),
       );
 
       final result = await safeApiCall(call: () async => response);
@@ -39,15 +33,17 @@ void main() {
     });
 
     test('returns ErrorApiResult on DioException with response data', () async {
-      final result = await safeApiCall<String>(call: () async {
-        throw DioException(
-          requestOptions: RequestOptions(path: ''),
-          response: Response(
+      final result = await safeApiCall<String>(
+        call: () async {
+          throw DioException(
             requestOptions: RequestOptions(path: ''),
-            data: {'error': 'Server error message'},
-          ),
-        );
-      });
+            response: Response(
+              requestOptions: RequestOptions(path: ''),
+              data: {'error': 'Server error message'},
+            ),
+          );
+        },
+      );
 
       expect(result, isA<ErrorApiResult<String>>());
       final error = result as ErrorApiResult<String>;
@@ -55,9 +51,11 @@ void main() {
     });
 
     test('returns ErrorApiResult on generic exception', () async {
-      final result = await safeApiCall<String>(call: () async {
-        throw Exception('Something went wrong');
-      });
+      final result = await safeApiCall<String>(
+        call: () async {
+          throw Exception('Something went wrong');
+        },
+      );
 
       expect(result, isA<ErrorApiResult<String>>());
       final error = result as ErrorApiResult<String>;

@@ -21,16 +21,17 @@ void main() {
 
   setUpAll(() {
     provideDummy<ApiResult<ExerciseResponseEntity>>(
-        SuccessApiResult<ExerciseResponseEntity>(
-        data: ExerciseResponseEntity(),
-      ),
+      SuccessApiResult<ExerciseResponseEntity>(data: ExerciseResponseEntity()),
     );
   });
 
   setUp(() {
     mockGetExercisesUseCase = MockGetExercisesUseCase();
     mockGetExercisesRandomUseCase = MockGetExercisesRandomUseCase();
-    cubit = ExerciseCubit(mockGetExercisesUseCase, mockGetExercisesRandomUseCase);
+    cubit = ExerciseCubit(
+      mockGetExercisesUseCase,
+      mockGetExercisesRandomUseCase,
+    );
   });
 
   tearDown(() {
@@ -39,22 +40,31 @@ void main() {
 
   group('ExerciseCubit', () {
     const exerciseEntity = ExerciseEntity(id: '1', exercise: 'Pushup');
-    const categoryEntity = ExerciseCategoryEntity(name: 'Chest', exercises: [exerciseEntity]);
+    const categoryEntity = ExerciseCategoryEntity(
+      name: 'Chest',
+      exercises: [exerciseEntity],
+    );
     const responseEntity = ExerciseResponseEntity(categories: [categoryEntity]);
 
     blocTest<ExerciseCubit, ExerciseStates>(
       'calls _getExercises and emits success state on GetExercisesIntent',
       build: () {
         when(mockGetExercisesUseCase.execute()).thenAnswer(
-          (_) async => SuccessApiResult<ExerciseResponseEntity>(data: responseEntity),
+          (_) async =>
+              SuccessApiResult<ExerciseResponseEntity>(data: responseEntity),
         );
         return cubit;
       },
       act: (cubit) => cubit.doIntent(GetExercisesIntent()),
       expect: () => [
-        isA<ExerciseStates>().having((s) => s.exerciseResource.status, 'status', Status.loading),
-        isA<ExerciseStates>().having((s) => s.exerciseResource.status, 'status', Status.success)
-                             .having((s) => s.exerciseResource.data, 'data', responseEntity),
+        isA<ExerciseStates>().having(
+          (s) => s.exerciseResource.status,
+          'status',
+          Status.loading,
+        ),
+        isA<ExerciseStates>()
+            .having((s) => s.exerciseResource.status, 'status', Status.success)
+            .having((s) => s.exerciseResource.data, 'data', responseEntity),
       ],
       verify: (_) {
         verify(mockGetExercisesUseCase.execute()).called(1);
@@ -65,15 +75,26 @@ void main() {
       'calls _getExercises and emits error state on GetExercisesIntent',
       build: () {
         when(mockGetExercisesUseCase.execute()).thenAnswer(
-          (_) async =>   ErrorApiResult<ExerciseResponseEntity>(error: 'Error loading exercises'),
+          (_) async => ErrorApiResult<ExerciseResponseEntity>(
+            error: 'Error loading exercises',
+          ),
         );
         return cubit;
       },
       act: (cubit) => cubit.doIntent(GetExercisesIntent()),
       expect: () => [
-        isA<ExerciseStates>().having((s) => s.exerciseResource.status, 'status', Status.loading),
-        isA<ExerciseStates>().having((s) => s.exerciseResource.status, 'status', Status.error)
-                             .having((s) => s.exerciseResource.error, 'error', 'Error loading exercises'),
+        isA<ExerciseStates>().having(
+          (s) => s.exerciseResource.status,
+          'status',
+          Status.loading,
+        ),
+        isA<ExerciseStates>()
+            .having((s) => s.exerciseResource.status, 'status', Status.error)
+            .having(
+              (s) => s.exerciseResource.error,
+              'error',
+              'Error loading exercises',
+            ),
       ],
       verify: (_) {
         verify(mockGetExercisesUseCase.execute()).called(1);
@@ -83,38 +104,89 @@ void main() {
     blocTest<ExerciseCubit, ExerciseStates>(
       'calls _getExercisesRandom and emits success state on GetExercisesRandomIntent',
       build: () {
-        when(mockGetExercisesRandomUseCase.execute(muscleGroupId: 'm1', difficultyId: 'd1')).thenAnswer(
-          (_) async =>   SuccessApiResult<ExerciseResponseEntity>(data: responseEntity),
+        when(
+          mockGetExercisesRandomUseCase.execute(
+            muscleGroupId: 'm1',
+            difficultyId: 'd1',
+          ),
+        ).thenAnswer(
+          (_) async =>
+              SuccessApiResult<ExerciseResponseEntity>(data: responseEntity),
         );
         return cubit;
       },
-      act: (cubit) => cubit.doIntent(GetExercisesRandomIntent(muscleGroupId: 'm1', difficultyId: 'd1')),
+      act: (cubit) => cubit.doIntent(
+        GetExercisesRandomIntent(muscleGroupId: 'm1', difficultyId: 'd1'),
+      ),
       expect: () => [
-        isA<ExerciseStates>().having((s) => s.currentExercisesResource.status, 'status', Status.loading),
-        isA<ExerciseStates>().having((s) => s.currentExercisesResource.status, 'status', Status.success)
-                             .having((s) => s.currentExercisesResource.data, 'data', [exerciseEntity]),
+        isA<ExerciseStates>().having(
+          (s) => s.currentExercisesResource.status,
+          'status',
+          Status.loading,
+        ),
+        isA<ExerciseStates>()
+            .having(
+              (s) => s.currentExercisesResource.status,
+              'status',
+              Status.success,
+            )
+            .having((s) => s.currentExercisesResource.data, 'data', [
+              exerciseEntity,
+            ]),
       ],
       verify: (_) {
-        verify(mockGetExercisesRandomUseCase.execute(muscleGroupId: 'm1', difficultyId: 'd1')).called(1);
+        verify(
+          mockGetExercisesRandomUseCase.execute(
+            muscleGroupId: 'm1',
+            difficultyId: 'd1',
+          ),
+        ).called(1);
       },
     );
 
     blocTest<ExerciseCubit, ExerciseStates>(
       'calls _getExercisesRandom and emits error state on GetExercisesRandomIntent',
       build: () {
-        when(mockGetExercisesRandomUseCase.execute(muscleGroupId: 'm1', difficultyId: 'd1')).thenAnswer(
-          (_) async =>   ErrorApiResult<ExerciseResponseEntity>(error: 'Error loading random exercises'),
+        when(
+          mockGetExercisesRandomUseCase.execute(
+            muscleGroupId: 'm1',
+            difficultyId: 'd1',
+          ),
+        ).thenAnswer(
+          (_) async => ErrorApiResult<ExerciseResponseEntity>(
+            error: 'Error loading random exercises',
+          ),
         );
         return cubit;
       },
-      act: (cubit) => cubit.doIntent(GetExercisesRandomIntent(muscleGroupId: 'm1', difficultyId: 'd1')),
+      act: (cubit) => cubit.doIntent(
+        GetExercisesRandomIntent(muscleGroupId: 'm1', difficultyId: 'd1'),
+      ),
       expect: () => [
-        isA<ExerciseStates>().having((s) => s.currentExercisesResource.status, 'status', Status.loading),
-        isA<ExerciseStates>().having((s) => s.currentExercisesResource.status, 'status', Status.error)
-                             .having((s) => s.currentExercisesResource.error, 'error', 'Error loading random exercises'),
+        isA<ExerciseStates>().having(
+          (s) => s.currentExercisesResource.status,
+          'status',
+          Status.loading,
+        ),
+        isA<ExerciseStates>()
+            .having(
+              (s) => s.currentExercisesResource.status,
+              'status',
+              Status.error,
+            )
+            .having(
+              (s) => s.currentExercisesResource.error,
+              'error',
+              'Error loading random exercises',
+            ),
       ],
       verify: (_) {
-        verify(mockGetExercisesRandomUseCase.execute(muscleGroupId: 'm1', difficultyId: 'd1')).called(1);
+        verify(
+          mockGetExercisesRandomUseCase.execute(
+            muscleGroupId: 'm1',
+            difficultyId: 'd1',
+          ),
+        ).called(1);
       },
     );
   });

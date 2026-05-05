@@ -11,7 +11,8 @@ import 'package:super_fitness_app/features/Exercise/presentation/view/eserciseBo
 
 import '../../../../helpers/pump_app.dart';
 
-class MockExerciseCubit extends MockCubit<ExerciseStates> implements ExerciseCubit {}
+class MockExerciseCubit extends MockCubit<ExerciseStates>
+    implements ExerciseCubit {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -20,10 +21,12 @@ void main() {
 
   setUp(() {
     cubit = MockExerciseCubit();
-    when(() => cubit.state).thenReturn(ExerciseStates(
-      exerciseResource: Resource.initial(),
-      currentExercisesResource: Resource.initial(),
-    ));
+    when(() => cubit.state).thenReturn(
+      ExerciseStates(
+        exerciseResource: Resource.initial(),
+        currentExercisesResource: Resource.initial(),
+      ),
+    );
     getIt.registerSingleton<ExerciseCubit>(cubit);
   });
 
@@ -44,7 +47,9 @@ void main() {
 
       expect(find.byType(ExerciseBody), findsOneWidget);
 
-      final exerciseBody = tester.widget<ExerciseBody>(find.byType(ExerciseBody));
+      final exerciseBody = tester.widget<ExerciseBody>(
+        find.byType(ExerciseBody),
+      );
       expect(exerciseBody.muscleGroupId, 'muscle1');
       expect(exerciseBody.initialExerciseId, 'ex1');
       expect(exerciseBody.initialDifficultyLevel, 'hard');

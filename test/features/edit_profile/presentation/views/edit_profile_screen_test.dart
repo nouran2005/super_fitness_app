@@ -12,9 +12,11 @@ import 'package:super_fitness_app/features/edit_profile/presentation/views/widge
 
 import 'package:super_fitness_app/features/edit_profile/presentation/view_model/edit_profile_events.dart';
 
-class MockEditProfileCubit extends MockCubit<EditProfileState> implements EditProfileCubit {}
+class MockEditProfileCubit extends MockCubit<EditProfileState>
+    implements EditProfileCubit {}
 
-class _FakeEditProfileEvent extends Fake implements GetLoggedUserDataProcessEvent {}
+class _FakeEditProfileEvent extends Fake
+    implements GetLoggedUserDataProcessEvent {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +30,9 @@ void main() {
   setUp(() {
     cubit = MockEditProfileCubit();
     when(() => cubit.stream).thenAnswer((_) => const Stream.empty());
-    when(() => cubit.state).thenReturn(EditProfileState(
-      getLoggedUserData: Resource.initial(),
-    ));
+    when(
+      () => cubit.state,
+    ).thenReturn(EditProfileState(getLoggedUserData: Resource.initial()));
     // onEvent is called in initState — stub it to do nothing
     when(() => cubit.onEvent(any())).thenReturn(null);
     getIt.registerSingleton<EditProfileCubit>(cubit);
@@ -45,13 +47,18 @@ void main() {
       final previousOnError = FlutterError.onError;
       FlutterError.onError = (_) {};
 
-      final router = GoRouter(routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const EditProfileScreen(),
-        ),
-        GoRoute(path: '/sign-in', builder: (context, state) => const Scaffold()),
-      ]);
+      final router = GoRouter(
+        routes: [
+          GoRoute(
+            path: '/',
+            builder: (context, state) => const EditProfileScreen(),
+          ),
+          GoRoute(
+            path: '/sign-in',
+            builder: (context, state) => const Scaffold(),
+          ),
+        ],
+      );
 
       await tester.pumpWidget(MaterialApp.router(routerConfig: router));
       await tester.pump();

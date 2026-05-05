@@ -28,10 +28,7 @@ void main() {
 
     testWidgets('hides seeAll when showSeeAll is false', (tester) async {
       await tester.pumpLocalizedWidget(
-        const SectionHeader(
-          title: 'My Section',
-          showSeeAll: false,
-        ),
+        const SectionHeader(title: 'My Section', showSeeAll: false),
       );
 
       expect(find.text('My Section'), findsOneWidget);

@@ -10,7 +10,9 @@ import '../../../../../helpers/pump_app.dart';
 
 void main() {
   group('Exercise Widgets', () {
-    testWidgets('ExerciseCategoryTabs renders options and handles tap', (tester) async {
+    testWidgets('ExerciseCategoryTabs renders options and handles tap', (
+      tester,
+    ) async {
       int selectedIndex = 0;
       await tester.pumpLocalizedWidget(
         StatefulBuilder(
@@ -43,14 +45,10 @@ void main() {
     });
 
     testWidgets('ExerciseStatsRow renders correct data', (tester) async {
-      await tester.pumpLocalizedWidget(
-        const ExerciseStatsRow(),
-      );
+      await tester.pumpLocalizedWidget(const ExerciseStatsRow());
 
       expect(find.text('30 MIN'), findsOneWidget);
       expect(find.text('130 Cal'), findsOneWidget);
     });
-
-
   });
 }

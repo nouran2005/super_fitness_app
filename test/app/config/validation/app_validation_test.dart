@@ -29,7 +29,10 @@ void main() {
 
       test('returns error for invalid name', () {
         expect(Validators.firstNameValidator('A'), isNotNull); // too short
-        expect(Validators.firstNameValidator('John123!'), isNotNull); // special char
+        expect(
+          Validators.firstNameValidator('John123!'),
+          isNotNull,
+        ); // special char
       });
 
       test('returns null for valid name', () {
@@ -77,8 +80,14 @@ void main() {
       });
 
       test('returns error for invalid phone', () {
-        expect(Validators.phoneValidator('01012345678'), isNotNull); // missing +2
-        expect(Validators.phoneValidator('+201912345678'), isNotNull); // invalid prefix
+        expect(
+          Validators.phoneValidator('01012345678'),
+          isNotNull,
+        ); // missing +2
+        expect(
+          Validators.phoneValidator('+201912345678'),
+          isNotNull,
+        ); // invalid prefix
       });
 
       test('returns null for valid phone', () {

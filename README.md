@@ -62,48 +62,73 @@ The project follows a **Clean Architecture** approach to ensure clear separation
 
 ## 🖼️ Screenshots
 
+### 🚀 Onboarding
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <img src="assets/images/ScreenShots/splash.png" width="150" alt="Splash"/>
+  <img src="assets/images/ScreenShots/on_boarding_1.png" width="150" alt="Onboarding 1"/>
+  <img src="assets/images/ScreenShots/on_boarding_2.png" width="150" alt="Onboarding 2"/>
+  <img src="assets/images/ScreenShots/on_boarding_3.png" width="150" alt="Onboarding 3"/>
+</div>
+
+---
+
 ### 🔐 Authentication
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="assets/images/placeholder.png" width="150" alt="Splash"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Login"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Register"/>
-  <img src="assets/images/placeholder.png" width="150" alt="OTP"/>
+  <img src="assets/images/ScreenShots/sign_in.png" width="150" alt="Sign In"/>
+  <img src="assets/images/ScreenShots/register_1.png" width="150" alt="Register 1"/>
+  <img src="assets/images/ScreenShots/register_2.png" width="150" alt="Register 2"/>
+  <img src="assets/images/ScreenShots/register_3.png" width="150" alt="Register 3"/>
+  <img src="assets/images/ScreenShots/register_4.png" width="150" alt="Register 4"/>
+  <img src="assets/images/ScreenShots/register_5.png" width="150" alt="Register 5"/>
+  <img src="assets/images/ScreenShots/register_6.png" width="150" alt="Register 6"/>
+  <img src="assets/images/ScreenShots/register_7.png" width="150" alt="Register 7"/>
+  <img src="assets/images/ScreenShots/register_8.png" width="150" alt="Register 8"/>
+  <img src="assets/images/ScreenShots/forget_pass.png" width="150" alt="Forgot Password"/>
 </div>
 
 ---
 
 ### 🏠 Home & Workouts
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="assets/images/placeholder.png" width="150" alt="Home"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Exercises"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Workout Details"/>
+  <img src="assets/images/ScreenShots/home_1.png" width="150" alt="Home"/>
+  <img src="assets/images/ScreenShots/home_2.png" width="150" alt="Home 2"/>
+  <img src="assets/images/ScreenShots/exercise_1.png" width="150" alt="Exercises 1"/>
+  <img src="assets/images/ScreenShots/exercise_2.png" width="150" alt="Exercises 2"/>
+  <img src="assets/images/ScreenShots/work_out_1.png" width="150" alt="Workout Details 1"/>
+  <img src="assets/images/ScreenShots/work_out_2.png" width="150" alt="Workout Details 2"/>
 </div>
 
 ---
 
 ### 🥗 Meals & Nutrition
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="assets/images/placeholder.png" width="150" alt="Meals"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Meal Details"/>
+  <img src="assets/images/ScreenShots/meals_1.png" width="150" alt="Meals"/>
+  <img src="assets/images/ScreenShots/meals_2.png" width="150" alt="Meal Details"/>
 </div>
 
 ---
 
 ### 🤖 Smart Coach (AI)
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="assets/images/placeholder.png" width="150" alt="Smart Coach Start"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Smart Coach Chat"/>
+  <img src="assets/images/ScreenShots/chat_bot.png" width="150" alt="Smart Coach Start"/>
+  <img src="assets/images/ScreenShots/chat_bot_1.png" width="150" alt="Smart Coach Chat 1"/>
+  <img src="assets/images/ScreenShots/chat_bot_2.png" width="150" alt="Smart Coach Chat 2"/>
+  <img src="assets/images/ScreenShots/chat_bot_3.png" width="150" alt="Smart Coach Chat 3"/>
 </div>
 
 ---
 
 ### 👤 Profile & Settings
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="assets/images/placeholder.png" width="150" alt="Profile"/>
-  <img src="assets/images/placeholder.png" width="150" alt="Edit Profile"/>
+  <img src="assets/images/ScreenShots/profile.png" width="150" alt="Profile"/>
+  <img src="assets/images/ScreenShots/profile_arabic.png" width="150" alt="Profile Arabic"/>
+  <img src="assets/images/ScreenShots/edit_profile.png" width="150" alt="Edit Profile"/>
+  <img src="assets/images/ScreenShots/account_and_security.png" width="150" alt="Security"/>
+  <img src="assets/images/ScreenShots/change_pass.png" width="150" alt="Change Password"/>
+  <img src="assets/images/ScreenShots/help_and_support.png" width="150" alt="Help & Support"/>
+  <img src="assets/images/ScreenShots/pravicy_matter.png" width="150" alt="Privacy"/>
+  <img src="assets/images/ScreenShots/log_out.png" width="150" alt="Log Out"/>
 </div>
-
-*(Note: Replace the image paths with actual screenshots from your `assets/images/` directory once available)*
 
 ---
 

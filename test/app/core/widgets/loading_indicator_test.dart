@@ -7,7 +7,9 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   group('LoadingIndicator', () {
-    testWidgets('renders Lottie animation with default properties', (tester) async {
+    testWidgets('renders Lottie animation with default properties', (
+      tester,
+    ) async {
       await tester.pumpLocalizedWidget(const LoadingIndicator(), settle: false);
 
       expect(find.byType(Container), findsWidgets);
@@ -20,7 +22,9 @@ void main() {
       expect(lottieWidget.repeat, isTrue);
     });
 
-    testWidgets('renders Lottie animation with custom properties', (tester) async {
+    testWidgets('renders Lottie animation with custom properties', (
+      tester,
+    ) async {
       await tester.pumpLocalizedWidget(
         const LoadingIndicator(
           size: 200,
@@ -32,10 +36,12 @@ void main() {
       );
 
       final containerWidget = tester.widget<Container>(
-        find.descendant(
-          of: find.byType(LoadingIndicator),
-          matching: find.byType(Container),
-        ).first,
+        find
+            .descendant(
+              of: find.byType(LoadingIndicator),
+              matching: find.byType(Container),
+            )
+            .first,
       );
       expect(containerWidget.color, Colors.red);
 

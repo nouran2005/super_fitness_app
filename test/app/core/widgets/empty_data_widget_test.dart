@@ -19,10 +19,7 @@ void main() {
 
     testWidgets('renders custom message and icon', (tester) async {
       await tester.pumpLocalizedWidget(
-        const EmptyDataWidget(
-          message: 'Custom Message',
-          icon: Icons.error,
-        ),
+        const EmptyDataWidget(message: 'Custom Message', icon: Icons.error),
       );
 
       expect(find.text('Custom Message'), findsOneWidget);

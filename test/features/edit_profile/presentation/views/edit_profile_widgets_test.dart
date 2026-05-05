@@ -9,27 +9,32 @@ import '../../../../helpers/pump_app.dart';
 
 void main() {
   group('EditProfile Widgets', () {
-    testWidgets('PrimaryActionButton renders label and handles tap when enabled', (tester) async {
-      bool tapped = false;
-      await tester.pumpLocalizedWidget(
-        PrimaryActionButton(
-          label: 'Save',
-          onPressed: () {
-            tapped = true;
-          },
-          isEnabled: true,
-        ),
-      );
+    testWidgets(
+      'PrimaryActionButton renders label and handles tap when enabled',
+      (tester) async {
+        bool tapped = false;
+        await tester.pumpLocalizedWidget(
+          PrimaryActionButton(
+            label: 'Save',
+            onPressed: () {
+              tapped = true;
+            },
+            isEnabled: true,
+          ),
+        );
 
-      expect(find.text('Save'), findsOneWidget);
-      final button = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
-      expect(button.enabled, isTrue);
+        expect(find.text('Save'), findsOneWidget);
+        final button = tester.widget<ElevatedButton>(
+          find.byType(ElevatedButton),
+        );
+        expect(button.enabled, isTrue);
 
-      await tester.tap(find.byType(ElevatedButton));
-      await tester.pumpAndSettle();
+        await tester.tap(find.byType(ElevatedButton));
+        await tester.pumpAndSettle();
 
-      expect(tapped, isTrue);
-    });
+        expect(tapped, isTrue);
+      },
+    );
 
     testWidgets('PrimaryActionButton handles disabled state', (tester) async {
       bool tapped = false;
@@ -75,7 +80,9 @@ void main() {
       expect(tapped, isTrue);
     });
 
-    testWidgets('ProfileAvatar renders CircleAvatar when not uploading', (tester) async {
+    testWidgets('ProfileAvatar renders CircleAvatar when not uploading', (
+      tester,
+    ) async {
       await mockNetworkImagesFor(() async {
         await tester.pumpLocalizedWidget(
           const ProfileAvatar(
@@ -91,10 +98,7 @@ void main() {
 
     testWidgets('ProfileAvatar shows shimmer when uploading', (tester) async {
       await tester.pumpLocalizedWidget(
-        const ProfileAvatar(
-          image: '',
-          isUploading: true,
-        ),
+        const ProfileAvatar(image: '', isUploading: true),
         settle: false,
       );
 
@@ -102,12 +106,11 @@ void main() {
       expect(find.byType(CircleAvatar), findsOneWidget);
     });
 
-    testWidgets('ProfileAvatar shows person icon when image is empty', (tester) async {
+    testWidgets('ProfileAvatar shows person icon when image is empty', (
+      tester,
+    ) async {
       await tester.pumpLocalizedWidget(
-        const ProfileAvatar(
-          image: '',
-          isUploading: false,
-        ),
+        const ProfileAvatar(image: '', isUploading: false),
         settle: false,
       );
 
