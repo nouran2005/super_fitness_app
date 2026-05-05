@@ -1,0 +1,25 @@
+class ExercisesByMuscleDifficultyResponseEntity {
+  final List<ExerciseEntity> exercises;
+  final int totalExercises;
+
+  const ExercisesByMuscleDifficultyResponseEntity({
+    required this.exercises,
+    required this.totalExercises,
+  });
+}
+
+class ExerciseEntity {
+  final String id;
+  final String exercise;
+  final String difficultyLevel;
+  final String shortYoutubeDemonstration;
+  final String? muscleGroupId;
+
+  const ExerciseEntity({
+    required this.id,
+    required this.exercise,
+    required this.difficultyLevel,
+    required this.shortYoutubeDemonstration,
+    this.muscleGroupId,
+  });
+}
