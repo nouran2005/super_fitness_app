@@ -11,7 +11,8 @@ import 'package:super_fitness_app/features/home/domain/model/recommendation_enti
 
 import '../../../../helpers/pump_app.dart';
 
-class MockRcToDayCubit extends MockCubit<RcToDayStates> implements RcToDayCubit {}
+class MockRcToDayCubit extends MockCubit<RcToDayStates>
+    implements RcToDayCubit {}
 
 void main() {
   group('RecommendationSection', () {
@@ -22,14 +23,14 @@ void main() {
     });
 
     Widget buildSubject() => BlocProvider<RcToDayCubit>.value(
-          value: cubit,
-          child: const RecommendationSection(title: 'Today\'s Picks'),
-        );
+      value: cubit,
+      child: const RecommendationSection(title: 'Today\'s Picks'),
+    );
 
     testWidgets('shows title text', (tester) async {
-      when(() => cubit.state).thenReturn(
-        RcToDayStates(recommendationResource: Resource.initial()),
-      );
+      when(
+        () => cubit.state,
+      ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
 
       await tester.pumpLocalizedWidget(buildSubject(), settle: false);
 
@@ -37,9 +38,9 @@ void main() {
     });
 
     testWidgets('shows CircularProgressIndicator when loading', (tester) async {
-      when(() => cubit.state).thenReturn(
-        RcToDayStates(recommendationResource: Resource.loading()),
-      );
+      when(
+        () => cubit.state,
+      ).thenReturn(RcToDayStates(recommendationResource: Resource.loading()));
 
       await tester.pumpLocalizedWidget(buildSubject(), settle: false);
 
@@ -48,9 +49,7 @@ void main() {
 
     testWidgets('shows error text when state is error', (tester) async {
       when(() => cubit.state).thenReturn(
-        RcToDayStates(
-          recommendationResource: Resource.error('Network error'),
-        ),
+        RcToDayStates(recommendationResource: Resource.error('Network error')),
       );
 
       await tester.pumpLocalizedWidget(buildSubject(), settle: false);
@@ -59,9 +58,9 @@ void main() {
     });
 
     testWidgets('shows SizedBox.shrink when initial state', (tester) async {
-      when(() => cubit.state).thenReturn(
-        RcToDayStates(recommendationResource: Resource.initial()),
-      );
+      when(
+        () => cubit.state,
+      ).thenReturn(RcToDayStates(recommendationResource: Resource.initial()));
 
       await tester.pumpLocalizedWidget(buildSubject(), settle: false);
 

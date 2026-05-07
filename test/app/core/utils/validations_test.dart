@@ -24,7 +24,10 @@ void main() {
 
     test('validatePasswordVerification checks match', () {
       expect(Validations.validatePasswordVerification(null, 'pass'), isNotNull);
-      expect(Validations.validatePasswordVerification('wrong', 'pass'), isNotNull);
+      expect(
+        Validations.validatePasswordVerification('wrong', 'pass'),
+        isNotNull,
+      );
       expect(Validations.validatePasswordVerification('pass', 'pass'), isNull);
     });
 

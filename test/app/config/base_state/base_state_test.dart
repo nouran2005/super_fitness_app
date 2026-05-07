@@ -5,7 +5,7 @@ void main() {
   group('Resource', () {
     test('initial constructor sets status to initial', () {
       final resource = Resource<String>.initial();
-      
+
       expect(resource.status, Status.initial);
       expect(resource.isInitial, isTrue);
       expect(resource.isLoading, isFalse);
@@ -17,7 +17,7 @@ void main() {
 
     test('loading constructor sets status to loading', () {
       final resource = Resource<String>.loading();
-      
+
       expect(resource.status, Status.loading);
       expect(resource.isLoading, isTrue);
       expect(resource.data, isNull);
@@ -26,7 +26,7 @@ void main() {
 
     test('success constructor sets status to success and data', () {
       final resource = Resource<String>.success('test_data');
-      
+
       expect(resource.status, Status.success);
       expect(resource.isSuccess, isTrue);
       expect(resource.data, 'test_data');
@@ -35,7 +35,7 @@ void main() {
 
     test('error constructor sets status to error and errorMessage', () {
       final resource = Resource<String>.error('test_error');
-      
+
       expect(resource.status, Status.error);
       expect(resource.isError, isTrue);
       expect(resource.data, isNull);

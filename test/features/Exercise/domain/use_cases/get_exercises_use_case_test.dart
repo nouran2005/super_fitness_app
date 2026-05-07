@@ -15,9 +15,7 @@ void main() {
 
   setUpAll(() {
     provideDummy<ApiResult<ExerciseResponseEntity>>(
-        SuccessApiResult<ExerciseResponseEntity>(
-        data: ExerciseResponseEntity(),
-      ),
+      SuccessApiResult<ExerciseResponseEntity>(data: ExerciseResponseEntity()),
     );
   });
 
@@ -26,32 +24,37 @@ void main() {
     useCase = GetExercisesUseCase(mockRepository);
   });
 
-  test('should call repository.getExercises and return success result', () async {
-    const entity = ExerciseResponseEntity(
-      message: 'Success',
-      totalExercises: 10,
-    );
+  test(
+    'should call repository.getExercises and return success result',
+    () async {
+      const entity = ExerciseResponseEntity(
+        message: 'Success',
+        totalExercises: 10,
+      );
 
-    when(mockRepository.getExercises())
-        .thenAnswer((_) async => SuccessApiResult<ExerciseResponseEntity>(data: entity));
+      when(mockRepository.getExercises()).thenAnswer(
+        (_) async => SuccessApiResult<ExerciseResponseEntity>(data: entity),
+      );
 
-    // Act
-    final result = await useCase.execute();
+      // Act
+      final result = await useCase.execute();
 
-    // Assert
-    expect(result, isA<SuccessApiResult<ExerciseResponseEntity>>());
+      // Assert
+      expect(result, isA<SuccessApiResult<ExerciseResponseEntity>>());
 
-    final success = result as SuccessApiResult<ExerciseResponseEntity>;
-    expect(success.data.message, 'Success');
-    expect(success.data.totalExercises, 10);
+      final success = result as SuccessApiResult<ExerciseResponseEntity>;
+      expect(success.data.message, 'Success');
+      expect(success.data.totalExercises, 10);
 
-    verify(mockRepository.getExercises()).called(1);
-    verifyNoMoreInteractions(mockRepository);
-  });
+      verify(mockRepository.getExercises()).called(1);
+      verifyNoMoreInteractions(mockRepository);
+    },
+  );
 
   test('should return error when repository fails', () async {
-    when(mockRepository.getExercises())
-        .thenAnswer((_) async => ErrorApiResult(error: 'Failed to fetch exercises'));
+    when(mockRepository.getExercises()).thenAnswer(
+      (_) async => ErrorApiResult(error: 'Failed to fetch exercises'),
+    );
 
     // Act
     final result = await useCase.execute();

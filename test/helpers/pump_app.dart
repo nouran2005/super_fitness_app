@@ -84,6 +84,11 @@ class TestAssetLoader extends AssetLoader {
       'currentPassword': 'Current Password',
       'newPassword': 'New Password',
       'confirmPassword': 'Confirm Password',
+      'whatIsYourWeight': 'WHAT IS YOUR WEIGHT?',
+      'whatIsYourGoal': 'WHAT IS YOUR GOAL?',
+      'whatIsYourActivityLevel': 'WHAT IS YOUR ACTIVITY LEVEL?',
+      'activityLevelQuestionTitle': 'WHAT IS YOUR ACTIVITY LEVEL?',
+      'personalizedPlanMsg': 'To create a personalized plan for you',
     };
   }
 }
